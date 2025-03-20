@@ -3,26 +3,6 @@ Promise.all([
     d3.json('src/data/semantic_graph.json'),
     d3.json('src/data/clean_survey_data.json')
 ]).then(([graphData, surveyData]) => {
-    console.log('Data loaded:', { 
-        nodes: graphData.nodes.length,
-        links: graphData.links.length
-    });
-    
-    // Debug: Check the first node structure
-    if (graphData.nodes.length > 0) {
-        console.log('First node sample:', graphData.nodes[0]);
-    }
-    
-    // Debug: Check survey data structure
-    console.log('Survey data structure:', Object.keys(surveyData).length, 'questions');
-    if (Object.keys(surveyData).length > 0) {
-        const firstQuestion = Object.keys(surveyData)[0];
-        console.log('First question data sample:', {
-            question: firstQuestion,
-            data: surveyData[firstQuestion]
-        });
-    }
-    
     const width = window.innerWidth;
     const height = window.innerHeight;
 
@@ -32,8 +12,6 @@ Promise.all([
         .attr("width", width)
         .attr("height", height);
     
-    console.log('SVG created with dimensions:', { width, height });
-
     // Add zoom behavior
     const g = svg.append("g");
     
@@ -71,23 +49,18 @@ Promise.all([
 
     // UPDATED: New function to calculate node gradient based on answer distribution
     function createNodeGradient(nodeId) {
-        console.log(`Creating gradient for node: ${nodeId}`);
-        
         if (!surveyData[nodeId] || !surveyData[nodeId].Responses) {
-            console.log(`No response data for node ${nodeId}, using default gradient`);
             return `url(#default-gradient)`;
         }
         
         // Get the responses directly from the new structure
         const options = surveyData[nodeId].Responses;
         if (!options || !options.length) {
-            console.log(`No options data for node ${nodeId}, using default gradient`);
             return `url(#default-gradient)`;
         }
         
         // Sort options by percentage in descending order
         const sortedOptions = [...options].sort((a, b) => b.Percentage - a.Percentage);
-        console.log(`Sorted options for ${nodeId}:`, sortedOptions.map(o => `${o.Option}: ${o.Percentage}%`));
         
         // Define the option colors
         const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75"];
@@ -135,15 +108,12 @@ Promise.all([
             .attr("offset", "100%")
             .attr("stop-color", optionColors[(sortedOptions.length - 1) % optionColors.length] || optionColors[0]);
         
-        console.log(`Created gradient ${gradientId} for node ${nodeId}`);
-        
         // Return the url reference to the gradient
         return `url(#${gradientId})`;
     }
 
     // Create default gradient
     function createDefaultGradients() {
-        console.log("Creating default gradients");
         const svg = d3.select("svg");
         let defs = svg.select("defs");
         if (defs.empty()) {
@@ -173,8 +143,6 @@ Promise.all([
         defaultGradient.append("stop")
             .attr("offset", "100%")
             .attr("stop-color", "#C73A75");
-            
-        console.log("Default gradients created");
     }
     
     // Call this function to create the default gradient
@@ -551,8 +519,6 @@ Promise.all([
         .attr("class", "link")
         .style("stroke-width", d => Math.sqrt(d.strength) * 2);
     
-    console.log('Links created:', links.size());
-
     // Create node groups
     const nodeGroups = g.append("g")
         .selectAll("g")
@@ -561,8 +527,6 @@ Promise.all([
         .attr("class", "node-group")
         .call(drag(simulation));
         
-    console.log('Node groups created:', nodeGroups.size());
-
     // Add circles to node groups with SIMPLIFIED event handlers
     const nodes = nodeGroups
         .append("circle")
@@ -574,15 +538,11 @@ Promise.all([
         .style("fill", d => {
             // Use gradient coloring based on option percentages instead of confidence
             const gradientUrl = createNodeGradient(d.id);
-            console.log(`Node ${d.id} will use fill: ${gradientUrl}`);
             return gradientUrl;
         })
-        .style("stroke", "#333333")
-        .style("stroke-width", "1px")
+        .style("stroke", "none")
         .style("cursor", "pointer"); // Make sure cursor indicates clickable
     
-    console.log('Nodes created:', nodes.size());
-        
     // Create a mapping of nodes to create tooltips in the top layer
     const nodeTooltipGroups = tooltipLayer.selectAll("g")
         .data(graphData.nodes)
@@ -608,18 +568,24 @@ Promise.all([
     // Initialize popup element directly 
     let popupElement = document.getElementById("popup");
     if (!popupElement) {
-        console.warn("Creating popup element as it wasn't found");
         popupElement = document.createElement("div");
         popupElement.id = "popup";
         popupElement.className = "popup";
         document.body.appendChild(popupElement);
     }
     
-    console.log("Popup element initialized:", popupElement ? "Found" : "Not found");
-    
     // COMBINED EVENT HANDLERS - Clean implementation for all node interactions
     nodeGroups.on("mouseenter", function(event, d) {
-        if (document.body.classList.contains("popup-visible")) return;
+        // Only prevent tooltips for non-highlighted nodes when popup is visible
+        // Allow tooltips for connected (highlighted) nodes even when popup is visible
+        const isPopupVisible = document.body.classList.contains("popup-visible");
+        const node = d3.select(this).select("circle");
+        const isHighlighted = node.classed("highlighted");
+        
+        // Show tooltips for nodes that are either: 
+        // 1. When no popup is visible, OR
+        // 2. When popup is visible but this is a highlighted (connected) node
+        if (isPopupVisible && !isHighlighted) return;
         
         const nodeIndex = graphData.nodes.findIndex(n => n.id === d.id);
         if (nodeIndex > -1) {
@@ -636,6 +602,9 @@ Promise.all([
                 .transition()
                 .duration(100)
                 .style("opacity", 1);
+                
+            // Add hover effect regardless of selection state
+            node.style("filter", "drop-shadow(0 0 10px rgba(255,255,255,0.7))");
         }
     })
     .on("mouseleave", function() {
@@ -643,40 +612,82 @@ Promise.all([
             .transition()
             .duration(150)
             .style("opacity", 0);
+            
+        // Reset filter for non-selected nodes
+        const node = d3.select(this).select("circle");
+        if (!node.classed("selected") && !node.classed("highlighted")) {
+            node.style("filter", null); // Fully remove filter attribute
+        } else if (node.classed("selected")) {
+            // Keep the node yellow but update the glow
+            node.style("filter", "drop-shadow(0 0 12px #F7D115)");
+        } else if (node.classed("highlighted")) {
+            node.style("filter", "drop-shadow(0 0 8px rgba(255,255,255,0.6))");
+        }
     })
     .on("click", function(event, d) {
         event.stopPropagation();
         
-        console.log("Node clicked:", d.id);
-        
         // Find the question data directly from the surveyData
         const questionData = surveyData[d.id];
         if (!questionData) {
-            console.error("No data found for question:", d.id);
             return;
         }
-        
-        console.log("Question data found:", questionData);
         
         // Reset states
         if (document.getElementById('search-input')) {
             document.getElementById('search-input').value = '';
         }
-        nodes.classed('highlighted', false).classed('dimmed', false);
-        links.classed('dimmed', false);
-        nodes.classed("selected", false);
+        
+        // Reset any previous node styles
+        nodes.classed('highlighted', false)
+             .classed('dimmed', false)
+             .classed("selected", false)
+             .style("fill", node => {
+                // Restore original gradient fill for all nodes
+                const gradientUrl = createNodeGradient(node.id);
+                return gradientUrl;
+             });
+             
+        links.classed('dimmed', false)
+             .classed('highlighted', false);
         
         // Highlight clicked node
-        d3.select(this).select("circle").classed("selected", true);
+        d3.select(this).select("circle")
+            .classed("selected", true)
+            .style("fill", "#F7D115"); // Set fill to yellow for selected node
+        
+        // Find and highlight connected nodes
+        const connectedNodeIds = new Set();
+        links.each(function(link) {
+            if (link.source.id === d.id) {
+                connectedNodeIds.add(link.target.id);
+            } else if (link.target.id === d.id) {
+                connectedNodeIds.add(link.source.id);
+            }
+        });
+        
+        // Apply highlighting to connected nodes
+        nodes.classed('highlighted', function(n) {
+            return connectedNodeIds.has(n.id);
+        });
+        
+        // Dim nodes that are not selected or connected
+        nodes.classed('dimmed', function(n) {
+            return n.id !== d.id && !connectedNodeIds.has(n.id);
+        });
+        
+        // Highlight links connected to the selected node, dim others
+        links.classed('highlighted', function(link) {
+            return link.source.id === d.id || link.target.id === d.id;
+        }).classed('dimmed', function(link) {
+            return link.source.id !== d.id && link.target.id !== d.id;
+        });
         
         // Get response data
         const responsesData = questionData.Responses;
         if (!responsesData) {
-            console.error("No responses data found for:", d.id);
             return;
         }
-        
-        console.log("Responses data found:", responsesData);
         
         // Create popup content
         popupElement.innerHTML = ""; // Clear existing content
@@ -785,9 +796,6 @@ Promise.all([
         popupElement.classList.add("visible");
         document.body.classList.add("popup-visible");
         
-        console.log("Popup display style:", getComputedStyle(popupElement).display);
-        console.log("Popup visibility class:", popupElement.className);
-        
         // Create the chart after popup is visible
         setTimeout(() => {
             try {
@@ -800,7 +808,6 @@ Promise.all([
                     .attr("transform", `translate(${margin.left},${margin.top})`);
                 
                 if (!responsesData || !responsesData.length) {
-                    console.error("No options data available for visualization");
                     return;
                 }
                 
@@ -857,7 +864,6 @@ Promise.all([
                 g.select(".domain").remove();
                 g.selectAll(".tick line").remove();
             } catch (error) {
-                console.error("Error creating visualization:", error);
                 barChartSvg.append("text")
                     .attr("x", "50%")
                     .attr("y", "50%")
@@ -878,8 +884,6 @@ Promise.all([
     
     // Dedicated function to close the popup (reusable)
     function closePopup() {
-        console.log("Closing popup");
-        
         // Get the popup element
         const popupElement = document.getElementById("popup");
         
@@ -893,33 +897,28 @@ Promise.all([
         // Remove class from body
         document.body.classList.remove("popup-visible");
         
-        // Remove selected class from nodes
-        nodes.classed("selected", false);
+        // Fully reset all node styles, including filter
+        nodes.classed("selected", false)
+             .classed('highlighted', false)
+             .classed('dimmed', false)
+             .style("fill", d => {
+                // Restore original gradient fill
+                const gradientUrl = createNodeGradient(d.id);
+                return gradientUrl;
+             })
+             .style("filter", null); // Completely remove filter
+        
+        // Reset link highlighting
+        links.classed('highlighted', false)
+             .classed('dimmed', false);
         
         // Clear search
         const searchInput = document.getElementById('search-input');
         if (searchInput) {
             searchInput.value = '';
-            nodes.classed('highlighted', false)
-                .classed('dimmed', false);
-            links.classed('dimmed', false);
         }
     }
     
-    // Test function to open popup programmatically (for debugging)
-    window.openFirstNodePopup = function() {
-        if (graphData.nodes.length > 0) {
-            const firstNode = graphData.nodes[0];
-            console.log("Opening popup for first node:", firstNode.id);
-            
-            // Trigger click on first node
-            const nodeElement = nodeGroups.filter(d => d.id === firstNode.id).node();
-            if (nodeElement) {
-                nodeElement.dispatchEvent(new Event('click', { bubbles: true }));
-            }
-        }
-    };
-
     // Update the simulation tick function
     simulation.on("tick", () => {
         links
@@ -941,6 +940,21 @@ Promise.all([
                 return "translate(0,0)";
             });
             
+        // Ensure tooltips stay visible for highlighted nodes if popup is visible
+        if (document.body.classList.contains("popup-visible")) {
+            nodes.each(function(d) {
+                const node = d3.select(this);
+                if (node.classed("highlighted")) {
+                    const nodeIndex = graphData.nodes.findIndex(n => n.id === d.id);
+                    if (nodeIndex > -1) {
+                        nodeTooltipGroups
+                            .filter((td, i) => i === nodeIndex)
+                            .raise();
+                    }
+                }
+            });
+        }
+        
         // Calculate cluster centers
         clusterLabels.forEach(cluster => {
             let centerX = 0;
@@ -1093,16 +1107,34 @@ Promise.all([
         const searchTerm = this.value.toLowerCase().trim();
         
         if (searchTerm === '') {
-            // Reset all nodes and links
-            nodes.classed('highlighted', false)
-                 .classed('dimmed', false);
-            links.classed('dimmed', false);
+            // Reset all nodes and links except selected ones
+            nodes.each(function(d) {
+                const node = d3.select(this);
+                
+                if (!node.classed("selected")) {
+                    // Only reset unselected nodes
+                    node.classed('highlighted', false)
+                        .classed('dimmed', false)
+                        .style("fill", d => createNodeGradient(d.id))
+                        .style("filter", null); // Clear filter property
+                }
+            });
+            
+            links.classed('dimmed', false)
+                 .classed('highlighted', false);
             return;
         }
         
         // Check each node for match
         const matchingNodes = [];
         nodes.each(function(d) {
+            const node = d3.select(this);
+            
+            // Skip modifying selected nodes
+            if (node.classed("selected")) {
+                return;
+            }
+            
             // Check for match in question text (id)
             let isMatch = containsExactWord(d.id, searchTerm);
             
@@ -1119,12 +1151,15 @@ Promise.all([
             }
             
             // Apply classes based on match
-            d3.select(this)
-                .classed('highlighted', isMatch)
+            node.classed('highlighted', isMatch)
                 .classed('dimmed', !isMatch);
-            
+                
+            // Apply appropriate filter
             if (isMatch) {
+                node.style("filter", "drop-shadow(0 0 8px rgba(255,255,255,0.6))");
                 matchingNodes.push(d.id);
+            } else {
+                node.style("filter", null);
             }
         });
         
@@ -1138,38 +1173,62 @@ Promise.all([
     const style = document.createElement('style');
     style.textContent = `
       .node.dimmed {
-        opacity: 0.1 !important; /* 10% opacity for non-highlighted nodes */
+        opacity: 0.15 !important; /* 15% opacity for non-highlighted nodes */
+        transform: scale(0.95);
       }
       
       .link.dimmed {
         opacity: 0.05 !important; /* Even less visible links */
       }
       
-      /* Remove default glow from nodes */
+      /* Base node styling - removed filter to allow inline styles to take precedence */
       .node {
-        filter: none !important;
+        transition: all 0.2s ease-out;
       }
       
-      /* Add strong yellow glow only for selected nodes */
+      /* Selected nodes styling */
       .node.selected {
-        filter: drop-shadow(0 0 12px #F7D115) !important;
-        stroke: #F7D115 !important;
-        stroke-width: 3px !important;
+        transform: scale(1.15);
+        /* Fill color set directly in JS */
+      }
+      
+      /* Highlighted nodes */
+      .node.highlighted {
+        transform: scale(1.08);
+        /* Filter handled with inline styles */
+      }
+      
+      /* Node hover effects - only applied on actual hover via JS */
+      
+      /* Highlighted links */
+      .link.highlighted {
+        stroke: #83A2FF !important;
+        stroke-opacity: 0.8 !important;
+        stroke-width: 2px !important;
       }
       
       /* Ensure tooltips are always on top */
       .tooltip-layer {
-        z-index: 9999 !important;
+        z-index: 10000 !important;
+        pointer-events: none !important;
+      }
+      
+      .node-tooltip-group {
+        z-index: 10001 !important;
+        pointer-events: none !important;
       }
       
       .node-tooltip-group text {
-        z-index: 10000 !important;
+        z-index: 10002 !important;
         font-family: 'Inter', sans-serif;
         dominant-baseline: middle;
+        text-shadow: 0 0 8px rgba(0,0,0,1), 0 0 5px rgba(0,0,0,1), 0 1px 3px rgba(0,0,0,1);
       }
       
-      .node-tooltip-group rect {
-        z-index: 9999 !important;
+      /* Make sure tooltips still show even with popup visible */
+      body.popup-visible .node-tooltip-group {
+        z-index: 10001 !important;
+        display: block !important;
       }
     `;
     document.head.appendChild(style);
@@ -1350,35 +1409,4 @@ Promise.all([
     });
     
     document.body.appendChild(legendContainer);
-    
-    // Create "Fit to View" button
-    const fitButton = document.createElement('button');
-    fitButton.className = 'fit-button';
-    fitButton.textContent = 'Fit to View';
-    fitButton.addEventListener('click', fitGraphToViewport);
-    fitButton.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 8px 16px;
-        background: rgba(31, 31, 31, 0.8);
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 8px;
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
-        cursor: pointer;
-        z-index: 1000;
-        transition: background 0.2s;
-    `;
-    
-    // Add hover effect
-    fitButton.addEventListener('mouseover', () => {
-        fitButton.style.background = 'rgba(50, 50, 50, 0.9)';
-    });
-    fitButton.addEventListener('mouseout', () => {
-        fitButton.style.background = 'rgba(31, 31, 31, 0.8)';
-    });
-    
-    document.body.appendChild(fitButton);
 }); 

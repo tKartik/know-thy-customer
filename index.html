@@ -88,33 +88,42 @@
             cursor: pointer;
             stroke: none;
             mix-blend-mode: normal;
-            filter: drop-shadow(0 0 6px rgba(0,0,0,0.3));
-            transition: opacity 0.3s;
+            /* Removed filter so inline styles take precedence */
+            transition: all 0.2s ease-out;
         }
         
         .node.selected {
-            stroke: #F7D115 !important;
-            stroke-width: 3px !important;
+            transform: scale(1.15);
+            z-index: 100;
+            /* Filter and fill handled directly in JS */
         }
 
         .node.highlighted {
-            stroke: #ffffff !important;
-            stroke-width: 3px !important;
-            filter: drop-shadow(0 0 10px rgba(255,255,255,0.8)) !important;
+            /* Filter handled in JS */
+            transform: scale(1.08);
         }
 
         .node.dimmed {
-            opacity: 0.1;
+            opacity: 0.15;
+            transform: scale(0.95);
         }
+        
+        /* Hover effects handled in JS */
 
         .link {
             stroke: #555;
             stroke-opacity: 0.6;
-            transition: opacity 0.3s;
+            transition: all 0.3s ease;
         }
 
         .link.dimmed {
             opacity: 0.05;
+        }
+        
+        .link.highlighted {
+            stroke: #83A2FF;
+            stroke-opacity: 0.8;
+            stroke-width: 2px;
         }
 
         .popup {
@@ -284,6 +293,7 @@
         /* Node hover tooltips */
         .node-tooltip-group {
             pointer-events: none;
+            transition: opacity 0.2s;
         }
         
         .node-tooltip-group text {
@@ -411,47 +421,6 @@
                 // Apply rotation
                 handImage.style.transform = `rotate(${rotation}deg)`;
             });
-            
-            // Debug helper functions
-            window.debugPopup = {
-                open: function() {
-                    if (window.openFirstNodePopup) {
-                        window.openFirstNodePopup();
-                        return "Attempting to open popup for first node";
-                    } else {
-                        return "openFirstNodePopup function not available yet";
-                    }
-                },
-                
-                checkPopup: function() {
-                    const popup = document.getElementById('popup');
-                    if (!popup) return "Popup element not found";
-                    
-                    return {
-                        display: getComputedStyle(popup).display,
-                        visible: popup.classList.contains('visible'),
-                        classes: popup.className,
-                        cssText: popup.style.cssText
-                    };
-                },
-                
-                checkNodes: function() {
-                    const nodes = document.querySelectorAll('.node');
-                    return {
-                        count: nodes.length,
-                        selected: document.querySelectorAll('.node.selected').length,
-                        firstNodeClass: nodes.length > 0 ? nodes[0].className : 'no nodes'
-                    };
-                }
-            };
-            
-            // Automatically attempt to open popup after 3 seconds if URL has debug parameter
-            if (window.location.search.includes('debug=1')) {
-                setTimeout(() => {
-                    console.log("Auto-triggering popup via debug mode");
-                    window.debugPopup.open();
-                }, 3000);
-            }
         });
     </script>
 </body>
