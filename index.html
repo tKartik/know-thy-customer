@@ -31,12 +31,11 @@
         .hand-image {
             height: 60px;
             margin-bottom: 10px;
-            position: fixed;
+            position: relative;
             z-index: 1000;
             pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: transform 0.05s ease-out;
-            display: none;
+            transform-origin: center;
+            transition: transform 0.1s ease-out;
         }
 
         .title {
@@ -44,7 +43,7 @@
             font-size: 60px;
             line-height: 1;
             color: #fff;
-            margin-top: 70px;
+            margin-top: 0;
         }
 
         .logo {
@@ -273,8 +272,8 @@
     </style>
 </head>
 <body>
-    <img src="hand.png" alt="Hand" class="hand-image">
     <div class="title-container">
+        <img src="hand.png" alt="Hand" class="hand-image">
         <div class="title">Know Thy<br>Customer</div>
     </div>
     <img src="logo.png" alt="Logo" class="logo">
@@ -287,23 +286,36 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="graph.js"></script>
     <script>
-        // Cursor follower script
+        // Hand rotation script
         document.addEventListener('DOMContentLoaded', function() {
             const handImage = document.querySelector('.hand-image');
+            let handCenterX, handCenterY;
             
-            // Show hand when mouse moves
+            // Function to calculate hand center (called on load and resize)
+            function updateHandCenter() {
+                const handRect = handImage.getBoundingClientRect();
+                handCenterX = handRect.left + handRect.width / 2;
+                handCenterY = handRect.top + handRect.height / 2;
+            }
+            
+            // Initialize hand center position
+            updateHandCenter();
+            
+            // Update hand center when window resizes
+            window.addEventListener('resize', updateHandCenter);
+            
+            // Rotate hand based on cursor position
             document.addEventListener('mousemove', function(e) {
-                handImage.style.display = 'block';
-                handImage.style.left = e.clientX + 'px';
-                handImage.style.top = e.clientY + 'px';
-            });
-            
-            // Hide hand when mouse leaves window
-            document.addEventListener('mouseout', function(e) {
-                if (e.clientY <= 0 || e.clientX <= 0 || 
-                    e.clientX >= window.innerWidth || e.clientY >= window.innerHeight) {
-                    handImage.style.display = 'none';
-                }
+                // Calculate angle between hand center and cursor
+                const angle = Math.atan2(e.clientY - handCenterY, e.clientX - handCenterX);
+                
+                // Convert angle to degrees - adjust this value based on your hand image orientation
+                // Adding offset to align hand's pointing direction with cursor
+                const offset = 0; // This value may need adjustment based on the actual hand image
+                const rotation = (angle * 180 / Math.PI) + offset;
+                
+                // Apply rotation
+                handImage.style.transform = `rotate(${rotation}deg)`;
             });
         });
     </script>
