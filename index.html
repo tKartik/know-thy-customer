@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Survey Topics Force Graph</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #262626;
+            color: #fff;
+        }
+        
+        #graph {
+            width: 100vw;
+            height: 100vh;
+            background: #262626;
+        }
+
+        .title-container {
+            position: absolute;
+            top: 28px;
+            left: 28px;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .hand-image {
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 60px;
+            line-height: 1;
+            color: #fff;
+        }
+
+        .logo {
+            position: absolute;
+            top: 28px;
+            right: 28px;
+            height: 60px;
+            z-index: 10;
+        }
+
+        .search-container {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+
+        .search-input {
+            background: rgba(31, 31, 31, 0.9);
+            border: 1px solid #4A4A4A;
+            border-radius: 24px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            padding: 12px 20px;
+            width: 300px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #777;
+        }
+
+        .node {
+            cursor: pointer;
+            stroke: none;
+            mix-blend-mode: normal;
+            filter: drop-shadow(0 0 6px currentColor);
+            transition: opacity 0.3s;
+        }
+        
+        .node.selected {
+            fill: #F7D115 !important;
+            color: #F7D115 !important;
+        }
+
+        .node.highlighted {
+            fill: #ffffff !important;
+            color: #ffffff !important;
+        }
+
+        .node.dimmed {
+            opacity: 0.1;
+        }
+
+        .link {
+            stroke: #555;
+            stroke-opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .link.dimmed {
+            opacity: 0.05;
+        }
+
+        .popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 480px;
+            min-height: 292px;
+            background: rgba(31, 31, 31, 0.97);
+            border-radius: 24px;
+            padding: 32px;
+            pointer-events: auto;
+            color: #eee;
+            z-index: 9999;
+            transition: none !important;
+            animation: none !important;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            display: none;
+            border: 1px solid #2c2c2c;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup * {
+            transition: none !important;
+            animation: none !important;
+        }
+
+        .popup-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup .question {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+            text-align: left;
+        }
+
+        .popup .options-container {
+            margin-bottom: 0;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .popup .option {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            border: 1px solid #4A4A4A;
+            border-radius: 8px;
+            padding: 8px 12px;
+            box-sizing: border-box;
+        }
+
+        .popup .option:last-child {
+            margin-bottom: 0;
+        }
+
+        .popup .option-letter {
+            display: inline-block;
+            width: 20px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .popup .option-text {
+            font-size: 18px;
+            font-weight: 400;
+            color: #D9D9D9;
+            width: 80%;
+            padding-right: 10px;
+            margin-left: 0;
+            text-indent: 0;
+        }
+
+        .popup .option-percent {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            width: 20%;
+            text-align: right;
+            padding-top: 0;
+            min-width: 60px;
+        }
+
+        .popup-footer {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #5a5a5a;
+            padding-top: 15px;
+            margin-top: 32px;
+        }
+
+        .popup-footer p {
+            font-size: 16px;
+            color: #5a5a5a;
+            margin: 0;
+        }
+
+        .node-label {
+            pointer-events: none;
+            font-size: 12px;
+            fill: #fff;
+            text-anchor: middle;
+            opacity: 0;
+            transition: opacity 0.2s;
+            text-shadow: 0 0 3px #000;
+            dominant-baseline: middle;
+            z-index: 99999;
+        }
+
+        .node-label-bg {
+            pointer-events: none;
+            fill: rgba(63, 63, 63,0);
+            rx: 8px;
+            ry: 8px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 90;
+        }
+
+        .node:hover + .node-label,
+        .node:hover + .node-label + .node-label-bg {
+            opacity: 1;
+        }
+        
+        .popup-visible .node-label,
+        .popup-visible .node-label-bg {
+            opacity: 0 !important;
+            display: none !important;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #999;
+            transition: color 0.2s;
+            z-index: 3;
+            background: #1F1F1F;
+            width: 30px;
+            height: 30px;
+            border-radius: 99px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #2c2c2c;
+        }
+        
+        .close-btn:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="title-container">
+        <img src="hand.png" alt="Hand" class="hand-image">
+        <div class="title">Know Thy<br>Customer</div>
+    </div>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div id="graph"></div>
+    <div id="popup" class="popup"></div>
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search topics..." id="search-input">
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="graph.js"></script>
+</body>
+</html> 
