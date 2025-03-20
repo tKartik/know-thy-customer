@@ -13,41 +13,70 @@ try:
     with open("clean_survey_data.json", "r") as f:
         data = json.load(f)
 
-    # Extract topics from the dataset
-    topics = list(data.keys())
-    print(f"Found {len(topics)} topics")
+    # Create a list of question-options pairs with their metadata
+    question_data = []
+    question_texts = []
+    
+    # Process the new structure where questions are the main keys
+    for question, question_data_obj in data.items():
+        # Combine question with its options for semantic analysis
+        options_text = " | ".join([resp["Option"] for resp in question_data_obj["Responses"]])
+        combined_text = f"{question} - {options_text}"
+        
+        question_texts.append(combined_text)
+        question_data.append({
+            "question": question,
+            "options": options_text,
+            # Still store these for reference in output, even though they won't affect connections
+            "topic": question_data_obj.get("Topic", "Unknown"),
+            "sample_size": question_data_obj.get("Sample Size", 0),
+            "survey_name": question_data_obj.get("Survey Name", "Unknown")
+        })
 
-    # Generate embeddings for each topic
+    print(f"Found {len(question_texts)} questions")
+
+    # Generate embeddings for each question-options combination
     print("Generating embeddings...")
-    topic_embeddings = model.encode(topics)
+    embeddings = model.encode(question_texts)
 
-    # Compute cosine similarity between topics
-    similarity_matrix = cosine_similarity(topic_embeddings)
+    # Compute cosine similarity between questions
+    similarity_matrix = cosine_similarity(embeddings)
 
     # Convert similarity scores into graph format (nodes & links)
-    nodes = [{"id": topic, "size": 1} for topic in topics]
+    nodes = []
+    for i, qdata in enumerate(question_data):
+        nodes.append({
+            "id": qdata["question"],
+            "options": qdata["options"],
+            # Include these for reference only
+            "topic": qdata["topic"],
+            "size": qdata["sample_size"] if qdata["sample_size"] else 1,
+            "survey_name": qdata["survey_name"]
+        })
 
     # Define links based on a similarity threshold
     links = []
     threshold = 0.5  # Adjust this for stronger/weaker connections
 
-    for i in range(len(topics)):
-        for j in range(i + 1, len(topics)):  # Avoid duplicate comparisons
+    for i in range(len(question_texts)):
+        for j in range(i + 1, len(question_texts)):
             if similarity_matrix[i][j] > threshold:
                 links.append({
-                    "source": topics[i],
-                    "target": topics[j],
-                    "strength": round(float(similarity_matrix[i][j]), 2)  # Round for readability
+                    "source": question_data[i]["question"],
+                    "target": question_data[j]["question"],
+                    "strength": round(float(similarity_matrix[i][j]), 2)
+                    # Removed sourceTopic and targetTopic as they're not needed for connections
                 })
 
     # Create the final graph structure for D3.js
     graph_data = {"nodes": nodes, "links": links}
 
     # Save the JSON graph file
-    with open("semantic_graph.json", "w") as json_file:
+    with open("semantic_graph_final.json", "w") as json_file:
         json.dump(graph_data, json_file, indent=4)
 
     print("Graph JSON saved as semantic_graph.json")
+    print(f"Created {len(nodes)} nodes and {len(links)} connections")
 
 except FileNotFoundError as e:
     print(f"Error: {e}")

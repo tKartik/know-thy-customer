@@ -88,18 +88,19 @@
             cursor: pointer;
             stroke: none;
             mix-blend-mode: normal;
-            filter: drop-shadow(0 0 6px currentColor);
+            filter: drop-shadow(0 0 6px rgba(0,0,0,0.3));
             transition: opacity 0.3s;
         }
         
         .node.selected {
-            fill: #F7D115 !important;
-            color: #F7D115 !important;
+            stroke: #F7D115 !important;
+            stroke-width: 3px !important;
         }
 
         .node.highlighted {
-            fill: #ffffff !important;
-            color: #ffffff !important;
+            stroke: #ffffff !important;
+            stroke-width: 3px !important;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.8)) !important;
         }
 
         .node.dimmed {
@@ -127,15 +128,18 @@
             padding: 32px;
             pointer-events: auto;
             color: #eee;
-            z-index: 9999;
+            z-index: 9999 !important;
             transition: none !important;
             animation: none !important;
             box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
             display: none;
+            flex-direction: column;
             border: 1px solid #2c2c2c;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup.visible {
+            display: flex !important;
         }
 
         .popup * {
@@ -366,10 +370,12 @@
     </div>
     <img src="src/img/logo.png" alt="Logo" class="logo">
     <div id="graph"></div>
-    <div id="popup" class="popup"></div>
     <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search topics..." id="search-input">
+        <input type="text" class="search-input" id="search-input" placeholder="Search questions..." />
     </div>
+    
+    <!-- Add popup container -->
+    <div id="popup" class="popup"></div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="graph.js"></script>
@@ -405,6 +411,47 @@
                 // Apply rotation
                 handImage.style.transform = `rotate(${rotation}deg)`;
             });
+            
+            // Debug helper functions
+            window.debugPopup = {
+                open: function() {
+                    if (window.openFirstNodePopup) {
+                        window.openFirstNodePopup();
+                        return "Attempting to open popup for first node";
+                    } else {
+                        return "openFirstNodePopup function not available yet";
+                    }
+                },
+                
+                checkPopup: function() {
+                    const popup = document.getElementById('popup');
+                    if (!popup) return "Popup element not found";
+                    
+                    return {
+                        display: getComputedStyle(popup).display,
+                        visible: popup.classList.contains('visible'),
+                        classes: popup.className,
+                        cssText: popup.style.cssText
+                    };
+                },
+                
+                checkNodes: function() {
+                    const nodes = document.querySelectorAll('.node');
+                    return {
+                        count: nodes.length,
+                        selected: document.querySelectorAll('.node.selected').length,
+                        firstNodeClass: nodes.length > 0 ? nodes[0].className : 'no nodes'
+                    };
+                }
+            };
+            
+            // Automatically attempt to open popup after 3 seconds if URL has debug parameter
+            if (window.location.search.includes('debug=1')) {
+                setTimeout(() => {
+                    console.log("Auto-triggering popup via debug mode");
+                    window.debugPopup.open();
+                }, 3000);
+            }
         });
     </script>
 </body>

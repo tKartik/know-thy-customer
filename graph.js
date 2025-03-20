@@ -3,6 +3,26 @@ Promise.all([
     d3.json('src/data/semantic_graph.json'),
     d3.json('src/data/clean_survey_data.json')
 ]).then(([graphData, surveyData]) => {
+    console.log('Data loaded:', { 
+        nodes: graphData.nodes.length,
+        links: graphData.links.length
+    });
+    
+    // Debug: Check the first node structure
+    if (graphData.nodes.length > 0) {
+        console.log('First node sample:', graphData.nodes[0]);
+    }
+    
+    // Debug: Check survey data structure
+    console.log('Survey data structure:', Object.keys(surveyData).length, 'questions');
+    if (Object.keys(surveyData).length > 0) {
+        const firstQuestion = Object.keys(surveyData)[0];
+        console.log('First question data sample:', {
+            question: firstQuestion,
+            data: surveyData[firstQuestion]
+        });
+    }
+    
     const width = window.innerWidth;
     const height = window.innerHeight;
 
@@ -11,6 +31,8 @@ Promise.all([
         .append("svg")
         .attr("width", width)
         .attr("height", height);
+    
+    console.log('SVG created with dimensions:', { width, height });
 
     // Add zoom behavior
     const g = svg.append("g");
@@ -24,89 +46,54 @@ Promise.all([
     const zoom = d3.zoom()
         .scaleExtent([0.1, 4])
         .on("zoom", (event) => {
-            // Update graph transform
             g.attr("transform", event.transform);
-            
-            // Also apply transform to tooltip layer
             tooltipLayer.attr("transform", event.transform);
             
-            // Adjust label size based on zoom scale - improved responsiveness
             const scale = event.transform.k;
-            
-            // Hide labels at extreme zoom levels
             const labelVisibility = scale < 0.2 ? 'none' : 'visible';
             
-            // Calculate text size first - this affects backgrounds
             g.selectAll(".cluster-label")
                 .style("display", labelVisibility)
-                .style("font-size", `${Math.min(20, Math.max(12, 16/scale))}px`) // Constrain size
+                .style("font-size", `${Math.min(20, Math.max(12, 16/scale))}px`)
                 .style("opacity", scale < 0.5 ? (scale * 2) : 1)
-                .style("font-weight", scale < 0.7 ? "bold" : "900"); // Bolder at smaller scales
+                .style("font-weight", scale < 0.7 ? "bold" : "900");
         });
 
     svg.call(zoom);
-
-    // Add this after the SVG creation
     svg.style("pointer-events", "auto");
     g.style("pointer-events", "auto");
 
-    // Calculate node sizes based on sample size
-    const maxSampleSize = Math.max(...Object.values(surveyData).map(d => d["Sample Size"]));
+    // Calculate node sizes based on sample size from node data
+    const maxSampleSize = Math.max(...graphData.nodes.map(d => d.size));
     const sizeScale = d3.scaleSqrt()
         .domain([0, maxSampleSize])
         .range([5, 30]);
 
-    // Define confidence color scale - reduced to 3 levels
-    const confidenceColors = ["#C4ECD8", "#77BB99", "#04BD61"];
-    
-    // Function to calculate confidence score
-    function calculateConfidence(surveyData, topicId) {
-        if (!surveyData[topicId] || !surveyData[topicId].Questions) return 0;
+    // UPDATED: New function to calculate node gradient based on answer distribution
+    function createNodeGradient(nodeId) {
+        console.log(`Creating gradient for node: ${nodeId}`);
         
-        // Get the first question (most surveys have only one)
-        const questionKey = Object.keys(surveyData[topicId].Questions)[0];
-        if (!questionKey) return 0;
+        if (!surveyData[nodeId] || !surveyData[nodeId].Responses) {
+            console.log(`No response data for node ${nodeId}, using default gradient`);
+            return `url(#default-gradient)`;
+        }
         
-        const options = surveyData[topicId].Questions[questionKey];
-        if (!options || !options.length) return 0;
-        
-        // Sort options by percentage in descending order
-        const sortedOptions = [...options].sort((a, b) => b.Percentage - a.Percentage);
-        
-        // Calculate confidence as top response minus sum of rest
-        const topResponse = sortedOptions[0].Percentage;
-        const sumOfRest = sortedOptions.slice(1).reduce((sum, opt) => sum + opt.Percentage, 0);
-        
-        return topResponse - sumOfRest;
-    }
-    
-    // Function to get color based on confidence - now with 3 levels
-    function getConfidenceColor(confidence) {
-        if (confidence <= 0) return confidenceColors[0];
-        if (confidence < 0.33) return confidenceColors[0];
-        if (confidence < 0.66) return confidenceColors[1];
-        return confidenceColors[2];
-    }
-
-    // New function to calculate node gradient based on answer distribution
-    function createNodeGradient(surveyData, topicId, nodeId) {
-        if (!surveyData[topicId] || !surveyData[topicId].Questions) return `url(#default-gradient-${nodeId})`;
-        
-        // Get the first question (most surveys have only one)
-        const questionKey = Object.keys(surveyData[topicId].Questions)[0];
-        if (!questionKey) return `url(#default-gradient-${nodeId})`;
-        
-        const options = surveyData[topicId].Questions[questionKey];
-        if (!options || !options.length) return `url(#default-gradient-${nodeId})`;
+        // Get the responses directly from the new structure
+        const options = surveyData[nodeId].Responses;
+        if (!options || !options.length) {
+            console.log(`No options data for node ${nodeId}, using default gradient`);
+            return `url(#default-gradient)`;
+        }
         
         // Sort options by percentage in descending order
         const sortedOptions = [...options].sort((a, b) => b.Percentage - a.Percentage);
+        console.log(`Sorted options for ${nodeId}:`, sortedOptions.map(o => `${o.Option}: ${o.Percentage}%`));
         
         // Define the option colors
         const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75"];
         
         // Create the gradient
-        const gradientId = `gradient-${nodeId}`;
+        const gradientId = `gradient-${nodeId.replace(/[^a-zA-Z0-9]/g, '_')}`;
         
         const svg = d3.select("svg");
         let defs = svg.select("defs");
@@ -118,29 +105,25 @@ Promise.all([
         defs.select(`#${gradientId}`).remove();
         
         // Create linear gradient element
+        // Set direction from top-left to bottom-right
         const gradient = defs.append("linearGradient")
             .attr("id", gradientId)
-            .attr("x1", "0%")
-            .attr("y1", "0%")
-            .attr("x2", "100%")
-            .attr("y2", "100%");
+            .attr("x1", "0%")   // Start from left
+            .attr("y1", "0%")   // Start from top
+            .attr("x2", "100%") // End at right
+            .attr("y2", "100%") // End at bottom
         
         // Calculate the gradient stops based on percentages
         let cumulativePercentage = 0;
         
-        // Set up smoother transitions between colors
         sortedOptions.forEach((option, i) => {
-            // Calculate position for this color stop based on cumulative percentage
-            const position = cumulativePercentage * 100;
-            
             // Get color for this option (loop if we have more options than colors)
             const colorIndex = i % optionColors.length;
             const color = optionColors[colorIndex];
             
-            // Add just one stop at the starting position of each segment
-            // This creates smooth transitions between colors
+            // Add a stop at the current cumulative percentage position
             gradient.append("stop")
-                .attr("offset", `${position}%`)
+                .attr("offset", `${cumulativePercentage}%`)
                 .attr("stop-color", color);
             
             // Update cumulative percentage for next color
@@ -150,7 +133,9 @@ Promise.all([
         // Add the final stop to complete the gradient
         gradient.append("stop")
             .attr("offset", "100%")
-            .attr("stop-color", optionColors[sortedOptions.length % optionColors.length - 1] || optionColors[0]);
+            .attr("stop-color", optionColors[(sortedOptions.length - 1) % optionColors.length] || optionColors[0]);
+        
+        console.log(`Created gradient ${gradientId} for node ${nodeId}`);
         
         // Return the url reference to the gradient
         return `url(#${gradientId})`;
@@ -158,6 +143,7 @@ Promise.all([
 
     // Create default gradient
     function createDefaultGradients() {
+        console.log("Creating default gradients");
         const svg = d3.select("svg");
         let defs = svg.select("defs");
         if (defs.empty()) {
@@ -167,38 +153,61 @@ Promise.all([
         // Create a default gradient for nodes without data
         const defaultGradient = defs.append("linearGradient")
             .attr("id", "default-gradient")
-            .attr("x1", "0%")
-            .attr("y1", "0%")
-            .attr("x2", "100%")
-            .attr("y2", "100%");
+            .attr("x1", "0%")   // Start from left
+            .attr("y1", "0%")   // Start from top
+            .attr("x2", "100%") // End at right
+            .attr("y2", "100%") // End at bottom
             
         defaultGradient.append("stop")
             .attr("offset", "0%")
             .attr("stop-color", "#5669FF");
             
         defaultGradient.append("stop")
+            .attr("offset", "33%")
+            .attr("stop-color", "#04B488");
+            
+        defaultGradient.append("stop")
+            .attr("offset", "66%")
+            .attr("stop-color", "#FCCE00");
+            
+        defaultGradient.append("stop")
             .attr("offset", "100%")
             .attr("stop-color", "#C73A75");
+            
+        console.log("Default gradients created");
     }
     
     // Call this function to create the default gradient
     createDefaultGradients();
 
-    // Create force simulation - MODIFIED FORCES TO KEEP CLUSTERS CLOSER TO CENTER
+    // Set initial positions for all nodes to start exactly at center with very small jitter
+    const jitter = 1; // Very small jitter to prevent perfect overlap
+    graphData.nodes.forEach(node => {
+        node.x = width / 2 + (Math.random() * jitter * 2 - jitter);
+        node.y = height / 2 + (Math.random() * jitter * 2 - jitter);
+        // Also set fixed positions initially to prevent immediate movement
+        node.fx = node.x;
+        node.fy = node.y;
+    });
+
+    // Create force simulation - MODIFIED FOR INSIDE-OUT EXPANSION
     const simulation = d3.forceSimulation(graphData.nodes)
         .force("link", d3.forceLink(graphData.links)
             .id(d => d.id)
-            .strength(d => d.strength * 0.08)) // Reduced from 0.1 to 0.08
+            .strength(d => d.strength * 0.1)) // Reduced link strength to allow better expansion
         .force("charge", d3.forceManyBody()
-            .strength(-200)) // Reduced repulsive force from -100 to -80
+            .strength(-200)) // Reduced repulsive force to keep nodes closer together
         .force("center", d3.forceCenter(width / 2, height / 2)
-            .strength(0.12)) // Increased center attraction force (default is 0.1)
+            .strength(0.12)) // Increased center attraction to keep nodes within viewport
         .force("collision", d3.forceCollide()
-            .radius(d => sizeScale(surveyData[d.id]?.["Sample Size"] || 0) + 2)
-            .strength(1)) // Increased collision strength to prevent overlap
-        .force("x", d3.forceX(width / 2).strength(0.08)) // Added X-force to keep nodes centered horizontally
-        .force("y", d3.forceY(height / 2).strength(0.08)); // Added Y-force to keep nodes centered vertically
-
+            .radius(d => sizeScale(d.size) + 3) // Slightly reduced collision radius
+            .strength(0.9)) // Slightly reduced to allow some overlap for compact layout
+        .force("x", d3.forceX(width / 2).strength(0.1)) // Increased X-force to keep nodes centered horizontally
+        .force("y", d3.forceY(height / 2).strength(0.1)) // Increased Y-force to keep nodes centered vertically
+        .alpha(1) // Start with maximum energy
+        .alphaDecay(0.01) // Slower decay for smoother expansion
+        .stop(); // Initially stop the simulation
+    
     // Simple community detection using link strengths
     // Create an adjacency map
     const adjacencyMap = {};
@@ -250,10 +259,12 @@ Promise.all([
         }
     });
     
-    // Assign cluster names based on common themes
+    // IMPROVED: Assign cluster names based on common themes 
+    // with better filtering to exclude common question words
     const clusterLabels = [];
     communities.forEach((community, index) => {
-        if (community.length < 2) return; // Skip small communities
+        // Remove the filtering for small communities to ensure all get labels
+        // if (community.length < 2) return; // Skip small communities
         
         // Extract question topics from survey data
         const topicWords = {};
@@ -269,7 +280,12 @@ Promise.all([
                     "investment", "bank", "financial", "loan", "credit", 
                     "money", "mortgage", "savings", "income", "expense",
                     "housing", "property", "payment", "stock", "fund", 
-                    "insurance", "budget", "finance", "debt", "purchase"
+                    "insurance", "budget", "finance", "debt", "purchase",
+                    "retirement", "tax", "investing", "wealth", "pension",
+                    "asset", "portfolio", "equity", "cash", "interest",
+                    "market", "account", "business", "employer", "saving",
+                    "risk", "capital", "value", "advisor", "management",
+                    "strategy", "planning", "benefit", "contribution", "security"
                 ];
                 
                 // Find matching terms in question
@@ -279,14 +295,23 @@ Promise.all([
                     }
                 });
                 
-                // If no key terms found, extract nouns from node ID
+                // If no key terms found, extract significant words from node ID
                 if (Object.keys(topicWords).length === 0) {
-                    const nodeWords = nodeId.split(/[\s\/\-&]+/).filter(w => w.length > 3);
+                    // First remove the "Which" and other common question words
+                    const commonWords = ["which", "what", "how", "when", "where", "who", "why", "do", "does", "is", "are", "was", "were", "will", "would", "should", "could", "can", "may", "might", "must", "have", "has", "had", "been", "being", "be", "am", "the", "a", "an", "and", "or", "but", "if", "of", "at", "by", "for", "with", "about", "against", "between", "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", "each", "few", "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very", "you", "your", "yours", "yourself", "yourselves"];
+                    
+                    // Clean the node ID and extract meaningful words
+                    const cleanedId = nodeId.replace(/[^a-zA-Z\s]/g, ' ').toLowerCase();
+                    const nodeWords = cleanedId.split(/\s+/).filter(word => 
+                        word.length > 3 && !commonWords.includes(word.toLowerCase())
+                    );
+                    
+                    // Count significant words
                     nodeWords.forEach(word => {
-                        if (word.match(/^[A-Z]/)) {
-                            word = word.toLowerCase();
-                            topicWords[word] = (topicWords[word] || 0) + 1;
-                        }
+                        // Skip common words
+                        if (commonWords.includes(word.toLowerCase())) return;
+                        
+                        topicWords[word.toLowerCase()] = (topicWords[word.toLowerCase()] || 0) + 1;
                     });
                 }
             });
@@ -306,9 +331,135 @@ Promise.all([
                 label += ' ' + commonTopics[1];
             }
         } else if (community.length > 0) {
-            // Fallback to first word of first node
-            const firstNode = community[0].split(/[\s\/\-&]+/)[0];
-            label = firstNode;
+            // Fallback: Try to extract a meaningful word from the first node
+            const firstNodeText = community[0];
+            const commonWords = ["which", "what", "how", "when", "where", "who", "why", "do", "does"];
+            
+            // Split by common word separators and filter out short words
+            const words = firstNodeText.split(/[\s\/\-&]+/).filter(w => w.length > 3);
+            
+            // Filter out common question words
+            const filteredWords = words.filter(word => 
+                !commonWords.includes(word.toLowerCase())
+            );
+            
+            if (filteredWords.length > 0) {
+                // Try to find a capitalized word first as it might be a noun
+                const capitalizedWord = filteredWords.find(w => w.match(/^[A-Z]/));
+                label = capitalizedWord || filteredWords[0];
+            } else {
+                // If no meaningful word found, use an intelligent label based on the node id
+                // Extract potential topics from the node text more aggressively
+                const potentialTopics = firstNodeText.split(/[\s\/\-&]+/)
+                    .filter(w => w.length > 2 && !commonWords.includes(w.toLowerCase()));
+                
+                if (potentialTopics.length > 0) {
+                    label = potentialTopics[0].charAt(0).toUpperCase() + potentialTopics[0].slice(1);
+                } else {
+                    // Last resort: Use generic group label
+                    label = "Group " + (index + 1);
+                }
+            }
+        } else {
+            // Truly empty community (shouldn't happen)
+            label = "Group " + (index + 1);
+        }
+        
+        // Check for specific financial themes in any node of the community
+        // Use a more comprehensive theme map
+        const themeMap = {
+            // Basic financial themes
+            "sav": "Savings",
+            "budget": "Budget",
+            "retire": "Retirement",
+            "insur": "Insurance",
+            "mortgage": "Mortgage",
+            "housing": "Housing",
+            "loan": "Loans",
+            "debt": "Debt",
+            "credit": "Credit",
+            "tax": "Taxes",
+            "income": "Income",
+            "expense": "Expenses",
+            "bank": "Banking",
+            
+            // Investment themes
+            "invest": "Investment",
+            "stock": "Stocks",
+            "bond": "Bonds",
+            "fund": "Funds",
+            "etf": "ETFs",
+            "portfolio": "Portfolio",
+            "market": "Markets",
+            "asset": "Assets",
+            "risk": "Risk",
+            "return": "Returns",
+            "dividend": "Dividends",
+            "equity": "Equity",
+            
+            // Retirement themes
+            "401k": "Retirement",
+            "ira": "Retirement",
+            "pension": "Pension",
+            
+            // Planning themes
+            "plan": "Planning",
+            "goal": "Goals",
+            "future": "Planning",
+            "advisor": "Advisory",
+            "consult": "Advisory",
+            
+            // Life events
+            "child": "Family",
+            "college": "Education",
+            "education": "Education",
+            "school": "Education",
+            "university": "Education",
+            "home": "Housing",
+            "house": "Housing",
+            "property": "Property",
+            "health": "Healthcare",
+            "medical": "Healthcare",
+            "insurance": "Insurance",
+            
+            // Business
+            "business": "Business",
+            "company": "Business",
+            "corporate": "Corporate",
+            "employer": "Employment",
+            "work": "Employment",
+            "career": "Career"
+        };
+        
+        let themeFound = false;
+        
+        // Check for any theme match in any node of the community
+        for (const [keyword, theme] of Object.entries(themeMap)) {
+            // First check exact whole word match in any node
+            const hasThemeNode = community.some(nodeId => {
+                const words = nodeId.toLowerCase().split(/[\s\/\-&]+/);
+                return words.some(word => word === keyword);
+            });
+            
+            if (hasThemeNode) {
+                label = theme;
+                themeFound = true;
+                break;
+            }
+        }
+        
+        // If no exact word match, try substring match
+        if (!themeFound) {
+            for (const [keyword, theme] of Object.entries(themeMap)) {
+                const hasThemeNode = community.some(nodeId => 
+                    nodeId.toLowerCase().includes(keyword)
+                );
+                
+                if (hasThemeNode) {
+                    label = theme;
+                    break;
+                }
+            }
         }
         
         // For investment-focused clusters, ensure "Investment" is in the label
@@ -322,23 +473,85 @@ Promise.all([
             label = "Investment";
         }
         
-        // Store cluster info
+        // Store cluster info - for small clusters, adjust the font size threshold
         clusterLabels.push({
             id: 'cluster-' + index,
             nodes: community,
             label: label,
             x: 0,
-            y: 0
+            y: 0,
+            size: community.length // Store size for potential font adjustments
         });
     });
     
-    // Create links
+    // Let the DOM render the initial centered nodes first
+    setTimeout(() => {
+        // Release the fixed positions after a short delay
+        graphData.nodes.forEach(node => {
+            node.fx = null;
+            node.fy = null;
+        });
+        // Start the simulation
+        simulation.restart();
+        
+        // After simulation runs for a few seconds, fit graph to viewport
+        setTimeout(fitGraphToViewport, 3000);
+    }, 500); // 500ms delay to ensure visible starting state
+
+    // Function to fit the entire graph within the viewport
+    function fitGraphToViewport() {
+        // Get current bounds of the graph
+        let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+        
+        graphData.nodes.forEach(node => {
+            if (node.x < minX) minX = node.x;
+            if (node.x > maxX) maxX = node.x;
+            if (node.y < minY) minY = node.y;
+            if (node.y > maxY) maxY = node.y;
+        });
+        
+        // Add padding
+        const padding = 50;
+        minX -= padding;
+        maxX += padding;
+        minY -= padding;
+        maxY += padding;
+        
+        // Calculate the scale and translate parameters to fit the graph
+        const graphWidth = maxX - minX;
+        const graphHeight = maxY - minY;
+        
+        const scaleX = width / graphWidth;
+        const scaleY = height / graphHeight;
+        
+        // Use the smaller scale to ensure everything fits
+        const scale = Math.min(scaleX, scaleY, 1.0); // Cap at 1.0 to prevent excessive scaling
+        
+        // Calculate center point of the graph
+        const centerX = (minX + maxX) / 2;
+        const centerY = (minY + maxY) / 2;
+        
+        // Calculate translation to center the graph
+        const translateX = width / 2 - scale * centerX;
+        const translateY = height / 2 - scale * centerY;
+        
+        // Apply the transform using D3 zoom
+        svg.transition()
+           .duration(750)
+           .call(zoom.transform, d3.zoomIdentity
+               .translate(translateX, translateY)
+               .scale(scale));
+    }
+
+    // Create the links
     const links = g.append("g")
         .selectAll("line")
         .data(graphData.links)
         .join("line")
         .attr("class", "link")
-        .style("stroke-width", d => d.strength * 2);
+        .style("stroke-width", d => Math.sqrt(d.strength) * 2);
+    
+    console.log('Links created:', links.size());
 
     // Create node groups
     const nodeGroups = g.append("g")
@@ -347,17 +560,28 @@ Promise.all([
         .join("g")
         .attr("class", "node-group")
         .call(drag(simulation));
+        
+    console.log('Node groups created:', nodeGroups.size());
 
-    // First add circles to node groups
+    // Add circles to node groups with SIMPLIFIED event handlers
     const nodes = nodeGroups
         .append("circle")
         .attr("class", "node")
-        .attr("r", d => sizeScale(surveyData[d.id]?.["Sample Size"] || 0))
-        .each(function(d) {
-            // Create unique gradient for each node
-            const gradientUrl = createNodeGradient(surveyData, d.id, d.id.replace(/[^a-zA-Z0-9]/g, "_"));
-            d3.select(this).style("fill", gradientUrl);
-        });
+        .attr("r", d => {
+            const radius = sizeScale(d.size);
+            return radius;
+        })
+        .style("fill", d => {
+            // Use gradient coloring based on option percentages instead of confidence
+            const gradientUrl = createNodeGradient(d.id);
+            console.log(`Node ${d.id} will use fill: ${gradientUrl}`);
+            return gradientUrl;
+        })
+        .style("stroke", "#333333")
+        .style("stroke-width", "1px")
+        .style("cursor", "pointer"); // Make sure cursor indicates clickable
+    
+    console.log('Nodes created:', nodes.size());
         
     // Create a mapping of nodes to create tooltips in the top layer
     const nodeTooltipGroups = tooltipLayer.selectAll("g")
@@ -370,44 +594,43 @@ Promise.all([
     // Remove background rectangles and only use text for tooltips
     nodeTooltipGroups.append("text")
         .attr("class", "tooltip-text")
-        .attr("dy", "0.35em")  // Center text vertically
-        .attr("text-anchor", "middle")  // Center text horizontally
-        .attr("dominant-baseline", "middle")  // SVG-specific vertical alignment
-        .attr("fill", "#FFFFFF")  // White text for contrast
-        .attr("font-weight", "600")  // Semi-bold for better readability
+        .attr("dy", "0.35em")
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "middle")
+        .attr("fill", "#FFFFFF")
+        .attr("font-weight", "600")
         .style("font-size", "12px")
-        .text(d => d.id)
+        .text(d => d.topic)
         .style("pointer-events", "none")
-        .style("text-shadow", "0 1px 3px rgba(0,0,0,0.9), 0 1px 10px rgba(0,0,0,1)");  // Enhanced shadow for better visibility
+        .style("text-shadow", "0 1px 3px rgba(0,0,0,0.9), 0 1px 10px rgba(0,0,0,1)");
     
-    // Use mouse events on the original nodes to control tooltip visibility
-    nodes.on("mouseenter", function(event, d) {
-        // Only show tooltips if popup is not visible
+    // UPDATED: Handle popup - modified to work with new data structure
+    // Initialize popup element directly 
+    let popupElement = document.getElementById("popup");
+    if (!popupElement) {
+        console.warn("Creating popup element as it wasn't found");
+        popupElement = document.createElement("div");
+        popupElement.id = "popup";
+        popupElement.className = "popup";
+        document.body.appendChild(popupElement);
+    }
+    
+    console.log("Popup element initialized:", popupElement ? "Found" : "Not found");
+    
+    // COMBINED EVENT HANDLERS - Clean implementation for all node interactions
+    nodeGroups.on("mouseenter", function(event, d) {
         if (document.body.classList.contains("popup-visible")) return;
         
-        // Hide any existing tooltips (ensuring only one shows at a time)
-        nodeTooltipGroups.style("opacity", 0);
-        
-        // Find the corresponding tooltip
         const nodeIndex = graphData.nodes.findIndex(n => n.id === d.id);
         if (nodeIndex > -1) {
             const tooltipGroup = nodeTooltipGroups.filter((td, i) => i === nodeIndex);
+            const nodeSize = sizeScale(d.size);
+            const offset = nodeSize + 10;
             
-            // Calculate tooltip position
-            const nodeSize = sizeScale(surveyData[d.id]?.["Sample Size"] || 0);
-            const offset = nodeSize + 10; // Distance from the node edge
-            
-            // Position the text above the node
-            tooltipGroup.select(".tooltip-text")
-                .attr("y", -offset);
-            
-            // Make sure the tooltip layer is in the front by moving it to the end
+            tooltipGroup.select(".tooltip-text").attr("y", -offset);
             tooltipLayer.raise();
-                
-            // Also make sure this specific tooltip is on top within the layer
             tooltipGroup.raise();
-                
-            // Show the tooltip with a slight fade-in
+            
             tooltipGroup
                 .style("opacity", 0)
                 .transition()
@@ -416,61 +639,59 @@ Promise.all([
         }
     })
     .on("mouseleave", function() {
-        // Hide tooltips with a slight delay to prevent flickering
         nodeTooltipGroups
             .transition()
             .duration(150)
             .style("opacity", 0);
-    });
-    
-    // Handle popup
-    const popup = d3.select("#popup").html("");
-
-    // Add this after initializing the popup to ensure proper styling
-    popup.style("background", "rgba(31, 31, 31, 0.97)")  // Explicitly set background
-         .style("mix-blend-mode", "normal")              // Reset any blend mode
-         .style("filter", "none");                       // Remove any filters
-
-    nodes.on("click", (event, d) => {
-        const surveyInfo = surveyData[d.id];
-        if (!surveyInfo) return;
-
-        // Clear search input and reset highlights
-        document.getElementById('search-input').value = '';
-        nodes.classed('highlighted', false)
-             .classed('dimmed', false);
+    })
+    .on("click", function(event, d) {
+        event.stopPropagation();
+        
+        console.log("Node clicked:", d.id);
+        
+        // Find the question data directly from the surveyData
+        const questionData = surveyData[d.id];
+        if (!questionData) {
+            console.error("No data found for question:", d.id);
+            return;
+        }
+        
+        console.log("Question data found:", questionData);
+        
+        // Reset states
+        if (document.getElementById('search-input')) {
+            document.getElementById('search-input').value = '';
+        }
+        nodes.classed('highlighted', false).classed('dimmed', false);
         links.classed('dimmed', false);
-
-        // Remove selected class from all nodes
         nodes.classed("selected", false);
         
-        // Add selected class to clicked node
-        d3.select(event.currentTarget).classed("selected", true);
-
-        // Get the first question (most surveys have only one)
-        const questionKey = Object.keys(surveyInfo.Questions)[0];
-        const options = surveyInfo.Questions[questionKey];
+        // Highlight clicked node
+        d3.select(this).select("circle").classed("selected", true);
         
-        // Calculate confidence score
-        const confidence = calculateConfidence(surveyData, d.id);
-
-        // Completely reset the popup element
-        const popupElement = document.getElementById("popup");
-        popupElement.innerHTML = "";
+        // Get response data
+        const responsesData = questionData.Responses;
+        if (!responsesData) {
+            console.error("No responses data found for:", d.id);
+            return;
+        }
         
-        // Create the popup content structure
+        console.log("Responses data found:", responsesData);
+        
+        // Create popup content
+        popupElement.innerHTML = ""; // Clear existing content
+        
+        // Create the base structure
         const popupContent = document.createElement("div");
         popupContent.className = "popup-content";
         
+        // Add question
         const question = document.createElement("div");
         question.className = "question";
-        question.textContent = questionKey;
+        question.textContent = d.id;
         popupContent.appendChild(question);
         
-        const optionsContainer = document.createElement("div");
-        optionsContainer.className = "options-container";
-        
-        // Create a container for the visualization
+        // Create visualization container
         const vizContainer = document.createElement("div");
         vizContainer.className = "visualization-container";
         vizContainer.style.width = "100%";
@@ -478,30 +699,25 @@ Promise.all([
         vizContainer.style.marginBottom = "20px";
         vizContainer.style.position = "relative";
         
-        // Create SVG for the visualization
+        // Create SVG element
         const svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         svgElem.setAttribute("width", "100%");
         svgElem.setAttribute("height", "100%");
         vizContainer.appendChild(svgElem);
-        
-        // Add the visualization container to the popup content
         popupContent.appendChild(vizContainer);
         
-        // Find the highest percentage answer
-        const sortedOptions = [...options].sort((a, b) => b.Percentage - a.Percentage);
-        const highestOptionIndex = options.findIndex(opt => opt.Option === sortedOptions[0].Option);
+        // Create options container
+        const optionsContainer = document.createElement("div");
+        optionsContainer.className = "options-container";
         
-        // Define the option colors array
+        // Add options
         const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75"];
-        
-        // Add options with letters and visualization
-        options.forEach((option, index) => {
-            const letter = String.fromCharCode(97 + index); // 97 is ASCII for 'a'
+        responsesData.forEach((option, index) => {
+            const letter = String.fromCharCode(97 + index);
             
             const optionDiv = document.createElement("div");
             optionDiv.className = "option";
             
-            // Use color from our palette (loop if necessary)
             const colorIndex = index % optionColors.length;
             optionDiv.style.borderLeftColor = optionColors[colorIndex];
             
@@ -517,7 +733,7 @@ Promise.all([
             
             const optionPercent = document.createElement("div");
             optionPercent.className = "option-percent";
-            optionPercent.textContent = (option.Percentage * 100).toFixed(1) + "%";
+            optionPercent.textContent = (option.Percentage).toFixed(1) + "%";
             
             optionDiv.appendChild(optionText);
             optionDiv.appendChild(optionPercent);
@@ -527,15 +743,15 @@ Promise.all([
         popupContent.appendChild(optionsContainer);
         popupElement.appendChild(popupContent);
         
-        // Add footer
+        // Add footer with info
         const footer = document.createElement("div");
         footer.className = "popup-footer";
         
         const surveyName = document.createElement("p");
-        surveyName.textContent = surveyInfo["Survey Name"];
+        surveyName.textContent = questionData["Survey Name"] || d.survey_name;
         
         const sampleSize = document.createElement("p");
-        sampleSize.textContent = surveyInfo["Sample Size"] + " responses";
+        sampleSize.textContent = questionData["Sample Size"] + " responses";
         
         footer.appendChild(surveyName);
         footer.appendChild(sampleSize);
@@ -546,16 +762,11 @@ Promise.all([
         closeBtn.className = "close-btn";
         closeBtn.textContent = "×";
         closeBtn.addEventListener("click", (e) => {
-            popupElement.style.animation = "none";
-            popupElement.style.transition = "none";
-            popupElement.style.display = "none";
-            
-            // Force a reflow to ensure styles are applied immediately
-            void popupElement.offsetWidth;
-            
-            nodes.classed("selected", false);
-            document.body.classList.remove("popup-visible");
             e.stopPropagation();
+            popupElement.style.display = "none";
+            popupElement.classList.remove("visible");
+            document.body.classList.remove("popup-visible");
+            nodes.classed("selected", false);
         });
         
         popupElement.appendChild(closeBtn);
@@ -563,42 +774,49 @@ Promise.all([
         // Now create the bar chart visualization
         const barChartSvg = d3.select(svgElem);
         
-        // Make sure SVG dimensions are explicitly set
+        // Make SVG dimensions explicit
         svgElem.setAttribute("width", "100%");
         svgElem.setAttribute("height", "100%");
         svgElem.style.minHeight = "150px";
         
-        // Wait for the SVG to be in the DOM before calculating dimensions
+        // IMPORTANT: Show the popup FIRST before creating the visualization
+        // UPDATED: Set display style explicitly with !important
+        popupElement.style.cssText = "display: block !important;";
+        popupElement.classList.add("visible");
+        document.body.classList.add("popup-visible");
+        
+        console.log("Popup display style:", getComputedStyle(popupElement).display);
+        console.log("Popup visibility class:", popupElement.className);
+        
+        // Create the chart after popup is visible
         setTimeout(() => {
             try {
-                // Get actual dimensions after rendering
                 const svgRect = svgElem.getBoundingClientRect();
                 const margin = { top: 20, right: 20, bottom: 30, left: 40 };
-                const width = Math.max(svgRect.width - margin.left - margin.right, 100); // Ensure minimum width
-                const height = Math.max(svgRect.height - margin.top - margin.bottom, 80); // Ensure minimum height
+                const width = Math.max(svgRect.width - margin.left - margin.right, 100);
+                const height = Math.max(svgRect.height - margin.top - margin.bottom, 80);
                 
                 const g = barChartSvg.append("g")
                     .attr("transform", `translate(${margin.left},${margin.top})`);
                 
-                // Make sure we have valid options data
-                if (!options || !options.length) {
+                if (!responsesData || !responsesData.length) {
                     console.error("No options data available for visualization");
                     return;
                 }
                 
                 // Set up scales
                 const x = d3.scaleBand()
-                    .domain(options.map((d, i) => String.fromCharCode(97 + i)))
+                    .domain(responsesData.map((d, i) => String.fromCharCode(97 + i)))
                     .range([0, width])
                     .padding(0.3);
                 
                 const y = d3.scaleLinear()
-                    .domain([0, d3.max(options, d => d.Percentage) * 1.1]) // 10% padding at top
+                    .domain([0, d3.max(responsesData, d => d.Percentage) * 1.1])
                     .range([height, 0]);
                 
-                // Add bars with UPDATED COLOR LOGIC
+                // Add bars with colors
                 g.selectAll(".bar")
-                    .data(options)
+                    .data(responsesData)
                     .enter().append("rect")
                     .attr("class", "bar")
                     .attr("x", (d, i) => x(String.fromCharCode(97 + i)))
@@ -606,16 +824,15 @@ Promise.all([
                     .attr("width", x.bandwidth())
                     .attr("height", d => height - y(d.Percentage))
                     .attr("fill", (d, i) => {
-                        // Use color from our palette (loop if necessary)
                         const colorIndex = i % optionColors.length;
                         return optionColors[colorIndex];
                     })
-                    .attr("rx", 4) // Rounded corners
+                    .attr("rx", 4)
                     .attr("ry", 4);
                 
                 // Add labels at top of bars
                 g.selectAll(".label")
-                    .data(options)
+                    .data(responsesData)
                     .enter().append("text")
                     .attr("class", "label")
                     .attr("x", (d, i) => x(String.fromCharCode(97 + i)) + x.bandwidth() / 2)
@@ -626,7 +843,7 @@ Promise.all([
                     .style("font-size", "12px")
                     .style("font-weight", "600")
                     .style("text-shadow", "0 1px 2px rgba(0,0,0,0.8)")
-                    .text(d => (d.Percentage * 100).toFixed(0) + "%");
+                    .text(d => (d.Percentage).toFixed(0) + "%");
                 
                 // Add x axis (option letters)
                 g.append("g")
@@ -635,13 +852,12 @@ Promise.all([
                     .selectAll("text")
                     .attr("fill", "#CCCCCC")
                     .style("font-weight", "600");
-                    
+                
                 // Remove x-axis line
                 g.select(".domain").remove();
                 g.selectAll(".tick line").remove();
             } catch (error) {
                 console.error("Error creating visualization:", error);
-                // Add a fallback text message if visualization fails
                 barChartSvg.append("text")
                     .attr("x", "50%")
                     .attr("y", "50%")
@@ -649,53 +865,69 @@ Promise.all([
                     .attr("fill", "#999")
                     .text("Visualization could not be loaded");
             }
-        }, 10); // Small delay to ensure DOM is ready
-        
-        // Display the popup with animations disabled
-        popupElement.style.display = "block";
-        popupElement.style.animation = "none";
-        popupElement.style.transition = "none";
-        
-        // Force a reflow to ensure styles are applied immediately
-        void popupElement.offsetWidth;
-        
-        // Add class to body to hide all labels when popup is visible
-        document.body.classList.add("popup-visible");
-        
-        // Hide tooltips when popup is active
-        nodeTooltipGroups.style("opacity", 0);
-        
-        // Stop event propagation
-        event.stopPropagation();
+        }, 50); // Longer delay to ensure DOM is ready
     });
 
-    // Update the document click handler to also remove selected class
+    // Now let's update the SVG click handler to properly close the popup
     svg.on("click", function(event) {
         // Only handle clicks directly on the SVG, not on nodes
         if (event.target === this) {
-            // Hide popup
-            popup.style("display", "none");
-            document.body.classList.remove("popup-visible");
-            nodes.classed("selected", false);
-            
-            // Clear search
+            closePopup();
+        }
+    });
+    
+    // Dedicated function to close the popup (reusable)
+    function closePopup() {
+        console.log("Closing popup");
+        
+        // Get the popup element
+        const popupElement = document.getElementById("popup");
+        
+        // Check if popup exists
+        if (popupElement) {
+            // Hide the popup
+            popupElement.style.cssText = "display: none !important;";
+            popupElement.classList.remove("visible");
+        }
+        
+        // Remove class from body
+        document.body.classList.remove("popup-visible");
+        
+        // Remove selected class from nodes
+        nodes.classed("selected", false);
+        
+        // Clear search
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
             searchInput.value = '';
             nodes.classed('highlighted', false)
                 .classed('dimmed', false);
             links.classed('dimmed', false);
         }
-    });
+    }
     
-    // Sync positions of tooltips with nodes
+    // Test function to open popup programmatically (for debugging)
+    window.openFirstNodePopup = function() {
+        if (graphData.nodes.length > 0) {
+            const firstNode = graphData.nodes[0];
+            console.log("Opening popup for first node:", firstNode.id);
+            
+            // Trigger click on first node
+            const nodeElement = nodeGroups.filter(d => d.id === firstNode.id).node();
+            if (nodeElement) {
+                nodeElement.dispatchEvent(new Event('click', { bubbles: true }));
+            }
+        }
+    };
+
+    // Update the simulation tick function
     simulation.on("tick", () => {
-        // Update link positions
         links
             .attr("x1", d => d.source.x)
             .attr("y1", d => d.source.y)
             .attr("x2", d => d.target.x)
             .attr("y2", d => d.target.y);
 
-        // Update node positions
         nodeGroups
             .attr("transform", d => `translate(${d.x},${d.y})`);
             
@@ -823,25 +1055,25 @@ Promise.all([
         });
     });
 
-    // Drag functionality
+    // Define the drag behavior
     function drag(simulation) {
         function dragstarted(event) {
             if (!event.active) simulation.alphaTarget(0.3).restart();
             event.subject.fx = event.subject.x;
             event.subject.fy = event.subject.y;
         }
-
+        
         function dragged(event) {
             event.subject.fx = event.x;
             event.subject.fy = event.y;
         }
-
+        
         function dragended(event) {
             if (!event.active) simulation.alphaTarget(0);
             event.subject.fx = null;
             event.subject.fy = null;
         }
-
+        
         return d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
@@ -871,26 +1103,19 @@ Promise.all([
         // Check each node for match
         const matchingNodes = [];
         nodes.each(function(d) {
-            const nodeData = surveyData[d.id];
-            
-            // Check for match in topic name
+            // Check for match in question text (id)
             let isMatch = containsExactWord(d.id, searchTerm);
             
-            // If not matched in topic name, search in questions and responses
-            if (!isMatch && nodeData && nodeData.Questions) {
-                // Search in questions
-                const questions = Object.keys(nodeData.Questions);
-                isMatch = questions.some(q => containsExactWord(q, searchTerm));
-                
-                // Search in responses
-                if (!isMatch) {
-                    isMatch = questions.some(q => {
-                        const options = nodeData.Questions[q];
-                        return options.some(opt => 
-                            containsExactWord(opt.Option, searchTerm)
-                        );
-                    });
-                }
+            // Check for match in topic
+            if (!isMatch) {
+                isMatch = containsExactWord(d.topic, searchTerm);
+            }
+            
+            // Check for match in options
+            if (!isMatch) {
+                isMatch = d.options.split(" | ").some(opt => 
+                    containsExactWord(opt, searchTerm)
+                );
             }
             
             // Apply classes based on match
@@ -928,6 +1153,8 @@ Promise.all([
       /* Add strong yellow glow only for selected nodes */
       .node.selected {
         filter: drop-shadow(0 0 12px #F7D115) !important;
+        stroke: #F7D115 !important;
+        stroke-width: 3px !important;
       }
       
       /* Ensure tooltips are always on top */
@@ -966,6 +1193,29 @@ Promise.all([
             .cluster-label {
                 font-size: 14px !important;
             }
+        }
+        
+        /* Fix for popup visibility */
+        .popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 480px;
+            min-height: 292px;
+            background: rgba(31, 31, 31, 0.97) !important;
+            border-radius: 24px;
+            padding: 32px;
+            pointer-events: auto;
+            color: #eee;
+            z-index: 9999;
+            box-sizing: border-box;
+            border: 1px solid #2c2c2c;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .popup.visible {
+            display: block !important;
         }
     `;
     document.head.appendChild(labelStyle);
@@ -1044,7 +1294,7 @@ Promise.all([
             height: 8px;
             margin: 8px 0;
             border-radius: 4px;
-            background: linear-gradient(to right, #5669FF, #04B488, #FCCE00, #FF5E3B, #C73A75);
+            background: linear-gradient(to bottom right, #5669FF, #04B488, #FCCE00, #FF5E3B, #C73A75);
         }
         
         .node.selected {
@@ -1100,4 +1350,35 @@ Promise.all([
     });
     
     document.body.appendChild(legendContainer);
+    
+    // Create "Fit to View" button
+    const fitButton = document.createElement('button');
+    fitButton.className = 'fit-button';
+    fitButton.textContent = 'Fit to View';
+    fitButton.addEventListener('click', fitGraphToViewport);
+    fitButton.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 8px 16px;
+        background: rgba(31, 31, 31, 0.8);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: background 0.2s;
+    `;
+    
+    // Add hover effect
+    fitButton.addEventListener('mouseover', () => {
+        fitButton.style.background = 'rgba(50, 50, 50, 0.9)';
+    });
+    fitButton.addEventListener('mouseout', () => {
+        fitButton.style.background = 'rgba(31, 31, 31, 0.8)';
+    });
+    
+    document.body.appendChild(fitButton);
 }); 
