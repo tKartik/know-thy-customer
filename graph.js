@@ -63,7 +63,7 @@ Promise.all([
         const sortedOptions = [...options].sort((a, b) => b.Percentage - a.Percentage);
         
         // Define the option colors
-        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75"];
+        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75", "#9D66FF", "#00CCCC"];
         
         // Create the gradient
         const gradientId = `gradient-${nodeId.replace(/[^a-zA-Z0-9]/g, '_')}`;
@@ -164,7 +164,7 @@ Promise.all([
             .id(d => d.id)
             .strength(d => d.strength * 0.1)) // Reduced link strength to allow better expansion
         .force("charge", d3.forceManyBody()
-            .strength(-200)) // Reduced repulsive force to keep nodes closer together
+            .strength(-400)) // Reduced repulsive force to keep nodes closer together
         .force("center", d3.forceCenter(width / 2, height / 2)
             .strength(0.12)) // Increased center attraction to keep nodes within viewport
         .force("collision", d3.forceCollide()
@@ -463,7 +463,7 @@ Promise.all([
         simulation.restart();
         
         // After simulation runs for a few seconds, fit graph to viewport
-        setTimeout(fitGraphToViewport, 3000);
+        setTimeout(fitGraphToViewport, 500);
     }, 500); // 500ms delay to ensure visible starting state
 
     // Function to fit the entire graph within the viewport
@@ -618,8 +618,11 @@ Promise.all([
         if (!node.classed("selected") && !node.classed("highlighted")) {
             node.style("filter", null); // Fully remove filter attribute
         } else if (node.classed("selected")) {
-            // Keep the node yellow but update the glow
-            node.style("filter", "drop-shadow(0 0 12px #F7D115)");
+            // Keep the white stroke and add a glow
+            node.style("filter", "drop-shadow(0 0 12px rgba(255,255,255,0.8))");
+            // Ensure stroke stays visible
+            node.style("stroke", "#FFFFFF");
+            node.style("stroke-width", "4px");
         } else if (node.classed("highlighted")) {
             node.style("filter", "drop-shadow(0 0 8px rgba(255,255,255,0.6))");
         }
@@ -654,7 +657,8 @@ Promise.all([
         // Highlight clicked node
         d3.select(this).select("circle")
             .classed("selected", true)
-            .style("fill", "#F7D115"); // Set fill to yellow for selected node
+            .style("stroke", "#FFFFFF")  // Add white stroke
+            .style("stroke-width", "4px"); // With 2px width
         
         // Find and highlight connected nodes
         const connectedNodeIds = new Set();
@@ -722,7 +726,7 @@ Promise.all([
         optionsContainer.className = "options-container";
         
         // Add options
-        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75"];
+        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75", "#9D66FF", "#00CCCC"];
         responsesData.forEach((option, index) => {
             const letter = String.fromCharCode(97 + index);
             
@@ -777,7 +781,12 @@ Promise.all([
             popupElement.style.display = "none";
             popupElement.classList.remove("visible");
             document.body.classList.remove("popup-visible");
-            nodes.classed("selected", false);
+            
+            // Reset selected node styles
+            nodes.filter(".selected")
+                 .classed("selected", false)
+                 .style("stroke", "none")
+                 .style("stroke-width", null);
         });
         
         popupElement.appendChild(closeBtn);
@@ -906,7 +915,9 @@ Promise.all([
                 const gradientUrl = createNodeGradient(d.id);
                 return gradientUrl;
              })
-             .style("filter", null); // Completely remove filter
+             .style("filter", null) // Completely remove filter
+             .style("stroke", "none") // Reset stroke
+             .style("stroke-width", null); // Reset stroke width
         
         // Reset link highlighting
         links.classed('highlighted', false)
@@ -1189,7 +1200,7 @@ Promise.all([
       /* Selected nodes styling */
       .node.selected {
         transform: scale(1.15);
-        /* Fill color set directly in JS */
+        /* Keep original fill, add white stroke in JS */
       }
       
       /* Highlighted nodes */
@@ -1353,12 +1364,12 @@ Promise.all([
             height: 8px;
             margin: 8px 0;
             border-radius: 4px;
-            background: linear-gradient(to bottom right, #5669FF, #04B488, #FCCE00, #FF5E3B, #C73A75);
+            background: linear-gradient(to bottom right, #5669FF, #04B488, #FCCE00, #FF5E3B, #C73A75, #9D66FF, #00CCCC);
         }
         
         .node.selected {
-            stroke: #F7D115;
-            stroke-width: 3px;
+            stroke: #FFFFFF;
+            stroke-width: 2px;
         }
     `;
     document.head.appendChild(tooltipStyle);
@@ -1388,7 +1399,9 @@ Promise.all([
         { color: "#04B488", label: "Option B" },
         { color: "#FCCE00", label: "Option C" },
         { color: "#FF5E3B", label: "Option D" },
-        { color: "#C73A75", label: "Option E" }
+        { color: "#C73A75", label: "Option E" },
+        { color: "#9D66FF", label: "Option F" },
+        { color: "#00CCCC", label: "Option G" }
     ];
     
     // Add color samples to the flex container
