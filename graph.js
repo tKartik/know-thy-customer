@@ -1006,14 +1006,21 @@ Promise.all([
             pointer-events: none;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            width: 160px;
+            width: 240px; /* Increased width for flex layout */
         }
         
         .legend-title {
             font-size: 12px;
             font-weight: bold;
             margin-bottom: 10px;
-            text-align: center;
+            text-align: left; /* Align to left instead of center */
+        }
+        
+        .color-samples-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 8px;
         }
         
         .color-sample {
@@ -1021,6 +1028,7 @@ Promise.all([
             align-items: center;
             margin-bottom: 4px;
             font-size: 9px;
+            width: 110px; /* Fixed width to create two columns */
         }
         
         .color-dot {
@@ -1028,14 +1036,15 @@ Promise.all([
             height: 12px;
             border-radius: 50%;
             margin-right: 8px;
+            flex-shrink: 0;
         }
         
         .gradient-sample {
             width: 100%;
-            height: 6px;
+            height: 8px;
             margin: 8px 0;
-            border-radius: 3px;
-            background: linear-gradient(135deg, #5669FF, #04B488, #FCCE00, #FF5E3B, #C73A75);
+            border-radius: 4px;
+            background: linear-gradient(to right, #5669FF, #04B488, #FCCE00, #FF5E3B, #C73A75);
         }
         
         .node.selected {
@@ -1054,10 +1063,15 @@ Promise.all([
     legendTitle.textContent = 'Answer Colors';
     legendContainer.appendChild(legendTitle);
     
-    // Add the gradient sample
+    // Add the gradient bar
     const gradientSample = document.createElement('div');
     gradientSample.className = 'gradient-sample';
     legendContainer.appendChild(gradientSample);
+    
+    // Create a container for the color samples with flex layout
+    const colorSamplesContainer = document.createElement('div');
+    colorSamplesContainer.className = 'color-samples-container';
+    legendContainer.appendChild(colorSamplesContainer);
     
     // Define the colors
     const colorLabels = [
@@ -1068,7 +1082,7 @@ Promise.all([
         { color: "#C73A75", label: "Option E" }
     ];
     
-    // Add color samples
+    // Add color samples to the flex container
     colorLabels.forEach(item => {
         const colorSample = document.createElement('div');
         colorSample.className = 'color-sample';
@@ -1082,7 +1096,7 @@ Promise.all([
         
         colorSample.appendChild(colorDot);
         colorSample.appendChild(label);
-        legendContainer.appendChild(colorSample);
+        colorSamplesContainer.appendChild(colorSample);
     });
     
     document.body.appendChild(legendContainer);
