@@ -5,6 +5,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
     <style>
+        /* 
+         * Note on SVG-specific properties:
+         * Properties like 'dominant-baseline', 'rx', and 'ry' are valid in SVG
+         * but will trigger CSS validation errors. These properties have been
+         * moved to direct SVG attributes in the JavaScript code.
+         */
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
@@ -222,27 +228,15 @@
             opacity: 0;
             transition: opacity 0.2s;
             text-shadow: 0 0 3px #000;
-            dominant-baseline: middle;
+            /* SVG-specific attribute moved to JS: dominant-baseline */
             z-index: 99999;
         }
 
-        .node-label-bg {
-            pointer-events: none;
-            fill: rgba(63, 63, 63,0);
-            rx: 8px;
-            ry: 8px;
-            opacity: 0;
-            transition: opacity 0.2s;
-            z-index: 90;
-        }
-
-        .node:hover + .node-label,
-        .node:hover + .node-label + .node-label-bg {
+        .node:hover + .node-label {
             opacity: 1;
         }
         
-        .popup-visible .node-label,
-        .popup-visible .node-label-bg {
+        .popup-visible .node-label {
             opacity: 0 !important;
             display: none !important;
         }
@@ -268,6 +262,100 @@
         
         .close-btn:hover {
             color: #fff;
+        }
+        
+        .cluster-label {
+            pointer-events: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            fill: #FFFFFF;
+            text-anchor: middle;
+            /* SVG-specific attribute moved to JS: dominant-baseline */
+            text-shadow: 0 0 12px rgba(0, 0, 0, 1), 0 0 8px rgba(0, 0, 0, 1), 0 0 4px rgba(0, 0, 0, 1);
+            user-select: none;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Node hover tooltips */
+        .node-tooltip-group {
+            pointer-events: none;
+        }
+        
+        .node-tooltip-group text {
+            fill: white;
+            font-weight: 700;
+            font-size: 12px;
+            text-shadow: 0 0 8px rgba(0,0,0,1), 0 0 5px rgba(0,0,0,1), 0 1px 3px rgba(0,0,0,1);
+        }
+        
+        .node-tooltip-group rect {
+            fill: rgba(20, 20, 20, 0.95);
+            stroke: rgba(255, 255, 255, 0.3);
+            stroke-width: 1px;
+            /* SVG-specific attributes moved to JS: rx, ry */
+        }
+        
+        /* Ensure tooltip layer stays above all other elements */
+        .tooltip-layer {
+            pointer-events: none !important;
+        }
+        
+        /* SVG doesn't respect z-index, so we rely on the rendering order */
+        svg > g.tooltip-layer {
+            pointer-events: none;
+        }
+        
+        /* Visualization styles */
+        .visualization-container {
+            background: rgba(20, 20, 20, 0.3);
+            border-radius: 8px;
+            margin-top: 5px;
+            overflow: visible;
+        }
+        
+        .bar {
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+        
+        .bar:hover {
+            opacity: 1;
+        }
+        
+        .label {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+        }
+        
+        /* Popup option styles with visualization */
+        .popup .option {
+            border-left-width: 3px;
+            transition: background-color 0.2s;
+        }
+        
+        .popup .option:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .popup .option:nth-child(1) {
+            border-left-color: #45B7D1;
+        }
+        
+        .popup .option:nth-child(2) {
+            border-left-color: #F2BD4A;
+        }
+        
+        .popup .option:nth-child(3) {
+            border-left-color: #92CF4F;
+        }
+        
+        .popup .option:nth-child(4) {
+            border-left-color: #F25757;
+        }
+        
+        .popup .option:nth-child(5) {
+            border-left-color: #8067DC;
         }
     </style>
 </head>
