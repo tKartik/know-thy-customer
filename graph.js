@@ -105,17 +105,17 @@ Promise.all([
         // Get highest percentage
         const topPercentage = sortedOptions[0].Percentage;
         
-        // Create a blend between saturated lime green (#5CFF5C) and white (#FFFFFF)
-        // based on the top answer's percentage
-        const limeGreen = {r: 92, g: 255, b: 92}; // #5CFF5C - Lime green
-        const white = {r: 255, g: 255, b: 255}; // #FFFFFF - White
+        // Create a blend between bright blue (#4DA4DD) and red (#FF5E3B)
+        // for higher contrast
+        const brightBlue = {r: 77, g: 164, b: 221}; // #4DA4DD - Updated blue color
+        const red = {r: 255, g: 94, b: 59}; // #FF5E3B - Updated red color
         
-        // Linear interpolation between white and lime green based on top percentage
-        const red = Math.round(white.r - (white.r - limeGreen.r) * topPercentage);
-        const green = Math.round(white.g - (white.g - limeGreen.g) * topPercentage);
-        const blue = Math.round(white.b - (white.b - limeGreen.b) * topPercentage);
+        // Linear interpolation between red and bright blue based on top percentage
+        const r = Math.round(red.r - (red.r - brightBlue.r) * topPercentage);
+        const g = Math.round(red.g - (red.g - brightBlue.g) * topPercentage);
+        const b = Math.round(red.b - (red.b - brightBlue.b) * topPercentage);
         
-        return `rgb(${red}, ${green}, ${blue})`;
+        return `rgb(${r}, ${g}, ${b})`;
     }
 
     // Create force simulation - MODIFIED FORCES TO KEEP CLUSTERS CLOSER TO CENTER
@@ -437,9 +437,9 @@ Promise.all([
             
             // Update the left border color based on whether this is the highest answer
             if (index === highestOptionIndex) {
-                optionDiv.style.borderLeftColor = "#5CFF5C"; // Saturated lime green for highest answer
+                optionDiv.style.borderLeftColor = "#4DA4DD"; // Updated blue for highest answer
             } else {
-                optionDiv.style.borderLeftColor = "#FFFFFF"; // White for other answers
+                optionDiv.style.borderLeftColor = "#FF5E3B"; // Updated red for other answers
             }
             
             const optionText = document.createElement("div");
@@ -545,11 +545,11 @@ Promise.all([
                     .attr("fill", (d, i) => {
                         // Check if this is the highest confidence answer
                         if (i === highestOptionIndex) {
-                            // Use saturated lime green for highest answer
-                            return "#5CFF5C";
+                            // Use bright blue for highest answer
+                            return "#4DA4DD";
                         } else {
-                            // Use white with some transparency for other answers
-                            return "rgba(255, 255, 255, 0.8)";
+                            // Use red with some transparency for other answers
+                            return "rgba(255, 94, 59, 0.8)"; // Updated red with transparency
                         }
                     })
                     .attr("rx", 4) // Rounded corners
@@ -933,6 +933,73 @@ Promise.all([
             font-weight: 600;
             text-shadow: 0 1px 3px rgba(0,0,0,0.9);
         }
+        
+        /* Legend styles */
+        .color-legend {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 12px;
+            padding: 8px 12px;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            z-index: 1000;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            width: 120px;
+        }
+        
+        .legend-title {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .color-gradient {
+            width: 100%;
+            height: 6px;
+            margin-bottom: 5px;
+            border-radius: 3px;
+            background: linear-gradient(to right, #FF5E3B, #4DA4DD);
+        }
+        
+        .legend-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            opacity: 0.8;
+        }
     `;
     document.head.appendChild(tooltipStyle);
+    
+    // Create and add the color legend to explain the node color logic
+    const legendContainer = document.createElement('div');
+    legendContainer.className = 'color-legend';
+    
+    const legendTitle = document.createElement('div');
+    legendTitle.className = 'legend-title';
+    legendTitle.textContent = 'Answer Confidence';
+    legendContainer.appendChild(legendTitle);
+    
+    const colorGradient = document.createElement('div');
+    colorGradient.className = 'color-gradient';
+    legendContainer.appendChild(colorGradient);
+    
+    const legendLabels = document.createElement('div');
+    legendLabels.className = 'legend-labels';
+    
+    const lowLabel = document.createElement('span');
+    lowLabel.textContent = 'Low';
+    
+    const highLabel = document.createElement('span');
+    highLabel.textContent = 'High';
+    
+    legendLabels.appendChild(lowLabel);
+    legendLabels.appendChild(highLabel);
+    legendContainer.appendChild(legendLabels);
+    
+    document.body.appendChild(legendContainer);
 }); 
