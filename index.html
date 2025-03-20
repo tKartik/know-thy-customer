@@ -31,6 +31,12 @@
         .hand-image {
             height: 60px;
             margin-bottom: 10px;
+            position: fixed;
+            z-index: 1000;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: transform 0.05s ease-out;
+            display: none;
         }
 
         .title {
@@ -38,6 +44,7 @@
             font-size: 60px;
             line-height: 1;
             color: #fff;
+            margin-top: 70px;
         }
 
         .logo {
@@ -266,8 +273,8 @@
     </style>
 </head>
 <body>
+    <img src="hand.png" alt="Hand" class="hand-image">
     <div class="title-container">
-        <img src="hand.png" alt="Hand" class="hand-image">
         <div class="title">Know Thy<br>Customer</div>
     </div>
     <img src="logo.png" alt="Logo" class="logo">
@@ -279,5 +286,26 @@
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="graph.js"></script>
+    <script>
+        // Cursor follower script
+        document.addEventListener('DOMContentLoaded', function() {
+            const handImage = document.querySelector('.hand-image');
+            
+            // Show hand when mouse moves
+            document.addEventListener('mousemove', function(e) {
+                handImage.style.display = 'block';
+                handImage.style.left = e.clientX + 'px';
+                handImage.style.top = e.clientY + 'px';
+            });
+            
+            // Hide hand when mouse leaves window
+            document.addEventListener('mouseout', function(e) {
+                if (e.clientY <= 0 || e.clientX <= 0 || 
+                    e.clientX >= window.innerWidth || e.clientY >= window.innerHeight) {
+                    handImage.style.display = 'none';
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
