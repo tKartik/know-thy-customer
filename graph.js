@@ -88,14 +88,50 @@ Promise.all([
         return confidenceColors[2];
     }
 
-    // Create force simulation
+    // New function to calculate node color based on answer distribution
+    function calculateNodeColor(surveyData, topicId) {
+        if (!surveyData[topicId] || !surveyData[topicId].Questions) return "#C4ECD8";
+        
+        // Get the first question (most surveys have only one)
+        const questionKey = Object.keys(surveyData[topicId].Questions)[0];
+        if (!questionKey) return "#C4ECD8";
+        
+        const options = surveyData[topicId].Questions[questionKey];
+        if (!options || !options.length) return "#C4ECD8";
+        
+        // Sort options by percentage in descending order
+        const sortedOptions = [...options].sort((a, b) => b.Percentage - a.Percentage);
+        
+        // Get highest percentage
+        const topPercentage = sortedOptions[0].Percentage;
+        
+        // Create a blend between saturated lime green (#5CFF5C) and white (#FFFFFF)
+        // based on the top answer's percentage
+        const limeGreen = {r: 92, g: 255, b: 92}; // #5CFF5C - Lime green
+        const white = {r: 255, g: 255, b: 255}; // #FFFFFF - White
+        
+        // Linear interpolation between white and lime green based on top percentage
+        const red = Math.round(white.r - (white.r - limeGreen.r) * topPercentage);
+        const green = Math.round(white.g - (white.g - limeGreen.g) * topPercentage);
+        const blue = Math.round(white.b - (white.b - limeGreen.b) * topPercentage);
+        
+        return `rgb(${red}, ${green}, ${blue})`;
+    }
+
+    // Create force simulation - MODIFIED FORCES TO KEEP CLUSTERS CLOSER TO CENTER
     const simulation = d3.forceSimulation(graphData.nodes)
         .force("link", d3.forceLink(graphData.links)
             .id(d => d.id)
-            .strength(d => d.strength * 0.1))
-        .force("charge", d3.forceManyBody().strength(-100))
-        .force("center", d3.forceCenter(width / 2, height / 2))
-        .force("collision", d3.forceCollide().radius(d => sizeScale(surveyData[d.id]?.["Sample Size"] || 0) + 2));
+            .strength(d => d.strength * 0.08)) // Reduced from 0.1 to 0.08
+        .force("charge", d3.forceManyBody()
+            .strength(-200)) // Reduced repulsive force from -100 to -80
+        .force("center", d3.forceCenter(width / 2, height / 2)
+            .strength(0.12)) // Increased center attraction force (default is 0.1)
+        .force("collision", d3.forceCollide()
+            .radius(d => sizeScale(surveyData[d.id]?.["Sample Size"] || 0) + 2)
+            .strength(1)) // Increased collision strength to prevent overlap
+        .force("x", d3.forceX(width / 2).strength(0.08)) // Added X-force to keep nodes centered horizontally
+        .force("y", d3.forceY(height / 2).strength(0.08)); // Added Y-force to keep nodes centered vertically
 
     // Simple community detection using link strengths
     // Create an adjacency map
@@ -252,12 +288,12 @@ Promise.all([
         .attr("class", "node")
         .attr("r", d => sizeScale(surveyData[d.id]?.["Sample Size"] || 0))
         .style("fill", d => {
-            const confidence = calculateConfidence(surveyData, d.id);
-            return getConfidenceColor(confidence);
+            // Use new color calculation function instead of confidence-based color
+            return calculateNodeColor(surveyData, d.id);
         })
         .style("color", d => {
-            const confidence = calculateConfidence(surveyData, d.id);
-            return getConfidenceColor(confidence);
+            // Use same color for glow/shadow effect
+            return calculateNodeColor(surveyData, d.id);
         });
         
     // Create a mapping of nodes to create tooltips in the top layer
@@ -388,12 +424,23 @@ Promise.all([
         // Add the visualization container to the popup content
         popupContent.appendChild(vizContainer);
         
+        // Find the highest percentage answer
+        const sortedOptions = [...options].sort((a, b) => b.Percentage - a.Percentage);
+        const highestOptionIndex = options.findIndex(opt => opt.Option === sortedOptions[0].Option);
+        
         // Add options with letters and visualization
         options.forEach((option, index) => {
             const letter = String.fromCharCode(97 + index); // 97 is ASCII for 'a'
             
             const optionDiv = document.createElement("div");
             optionDiv.className = "option";
+            
+            // Update the left border color based on whether this is the highest answer
+            if (index === highestOptionIndex) {
+                optionDiv.style.borderLeftColor = "#5CFF5C"; // Saturated lime green for highest answer
+            } else {
+                optionDiv.style.borderLeftColor = "#FFFFFF"; // White for other answers
+            }
             
             const optionText = document.createElement("div");
             optionText.className = "option-text";
@@ -486,7 +533,7 @@ Promise.all([
                     .domain([0, d3.max(options, d => d.Percentage) * 1.1]) // 10% padding at top
                     .range([height, 0]);
                 
-                // Add bars
+                // Add bars with NEW COLOR LOGIC - saturated lime green for highest, white for others
                 g.selectAll(".bar")
                     .data(options)
                     .enter().append("rect")
@@ -496,12 +543,17 @@ Promise.all([
                     .attr("width", x.bandwidth())
                     .attr("height", d => height - y(d.Percentage))
                     .attr("fill", (d, i) => {
-                        // Use a more visually appealing color scheme
-                        const colors = ["#45B7D1", "#F2BD4A", "#92CF4F", "#F25757", "#8067DC"];
-                        return colors[i % colors.length];
+                        // Check if this is the highest confidence answer
+                        if (i === highestOptionIndex) {
+                            // Use saturated lime green for highest answer
+                            return "#5CFF5C";
+                        } else {
+                            // Use white with some transparency for other answers
+                            return "rgba(255, 255, 255, 0.8)";
+                        }
                     })
-                    .attr("rx", 2) // Slightly rounded corners
-                    .attr("ry", 2);
+                    .attr("rx", 4) // Rounded corners
+                    .attr("ry", 4);
                 
                 // Add labels at top of bars
                 g.selectAll(".label")
@@ -808,6 +860,16 @@ Promise.all([
       
       .link.dimmed {
         opacity: 0.05 !important; /* Even less visible links */
+      }
+      
+      /* Remove default glow from nodes */
+      .node {
+        filter: none !important;
+      }
+      
+      /* Add strong yellow glow only for selected nodes */
+      .node.selected {
+        filter: drop-shadow(0 0 12px #F7D115) !important;
       }
       
       /* Ensure tooltips are always on top */
