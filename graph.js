@@ -88,35 +88,101 @@ Promise.all([
         return confidenceColors[2];
     }
 
-    // New function to calculate node color based on answer distribution
-    function calculateNodeColor(surveyData, topicId) {
-        if (!surveyData[topicId] || !surveyData[topicId].Questions) return "#C4ECD8";
+    // New function to calculate node gradient based on answer distribution
+    function createNodeGradient(surveyData, topicId, nodeId) {
+        if (!surveyData[topicId] || !surveyData[topicId].Questions) return `url(#default-gradient-${nodeId})`;
         
         // Get the first question (most surveys have only one)
         const questionKey = Object.keys(surveyData[topicId].Questions)[0];
-        if (!questionKey) return "#C4ECD8";
+        if (!questionKey) return `url(#default-gradient-${nodeId})`;
         
         const options = surveyData[topicId].Questions[questionKey];
-        if (!options || !options.length) return "#C4ECD8";
+        if (!options || !options.length) return `url(#default-gradient-${nodeId})`;
         
         // Sort options by percentage in descending order
         const sortedOptions = [...options].sort((a, b) => b.Percentage - a.Percentage);
         
-        // Get highest percentage
-        const topPercentage = sortedOptions[0].Percentage;
+        // Define the option colors
+        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75"];
         
-        // Create a blend between bright blue (#4DA4DD) and red (#FF5E3B)
-        // for higher contrast
-        const brightBlue = {r: 77, g: 164, b: 221}; // #4DA4DD - Updated blue color
-        const red = {r: 255, g: 94, b: 59}; // #FF5E3B - Updated red color
+        // Create the gradient
+        const gradientId = `gradient-${nodeId}`;
         
-        // Linear interpolation between red and bright blue based on top percentage
-        const r = Math.round(red.r - (red.r - brightBlue.r) * topPercentage);
-        const g = Math.round(red.g - (red.g - brightBlue.g) * topPercentage);
-        const b = Math.round(red.b - (red.b - brightBlue.b) * topPercentage);
+        const svg = d3.select("svg");
+        let defs = svg.select("defs");
+        if (defs.empty()) {
+            defs = svg.append("defs");
+        }
         
-        return `rgb(${r}, ${g}, ${b})`;
+        // Remove existing gradient if any
+        defs.select(`#${gradientId}`).remove();
+        
+        // Create linear gradient element
+        const gradient = defs.append("linearGradient")
+            .attr("id", gradientId)
+            .attr("x1", "0%")
+            .attr("y1", "0%")
+            .attr("x2", "100%")
+            .attr("y2", "100%");
+        
+        // Calculate the gradient stops based on percentages
+        let cumulativePercentage = 0;
+        
+        // Set up smoother transitions between colors
+        sortedOptions.forEach((option, i) => {
+            // Calculate position for this color stop based on cumulative percentage
+            const position = cumulativePercentage * 100;
+            
+            // Get color for this option (loop if we have more options than colors)
+            const colorIndex = i % optionColors.length;
+            const color = optionColors[colorIndex];
+            
+            // Add just one stop at the starting position of each segment
+            // This creates smooth transitions between colors
+            gradient.append("stop")
+                .attr("offset", `${position}%`)
+                .attr("stop-color", color);
+            
+            // Update cumulative percentage for next color
+            cumulativePercentage += option.Percentage;
+        });
+        
+        // Add the final stop to complete the gradient
+        gradient.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", optionColors[sortedOptions.length % optionColors.length - 1] || optionColors[0]);
+        
+        // Return the url reference to the gradient
+        return `url(#${gradientId})`;
     }
+
+    // Create default gradient
+    function createDefaultGradients() {
+        const svg = d3.select("svg");
+        let defs = svg.select("defs");
+        if (defs.empty()) {
+            defs = svg.append("defs");
+        }
+        
+        // Create a default gradient for nodes without data
+        const defaultGradient = defs.append("linearGradient")
+            .attr("id", "default-gradient")
+            .attr("x1", "0%")
+            .attr("y1", "0%")
+            .attr("x2", "100%")
+            .attr("y2", "100%");
+            
+        defaultGradient.append("stop")
+            .attr("offset", "0%")
+            .attr("stop-color", "#5669FF");
+            
+        defaultGradient.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#C73A75");
+    }
+    
+    // Call this function to create the default gradient
+    createDefaultGradients();
 
     // Create force simulation - MODIFIED FORCES TO KEEP CLUSTERS CLOSER TO CENTER
     const simulation = d3.forceSimulation(graphData.nodes)
@@ -287,13 +353,10 @@ Promise.all([
         .append("circle")
         .attr("class", "node")
         .attr("r", d => sizeScale(surveyData[d.id]?.["Sample Size"] || 0))
-        .style("fill", d => {
-            // Use new color calculation function instead of confidence-based color
-            return calculateNodeColor(surveyData, d.id);
-        })
-        .style("color", d => {
-            // Use same color for glow/shadow effect
-            return calculateNodeColor(surveyData, d.id);
+        .each(function(d) {
+            // Create unique gradient for each node
+            const gradientUrl = createNodeGradient(surveyData, d.id, d.id.replace(/[^a-zA-Z0-9]/g, "_"));
+            d3.select(this).style("fill", gradientUrl);
         });
         
     // Create a mapping of nodes to create tooltips in the top layer
@@ -428,6 +491,9 @@ Promise.all([
         const sortedOptions = [...options].sort((a, b) => b.Percentage - a.Percentage);
         const highestOptionIndex = options.findIndex(opt => opt.Option === sortedOptions[0].Option);
         
+        // Define the option colors array
+        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75"];
+        
         // Add options with letters and visualization
         options.forEach((option, index) => {
             const letter = String.fromCharCode(97 + index); // 97 is ASCII for 'a'
@@ -435,12 +501,9 @@ Promise.all([
             const optionDiv = document.createElement("div");
             optionDiv.className = "option";
             
-            // Update the left border color based on whether this is the highest answer
-            if (index === highestOptionIndex) {
-                optionDiv.style.borderLeftColor = "#4DA4DD"; // Updated blue for highest answer
-            } else {
-                optionDiv.style.borderLeftColor = "#FF5E3B"; // Updated red for other answers
-            }
+            // Use color from our palette (loop if necessary)
+            const colorIndex = index % optionColors.length;
+            optionDiv.style.borderLeftColor = optionColors[colorIndex];
             
             const optionText = document.createElement("div");
             optionText.className = "option-text";
@@ -533,7 +596,7 @@ Promise.all([
                     .domain([0, d3.max(options, d => d.Percentage) * 1.1]) // 10% padding at top
                     .range([height, 0]);
                 
-                // Add bars with NEW COLOR LOGIC - saturated lime green for highest, white for others
+                // Add bars with UPDATED COLOR LOGIC
                 g.selectAll(".bar")
                     .data(options)
                     .enter().append("rect")
@@ -543,14 +606,9 @@ Promise.all([
                     .attr("width", x.bandwidth())
                     .attr("height", d => height - y(d.Percentage))
                     .attr("fill", (d, i) => {
-                        // Check if this is the highest confidence answer
-                        if (i === highestOptionIndex) {
-                            // Use bright blue for highest answer
-                            return "#4DA4DD";
-                        } else {
-                            // Use red with some transparency for other answers
-                            return "rgba(255, 94, 59, 0.8)"; // Updated red with transparency
-                        }
+                        // Use color from our palette (loop if necessary)
+                        const colorIndex = i % optionColors.length;
+                        return optionColors[colorIndex];
                     })
                     .attr("rx", 4) // Rounded corners
                     .attr("ry", 4);
@@ -948,7 +1006,7 @@ Promise.all([
             pointer-events: none;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            width: 120px;
+            width: 160px;
         }
         
         .legend-title {
@@ -958,48 +1016,74 @@ Promise.all([
             text-align: center;
         }
         
-        .color-gradient {
-            width: 100%;
-            height: 6px;
-            margin-bottom: 5px;
-            border-radius: 3px;
-            background: linear-gradient(to right, #FF5E3B, #4DA4DD);
+        .color-sample {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+            font-size: 9px;
         }
         
-        .legend-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 10px;
-            opacity: 0.8;
+        .color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .gradient-sample {
+            width: 100%;
+            height: 6px;
+            margin: 8px 0;
+            border-radius: 3px;
+            background: linear-gradient(135deg, #5669FF, #04B488, #FCCE00, #FF5E3B, #C73A75);
+        }
+        
+        .node.selected {
+            stroke: #F7D115;
+            stroke-width: 3px;
         }
     `;
     document.head.appendChild(tooltipStyle);
     
-    // Create and add the color legend to explain the node color logic
+    // Create and add the color legend
     const legendContainer = document.createElement('div');
     legendContainer.className = 'color-legend';
     
     const legendTitle = document.createElement('div');
     legendTitle.className = 'legend-title';
-    legendTitle.textContent = 'Answer Confidence';
+    legendTitle.textContent = 'Answer Colors';
     legendContainer.appendChild(legendTitle);
     
-    const colorGradient = document.createElement('div');
-    colorGradient.className = 'color-gradient';
-    legendContainer.appendChild(colorGradient);
+    // Add the gradient sample
+    const gradientSample = document.createElement('div');
+    gradientSample.className = 'gradient-sample';
+    legendContainer.appendChild(gradientSample);
     
-    const legendLabels = document.createElement('div');
-    legendLabels.className = 'legend-labels';
+    // Define the colors
+    const colorLabels = [
+        { color: "#5669FF", label: "Option A" },
+        { color: "#04B488", label: "Option B" },
+        { color: "#FCCE00", label: "Option C" },
+        { color: "#FF5E3B", label: "Option D" },
+        { color: "#C73A75", label: "Option E" }
+    ];
     
-    const lowLabel = document.createElement('span');
-    lowLabel.textContent = 'Low';
-    
-    const highLabel = document.createElement('span');
-    highLabel.textContent = 'High';
-    
-    legendLabels.appendChild(lowLabel);
-    legendLabels.appendChild(highLabel);
-    legendContainer.appendChild(legendLabels);
+    // Add color samples
+    colorLabels.forEach(item => {
+        const colorSample = document.createElement('div');
+        colorSample.className = 'color-sample';
+        
+        const colorDot = document.createElement('div');
+        colorDot.className = 'color-dot';
+        colorDot.style.backgroundColor = item.color;
+        
+        const label = document.createElement('span');
+        label.textContent = item.label;
+        
+        colorSample.appendChild(colorDot);
+        colorSample.appendChild(label);
+        legendContainer.appendChild(colorSample);
+    });
     
     document.body.appendChild(legendContainer);
 }); 
