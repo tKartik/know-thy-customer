@@ -1,7 +1,7 @@
 // Load both data files
 Promise.all([
-    d3.json('semantic_graph.json'),
-    d3.json('clean_survey_data.json')
+    d3.json('src/data/semantic_graph.json'),
+    d3.json('src/data/clean_survey_data.json')
 ]).then(([graphData, surveyData]) => {
     const width = window.innerWidth;
     const height = window.innerHeight;
