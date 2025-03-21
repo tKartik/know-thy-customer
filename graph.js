@@ -26,15 +26,6 @@ Promise.all([
         .on("zoom", (event) => {
             g.attr("transform", event.transform);
             tooltipLayer.attr("transform", event.transform);
-            
-            const scale = event.transform.k;
-            const labelVisibility = scale < 0.2 ? 'none' : 'visible';
-            
-            g.selectAll(".cluster-label")
-                .style("display", labelVisibility)
-                .style("font-size", `${Math.min(20, Math.max(12, 16/scale))}px`)
-                .style("opacity", scale < 0.5 ? (scale * 2) : 1)
-                .style("font-weight", scale < 0.7 ? "bold" : "900");
         });
 
     svg.call(zoom);
@@ -63,7 +54,7 @@ Promise.all([
         const sortedOptions = [...options].sort((a, b) => b.Percentage - a.Percentage);
         
         // Define the option colors
-        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75", "#9D66FF", "#00CCCC"];
+        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75"];
         
         // Create the gradient
         const gradientId = `gradient-${nodeId.replace(/[^a-zA-Z0-9]/g, '_')}`;
@@ -133,12 +124,16 @@ Promise.all([
             .attr("stop-color", "#5669FF");
             
         defaultGradient.append("stop")
-            .attr("offset", "33%")
+            .attr("offset", "25%")
             .attr("stop-color", "#04B488");
             
         defaultGradient.append("stop")
-            .attr("offset", "66%")
+            .attr("offset", "50%")
             .attr("stop-color", "#FCCE00");
+            
+        defaultGradient.append("stop")
+            .attr("offset", "75%")
+            .attr("stop-color", "#FF5E3B");
             
         defaultGradient.append("stop")
             .attr("offset", "100%")
@@ -229,227 +224,9 @@ Promise.all([
     
     // IMPROVED: Assign cluster names based on common themes 
     // with better filtering to exclude common question words
-    const clusterLabels = [];
     communities.forEach((community, index) => {
-        // Remove the filtering for small communities to ensure all get labels
-        // if (community.length < 2) return; // Skip small communities
-        
-        // Extract question topics from survey data
-        const topicWords = {};
-        community.forEach(nodeId => {
-            const nodeData = surveyData[nodeId];
-            if (!nodeData || !nodeData.Questions) return;
-            
-            // Get question text
-            const questions = Object.keys(nodeData.Questions);
-            questions.forEach(question => {
-                // Extract key financial terms
-                const keyTerms = [
-                    "investment", "bank", "financial", "loan", "credit", 
-                    "money", "mortgage", "savings", "income", "expense",
-                    "housing", "property", "payment", "stock", "fund", 
-                    "insurance", "budget", "finance", "debt", "purchase",
-                    "retirement", "tax", "investing", "wealth", "pension",
-                    "asset", "portfolio", "equity", "cash", "interest",
-                    "market", "account", "business", "employer", "saving",
-                    "risk", "capital", "value", "advisor", "management",
-                    "strategy", "planning", "benefit", "contribution", "security"
-                ];
-                
-                // Find matching terms in question
-                keyTerms.forEach(term => {
-                    if (question.toLowerCase().includes(term)) {
-                        topicWords[term] = (topicWords[term] || 0) + 1;
-                    }
-                });
-                
-                // If no key terms found, extract significant words from node ID
-                if (Object.keys(topicWords).length === 0) {
-                    // First remove the "Which" and other common question words
-                    const commonWords = ["which", "what", "how", "when", "where", "who", "why", "do", "does", "is", "are", "was", "were", "will", "would", "should", "could", "can", "may", "might", "must", "have", "has", "had", "been", "being", "be", "am", "the", "a", "an", "and", "or", "but", "if", "of", "at", "by", "for", "with", "about", "against", "between", "into", "through", "during", "before", "after", "above", "below", "to", "from", "up", "down", "in", "out", "on", "off", "over", "under", "again", "further", "then", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", "each", "few", "more", "most", "other", "some", "such", "no", "nor", "not", "only", "own", "same", "so", "than", "too", "very", "you", "your", "yours", "yourself", "yourselves"];
-                    
-                    // Clean the node ID and extract meaningful words
-                    const cleanedId = nodeId.replace(/[^a-zA-Z\s]/g, ' ').toLowerCase();
-                    const nodeWords = cleanedId.split(/\s+/).filter(word => 
-                        word.length > 3 && !commonWords.includes(word.toLowerCase())
-                    );
-                    
-                    // Count significant words
-                    nodeWords.forEach(word => {
-                        // Skip common words
-                        if (commonWords.includes(word.toLowerCase())) return;
-                        
-                        topicWords[word.toLowerCase()] = (topicWords[word.toLowerCase()] || 0) + 1;
-                    });
-                }
-            });
-        });
-        
-        // Get most common topic words
-        const commonTopics = Object.entries(topicWords)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 2)
-            .map(entry => entry[0]);
-        
-        // Create label prioritizing financial terms
-        let label = '';
-        if (commonTopics.length > 0) {
-            label = commonTopics[0].charAt(0).toUpperCase() + commonTopics[0].slice(1);
-            if (commonTopics.length > 1 && label.length + commonTopics[1].length < 12) {
-                label += ' ' + commonTopics[1];
-            }
-        } else if (community.length > 0) {
-            // Fallback: Try to extract a meaningful word from the first node
-            const firstNodeText = community[0];
-            const commonWords = ["which", "what", "how", "when", "where", "who", "why", "do", "does"];
-            
-            // Split by common word separators and filter out short words
-            const words = firstNodeText.split(/[\s\/\-&]+/).filter(w => w.length > 3);
-            
-            // Filter out common question words
-            const filteredWords = words.filter(word => 
-                !commonWords.includes(word.toLowerCase())
-            );
-            
-            if (filteredWords.length > 0) {
-                // Try to find a capitalized word first as it might be a noun
-                const capitalizedWord = filteredWords.find(w => w.match(/^[A-Z]/));
-                label = capitalizedWord || filteredWords[0];
-            } else {
-                // If no meaningful word found, use an intelligent label based on the node id
-                // Extract potential topics from the node text more aggressively
-                const potentialTopics = firstNodeText.split(/[\s\/\-&]+/)
-                    .filter(w => w.length > 2 && !commonWords.includes(w.toLowerCase()));
-                
-                if (potentialTopics.length > 0) {
-                    label = potentialTopics[0].charAt(0).toUpperCase() + potentialTopics[0].slice(1);
-                } else {
-                    // Last resort: Use generic group label
-                    label = "Group " + (index + 1);
-                }
-            }
-        } else {
-            // Truly empty community (shouldn't happen)
-            label = "Group " + (index + 1);
-        }
-        
-        // Check for specific financial themes in any node of the community
-        // Use a more comprehensive theme map
-        const themeMap = {
-            // Basic financial themes
-            "sav": "Savings",
-            "budget": "Budget",
-            "retire": "Retirement",
-            "insur": "Insurance",
-            "mortgage": "Mortgage",
-            "housing": "Housing",
-            "loan": "Loans",
-            "debt": "Debt",
-            "credit": "Credit",
-            "tax": "Taxes",
-            "income": "Income",
-            "expense": "Expenses",
-            "bank": "Banking",
-            
-            // Investment themes
-            "invest": "Investment",
-            "stock": "Stocks",
-            "bond": "Bonds",
-            "fund": "Funds",
-            "etf": "ETFs",
-            "portfolio": "Portfolio",
-            "market": "Markets",
-            "asset": "Assets",
-            "risk": "Risk",
-            "return": "Returns",
-            "dividend": "Dividends",
-            "equity": "Equity",
-            
-            // Retirement themes
-            "401k": "Retirement",
-            "ira": "Retirement",
-            "pension": "Pension",
-            
-            // Planning themes
-            "plan": "Planning",
-            "goal": "Goals",
-            "future": "Planning",
-            "advisor": "Advisory",
-            "consult": "Advisory",
-            
-            // Life events
-            "child": "Family",
-            "college": "Education",
-            "education": "Education",
-            "school": "Education",
-            "university": "Education",
-            "home": "Housing",
-            "house": "Housing",
-            "property": "Property",
-            "health": "Healthcare",
-            "medical": "Healthcare",
-            "insurance": "Insurance",
-            
-            // Business
-            "business": "Business",
-            "company": "Business",
-            "corporate": "Corporate",
-            "employer": "Employment",
-            "work": "Employment",
-            "career": "Career"
-        };
-        
-        let themeFound = false;
-        
-        // Check for any theme match in any node of the community
-        for (const [keyword, theme] of Object.entries(themeMap)) {
-            // First check exact whole word match in any node
-            const hasThemeNode = community.some(nodeId => {
-                const words = nodeId.toLowerCase().split(/[\s\/\-&]+/);
-                return words.some(word => word === keyword);
-            });
-            
-            if (hasThemeNode) {
-                label = theme;
-                themeFound = true;
-                break;
-            }
-        }
-        
-        // If no exact word match, try substring match
-        if (!themeFound) {
-            for (const [keyword, theme] of Object.entries(themeMap)) {
-                const hasThemeNode = community.some(nodeId => 
-                    nodeId.toLowerCase().includes(keyword)
-                );
-                
-                if (hasThemeNode) {
-                    label = theme;
-                    break;
-                }
-            }
-        }
-        
-        // For investment-focused clusters, ensure "Investment" is in the label
-        const hasInvestmentNode = community.some(nodeId => 
-            nodeId.toLowerCase().includes("invest") || 
-            (surveyData[nodeId]?.Questions && 
-             Object.keys(surveyData[nodeId].Questions).some(q => q.toLowerCase().includes("invest")))
-        );
-        
-        if (hasInvestmentNode && !label.toLowerCase().includes("invest")) {
-            label = "Investment";
-        }
-        
-        // Store cluster info - for small clusters, adjust the font size threshold
-        clusterLabels.push({
-            id: 'cluster-' + index,
-            nodes: community,
-            label: label,
-            x: 0,
-            y: 0,
-            size: community.length // Store size for potential font adjustments
-        });
+        // The community detection algorithm still runs to organize the graph visually
+        // But we no longer need to create or store cluster labels
     });
     
     // Let the DOM render the initial centered nodes first
@@ -728,7 +505,7 @@ Promise.all([
         optionsContainer.className = "options-container";
         
         // Add options
-        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75", "#9D66FF", "#00CCCC"];
+        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75"];
         responsesData.forEach((option, index) => {
             const letter = String.fromCharCode(97 + index);
             
@@ -967,119 +744,6 @@ Promise.all([
                 }
             });
         }
-        
-        // Calculate cluster centers
-        clusterLabels.forEach(cluster => {
-            let centerX = 0;
-            let centerY = 0;
-            let nodeCount = 0;
-            
-            cluster.nodes.forEach(nodeId => {
-                const node = graphData.nodes.find(n => n.id === nodeId);
-                if (node && typeof node.x === 'number' && typeof node.y === 'number') {
-                    centerX += node.x;
-                    centerY += node.y;
-                    nodeCount++;
-                }
-            });
-            
-            if (nodeCount > 0) {
-                cluster.x = centerX / nodeCount;
-                cluster.y = centerY / nodeCount;
-            }
-        });
-        
-        // Simple label overlap prevention
-        const labelPadding = 40; // Min distance between labels
-        let iterations = 5;
-        
-        while (iterations > 0) {
-            let moved = false;
-            
-            for (let i = 0; i < clusterLabels.length; i++) {
-                for (let j = i + 1; j < clusterLabels.length; j++) {
-                    const labelA = clusterLabels[i];
-                    const labelB = clusterLabels[j];
-                    
-                    const dx = labelB.x - labelA.x;
-                    const dy = labelB.y - labelA.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < labelPadding) {
-                        // Move labels away from each other
-                        const moveX = (dx / distance) * (labelPadding - distance) * 0.5;
-                        const moveY = (dy / distance) * (labelPadding - distance) * 0.5;
-                        
-                        labelA.x -= moveX;
-                        labelA.y -= moveY;
-                        labelB.x += moveX;
-                        labelB.y += moveY;
-                        moved = true;
-                    }
-                }
-            }
-            
-            if (!moved) break;
-            iterations--;
-        }
-        
-        // Update label group positions
-        g.selectAll(".cluster-label-group")
-            .data(clusterLabels)
-            .join("g")
-            .attr("class", "cluster-label-group")
-            .attr("transform", d => `translate(${d.x},${d.y})`);
-            
-        // Ensure label groups have rect and text
-        const labelGroups = g.selectAll(".cluster-label-group");
-        
-        // Add text if not exists (removed background rect)
-        labelGroups.each(function(d) {
-            const group = d3.select(this);
-            
-            if (group.select("text").empty()) {
-                group.append("text")
-                    .attr("class", "cluster-label")
-                    .attr("text-anchor", "middle")
-                    .attr("dominant-baseline", "middle") // SVG vertical alignment
-                    .attr("dy", "0.3em")
-                    .attr("font-size", "16px")
-                    .attr("font-weight", "bold")
-                    .attr("fill", "#FFFFFF")
-                    .attr("opacity", 0.9)
-                    .attr("pointer-events", "none")
-                    .style("text-shadow", "0 0 8px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.8)") // Enhanced text shadow
-                    .text(d => d.label.toUpperCase());
-            }
-        });
-    });
-
-    // Create cluster label groups initially
-    const clusterLabelGroups = g.selectAll(".cluster-label-group")
-        .data(clusterLabels)
-        .join("g")
-        .attr("class", "cluster-label-group");
-    
-    // Only add text labels without backgrounds
-    clusterLabelGroups.append("text")
-        .attr("class", "cluster-label")
-        .attr("text-anchor", "middle")
-        .attr("dominant-baseline", "middle") // SVG-specific vertical alignment
-        .attr("dy", "0.3em")
-        .attr("font-size", "16px")
-        .attr("font-weight", "bold")
-        .attr("fill", "#FFFFFF")
-        .attr("opacity", 1) // Full opacity for better contrast
-        .attr("pointer-events", "none")
-        .style("text-shadow", "0 0 8px rgba(0, 0, 0, 0.9), 0 0 15px rgba(0, 0, 0, 0.8)") // Enhanced text shadow for better visibility
-        .text(d => d.label.toUpperCase());
-    
-    // Update label background sizes just once after simulation
-    simulation.on("end", () => {
-        // Final positioning adjustments for tooltips
-        nodeTooltipGroups.each(function(d) {
-            // No background adjustments needed anymore
-        });
     });
 
     // Define the drag behavior
@@ -1105,13 +769,6 @@ Promise.all([
             .on("start", dragstarted)
             .on("drag", dragged)
             .on("end", dragended);
-    }
-
-    // Alternative approach using string splitting for exact word matching
-    function containsExactWord(text, word) {
-        if (!text || !word) return false;
-        const words = text.toLowerCase().split(/\s+/);
-        return words.includes(word.toLowerCase());
     }
 
     // Fix the search functionality to ensure only exact matches are highlighted
@@ -1244,27 +901,9 @@ Promise.all([
     `;
     document.head.appendChild(style);
 
-    // Update CSS styles for cluster labels
-    const labelStyle = document.createElement('style');
-    labelStyle.textContent = `
-        .cluster-label {
-            font-family: 'Inter', sans-serif;
-            text-anchor: middle;
-            dominant-baseline: middle;
-            user-select: none;
-            letter-spacing: 0.5px;
-        }
-        
-        .cluster-label-bg {
-            pointer-events: none;
-        }
-        
-        @media (max-width: 768px) {
-            .cluster-label {
-                font-size: 14px !important;
-            }
-        }
-        
+    // Update CSS styles for popup only
+    const popupStyle = document.createElement('style');
+    popupStyle.textContent = `
         /* Fix for popup visibility */
         .popup {
             display: none;
@@ -1288,7 +927,7 @@ Promise.all([
             display: block !important;
         }
     `;
-    document.head.appendChild(labelStyle);
+    document.head.appendChild(popupStyle);
 
     // Make sure tooltip layer is the last child of the SVG (ensures it's rendered last/on top)
     // Remove and reinsert at the end
@@ -1332,7 +971,7 @@ Promise.all([
         .legend-title {
             font-size: 12px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             text-align: left; /* Align to left instead of center */
         }
         
@@ -1340,7 +979,7 @@ Promise.all([
             display: flex;
             flex-wrap: wrap;
             gap: 5px;
-            margin-top: 8px;
+            margin-top: 0;
         }
         
         .color-sample {
@@ -1364,7 +1003,7 @@ Promise.all([
             height: 8px;
             margin: 8px 0;
             border-radius: 4px;
-            background: linear-gradient(to bottom right, #5669FF, #04B488, #FCCE00, #FF5E3B, #C73A75, #9D66FF, #00CCCC);
+            background: linear-gradient(to bottom right, #5669FF, #04B488, #FCCE00, #FF5E3B, #C73A75);
         }
         
         .node.selected {
@@ -1383,11 +1022,6 @@ Promise.all([
     legendTitle.textContent = 'Answer Colors';
     legendContainer.appendChild(legendTitle);
     
-    // Add the gradient bar
-    const gradientSample = document.createElement('div');
-    gradientSample.className = 'gradient-sample';
-    legendContainer.appendChild(gradientSample);
-    
     // Create a container for the color samples with flex layout
     const colorSamplesContainer = document.createElement('div');
     colorSamplesContainer.className = 'color-samples-container';
@@ -1399,9 +1033,7 @@ Promise.all([
         { color: "#04B488", label: "Option B" },
         { color: "#FCCE00", label: "Option C" },
         { color: "#FF5E3B", label: "Option D" },
-        { color: "#C73A75", label: "Option E" },
-        { color: "#9D66FF", label: "Option F" },
-        { color: "#00CCCC", label: "Option G" }
+        { color: "#C73A75", label: "Option E" }
     ];
     
     // Add color samples to the flex container

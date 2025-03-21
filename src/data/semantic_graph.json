@@ -37,7 +37,7 @@
         },
         {
             "id": "Are you paying any of the following right now?",
-            "options": "Home loan EMI | Rent | Home loan EMI + rent",
+            "options": "Unlabeled Response | Home loan EMI | Rent | Home loan EMI + rent",
             "topic": "Home loan/rent",
             "size": 1346,
             "survey_name": "Newsletter Poll - Feb 11, 2024"
@@ -51,7 +51,7 @@
         },
         {
             "id": "Which is better?",
-            "options": "FD from big bank | FD from small bank/cooperative bank | Market falls 1% on Mon; climbs 1% on Tue | It's the same | Market falls 10% on Mon; climbs 10% on Tue | Debit card | Credit card | Living in own home paying EMI | Living in rented house",
+            "options": "FD from big bank | FD from small bank/cooperative bank",
             "topic": "Bank Preference for FD",
             "size": 1191,
             "survey_name": "Newsletter Poll - Feb 25, 2024"
@@ -114,7 +114,7 @@
         },
         {
             "id": "Which do you prefer?",
-            "options": "Invest more in equity (shares, MF) and less in safer investments (FD, bonds, etc) | Invest more in safer investments (FD, bonds, etc) and less in equity (shares, MF) | All investment decisions made by you | Mix of both | All investment decisions made by someone else (family, advisor, etc) | Banking online (using app or website) | Banking at the branch location",
+            "options": "Invest more in equity (shares, MF) and less in safer investments (FD, bonds, etc) | Invest more in safer investments (FD, bonds, etc) and less in equity (shares, MF)",
             "topic": "Investment Preferences",
             "size": 962,
             "survey_name": "Newsletter Poll - Apr 28, 2024"
@@ -155,6 +155,13 @@
             "survey_name": "Newsletter Poll - June 2, 2024"
         },
         {
+            "id": "Which is better? ",
+            "options": "Market falls 1% on Mon; climbs 1% on Tue | It's the same | Market falls 10% on Mon; climbs 10% on Tue",
+            "topic": "Market Volatility",
+            "size": 2272,
+            "survey_name": "Newsletter Poll - June 9, 2024"
+        },
+        {
             "id": "Which is better for loans?",
             "options": "Govt bank | Private bank | It's the same",
             "topic": "Loan by private vs Govt bank",
@@ -177,7 +184,7 @@
         },
         {
             "id": "Have you travelled outside India?",
-            "options": "Yes | No | Never | More than 2 times | Less than 2 times",
+            "options": "Yes | No",
             "topic": "travel aborad?",
             "size": 1494,
             "survey_name": "Newsletter Poll - July 14, 2024"
@@ -197,8 +204,15 @@
             "survey_name": "Newsletter Poll - Aug 4, 2024"
         },
         {
+            "id": "Have you travelled outside India? ",
+            "options": "Never | More than 2 times | Less than 2 times",
+            "topic": "Travel abroad?",
+            "size": 1687,
+            "survey_name": "Newsletter Poll - Aug 11, 2024"
+        },
+        {
             "id": "When was the last time you visited a bank branch?",
-            "options": "More than 6 months ago | In last 7 days | In last 1 month | In last 6 months | In the last 10 days | More than 1 year | 31 days to 90 days | 91 days to 1 year | 11 days to 30 days",
+            "options": "More than 6 months ago | In last 7 days | In last 1 month | In last 6 months",
             "topic": "Last bank visit?",
             "size": 1666,
             "survey_name": "Newsletter Poll - Aug 18, 2024"
@@ -309,6 +323,13 @@
             "survey_name": "Newsletter Poll - Dec 1, 2024"
         },
         {
+            "id": "Which do you prefer? ",
+            "options": "All investment decisions made by you | Mix of both | All investment decisions made by someone else (family, advisor, etc)",
+            "topic": "Invest on your own or with advice?",
+            "size": 855,
+            "survey_name": "Newsletter Poll - Dec 8, 2024"
+        },
+        {
             "id": "Which is more important according to you?",
             "options": "Nifty 50 | Both are the same | Sensex 30",
             "topic": "Nifty or Senses",
@@ -359,10 +380,17 @@
         },
         {
             "id": "Have you used NEFT/IMPS/RTGS in the past 30 days?",
-            "options": "Yes | No | Yes | No",
+            "options": "Yes | No",
             "topic": "Digital Payments Usage",
             "size": 2209,
             "survey_name": "Newsletter Poll - Jan 29, 2023"
+        },
+        {
+            "id": "Have you used NEFT/IMPS/RTGS in the past 30 days? ",
+            "options": "Yes | No",
+            "topic": "Digital Payments Usage",
+            "size": 1796,
+            "survey_name": "Newsletter Poll - Feb 5, 2023"
         },
         {
             "id": "Which do you think takes less time?",
@@ -415,7 +443,7 @@
         },
         {
             "id": "Which UPI app do you use the most?",
-            "options": "G-Pay | PhonePe | PayTM | Others | Google Pay | PhonePe | Paytm | Others",
+            "options": "G-Pay | PhonePe | PayTM | Others",
             "topic": "UPI App Usage",
             "size": 2431,
             "survey_name": "Newsletter Poll - Apr 9, 2023"
@@ -457,10 +485,17 @@
         },
         {
             "id": "Which do you prefer more?",
-            "options": "Debit card | Credit card | Private bank | Government bank | Doesn't matter",
+            "options": "Debit card | Credit card",
             "topic": "Payment Preference",
             "size": 2166,
             "survey_name": "Newsletter Poll - May 28, 2023"
+        },
+        {
+            "id": "Which do you prefer more? ",
+            "options": "Private bank | Government bank | Doesn't matter",
+            "topic": "Banking Preference",
+            "size": 1020,
+            "survey_name": "Newsletter Poll - June 4, 2023"
         },
         {
             "id": "Where do you want to retire?",
@@ -540,6 +575,13 @@
             "survey_name": "Newsletter Poll - Aug 27, 2023"
         },
         {
+            "id": "Which UPI app do you use the most? ",
+            "options": "Google Pay | PhonePe | Paytm | Others",
+            "topic": "UPI Payment Preference",
+            "size": 1809,
+            "survey_name": "Newsletter Poll - Sept 3, 2023"
+        },
+        {
             "id": "Do you plan on buying real estate in the next 5 years?",
             "options": "Yes | No",
             "topic": "Real Estate Plans",
@@ -603,11 +645,32 @@
             "survey_name": "Newsletter Poll - Nov 5, 2023"
         },
         {
+            "id": "Which is better?  ",
+            "options": "Debit card | Credit card",
+            "topic": "Payment Preference",
+            "size": 1449,
+            "survey_name": "Newsletter Poll - Nov 12, 2023"
+        },
+        {
+            "id": "When was the last time you visited a bank branch? ",
+            "options": "In the last 10 days | More than 1 year | 31 days to 90 days | 91 days to 1 year | 11 days to 30 days",
+            "topic": "Bank Visits",
+            "size": 831,
+            "survey_name": "Newsletter Poll - Nov 19, 2023"
+        },
+        {
             "id": "Which would you prefer?",
             "options": "Large house in rural area | Small house in urban area",
             "topic": "Housing Preference",
             "size": 1875,
             "survey_name": "Newsletter Poll - Nov 26, 2023"
+        },
+        {
+            "id": "Which do you prefer?  ",
+            "options": "Banking online (using app or website) | Banking at the branch location",
+            "topic": "Banking Preference",
+            "size": 1325,
+            "survey_name": "Newsletter Poll - Dec 3, 2023"
         },
         {
             "id": "Do you use a laptop/computer every day?",
@@ -624,11 +687,375 @@
             "survey_name": "Newsletter Poll - Dec 17, 2023"
         },
         {
+            "id": "Which is better?   ",
+            "options": "Living in own home paying EMI | Living in rented house",
+            "topic": "Home Ownership vs Renting",
+            "size": 1610,
+            "survey_name": "Newsletter Poll - Dec 25, 2023"
+        },
+        {
             "id": "Have you ever taken a loan to buy an electronic device?",
             "options": "No | Yes",
             "topic": "Loan for Electronics",
             "size": 1511,
             "survey_name": "Newsletter Poll - Dec 31, 2023"
+        },
+        {
+            "id": "Which do you use more often?",
+            "options": "UPI apps | Credit/debit cards",
+            "topic": "Payment Methods",
+            "size": 1198,
+            "survey_name": "Newsletter Poll - Jan 2, 2022"
+        },
+        {
+            "id": "Which do you use more often? ",
+            "options": "UPI apps | Credit/debit cards",
+            "topic": "Payment Methods",
+            "size": 1198,
+            "survey_name": "Newsletter Poll - Jan 2, 2022"
+        },
+        {
+            "id": "How much of your annual income do you spend on vacations?",
+            "options": "Less than 5% | 6-10% | 11-20% | More than 31% | 21-30%",
+            "topic": "Vacation Spending",
+            "size": 1495,
+            "survey_name": "Newsletter Poll - Jan 9, 2022"
+        },
+        {
+            "id": "Do you pay attention to what is presented in the Union Budget every year?",
+            "options": "Yes | No",
+            "topic": "Budget Awareness",
+            "size": 1528,
+            "survey_name": "Newsletter Poll - Jan 16, 2022"
+        },
+        {
+            "id": "Which of these deserves the greatest amount of investment?",
+            "options": "Equity (share markets) | Real estate | Gold | FD",
+            "topic": "Investment Preferences",
+            "size": 1741,
+            "survey_name": "Newsletter Poll - Jan 23, 2022"
+        },
+        {
+            "id": "Have you subscribed to a health insurance policy?",
+            "options": "Yes | No",
+            "topic": "Health Insurance",
+            "size": 1028,
+            "survey_name": "Newsletter Poll - Jan 30, 2022"
+        },
+        {
+            "id": "What is more important?",
+            "options": "Getting rich slower but more guarantee of future wealth | Getting rich faster but low guarantee of future wealth",
+            "topic": "Wealth Building",
+            "size": 440,
+            "survey_name": "Newsletter Poll - Feb 6, 2022"
+        },
+        {
+            "id": "Which one of these is your most preferred way of spending?",
+            "options": "Debit card | Credit card",
+            "topic": "Spending Preferences",
+            "size": 1005,
+            "survey_name": "Newsletter Poll - Feb 13, 2022"
+        },
+        {
+            "id": "Do you expect more economic disturbance in this pandemic?",
+            "options": "Yes | No | Can't say",
+            "topic": "Economic Outlook",
+            "size": 996,
+            "survey_name": "Newsletter Poll - Feb 20, 2022"
+        },
+        {
+            "id": "How long have you been investing in mutual funds or stocks?",
+            "options": "2 years to 5 years | 1 year to 2 years | Less than 3 months | More than 10 years | 6 months to 1 year | 3 to 6 months | 5 years to 10 years",
+            "topic": "Investment Experience",
+            "size": 1143,
+            "survey_name": "Newsletter Poll - Feb 27, 2022"
+        },
+        {
+            "id": "The price of which affects your daily life more?",
+            "options": "Crude oil | Gold",
+            "topic": "Impact of Price Changes",
+            "size": 1067,
+            "survey_name": "Newsletter Poll - Mar 6, 2022"
+        },
+        {
+            "id": "Do you think trading should continue on weekends as well?",
+            "options": "Yes | No",
+            "topic": "Stock Market Operations",
+            "size": 577,
+            "survey_name": "Newsletter Poll - Mar 13, 2022"
+        },
+        {
+            "id": "Which affects your daily life more?",
+            "options": "Petrol price | Diesel price | Electricity price | LPG price",
+            "topic": "Cost of Living",
+            "size": 1567,
+            "survey_name": "Newsletter Poll - Mar 20, 2022"
+        },
+        {
+            "id": "Which country was India's biggest trading partner in 2021?",
+            "options": "USA | China",
+            "topic": "Trade Relations",
+            "size": 1006,
+            "survey_name": "Newsletter Poll - Mar 27, 2022"
+        },
+        {
+            "id": "How often do you buy goods from e-commerce websites?",
+            "options": "Every month | Every day | Every quarter | Every week | Every year | Never",
+            "topic": "Online Shopping Habits",
+            "size": 971,
+            "survey_name": "Newsletter Poll - Apr 3, 2022"
+        },
+        {
+            "id": "I generally invest in mutual funds for",
+            "options": "More than 5 years | 1 to 3 years | 3 to 5 years | 1 year or less",
+            "topic": "Mutual Fund Investments",
+            "size": 1209,
+            "survey_name": "Newsletter Poll - Apr 10, 2022"
+        },
+        {
+            "id": "How much money do you have saved as your emergency fund?",
+            "options": "6 months' expenses worth | 3 months' expenses worth | 12 months' expenses worth | More than above",
+            "topic": "Emergency Fund Savings",
+            "size": 692,
+            "survey_name": "Newsletter Poll - Apr 17, 2022"
+        },
+        {
+            "id": "I am a:",
+            "options": "Full-time employee \u2013 I invest whenever I am able to manage time | Part-time employee, a part-time investor | Full-time investor | I haven\u2019t invested yet | Business owner and investor",
+            "topic": "Investor Profile",
+            "size": 566,
+            "survey_name": "Newsletter Poll - Apr 24, 2022"
+        },
+        {
+            "id": "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?",
+            "options": "Yes | No",
+            "topic": "Tax-Saving Investments",
+            "size": 927,
+            "survey_name": "Newsletter Poll - May 1, 2022"
+        },
+        {
+            "id": "Did the elders in your own family invest in shares or mutual funds?",
+            "options": "No | Yes",
+            "topic": "Family Investment Habits",
+            "size": 1073,
+            "survey_name": "Newsletter Poll - May 8, 2022"
+        },
+        {
+            "id": "Have you ever applied for any IPO?",
+            "options": "Yes | No",
+            "topic": "IPO Participation",
+            "size": 1373,
+            "survey_name": "Newsletter Poll - May 15, 2022"
+        },
+        {
+            "id": "Do you check your bank balance every month?",
+            "options": "Yes | No",
+            "topic": "Banking Habits",
+            "size": 1354,
+            "survey_name": "Newsletter Poll - May 22, 2022"
+        },
+        {
+            "id": "Do you have a credit card?",
+            "options": "Yes | No, I use only debit card | No, I don't use any card",
+            "topic": "Credit Card Ownership",
+            "size": 1363,
+            "survey_name": "Newsletter Poll - May 29, 2022"
+        },
+        {
+            "id": "Using which do you find most convenient?",
+            "options": "Online money (UPI, net banking, NEFT, etc.) | Cash | Card (credit card, debit card)",
+            "topic": "Payment Preferences",
+            "size": 1228,
+            "survey_name": "Newsletter Poll - June 5, 2022"
+        },
+        {
+            "id": "When in a month do you invest?",
+            "options": "No fixed time | Towards the start of the month | Towards the middle of the month | Towards the end of the month",
+            "topic": "Investment Timing",
+            "size": 984,
+            "survey_name": "Newsletter Poll - June 12, 2022"
+        },
+        {
+            "id": "Do you have medical insurance? ",
+            "options": "Yes | No",
+            "topic": "Medical Insurance",
+            "size": 1081,
+            "survey_name": "Newsletter Poll - June 19, 2022"
+        },
+        {
+            "id": "Which is your primary source of financial knowledge?",
+            "options": "Social Media | News | Books | Emails",
+            "topic": "Financial Knowledge Sources",
+            "size": 1315,
+            "survey_name": "Newsletter Poll - June 26, 2022"
+        },
+        {
+            "id": "Have you ever invested in an international mutual fund?",
+            "options": "Yes | No",
+            "topic": "International Investments",
+            "size": 1025,
+            "survey_name": "Newsletter Poll - July 3, 2022"
+        },
+        {
+            "id": "Has inflation affected your daily life?",
+            "options": "A lot | A little bit | Can't feel it",
+            "topic": "Inflation Impact",
+            "size": 613,
+            "survey_name": "Newsletter Poll - July 10, 2022"
+        },
+        {
+            "id": "Have you made any major changes to your investment plans in 2022?",
+            "options": "Yes | No",
+            "topic": "Investment Plan Changes",
+            "size": 898,
+            "survey_name": "Newsletter Poll - July 17, 2022"
+        },
+        {
+            "id": "Are you currently paying any EMIs?",
+            "options": "Yes | No",
+            "topic": "EMI Payments",
+            "size": 2093,
+            "survey_name": "Newsletter Poll - July 24, 2022"
+        },
+        {
+            "id": "Have you ever calculated your net worth?",
+            "options": "Yes | No",
+            "topic": "Net Worth Calculation",
+            "size": 1506,
+            "survey_name": "Newsletter Poll - July 31, 2022"
+        },
+        {
+            "id": "Rising interest rates (loans and FD) is good for you?",
+            "options": "Good for me (I have only FDs) | Bad for me (I have loans) | Doesn't matter",
+            "topic": "Interest Rate Impact",
+            "size": 1051,
+            "survey_name": "Newsletter Poll - Aug 7, 2022"
+        },
+        {
+            "id": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+            "options": "Yes | No",
+            "topic": "Stock vs. Mutual Fund Returns",
+            "size": 2195,
+            "survey_name": "Newsletter Poll - Aug 14, 2022"
+        },
+        {
+            "id": "How many smartphones do you personally use?",
+            "options": "1 | 2 | 3 or more",
+            "topic": "Smartphone Usage",
+            "size": 2863,
+            "survey_name": "Newsletter Poll - Aug 21, 2022"
+        },
+        {
+            "id": "Where do you keep most of your money?",
+            "options": "Public Bank/Govt Bank (SBI, Bank of Baroda, etc.) | Private Bank (ICICI Bank, HDFC Bank, etc.)",
+            "topic": "Banking Preferences",
+            "size": 1897,
+            "survey_name": "Newsletter Poll - Aug 28, 2022"
+        },
+        {
+            "id": "Which device do you use for investing?",
+            "options": "Smartphone | Computer | Others",
+            "topic": "Investing Device Usage",
+            "size": 3277,
+            "survey_name": "Newsletter Poll - Sept 4, 2022"
+        },
+        {
+            "id": "When did you last withdraw cash from an ATM?",
+            "options": "Within the last 7 days | Within the last 30 days | Within the last 6 months | More than a year ago",
+            "topic": "ATM Withdrawals",
+            "size": 1705,
+            "survey_name": "Newsletter Poll - Sept 11, 2022"
+        },
+        {
+            "id": "When did you last visit your bank branch?",
+            "options": "Within the last 7 days | More than a year ago | Within the last 6 months | Within the last 30 days",
+            "topic": "Bank Branch Visits",
+            "size": 1489,
+            "survey_name": "Newsletter Poll - Sept 18, 2022"
+        },
+        {
+            "id": "Are you presently paying EMIs?",
+            "options": "Yes | No",
+            "topic": "EMI Payments",
+            "size": 1877,
+            "survey_name": "Newsletter Poll - Sept 25, 2022"
+        },
+        {
+            "id": "Would you take a loan to buy a vehicle?",
+            "options": "Yes | No",
+            "topic": "Vehicle Loan Preferences",
+            "size": 1246,
+            "survey_name": "Newsletter Poll - Oct 2, 2022"
+        },
+        {
+            "id": "Which of the following do you mainly use for commuting?",
+            "options": "Bike/Scooter | Public Transport | Car",
+            "topic": "Commuting Preferences",
+            "size": 2150,
+            "survey_name": "Newsletter Poll - Oct 9, 2022"
+        },
+        {
+            "id": "How many active SIPs do you have?",
+            "options": "3+ | 0 | 1 | 2",
+            "topic": "Active SIPs",
+            "size": 1603,
+            "survey_name": "Newsletter Poll - Oct 30, 2022"
+        },
+        {
+            "id": "Which do you invest the most in?",
+            "options": "Stocks | Mutual funds | Gold | Others | FD",
+            "topic": "Investment Preferences",
+            "size": 2354,
+            "survey_name": "Newsletter Poll - Nov 6, 2022"
+        },
+        {
+            "id": "How do you feel when you see your investments in the red?",
+            "options": "Doesn't affect me | Happy | Worried",
+            "topic": "Investment Reactions",
+            "size": 2079,
+            "survey_name": "Newsletter Poll - Nov 13, 2022"
+        },
+        {
+            "id": "Which makes you happier?",
+            "options": "Investments up 15% in one year | Monthly income credited to bank",
+            "topic": "Financial Happiness",
+            "size": 1603,
+            "survey_name": "Newsletter Poll - Nov 20, 2022"
+        },
+        {
+            "id": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+            "options": "Yes | No",
+            "topic": "Gold Investment",
+            "size": 1889,
+            "survey_name": "Newsletter Poll - Nov 27, 2022"
+        },
+        {
+            "id": "Who files your taxes?",
+            "options": "Self | Hired a CA | Others",
+            "topic": "Tax Filing Preferences",
+            "size": 2111,
+            "survey_name": "Newsletter Poll - Dec 4, 2022"
+        },
+        {
+            "id": "By when do you think India will become a developed country?",
+            "options": "2030 | 2050 | Can't say | 2100",
+            "topic": "India\u2019s Development Timeline",
+            "size": 2189,
+            "survey_name": "Newsletter Poll - Dec 11, 2022"
+        },
+        {
+            "id": "When is the ideal age to retire?",
+            "options": "46-55 years | 56-65 years | As early as possible | As late as possible | 36-45 years | Under 35 years",
+            "topic": "Ideal Retirement Age",
+            "size": 2263,
+            "survey_name": "Newsletter Poll - Dec 18, 2022"
+        },
+        {
+            "id": "Do you use UPI apps (PhonePe, GPay, Paytm, etc.)?",
+            "options": "Yes | No",
+            "topic": "UPI Payment Usage",
+            "size": 2339,
+            "survey_name": "Newsletter Poll - Dec 25, 2022"
         }
     ],
     "links": [
@@ -645,7 +1072,7 @@
         {
             "source": "Which is more stressful to you?",
             "target": "Which do you prefer?",
-            "strength": 0.68
+            "strength": 0.69
         },
         {
             "source": "Which is more stressful to you?",
@@ -669,6 +1096,11 @@
         },
         {
             "source": "Which is more stressful to you?",
+            "target": "Which do you prefer? ",
+            "strength": 0.57
+        },
+        {
+            "source": "Which is more stressful to you?",
             "target": "According to you, which has more risk?",
             "strength": 0.73
         },
@@ -681,6 +1113,21 @@
             "source": "Which is more stressful to you?",
             "target": "Which is better if buying a house?",
             "strength": 0.62
+        },
+        {
+            "source": "Which is more stressful to you?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.62
+        },
+        {
+            "source": "Which is more stressful to you?",
+            "target": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+            "strength": 0.51
+        },
+        {
+            "source": "Which is more stressful to you?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.6
         },
         {
             "source": "If buying a flat for investment, which would you prefer?",
@@ -713,9 +1160,14 @@
             "strength": 0.5
         },
         {
+            "source": "How much return per annum do you expect from your SIP/mutual fund investment?",
+            "target": "Which makes you happier?",
+            "strength": 0.5
+        },
+        {
             "source": "Which bank do you mainly use?",
             "target": "Which is better?",
-            "strength": 0.54
+            "strength": 0.61
         },
         {
             "source": "Which bank do you mainly use?",
@@ -744,18 +1196,43 @@
         },
         {
             "source": "Which bank do you mainly use?",
-            "target": "Which do you prefer more?",
-            "strength": 0.74
+            "target": "Which do you prefer more? ",
+            "strength": 0.88
+        },
+        {
+            "source": "Which bank do you mainly use?",
+            "target": "Which do you prefer?  ",
+            "strength": 0.65
+        },
+        {
+            "source": "Which bank do you mainly use?",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.59
+        },
+        {
+            "source": "Which bank do you mainly use?",
+            "target": "Where do you keep most of your money?",
+            "strength": 0.69
         },
         {
             "source": "Are you paying any of the following right now?",
             "target": "If you had home loan EMIs to pay, what would you do?",
-            "strength": 0.62
+            "strength": 0.58
         },
         {
             "source": "Are you paying any of the following right now?",
-            "target": "Which is better if buying a house?",
-            "strength": 0.57
+            "target": "Which is better?   ",
+            "strength": 0.54
+        },
+        {
+            "source": "Are you paying any of the following right now?",
+            "target": "Are you currently paying any EMIs?",
+            "strength": 0.67
+        },
+        {
+            "source": "Are you paying any of the following right now?",
+            "target": "Are you presently paying EMIs?",
+            "strength": 0.64
         },
         {
             "source": "Has your loan application (home, car, education, etc) ever been denied?",
@@ -764,48 +1241,48 @@
         },
         {
             "source": "Which is better?",
-            "target": "Which way do you prefer to pay?",
-            "strength": 0.51
-        },
-        {
-            "source": "Which is better?",
-            "target": "Which do you prefer?",
-            "strength": 0.57
-        },
-        {
-            "source": "Which is better?",
             "target": "Which is better for loans?",
-            "strength": 0.51
+            "strength": 0.58
         },
         {
             "source": "Which is better?",
             "target": "Which would you prefer to invest in?",
-            "strength": 0.74
+            "strength": 0.8
         },
         {
             "source": "Which is better?",
             "target": "Which bank do you use as your primary bank?",
-            "strength": 0.51
+            "strength": 0.56
         },
         {
             "source": "Which is better?",
             "target": "Which would you trust more? Assume all other things are equal.",
+            "strength": 0.54
+        },
+        {
+            "source": "Which is better?",
+            "target": "When taking a loan, which bank would you opt for?",
+            "strength": 0.57
+        },
+        {
+            "source": "Which is better?",
+            "target": "Which do you prefer more? ",
+            "strength": 0.65
+        },
+        {
+            "source": "Which is better?",
+            "target": "Which do you prefer?  ",
             "strength": 0.53
         },
         {
             "source": "Which is better?",
-            "target": "Which do you prefer more?",
-            "strength": 0.61
-        },
-        {
-            "source": "Which is better?",
-            "target": "Which is better if buying a house?",
-            "strength": 0.54
+            "target": "Rising interest rates (loans and FD) is good for you?",
+            "strength": 0.53
         },
         {
             "source": "Let's say your overall investment is earning 12% per annum. Which of the two options will you choose?",
             "target": "Which do you prefer?",
-            "strength": 0.6
+            "strength": 0.65
         },
         {
             "source": "Let's say your overall investment is earning 12% per annum. Which of the two options will you choose?",
@@ -824,6 +1301,11 @@
         },
         {
             "source": "Let's say your overall investment is earning 12% per annum. Which of the two options will you choose?",
+            "target": "Which do you prefer? ",
+            "strength": 0.51
+        },
+        {
+            "source": "Let's say your overall investment is earning 12% per annum. Which of the two options will you choose?",
             "target": "According to you, which has more risk?",
             "strength": 0.52
         },
@@ -838,6 +1320,21 @@
             "strength": 0.53
         },
         {
+            "source": "Let's say your overall investment is earning 12% per annum. Which of the two options will you choose?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.54
+        },
+        {
+            "source": "Let's say your overall investment is earning 12% per annum. Which of the two options will you choose?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.54
+        },
+        {
+            "source": "Let's say your overall investment is earning 12% per annum. Which of the two options will you choose?",
+            "target": "Which makes you happier?",
+            "strength": 0.54
+        },
+        {
             "source": "Which investment do you consider to be safer?",
             "target": "Where would you ask your friend (who is not interested in finance) to invest?",
             "strength": 0.52
@@ -845,7 +1342,7 @@
         {
             "source": "Which investment do you consider to be safer?",
             "target": "Which do you prefer?",
-            "strength": 0.6
+            "strength": 0.61
         },
         {
             "source": "Which investment do you consider to be safer?",
@@ -859,6 +1356,11 @@
         },
         {
             "source": "Which investment do you consider to be safer?",
+            "target": "Which do you prefer? ",
+            "strength": 0.52
+        },
+        {
+            "source": "Which investment do you consider to be safer?",
             "target": "According to you, which has more risk?",
             "strength": 0.71
         },
@@ -866,6 +1368,21 @@
             "source": "Which investment do you consider to be safer?",
             "target": "Which investment option is safer according to you?",
             "strength": 0.71
+        },
+        {
+            "source": "Which investment do you consider to be safer?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.75
+        },
+        {
+            "source": "Which investment do you consider to be safer?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.6
+        },
+        {
+            "source": "Which investment do you consider to be safer?",
+            "target": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+            "strength": 0.59
         },
         {
             "source": "Do you know the difference between Sensex and Nifty?",
@@ -880,7 +1397,7 @@
         {
             "source": "Where would you ask your friend (who is not interested in finance) to invest?",
             "target": "Which do you prefer?",
-            "strength": 0.55
+            "strength": 0.51
         },
         {
             "source": "Where would you ask your friend (who is not interested in finance) to invest?",
@@ -901,6 +1418,16 @@
             "source": "Where would you ask your friend (who is not interested in finance) to invest?",
             "target": "Which investment option is safer according to you?",
             "strength": 0.5
+        },
+        {
+            "source": "Where would you ask your friend (who is not interested in finance) to invest?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.58
+        },
+        {
+            "source": "Where would you ask your friend (who is not interested in finance) to invest?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.64
         },
         {
             "source": "Which way do you prefer to pay?",
@@ -925,7 +1452,42 @@
         {
             "source": "Which way do you prefer to pay?",
             "target": "Which do you prefer more?",
-            "strength": 0.64
+            "strength": 0.69
+        },
+        {
+            "source": "Which way do you prefer to pay?",
+            "target": "Which UPI app do you use the most? ",
+            "strength": 0.58
+        },
+        {
+            "source": "Which way do you prefer to pay?",
+            "target": "Which is better?  ",
+            "strength": 0.66
+        },
+        {
+            "source": "Which way do you prefer to pay?",
+            "target": "Which do you use more often?",
+            "strength": 0.65
+        },
+        {
+            "source": "Which way do you prefer to pay?",
+            "target": "Which do you use more often? ",
+            "strength": 0.65
+        },
+        {
+            "source": "Which way do you prefer to pay?",
+            "target": "Which one of these is your most preferred way of spending?",
+            "strength": 0.69
+        },
+        {
+            "source": "Which way do you prefer to pay?",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.7
+        },
+        {
+            "source": "Do you pay for a 'premium plan' for any app (like YouTube, Spotify, etc)?",
+            "target": "Do you use UPI apps (PhonePe, GPay, Paytm, etc.)?",
+            "strength": 0.52
         },
         {
             "source": "You buy large appliances using",
@@ -933,54 +1495,79 @@
             "strength": 0.52
         },
         {
+            "source": "You buy large appliances using",
+            "target": "Are you currently paying any EMIs?",
+            "strength": 0.55
+        },
+        {
+            "source": "You buy large appliances using",
+            "target": "Are you presently paying EMIs?",
+            "strength": 0.56
+        },
+        {
             "source": "Which do you prefer?",
             "target": "Which kind of mutual fund do you have most money invested in?",
-            "strength": 0.55
+            "strength": 0.57
         },
         {
             "source": "Which do you prefer?",
             "target": "From the option below, which investment portfolio is better?",
-            "strength": 0.68
+            "strength": 0.77
         },
         {
             "source": "Which do you prefer?",
             "target": "Which investment asset do you dislike the most?",
-            "strength": 0.58
-        },
-        {
-            "source": "Which do you prefer?",
-            "target": "Who makes investment decisions?",
-            "strength": 0.5
+            "strength": 0.64
         },
         {
             "source": "Which do you prefer?",
             "target": "Which would you prefer to invest in?",
-            "strength": 0.69
+            "strength": 0.67
         },
         {
             "source": "Which do you prefer?",
             "target": "Which will make you rich faster?",
-            "strength": 0.58
+            "strength": 0.6
+        },
+        {
+            "source": "Which do you prefer?",
+            "target": "Which do you prefer? ",
+            "strength": 0.62
         },
         {
             "source": "Which do you prefer?",
             "target": "According to you, which has more risk?",
-            "strength": 0.61
+            "strength": 0.66
         },
         {
             "source": "Which do you prefer?",
             "target": "Which investment option is safer according to you?",
-            "strength": 0.72
-        },
-        {
-            "source": "Which do you prefer?",
-            "target": "Which do you prefer more?",
-            "strength": 0.51
+            "strength": 0.74
         },
         {
             "source": "Which do you prefer?",
             "target": "Which is better if buying a house?",
-            "strength": 0.61
+            "strength": 0.59
+        },
+        {
+            "source": "Which do you prefer?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.71
+        },
+        {
+            "source": "Which do you prefer?",
+            "target": "I generally invest in mutual funds for",
+            "strength": 0.51
+        },
+        {
+            "source": "Which do you prefer?",
+            "target": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+            "strength": 0.54
+        },
+        {
+            "source": "Which do you prefer?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.71
         },
         {
             "source": "Which kind of mutual fund do you have most money invested in?",
@@ -1003,6 +1590,31 @@
             "strength": 0.54
         },
         {
+            "source": "Which kind of mutual fund do you have most money invested in?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.56
+        },
+        {
+            "source": "Which kind of mutual fund do you have most money invested in?",
+            "target": "I generally invest in mutual funds for",
+            "strength": 0.6
+        },
+        {
+            "source": "Which kind of mutual fund do you have most money invested in?",
+            "target": "Have you ever invested in an international mutual fund?",
+            "strength": 0.52
+        },
+        {
+            "source": "Which kind of mutual fund do you have most money invested in?",
+            "target": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+            "strength": 0.51
+        },
+        {
+            "source": "Which kind of mutual fund do you have most money invested in?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.74
+        },
+        {
             "source": "From the option below, which investment portfolio is better?",
             "target": "Which investment asset do you dislike the most?",
             "strength": 0.57
@@ -1014,6 +1626,11 @@
         },
         {
             "source": "From the option below, which investment portfolio is better?",
+            "target": "Which do you prefer? ",
+            "strength": 0.54
+        },
+        {
+            "source": "From the option below, which investment portfolio is better?",
             "target": "According to you, which has more risk?",
             "strength": 0.51
         },
@@ -1021,6 +1638,31 @@
             "source": "From the option below, which investment portfolio is better?",
             "target": "Which investment option is safer according to you?",
             "strength": 0.6
+        },
+        {
+            "source": "From the option below, which investment portfolio is better?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.66
+        },
+        {
+            "source": "From the option below, which investment portfolio is better?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.65
+        },
+        {
+            "source": "Which country's stock markets do you think give higher returns?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.5
+        },
+        {
+            "source": "Which country's stock markets do you think give higher returns?",
+            "target": "Which country was India's biggest trading partner in 2021?",
+            "strength": 0.56
+        },
+        {
+            "source": "Which country's stock markets do you think give higher returns?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.53
         },
         {
             "source": "Which investment asset do you dislike the most?",
@@ -1039,6 +1681,11 @@
         },
         {
             "source": "Which investment asset do you dislike the most?",
+            "target": "Which do you prefer? ",
+            "strength": 0.51
+        },
+        {
+            "source": "Which investment asset do you dislike the most?",
             "target": "According to you, which has more risk?",
             "strength": 0.58
         },
@@ -1046,6 +1693,16 @@
             "source": "Which investment asset do you dislike the most?",
             "target": "Which investment option is safer according to you?",
             "strength": 0.62
+        },
+        {
+            "source": "Which investment asset do you dislike the most?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.73
+        },
+        {
+            "source": "Which investment asset do you dislike the most?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.78
         },
         {
             "source": "Which is better for loans?",
@@ -1069,8 +1726,23 @@
         },
         {
             "source": "Which is better for loans?",
-            "target": "Which do you prefer more?",
-            "strength": 0.67
+            "target": "Which do you prefer more? ",
+            "strength": 0.85
+        },
+        {
+            "source": "Which is better for loans?",
+            "target": "Which do you prefer?  ",
+            "strength": 0.54
+        },
+        {
+            "source": "Who makes investment decisions?",
+            "target": "Which do you prefer? ",
+            "strength": 0.77
+        },
+        {
+            "source": "Who makes investment decisions?",
+            "target": "I am a:",
+            "strength": 0.5
         },
         {
             "source": "Which would you prefer to invest in?",
@@ -1089,7 +1761,32 @@
         },
         {
             "source": "Which would you prefer to invest in?",
-            "target": "Which do you prefer more?",
+            "target": "Which do you prefer more? ",
+            "strength": 0.6
+        },
+        {
+            "source": "Which would you prefer to invest in?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.63
+        },
+        {
+            "source": "Which would you prefer to invest in?",
+            "target": "Rising interest rates (loans and FD) is good for you?",
+            "strength": 0.66
+        },
+        {
+            "source": "Which would you prefer to invest in?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.68
+        },
+        {
+            "source": "Have you travelled outside India?",
+            "target": "Have you travelled outside India? ",
+            "strength": 0.86
+        },
+        {
+            "source": "Have you travelled outside India?",
+            "target": "10 years from today, where do you want to live?",
             "strength": 0.52
         },
         {
@@ -1103,14 +1800,59 @@
             "strength": 0.76
         },
         {
+            "source": "Which transport option have you used most to travel outside your home location in 2024?",
+            "target": "Which of the following do you mainly use for commuting?",
+            "strength": 0.65
+        },
+        {
             "source": "Which of these is written on your debit/credit card?",
             "target": "Which do you prefer more?",
-            "strength": 0.58
+            "strength": 0.62
+        },
+        {
+            "source": "Which of these is written on your debit/credit card?",
+            "target": "Which is better?  ",
+            "strength": 0.62
+        },
+        {
+            "source": "Which of these is written on your debit/credit card?",
+            "target": "Which do you use more often?",
+            "strength": 0.53
+        },
+        {
+            "source": "Which of these is written on your debit/credit card?",
+            "target": "Which do you use more often? ",
+            "strength": 0.53
+        },
+        {
+            "source": "Which of these is written on your debit/credit card?",
+            "target": "Which one of these is your most preferred way of spending?",
+            "strength": 0.55
+        },
+        {
+            "source": "Which of these is written on your debit/credit card?",
+            "target": "Do you have a credit card?",
+            "strength": 0.52
         },
         {
             "source": "When was the last time you visited a bank branch?",
             "target": "How many bank accounts do you have?",
-            "strength": 0.55
+            "strength": 0.52
+        },
+        {
+            "source": "When was the last time you visited a bank branch?",
+            "target": "When was the last time you visited a bank branch? ",
+            "strength": 0.8
+        },
+        {
+            "source": "When was the last time you visited a bank branch?",
+            "target": "When did you last withdraw cash from an ATM?",
+            "strength": 0.74
+        },
+        {
+            "source": "When was the last time you visited a bank branch?",
+            "target": "When did you last visit your bank branch?",
+            "strength": 0.92
         },
         {
             "source": "Who files your income tax?",
@@ -1123,6 +1865,16 @@
             "strength": 0.59
         },
         {
+            "source": "Who files your income tax?",
+            "target": "Who files your taxes?",
+            "strength": 0.85
+        },
+        {
+            "source": "Which will make you rich faster?",
+            "target": "Which do you prefer? ",
+            "strength": 0.51
+        },
+        {
             "source": "Which will make you rich faster?",
             "target": "According to you, which has more risk?",
             "strength": 0.51
@@ -1131,6 +1883,31 @@
             "source": "Which will make you rich faster?",
             "target": "Which investment option is safer according to you?",
             "strength": 0.53
+        },
+        {
+            "source": "Which will make you rich faster?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.56
+        },
+        {
+            "source": "Which will make you rich faster?",
+            "target": "What is more important?",
+            "strength": 0.7
+        },
+        {
+            "source": "Which will make you rich faster?",
+            "target": "I am a:",
+            "strength": 0.51
+        },
+        {
+            "source": "Which will make you rich faster?",
+            "target": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+            "strength": 0.55
+        },
+        {
+            "source": "Which will make you rich faster?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.62
         },
         {
             "source": "Do you use a laptop for your everyday work?",
@@ -1150,7 +1927,12 @@
         {
             "source": "Which SIM service do you like?",
             "target": "Which UPI app do you use the most?",
-            "strength": 0.5
+            "strength": 0.53
+        },
+        {
+            "source": "Which SIM service do you like?",
+            "target": "Which UPI app do you use the most? ",
+            "strength": 0.52
         },
         {
             "source": "Which is more important to you?",
@@ -1166,6 +1948,21 @@
             "source": "How many smartphones do you have?",
             "target": "Which kind of smartphone do you use?",
             "strength": 0.56
+        },
+        {
+            "source": "How many smartphones do you have?",
+            "target": "How many smartphones do you personally use?",
+            "strength": 0.9
+        },
+        {
+            "source": "How many smartphones do you have?",
+            "target": "How many active SIPs do you have?",
+            "strength": 0.59
+        },
+        {
+            "source": "Are you happy with your investments\u2019 returns?",
+            "target": "Which do you prefer? ",
+            "strength": 0.5
         },
         {
             "source": "Are you happy with your investments\u2019 returns?",
@@ -1188,14 +1985,74 @@
             "strength": 0.5
         },
         {
+            "source": "Are you happy with your investments\u2019 returns?",
+            "target": "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?",
+            "strength": 0.57
+        },
+        {
+            "source": "Are you happy with your investments\u2019 returns?",
+            "target": "Have you ever invested in an international mutual fund?",
+            "strength": 0.55
+        },
+        {
+            "source": "Are you happy with your investments\u2019 returns?",
+            "target": "Have you made any major changes to your investment plans in 2022?",
+            "strength": 0.55
+        },
+        {
+            "source": "Are you happy with your investments\u2019 returns?",
+            "target": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+            "strength": 0.5
+        },
+        {
+            "source": "Are you happy with your investments\u2019 returns?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.56
+        },
+        {
+            "source": "Are you happy with your investments\u2019 returns?",
+            "target": "How do you feel when you see your investments in the red?",
+            "strength": 0.64
+        },
+        {
+            "source": "Are you happy with your investments\u2019 returns?",
+            "target": "Which makes you happier?",
+            "strength": 0.57
+        },
+        {
+            "source": "Are you happy with your investments\u2019 returns?",
+            "target": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+            "strength": 0.59
+        },
+        {
             "source": "Do you have an active SIP right now?",
             "target": "Are you increasing your monthly investment/SIP in the new year?",
             "strength": 0.55
         },
         {
+            "source": "Do you have an active SIP right now?",
+            "target": "How many active SIPs do you have?",
+            "strength": 0.62
+        },
+        {
             "source": "If you had home loan EMIs to pay, what would you do?",
             "target": "Which is better if buying a house?",
             "strength": 0.73
+        },
+        {
+            "source": "If you had home loan EMIs to pay, what would you do?",
+            "target": "Which is better?   ",
+            "strength": 0.51
+        },
+        {
+            "source": "If you had home loan EMIs to pay, what would you do?",
+            "target": "Are you currently paying any EMIs?",
+            "strength": 0.51
+        },
+        {
+            "source": "If you had home loan EMIs to pay, what would you do?",
+            "target": "Are you presently paying EMIs?",
+            "strength": 0.51
         },
         {
             "source": "Is using a credit card better (instead of debit card and UPI)?",
@@ -1205,6 +2062,36 @@
         {
             "source": "Is using a credit card better (instead of debit card and UPI)?",
             "target": "Which do you prefer more?",
+            "strength": 0.75
+        },
+        {
+            "source": "Is using a credit card better (instead of debit card and UPI)?",
+            "target": "Which is better?  ",
+            "strength": 0.79
+        },
+        {
+            "source": "Is using a credit card better (instead of debit card and UPI)?",
+            "target": "Which do you use more often?",
+            "strength": 0.72
+        },
+        {
+            "source": "Is using a credit card better (instead of debit card and UPI)?",
+            "target": "Which do you use more often? ",
+            "strength": 0.72
+        },
+        {
+            "source": "Is using a credit card better (instead of debit card and UPI)?",
+            "target": "Which one of these is your most preferred way of spending?",
+            "strength": 0.69
+        },
+        {
+            "source": "Is using a credit card better (instead of debit card and UPI)?",
+            "target": "Do you have a credit card?",
+            "strength": 0.56
+        },
+        {
+            "source": "Is using a credit card better (instead of debit card and UPI)?",
+            "target": "Using which do you find most convenient?",
             "strength": 0.63
         },
         {
@@ -1213,24 +2100,84 @@
             "strength": 0.73
         },
         {
+            "source": "Which do you prefer to use?",
+            "target": "Which of the following do you mainly use for commuting?",
+            "strength": 0.72
+        },
+        {
             "source": "Which bank do you use as your primary bank?",
             "target": "When taking a loan, which bank would you opt for?",
             "strength": 0.65
         },
         {
             "source": "Which bank do you use as your primary bank?",
-            "target": "Which do you prefer more?",
-            "strength": 0.64
+            "target": "Which do you prefer more? ",
+            "strength": 0.71
+        },
+        {
+            "source": "Which bank do you use as your primary bank?",
+            "target": "Which do you prefer?  ",
+            "strength": 0.57
+        },
+        {
+            "source": "Which bank do you use as your primary bank?",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.54
+        },
+        {
+            "source": "Which bank do you use as your primary bank?",
+            "target": "Where do you keep most of your money?",
+            "strength": 0.59
         },
         {
             "source": "Which would you trust more? Assume all other things are equal.",
-            "target": "Which do you prefer more?",
+            "target": "Which do you prefer more? ",
+            "strength": 0.63
+        },
+        {
+            "source": "Which do you prefer? ",
+            "target": "Which investment option is safer according to you?",
+            "strength": 0.58
+        },
+        {
+            "source": "Which do you prefer? ",
+            "target": "Which is better if buying a house?",
+            "strength": 0.54
+        },
+        {
+            "source": "Which do you prefer? ",
+            "target": "Which is better?   ",
+            "strength": 0.51
+        },
+        {
+            "source": "Which do you prefer? ",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.52
+        },
+        {
+            "source": "Which do you prefer? ",
+            "target": "I am a:",
             "strength": 0.56
+        },
+        {
+            "source": "Which do you prefer? ",
+            "target": "Which do you invest the most in?",
+            "strength": 0.56
+        },
+        {
+            "source": "Which do you prefer? ",
+            "target": "Which makes you happier?",
+            "strength": 0.5
         },
         {
             "source": "How have your investments performed in 2024?",
             "target": "Will you increase your investment amount in 2025?",
             "strength": 0.55
+        },
+        {
+            "source": "How have your investments performed in 2024?",
+            "target": "Have you made any major changes to your investment plans in 2022?",
+            "strength": 0.66
         },
         {
             "source": "Will you increase your investment amount in 2025?",
@@ -1243,9 +2190,39 @@
             "strength": 0.56
         },
         {
+            "source": "Will you increase your investment amount in 2025?",
+            "target": "I generally invest in mutual funds for",
+            "strength": 0.52
+        },
+        {
+            "source": "Will you increase your investment amount in 2025?",
+            "target": "Have you made any major changes to your investment plans in 2022?",
+            "strength": 0.75
+        },
+        {
+            "source": "Will you increase your investment amount in 2025?",
+            "target": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+            "strength": 0.51
+        },
+        {
             "source": "Are you increasing your monthly investment/SIP in the new year?",
             "target": "Have you bought any stocks in the last 1 month?",
             "strength": 0.52
+        },
+        {
+            "source": "Are you increasing your monthly investment/SIP in the new year?",
+            "target": "Do you check your bank balance every month?",
+            "strength": 0.5
+        },
+        {
+            "source": "Are you increasing your monthly investment/SIP in the new year?",
+            "target": "Have you made any major changes to your investment plans in 2022?",
+            "strength": 0.62
+        },
+        {
+            "source": "Are you increasing your monthly investment/SIP in the new year?",
+            "target": "Which makes you happier?",
+            "strength": 0.53
         },
         {
             "source": "According to you, which has more risk?",
@@ -1258,19 +2235,94 @@
             "strength": 0.51
         },
         {
+            "source": "According to you, which has more risk?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.66
+        },
+        {
+            "source": "According to you, which has more risk?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.56
+        },
+        {
+            "source": "How many bank accounts do you have?",
+            "target": "When was the last time you visited a bank branch? ",
+            "strength": 0.55
+        },
+        {
+            "source": "How many bank accounts do you have?",
+            "target": "How many active SIPs do you have?",
+            "strength": 0.55
+        },
+        {
             "source": "Have you ever invested in an IPO?",
             "target": "Have you bought any stocks in the last 1 month?",
             "strength": 0.52
         },
         {
+            "source": "Have you ever invested in an IPO?",
+            "target": "Have you ever applied for any IPO?",
+            "strength": 0.84
+        },
+        {
+            "source": "Have you ever invested in an IPO?",
+            "target": "Have you ever invested in an international mutual fund?",
+            "strength": 0.66
+        },
+        {
+            "source": "Have you ever invested in an IPO?",
+            "target": "Have you made any major changes to your investment plans in 2022?",
+            "strength": 0.52
+        },
+        {
+            "source": "Have you used NEFT/IMPS/RTGS in the past 30 days?",
+            "target": "Have you used NEFT/IMPS/RTGS in the past 30 days? ",
+            "strength": 1.0
+        },
+        {
             "source": "Which do you think takes less time?",
             "target": "Which UPI app do you use the most?",
-            "strength": 0.66
+            "strength": 0.67
         },
         {
             "source": "Which do you think takes less time?",
             "target": "Which do you prefer more?",
-            "strength": 0.51
+            "strength": 0.53
+        },
+        {
+            "source": "Which do you think takes less time?",
+            "target": "Which UPI app do you use the most? ",
+            "strength": 0.67
+        },
+        {
+            "source": "Which do you think takes less time?",
+            "target": "Which is better?  ",
+            "strength": 0.52
+        },
+        {
+            "source": "Which do you think takes less time?",
+            "target": "Which do you use more often?",
+            "strength": 0.62
+        },
+        {
+            "source": "Which do you think takes less time?",
+            "target": "Which do you use more often? ",
+            "strength": 0.62
+        },
+        {
+            "source": "Which do you think takes less time?",
+            "target": "Which one of these is your most preferred way of spending?",
+            "strength": 0.53
+        },
+        {
+            "source": "Which do you think takes less time?",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.64
+        },
+        {
+            "source": "Which do you think takes less time?",
+            "target": "Do you use UPI apps (PhonePe, GPay, Paytm, etc.)?",
+            "strength": 0.57
         },
         {
             "source": "Do you have to travel to different locations for work?",
@@ -1283,6 +2335,11 @@
             "strength": 0.53
         },
         {
+            "source": "Do you take the help of a CA for filing tax?",
+            "target": "Who files your taxes?",
+            "strength": 0.68
+        },
+        {
             "source": "Do you use a computer/laptop?",
             "target": "Which kind of smartphone do you use?",
             "strength": 0.54
@@ -1293,9 +2350,14 @@
             "strength": 0.67
         },
         {
+            "source": "Do you use a computer/laptop?",
+            "target": "Which device do you use for investing?",
+            "strength": 0.62
+        },
+        {
             "source": "Which SIM card do you use?",
             "target": "Which UPI app do you use the most?",
-            "strength": 0.51
+            "strength": 0.53
         },
         {
             "source": "Which SIM card do you use?",
@@ -1303,9 +2365,24 @@
             "strength": 0.52
         },
         {
+            "source": "Which SIM card do you use?",
+            "target": "Which UPI app do you use the most? ",
+            "strength": 0.51
+        },
+        {
             "source": "When taking a loan, which bank would you opt for?",
-            "target": "Which do you prefer more?",
-            "strength": 0.63
+            "target": "Which do you prefer more? ",
+            "strength": 0.77
+        },
+        {
+            "source": "When taking a loan, which bank would you opt for?",
+            "target": "Which do you prefer?  ",
+            "strength": 0.56
+        },
+        {
+            "source": "When taking a loan, which bank would you opt for?",
+            "target": "Where do you keep most of your money?",
+            "strength": 0.52
         },
         {
             "source": "Where do you live?",
@@ -1320,11 +2397,66 @@
         {
             "source": "Which UPI app do you use the most?",
             "target": "Which kind of smartphone do you use?",
-            "strength": 0.51
+            "strength": 0.53
+        },
+        {
+            "source": "Which UPI app do you use the most?",
+            "target": "Which UPI app do you use the most? ",
+            "strength": 0.97
+        },
+        {
+            "source": "Which UPI app do you use the most?",
+            "target": "Which do you use more often?",
+            "strength": 0.72
+        },
+        {
+            "source": "Which UPI app do you use the most?",
+            "target": "Which do you use more often? ",
+            "strength": 0.72
+        },
+        {
+            "source": "Which UPI app do you use the most?",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.52
+        },
+        {
+            "source": "Which UPI app do you use the most?",
+            "target": "Which device do you use for investing?",
+            "strength": 0.52
+        },
+        {
+            "source": "Which UPI app do you use the most?",
+            "target": "Do you use UPI apps (PhonePe, GPay, Paytm, etc.)?",
+            "strength": 0.8
+        },
+        {
+            "source": "Which kind of smartphone do you use?",
+            "target": "Which UPI app do you use the most? ",
+            "strength": 0.54
+        },
+        {
+            "source": "Which kind of smartphone do you use?",
+            "target": "How many smartphones do you personally use?",
+            "strength": 0.59
+        },
+        {
+            "source": "Which kind of smartphone do you use?",
+            "target": "Which device do you use for investing?",
+            "strength": 0.64
         },
         {
             "source": "Have you ever bought electronics (AC, mobiles, TV, etc) on EMI?",
             "target": "Have you ever taken a loan to buy an electronic device?",
+            "strength": 0.55
+        },
+        {
+            "source": "Have you ever bought electronics (AC, mobiles, TV, etc) on EMI?",
+            "target": "Are you currently paying any EMIs?",
+            "strength": 0.58
+        },
+        {
+            "source": "Have you ever bought electronics (AC, mobiles, TV, etc) on EMI?",
+            "target": "Are you presently paying EMIs?",
             "strength": 0.55
         },
         {
@@ -1338,9 +2470,104 @@
             "strength": 0.64
         },
         {
+            "source": "Have you bought life insurance in your name?",
+            "target": "Have you subscribed to a health insurance policy?",
+            "strength": 0.61
+        },
+        {
+            "source": "Have you bought life insurance in your name?",
+            "target": "Do you have medical insurance? ",
+            "strength": 0.64
+        },
+        {
+            "source": "How much should people spend on smartphones?",
+            "target": "How much of your annual income do you spend on vacations?",
+            "strength": 0.53
+        },
+        {
+            "source": "How much should people spend on smartphones?",
+            "target": "Which device do you use for investing?",
+            "strength": 0.58
+        },
+        {
             "source": "Which investment option is safer according to you?",
             "target": "Which is better if buying a house?",
             "strength": 0.59
+        },
+        {
+            "source": "Which investment option is safer according to you?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.66
+        },
+        {
+            "source": "Which investment option is safer according to you?",
+            "target": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+            "strength": 0.52
+        },
+        {
+            "source": "Which investment option is safer according to you?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.58
+        },
+        {
+            "source": "Which do you prefer more?",
+            "target": "Which do you prefer more? ",
+            "strength": 0.54
+        },
+        {
+            "source": "Which do you prefer more?",
+            "target": "Which is better?  ",
+            "strength": 0.95
+        },
+        {
+            "source": "Which do you prefer more?",
+            "target": "Which do you prefer?  ",
+            "strength": 0.51
+        },
+        {
+            "source": "Which do you prefer more?",
+            "target": "Which do you use more often?",
+            "strength": 0.76
+        },
+        {
+            "source": "Which do you prefer more?",
+            "target": "Which do you use more often? ",
+            "strength": 0.76
+        },
+        {
+            "source": "Which do you prefer more?",
+            "target": "Which one of these is your most preferred way of spending?",
+            "strength": 0.89
+        },
+        {
+            "source": "Which do you prefer more?",
+            "target": "Do you have a credit card?",
+            "strength": 0.64
+        },
+        {
+            "source": "Which do you prefer more?",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.72
+        },
+        {
+            "source": "Which do you prefer more? ",
+            "target": "Which is better?  ",
+            "strength": 0.52
+        },
+        {
+            "source": "Which do you prefer more? ",
+            "target": "Which do you prefer?  ",
+            "strength": 0.62
+        },
+        {
+            "source": "Which do you prefer more? ",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.55
+        },
+        {
+            "source": "Which do you prefer more? ",
+            "target": "Where do you keep most of your money?",
+            "strength": 0.61
         },
         {
             "source": "Where do you want to retire?",
@@ -1358,14 +2585,454 @@
             "strength": 0.57
         },
         {
+            "source": "Do you check the markets (Sensex, Nifty, etc) every day?",
+            "target": "Do you think trading should continue on weekends as well?",
+            "strength": 0.57
+        },
+        {
+            "source": "Do you check the markets (Sensex, Nifty, etc) every day?",
+            "target": "Do you check your bank balance every month?",
+            "strength": 0.59
+        },
+        {
+            "source": "Do you check the markets (Sensex, Nifty, etc) every day?",
+            "target": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+            "strength": 0.51
+        },
+        {
+            "source": "When did you make your first online purchase?",
+            "target": "How often do you buy goods from e-commerce websites?",
+            "strength": 0.51
+        },
+        {
+            "source": "Have you bought any stocks in the last 1 month?",
+            "target": "Do you check your bank balance every month?",
+            "strength": 0.51
+        },
+        {
+            "source": "Have you bought any stocks in the last 1 month?",
+            "target": "Have you ever invested in an international mutual fund?",
+            "strength": 0.55
+        },
+        {
+            "source": "Have you bought any stocks in the last 1 month?",
+            "target": "Have you made any major changes to your investment plans in 2022?",
+            "strength": 0.53
+        },
+        {
+            "source": "Have you bought any stocks in the last 1 month?",
+            "target": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+            "strength": 0.58
+        },
+        {
             "source": "Is your house insured?",
             "target": "Do you have medical insurance?",
+            "strength": 0.53
+        },
+        {
+            "source": "Is your house insured?",
+            "target": "Do you have medical insurance? ",
             "strength": 0.53
         },
         {
             "source": "Will you buy an electric vehicle (2 or 4-wheeler) in the next 5 years?",
             "target": "Do you plan on buying real estate in the next 5 years?",
             "strength": 0.57
+        },
+        {
+            "source": "Will you buy an electric vehicle (2 or 4-wheeler) in the next 5 years?",
+            "target": "Would you take a loan to buy a vehicle?",
+            "strength": 0.51
+        },
+        {
+            "source": "Which UPI app do you use the most? ",
+            "target": "Which do you use more often?",
+            "strength": 0.75
+        },
+        {
+            "source": "Which UPI app do you use the most? ",
+            "target": "Which do you use more often? ",
+            "strength": 0.75
+        },
+        {
+            "source": "Which UPI app do you use the most? ",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.56
+        },
+        {
+            "source": "Which UPI app do you use the most? ",
+            "target": "Which device do you use for investing?",
+            "strength": 0.53
+        },
+        {
+            "source": "Which UPI app do you use the most? ",
+            "target": "Do you use UPI apps (PhonePe, GPay, Paytm, etc.)?",
+            "strength": 0.79
+        },
+        {
+            "source": "Do you plan on buying real estate in the next 5 years?",
+            "target": "Have you made any major changes to your investment plans in 2022?",
+            "strength": 0.59
+        },
+        {
+            "source": "Which affects your expenses more?",
+            "target": "The price of which affects your daily life more?",
+            "strength": 0.54
+        },
+        {
+            "source": "Which affects your expenses more?",
+            "target": "Which affects your daily life more?",
+            "strength": 0.8
+        },
+        {
+            "source": "Which is better if buying a house?",
+            "target": "Which is better?   ",
+            "strength": 0.71
+        },
+        {
+            "source": "Which is better if buying a house?",
+            "target": "Which of these deserves the greatest amount of investment?",
+            "strength": 0.51
+        },
+        {
+            "source": "Which is better if buying a house?",
+            "target": "Are you currently paying any EMIs?",
+            "strength": 0.58
+        },
+        {
+            "source": "Which is better if buying a house?",
+            "target": "Are you presently paying EMIs?",
+            "strength": 0.57
+        },
+        {
+            "source": "Which do you use the most to travel?",
+            "target": "Which of the following do you mainly use for commuting?",
+            "strength": 0.77
+        },
+        {
+            "source": "Which is better?  ",
+            "target": "Which do you prefer?  ",
+            "strength": 0.51
+        },
+        {
+            "source": "Which is better?  ",
+            "target": "Which do you use more often?",
+            "strength": 0.72
+        },
+        {
+            "source": "Which is better?  ",
+            "target": "Which do you use more often? ",
+            "strength": 0.72
+        },
+        {
+            "source": "Which is better?  ",
+            "target": "Which one of these is your most preferred way of spending?",
+            "strength": 0.85
+        },
+        {
+            "source": "Which is better?  ",
+            "target": "Do you have a credit card?",
+            "strength": 0.62
+        },
+        {
+            "source": "Which is better?  ",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.69
+        },
+        {
+            "source": "When was the last time you visited a bank branch? ",
+            "target": "When did you last withdraw cash from an ATM?",
+            "strength": 0.63
+        },
+        {
+            "source": "When was the last time you visited a bank branch? ",
+            "target": "When did you last visit your bank branch?",
+            "strength": 0.81
+        },
+        {
+            "source": "Which do you prefer?  ",
+            "target": "Which do you use more often?",
+            "strength": 0.55
+        },
+        {
+            "source": "Which do you prefer?  ",
+            "target": "Which do you use more often? ",
+            "strength": 0.55
+        },
+        {
+            "source": "Which do you prefer?  ",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.63
+        },
+        {
+            "source": "Do you use a laptop/computer every day?",
+            "target": "Do you check your bank balance every month?",
+            "strength": 0.54
+        },
+        {
+            "source": "Do you have medical insurance?",
+            "target": "Have you subscribed to a health insurance policy?",
+            "strength": 0.73
+        },
+        {
+            "source": "Do you have medical insurance?",
+            "target": "Do you have medical insurance? ",
+            "strength": 1.0
+        },
+        {
+            "source": "Have you ever taken a loan to buy an electronic device?",
+            "target": "Would you take a loan to buy a vehicle?",
+            "strength": 0.64
+        },
+        {
+            "source": "Which do you use more often?",
+            "target": "Which do you use more often? ",
+            "strength": 1.0
+        },
+        {
+            "source": "Which do you use more often?",
+            "target": "Which one of these is your most preferred way of spending?",
+            "strength": 0.73
+        },
+        {
+            "source": "Which do you use more often?",
+            "target": "Do you have a credit card?",
+            "strength": 0.59
+        },
+        {
+            "source": "Which do you use more often?",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.73
+        },
+        {
+            "source": "Which do you use more often?",
+            "target": "Which device do you use for investing?",
+            "strength": 0.54
+        },
+        {
+            "source": "Which do you use more often?",
+            "target": "Do you use UPI apps (PhonePe, GPay, Paytm, etc.)?",
+            "strength": 0.66
+        },
+        {
+            "source": "Which do you use more often? ",
+            "target": "Which one of these is your most preferred way of spending?",
+            "strength": 0.73
+        },
+        {
+            "source": "Which do you use more often? ",
+            "target": "Do you have a credit card?",
+            "strength": 0.59
+        },
+        {
+            "source": "Which do you use more often? ",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.73
+        },
+        {
+            "source": "Which do you use more often? ",
+            "target": "Which device do you use for investing?",
+            "strength": 0.54
+        },
+        {
+            "source": "Which do you use more often? ",
+            "target": "Do you use UPI apps (PhonePe, GPay, Paytm, etc.)?",
+            "strength": 0.66
+        },
+        {
+            "source": "Which of these deserves the greatest amount of investment?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.77
+        },
+        {
+            "source": "Which of these deserves the greatest amount of investment?",
+            "target": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+            "strength": 0.51
+        },
+        {
+            "source": "Have you subscribed to a health insurance policy?",
+            "target": "Do you have medical insurance? ",
+            "strength": 0.73
+        },
+        {
+            "source": "Which one of these is your most preferred way of spending?",
+            "target": "Do you have a credit card?",
+            "strength": 0.58
+        },
+        {
+            "source": "Which one of these is your most preferred way of spending?",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.75
+        },
+        {
+            "source": "How long have you been investing in mutual funds or stocks?",
+            "target": "I generally invest in mutual funds for",
+            "strength": 0.82
+        },
+        {
+            "source": "How long have you been investing in mutual funds or stocks?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.5
+        },
+        {
+            "source": "The price of which affects your daily life more?",
+            "target": "Which affects your daily life more?",
+            "strength": 0.73
+        },
+        {
+            "source": "The price of which affects your daily life more?",
+            "target": "Has inflation affected your daily life?",
+            "strength": 0.56
+        },
+        {
+            "source": "I generally invest in mutual funds for",
+            "target": "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?",
+            "strength": 0.55
+        },
+        {
+            "source": "I generally invest in mutual funds for",
+            "target": "When in a month do you invest?",
+            "strength": 0.5
+        },
+        {
+            "source": "I generally invest in mutual funds for",
+            "target": "Have you ever invested in an international mutual fund?",
+            "strength": 0.58
+        },
+        {
+            "source": "I generally invest in mutual funds for",
+            "target": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+            "strength": 0.54
+        },
+        {
+            "source": "I generally invest in mutual funds for",
+            "target": "Which do you invest the most in?",
+            "strength": 0.62
+        },
+        {
+            "source": "I am a:",
+            "target": "When in a month do you invest?",
+            "strength": 0.53
+        },
+        {
+            "source": "I am a:",
+            "target": "Which do you invest the most in?",
+            "strength": 0.55
+        },
+        {
+            "source": "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?",
+            "target": "Have you ever invested in an international mutual fund?",
+            "strength": 0.62
+        },
+        {
+            "source": "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?",
+            "target": "Have you made any major changes to your investment plans in 2022?",
+            "strength": 0.52
+        },
+        {
+            "source": "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?",
+            "target": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+            "strength": 0.55
+        },
+        {
+            "source": "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.54
+        },
+        {
+            "source": "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?",
+            "target": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+            "strength": 0.59
+        },
+        {
+            "source": "Did the elders in your own family invest in shares or mutual funds?",
+            "target": "Have you ever invested in an international mutual fund?",
+            "strength": 0.59
+        },
+        {
+            "source": "Do you check your bank balance every month?",
+            "target": "When in a month do you invest?",
+            "strength": 0.51
+        },
+        {
+            "source": "Do you have a credit card?",
+            "target": "Using which do you find most convenient?",
+            "strength": 0.52
+        },
+        {
+            "source": "Using which do you find most convenient?",
+            "target": "Where do you keep most of your money?",
+            "strength": 0.55
+        },
+        {
+            "source": "Using which do you find most convenient?",
+            "target": "Which device do you use for investing?",
+            "strength": 0.55
+        },
+        {
+            "source": "Which is your primary source of financial knowledge?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.52
+        },
+        {
+            "source": "Which is your primary source of financial knowledge?",
+            "target": "Which makes you happier?",
+            "strength": 0.5
+        },
+        {
+            "source": "Have you ever invested in an international mutual fund?",
+            "target": "Have you made any major changes to your investment plans in 2022?",
+            "strength": 0.58
+        },
+        {
+            "source": "Have you ever invested in an international mutual fund?",
+            "target": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+            "strength": 0.56
+        },
+        {
+            "source": "Have you ever invested in an international mutual fund?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.53
+        },
+        {
+            "source": "Have you ever invested in an international mutual fund?",
+            "target": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+            "strength": 0.59
+        },
+        {
+            "source": "Have you made any major changes to your investment plans in 2022?",
+            "target": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+            "strength": 0.51
+        },
+        {
+            "source": "Are you currently paying any EMIs?",
+            "target": "Are you presently paying EMIs?",
+            "strength": 0.97
+        },
+        {
+            "source": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+            "target": "Which do you invest the most in?",
+            "strength": 0.58
+        },
+        {
+            "source": "How many smartphones do you personally use?",
+            "target": "How many active SIPs do you have?",
+            "strength": 0.58
+        },
+        {
+            "source": "When did you last withdraw cash from an ATM?",
+            "target": "When did you last visit your bank branch?",
+            "strength": 0.78
+        },
+        {
+            "source": "Which do you invest the most in?",
+            "target": "Which makes you happier?",
+            "strength": 0.51
+        },
+        {
+            "source": "Which do you invest the most in?",
+            "target": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+            "strength": 0.6
         }
     ]
 }

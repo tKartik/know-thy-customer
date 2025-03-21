@@ -82,7 +82,7 @@ try:
     with open(output_path, "w") as json_file:
         json.dump(graph_data, json_file, indent=4)
 
-    print("Graph JSON saved as semantic_graph_final.json")
+    print("Graph JSON saved as semantic_graph.json")
     print(f"Created {len(nodes)} nodes and {len(links)} connections")
 
 except FileNotFoundError as e:

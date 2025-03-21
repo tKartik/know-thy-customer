@@ -7,13 +7,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 70.3,
-                "Confidence": true
+                "Percentage": 70.3
             },
             {
                 "Option": "No",
-                "Percentage": 29.7,
-                "Confidence": false
+                "Percentage": 29.7
             }
         ]
     },
@@ -25,13 +23,11 @@
         "Responses": [
             {
                 "Option": "Investing in real estate",
-                "Percentage": 72.3,
-                "Confidence": true
+                "Percentage": 72.3
             },
             {
                 "Option": "Investing in stocks, mutual funds, SIP, etc",
-                "Percentage": 27.7,
-                "Confidence": false
+                "Percentage": 27.700000000000003
             }
         ]
     },
@@ -43,13 +39,11 @@
         "Responses": [
             {
                 "Option": "Flat in metro city, tier 1 city",
-                "Percentage": 52.1,
-                "Confidence": false
+                "Percentage": 52.1
             },
             {
                 "Option": "Flat in tier 2, 3 city",
-                "Percentage": 47.9,
-                "Confidence": false
+                "Percentage": 47.9
             }
         ]
     },
@@ -61,23 +55,19 @@
         "Responses": [
             {
                 "Option": "11 to 15%",
-                "Percentage": 39.7,
-                "Confidence": false
+                "Percentage": 39.7
             },
             {
                 "Option": "16 to 20%",
-                "Percentage": 35.8,
-                "Confidence": false
+                "Percentage": 35.8
             },
             {
                 "Option": "More than 21%",
-                "Percentage": 18.3,
-                "Confidence": false
+                "Percentage": 18.3
             },
             {
                 "Option": "Less than 10%",
-                "Percentage": 6.2,
-                "Confidence": false
+                "Percentage": 6.2
             }
         ]
     },
@@ -89,13 +79,11 @@
         "Responses": [
             {
                 "Option": "Private bank",
-                "Percentage": 52.2,
-                "Confidence": false
+                "Percentage": 52.2
             },
             {
                 "Option": "Govt bank",
-                "Percentage": 47.8,
-                "Confidence": false
+                "Percentage": 47.8
             }
         ]
     },
@@ -106,19 +94,20 @@
         "Question Text": "Are you paying any of the following right now?",
         "Responses": [
             {
+                "Option": "Unlabeled Response",
+                "Percentage": 36.3
+            },
+            {
                 "Option": "Home loan EMI",
-                "Percentage": 25.4,
-                "Confidence": false
+                "Percentage": 25.4
             },
             {
                 "Option": "Rent",
-                "Percentage": 24.0,
-                "Confidence": false
+                "Percentage": 24.0
             },
             {
                 "Option": "Home loan EMI + rent",
-                "Percentage": 14.3,
-                "Confidence": false
+                "Percentage": 14.299999999999999
             }
         ]
     },
@@ -130,13 +119,11 @@
         "Responses": [
             {
                 "Option": "No",
-                "Percentage": 60.5,
-                "Confidence": false
+                "Percentage": 60.5
             },
             {
                 "Option": "Yes",
-                "Percentage": 39.5,
-                "Confidence": false
+                "Percentage": 39.5
             }
         ]
     },
@@ -148,48 +135,11 @@
         "Responses": [
             {
                 "Option": "FD from big bank",
-                "Percentage": 50.1,
-                "Confidence": false
+                "Percentage": 50.1
             },
             {
                 "Option": "FD from small bank/cooperative bank",
-                "Percentage": 49.9,
-                "Confidence": false
-            },
-            {
-                "Option": "Market falls 1% on Mon; climbs 1% on Tue",
-                "Percentage": 51.7,
-                "Confidence": false
-            },
-            {
-                "Option": "It's the same",
-                "Percentage": 25.5,
-                "Confidence": false
-            },
-            {
-                "Option": "Market falls 10% on Mon; climbs 10% on Tue",
-                "Percentage": 22.8,
-                "Confidence": false
-            },
-            {
-                "Option": "Debit card",
-                "Percentage": 54.4,
-                "Confidence": false
-            },
-            {
-                "Option": "Credit card",
-                "Percentage": 45.6,
-                "Confidence": false
-            },
-            {
-                "Option": "Living in own home paying EMI",
-                "Percentage": 65.2,
-                "Confidence": false
-            },
-            {
-                "Option": "Living in rented house",
-                "Percentage": 34.8,
-                "Confidence": false
+                "Percentage": 49.9
             }
         ]
     },
@@ -201,13 +151,11 @@
         "Responses": [
             {
                 "Option": "2% lower return but you are never stressed",
-                "Percentage": 77.4,
-                "Confidence": true
+                "Percentage": 77.4
             },
             {
                 "Option": "2% higher return but you are very stressed",
-                "Percentage": 22.6,
-                "Confidence": false
+                "Percentage": 22.6
             }
         ]
     },
@@ -219,13 +167,11 @@
         "Responses": [
             {
                 "Option": "Gold",
-                "Percentage": 64.4,
-                "Confidence": false
+                "Percentage": 64.4
             },
             {
                 "Option": "Real estate",
-                "Percentage": 35.6,
-                "Confidence": false
+                "Percentage": 35.6
             }
         ]
     },
@@ -237,13 +183,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 77.5,
-                "Confidence": true
+                "Percentage": 77.5
             },
             {
                 "Option": "No",
-                "Percentage": 22.5,
-                "Confidence": false
+                "Percentage": 22.5
             }
         ]
     },
@@ -255,33 +199,27 @@
         "Responses": [
             {
                 "Option": "Mutual funds",
-                "Percentage": 52.2,
-                "Confidence": true
+                "Percentage": 52.2
             },
             {
                 "Option": "Gold",
-                "Percentage": 13.7,
-                "Confidence": false
+                "Percentage": 13.700000000000001
             },
             {
                 "Option": "FD",
-                "Percentage": 11.7,
-                "Confidence": false
+                "Percentage": 11.700000000000001
             },
             {
                 "Option": "Shares",
-                "Percentage": 10.6,
-                "Confidence": false
+                "Percentage": 10.6
             },
             {
                 "Option": "Real estate",
-                "Percentage": 9.6,
-                "Confidence": false
+                "Percentage": 9.6
             },
             {
                 "Option": "F&O",
-                "Percentage": 2.0,
-                "Confidence": false
+                "Percentage": 2.0
             }
         ]
     },
@@ -293,28 +231,23 @@
         "Responses": [
             {
                 "Option": "House",
-                "Percentage": 50.2,
-                "Confidence": false
+                "Percentage": 50.2
             },
             {
                 "Option": "Education",
-                "Percentage": 21.6,
-                "Confidence": false
+                "Percentage": 21.6
             },
             {
                 "Option": "Car/Bike",
-                "Percentage": 13.5,
-                "Confidence": false
+                "Percentage": 13.5
             },
             {
                 "Option": "Electronic Devices",
-                "Percentage": 8.0,
-                "Confidence": false
+                "Percentage": 8.0
             },
             {
                 "Option": "Others",
-                "Percentage": 6.8,
-                "Confidence": false
+                "Percentage": 6.800000000000001
             }
         ]
     },
@@ -326,18 +259,15 @@
         "Responses": [
             {
                 "Option": "UPI",
-                "Percentage": 68.1,
-                "Confidence": true
+                "Percentage": 68.10000000000001
             },
             {
                 "Option": "Card",
-                "Percentage": 16.4,
-                "Confidence": false
+                "Percentage": 16.400000000000002
             },
             {
                 "Option": "Cash",
-                "Percentage": 15.5,
-                "Confidence": false
+                "Percentage": 15.5
             }
         ]
     },
@@ -349,13 +279,11 @@
         "Responses": [
             {
                 "Option": "No",
-                "Percentage": 52.6,
-                "Confidence": false
+                "Percentage": 52.6
             },
             {
                 "Option": "Yes",
-                "Percentage": 47.4,
-                "Confidence": false
+                "Percentage": 47.4
             }
         ]
     },
@@ -367,13 +295,11 @@
         "Responses": [
             {
                 "Option": "100% down payment",
-                "Percentage": 57.5,
-                "Confidence": false
+                "Percentage": 57.49999999999999
             },
             {
                 "Option": "EMI",
-                "Percentage": 42.5,
-                "Confidence": false
+                "Percentage": 42.5
             }
         ]
     },
@@ -385,38 +311,11 @@
         "Responses": [
             {
                 "Option": "Invest more in equity (shares, MF) and less in safer investments (FD, bonds, etc)",
-                "Percentage": 84.3,
-                "Confidence": true
+                "Percentage": 84.3
             },
             {
                 "Option": "Invest more in safer investments (FD, bonds, etc) and less in equity (shares, MF)",
-                "Percentage": 15.7,
-                "Confidence": false
-            },
-            {
-                "Option": "All investment decisions made by you",
-                "Percentage": 49.8,
-                "Confidence": false
-            },
-            {
-                "Option": "Mix of both",
-                "Percentage": 45.2,
-                "Confidence": false
-            },
-            {
-                "Option": "All investment decisions made by someone else (family, advisor, etc)",
-                "Percentage": 5.0,
-                "Confidence": false
-            },
-            {
-                "Option": "Banking online (using app or website)",
-                "Percentage": 89.5,
-                "Confidence": false
-            },
-            {
-                "Option": "Banking at the branch location",
-                "Percentage": 10.5,
-                "Confidence": false
+                "Percentage": 15.7
             }
         ]
     },
@@ -428,18 +327,15 @@
         "Responses": [
             {
                 "Option": "More than 15%",
-                "Percentage": 46.5,
-                "Confidence": false
+                "Percentage": 46.5
             },
             {
                 "Option": "Less than 10%",
-                "Percentage": 29.7,
-                "Confidence": false
+                "Percentage": 29.7
             },
             {
                 "Option": "10 to 15%",
-                "Percentage": 23.7,
-                "Confidence": false
+                "Percentage": 23.7
             }
         ]
     },
@@ -451,23 +347,19 @@
         "Responses": [
             {
                 "Option": "Mid-cap + small cap",
-                "Percentage": 41.6,
-                "Confidence": false
+                "Percentage": 41.6
             },
             {
                 "Option": "Large-cap / index funds",
-                "Percentage": 40.5,
-                "Confidence": false
+                "Percentage": 40.5
             },
             {
                 "Option": "Others",
-                "Percentage": 9.6,
-                "Confidence": false
+                "Percentage": 9.6
             },
             {
                 "Option": "ELSS",
-                "Percentage": 8.3,
-                "Confidence": false
+                "Percentage": 8.3
             }
         ]
     },
@@ -479,18 +371,15 @@
         "Responses": [
             {
                 "Option": "Equity (shares or MF) + Gold",
-                "Percentage": 62.3,
-                "Confidence": false
+                "Percentage": 62.3
             },
             {
                 "Option": "Equity (shares or MF) + FD",
-                "Percentage": 31.6,
-                "Confidence": false
+                "Percentage": 31.6
             },
             {
                 "Option": "FD + Gold",
-                "Percentage": 6.1,
-                "Confidence": false
+                "Percentage": 6.1
             }
         ]
     },
@@ -502,23 +391,19 @@
         "Responses": [
             {
                 "Option": "India",
-                "Percentage": 73.4,
-                "Confidence": true
+                "Percentage": 73.4
             },
             {
                 "Option": "USA",
-                "Percentage": 20.9,
-                "Confidence": false
+                "Percentage": 20.9
             },
             {
                 "Option": "China",
-                "Percentage": 4.6,
-                "Confidence": false
+                "Percentage": 4.6
             },
             {
                 "Option": "UK",
-                "Percentage": 1.2,
-                "Confidence": false
+                "Percentage": 1.2
             }
         ]
     },
@@ -530,28 +415,43 @@
         "Responses": [
             {
                 "Option": "FD",
-                "Percentage": 37.0,
-                "Confidence": false
+                "Percentage": 37.0
             },
             {
                 "Option": "Real estate",
-                "Percentage": 23.5,
-                "Confidence": false
+                "Percentage": 23.5
             },
             {
                 "Option": "Stocks (including mutual funds)",
-                "Percentage": 15.2,
-                "Confidence": false
+                "Percentage": 15.2
             },
             {
                 "Option": "Others",
-                "Percentage": 12.3,
-                "Confidence": false
+                "Percentage": 12.3
             },
             {
                 "Option": "Gold",
-                "Percentage": 11.9,
-                "Confidence": false
+                "Percentage": 11.899999999999999
+            }
+        ]
+    },
+    "Which is better? ": {
+        "Topic": "Market Volatility",
+        "Survey Name": "Newsletter Poll - June 9, 2024",
+        "Sample Size": 2272,
+        "Question Text": "Which is better?",
+        "Responses": [
+            {
+                "Option": "Market falls 1% on Mon; climbs 1% on Tue",
+                "Percentage": 51.7
+            },
+            {
+                "Option": "It's the same",
+                "Percentage": 25.5
+            },
+            {
+                "Option": "Market falls 10% on Mon; climbs 10% on Tue",
+                "Percentage": 22.8
             }
         ]
     },
@@ -563,18 +463,15 @@
         "Responses": [
             {
                 "Option": "Govt bank",
-                "Percentage": 66.2,
-                "Confidence": true
+                "Percentage": 66.2
             },
             {
                 "Option": "Private bank",
-                "Percentage": 20.4,
-                "Confidence": false
+                "Percentage": 20.4
             },
             {
                 "Option": "It's the same",
-                "Percentage": 13.4,
-                "Confidence": false
+                "Percentage": 13.4
             }
         ]
     },
@@ -586,18 +483,15 @@
         "Responses": [
             {
                 "Option": "I make my investment decisions",
-                "Percentage": 82.5,
-                "Confidence": true
+                "Percentage": 82.5
             },
             {
                 "Option": "I make my investment decisions with help from others (family, friends)",
-                "Percentage": 15.2,
-                "Confidence": false
+                "Percentage": 15.2
             },
             {
                 "Option": "A family/friend decides for me",
-                "Percentage": 2.3,
-                "Confidence": false
+                "Percentage": 2.3
             }
         ]
     },
@@ -609,13 +503,11 @@
         "Responses": [
             {
                 "Option": "FD in a big bank (lower FD interest rates)",
-                "Percentage": 57.4,
-                "Confidence": false
+                "Percentage": 57.4
             },
             {
                 "Option": "FD in a small bank (higher FD interest rates)",
-                "Percentage": 42.6,
-                "Confidence": false
+                "Percentage": 42.6
             }
         ]
     },
@@ -627,28 +519,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 52.5,
-                "Confidence": false
+                "Percentage": 52.5
             },
             {
                 "Option": "No",
-                "Percentage": 47.5,
-                "Confidence": false
-            },
-            {
-                "Option": "Never",
-                "Percentage": 52.6,
-                "Confidence": false
-            },
-            {
-                "Option": "More than 2 times",
-                "Percentage": 32.0,
-                "Confidence": false
-            },
-            {
-                "Option": "Less than 2 times",
-                "Percentage": 15.4,
-                "Confidence": false
+                "Percentage": 47.5
             }
         ]
     },
@@ -660,28 +535,23 @@
         "Responses": [
             {
                 "Option": "Train",
-                "Percentage": 33.7,
-                "Confidence": false
+                "Percentage": 33.7
             },
             {
                 "Option": "Personal vehicle",
-                "Percentage": 31.8,
-                "Confidence": false
+                "Percentage": 31.8
             },
             {
                 "Option": "Bus",
-                "Percentage": 19.6,
-                "Confidence": false
+                "Percentage": 19.6
             },
             {
                 "Option": "Plane",
-                "Percentage": 9.0,
-                "Confidence": false
+                "Percentage": 9.0
             },
             {
                 "Option": "Others",
-                "Percentage": 5.9,
-                "Confidence": false
+                "Percentage": 5.8999999999999995
             }
         ]
     },
@@ -693,28 +563,43 @@
         "Responses": [
             {
                 "Option": "2 or more of the above",
-                "Percentage": 41.8,
-                "Confidence": false
+                "Percentage": 41.8
             },
             {
                 "Option": "Visa",
-                "Percentage": 30.1,
-                "Confidence": false
+                "Percentage": 30.099999999999998
             },
             {
                 "Option": "Rupay",
-                "Percentage": 17.0,
-                "Confidence": false
+                "Percentage": 17.0
             },
             {
                 "Option": "Mastercard",
-                "Percentage": 8.9,
-                "Confidence": false
+                "Percentage": 8.9
             },
             {
                 "Option": "Amex",
-                "Percentage": 2.1,
-                "Confidence": false
+                "Percentage": 2.1
+            }
+        ]
+    },
+    "Have you travelled outside India? ": {
+        "Topic": "Travel abroad?",
+        "Survey Name": "Newsletter Poll - Aug 11, 2024",
+        "Sample Size": 1687,
+        "Question Text": "Have you travelled outside India?",
+        "Responses": [
+            {
+                "Option": "Never",
+                "Percentage": 52.6
+            },
+            {
+                "Option": "More than 2 times",
+                "Percentage": 32.0
+            },
+            {
+                "Option": "Less than 2 times",
+                "Percentage": 15.4
             }
         ]
     },
@@ -726,48 +611,19 @@
         "Responses": [
             {
                 "Option": "More than 6 months ago",
-                "Percentage": 32.8,
-                "Confidence": false
+                "Percentage": 32.800000000000004
             },
             {
                 "Option": "In last 7 days",
-                "Percentage": 25.4,
-                "Confidence": false
+                "Percentage": 25.4
             },
             {
                 "Option": "In last 1 month",
-                "Percentage": 21.3,
-                "Confidence": false
+                "Percentage": 21.3
             },
             {
                 "Option": "In last 6 months",
-                "Percentage": 20.6,
-                "Confidence": false
-            },
-            {
-                "Option": "In the last 10 days",
-                "Percentage": 31.2,
-                "Confidence": false
-            },
-            {
-                "Option": "More than 1 year",
-                "Percentage": 23.2,
-                "Confidence": false
-            },
-            {
-                "Option": "31 days to 90 days",
-                "Percentage": 15.4,
-                "Confidence": false
-            },
-            {
-                "Option": "91 days to 1 year",
-                "Percentage": 15.2,
-                "Confidence": false
-            },
-            {
-                "Option": "11 days to 30 days",
-                "Percentage": 15.0,
-                "Confidence": false
+                "Percentage": 20.599999999999998
             }
         ]
     },
@@ -779,18 +635,15 @@
         "Responses": [
             {
                 "Option": "I do it myself",
-                "Percentage": 44.3,
-                "Confidence": false
+                "Percentage": 44.3
             },
             {
                 "Option": "My CA does it for me",
-                "Percentage": 42.8,
-                "Confidence": false
+                "Percentage": 42.8
             },
             {
                 "Option": "I don’t file taxes/not eligible",
-                "Percentage": 12.9,
-                "Confidence": false
+                "Percentage": 12.9
             }
         ]
     },
@@ -802,23 +655,19 @@
         "Responses": [
             {
                 "Option": "Your business",
-                "Percentage": 44.4,
-                "Confidence": false
+                "Percentage": 44.4
             },
             {
                 "Option": "Investing in stocks/mutual funds",
-                "Percentage": 44.4,
-                "Confidence": false
+                "Percentage": 44.4
             },
             {
                 "Option": "Your job",
-                "Percentage": 7.2,
-                "Confidence": false
+                "Percentage": 7.199999999999999
             },
             {
                 "Option": "Others",
-                "Percentage": 4.0,
-                "Confidence": false
+                "Percentage": 4.0
             }
         ]
     },
@@ -830,13 +679,11 @@
         "Responses": [
             {
                 "Option": "Prepaid SIM connection",
-                "Percentage": 79.4,
-                "Confidence": true
+                "Percentage": 79.4
             },
             {
                 "Option": "Postpaid SIM connection",
-                "Percentage": 20.6,
-                "Confidence": false
+                "Percentage": 20.599999999999998
             }
         ]
     },
@@ -848,13 +695,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 58.1,
-                "Confidence": false
+                "Percentage": 58.099999999999994
             },
             {
                 "Option": "No",
-                "Percentage": 41.9,
-                "Confidence": false
+                "Percentage": 41.9
             }
         ]
     },
@@ -866,23 +711,19 @@
         "Responses": [
             {
                 "Option": "Airtel",
-                "Percentage": 39.5,
-                "Confidence": false
+                "Percentage": 39.5
             },
             {
                 "Option": "Jio",
-                "Percentage": 28.7,
-                "Confidence": false
+                "Percentage": 28.7
             },
             {
                 "Option": "BSNL",
-                "Percentage": 21.6,
-                "Confidence": false
+                "Percentage": 21.6
             },
             {
                 "Option": "Vodafone-Idea (Vi)",
-                "Percentage": 10.2,
-                "Confidence": false
+                "Percentage": 10.2
             }
         ]
     },
@@ -894,23 +735,19 @@
         "Responses": [
             {
                 "Option": "Both are important",
-                "Percentage": 55.7,
-                "Confidence": false
+                "Percentage": 55.7
             },
             {
                 "Option": "Nifty",
-                "Percentage": 27.7,
-                "Confidence": false
+                "Percentage": 27.700000000000003
             },
             {
                 "Option": "Sensex",
-                "Percentage": 13.2,
-                "Confidence": false
+                "Percentage": 13.200000000000001
             },
             {
                 "Option": "Both are not important",
-                "Percentage": 3.5,
-                "Confidence": false
+                "Percentage": 3.5000000000000004
             }
         ]
     },
@@ -922,23 +759,19 @@
         "Responses": [
             {
                 "Option": "One",
-                "Percentage": 67.4,
-                "Confidence": true
+                "Percentage": 67.4
             },
             {
                 "Option": "Two",
-                "Percentage": 21.5,
-                "Confidence": false
+                "Percentage": 21.5
             },
             {
                 "Option": "Zero",
-                "Percentage": 5.9,
-                "Confidence": false
+                "Percentage": 5.8999999999999995
             },
             {
                 "Option": "Three or more",
-                "Percentage": 5.3,
-                "Confidence": false
+                "Percentage": 5.3
             }
         ]
     },
@@ -950,23 +783,19 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 57.0,
-                "Confidence": false
+                "Percentage": 56.99999999999999
             },
             {
                 "Option": "No",
-                "Percentage": 19.7,
-                "Confidence": false
+                "Percentage": 19.7
             },
             {
                 "Option": "Neutral",
-                "Percentage": 19.0,
-                "Confidence": false
+                "Percentage": 19.0
             },
             {
                 "Option": "Not investing yet",
-                "Percentage": 4.3,
-                "Confidence": false
+                "Percentage": 4.3
             }
         ]
     },
@@ -978,13 +807,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 79.5,
-                "Confidence": true
+                "Percentage": 79.5
             },
             {
                 "Option": "No",
-                "Percentage": 20.5,
-                "Confidence": false
+                "Percentage": 20.5
             }
         ]
     },
@@ -996,13 +823,11 @@
         "Responses": [
             {
                 "Option": "Continue both EMIs and investing at the same time",
-                "Percentage": 82.1,
-                "Confidence": true
+                "Percentage": 82.1
             },
             {
                 "Option": "Stop investing; put all extra money in pre-paying loans",
-                "Percentage": 17.9,
-                "Confidence": false
+                "Percentage": 17.9
             }
         ]
     },
@@ -1014,13 +839,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 59.6,
-                "Confidence": false
+                "Percentage": 59.599999999999994
             },
             {
                 "Option": "No",
-                "Percentage": 40.4,
-                "Confidence": false
+                "Percentage": 40.400000000000006
             }
         ]
     },
@@ -1032,18 +855,15 @@
         "Responses": [
             {
                 "Option": "Personal vehicle",
-                "Percentage": 51.7,
-                "Confidence": false
+                "Percentage": 51.7
             },
             {
                 "Option": "Public transport",
-                "Percentage": 37.0,
-                "Confidence": false
+                "Percentage": 37.0
             },
             {
                 "Option": "Cab/taxi",
-                "Percentage": 11.4,
-                "Confidence": false
+                "Percentage": 11.4
             }
         ]
     },
@@ -1055,18 +875,15 @@
         "Responses": [
             {
                 "Option": "Govt bank",
-                "Percentage": 53.6,
-                "Confidence": false
+                "Percentage": 53.6
             },
             {
                 "Option": "Private bank",
-                "Percentage": 44.2,
-                "Confidence": false
+                "Percentage": 44.2
             },
             {
                 "Option": "Co-op bank",
-                "Percentage": 2.2,
-                "Confidence": false
+                "Percentage": 2.1999999999999997
             }
         ]
     },
@@ -1078,18 +895,15 @@
         "Responses": [
             {
                 "Option": "100-year-old bank",
-                "Percentage": 43.2,
-                "Confidence": false
+                "Percentage": 43.2
             },
             {
                 "Option": "Both are the same",
-                "Percentage": 40.6,
-                "Confidence": false
+                "Percentage": 40.6
             },
             {
                 "Option": "20-year-old bank",
-                "Percentage": 16.2,
-                "Confidence": false
+                "Percentage": 16.2
             }
         ]
     },
@@ -1101,23 +915,39 @@
         "Responses": [
             {
                 "Option": "Smartphone",
-                "Percentage": 67.9,
-                "Confidence": true
+                "Percentage": 67.9
             },
             {
                 "Option": "Laptop",
-                "Percentage": 22.5,
-                "Confidence": false
+                "Percentage": 22.5
             },
             {
                 "Option": "Offline ticket counter",
-                "Percentage": 5.1,
-                "Confidence": false
+                "Percentage": 5.1
             },
             {
                 "Option": "Travel agent",
-                "Percentage": 4.5,
-                "Confidence": false
+                "Percentage": 4.5
+            }
+        ]
+    },
+    "Which do you prefer? ": {
+        "Topic": "Invest on your own or with advice?",
+        "Survey Name": "Newsletter Poll - Dec 8, 2024",
+        "Sample Size": 855,
+        "Question Text": "Which do you prefer?",
+        "Responses": [
+            {
+                "Option": "All investment decisions made by you",
+                "Percentage": 49.8
+            },
+            {
+                "Option": "Mix of both",
+                "Percentage": 45.2
+            },
+            {
+                "Option": "All investment decisions made by someone else (family, advisor, etc)",
+                "Percentage": 5.0
             }
         ]
     },
@@ -1129,18 +959,15 @@
         "Responses": [
             {
                 "Option": "Nifty 50",
-                "Percentage": 50.4,
-                "Confidence": false
+                "Percentage": 50.4
             },
             {
                 "Option": "Both are the same",
-                "Percentage": 34.9,
-                "Confidence": false
+                "Percentage": 34.9
             },
             {
                 "Option": "Sensex 30",
-                "Percentage": 14.7,
-                "Confidence": false
+                "Percentage": 14.7
             }
         ]
     },
@@ -1152,18 +979,15 @@
         "Responses": [
             {
                 "Option": "Worse than expected",
-                "Percentage": 48.2,
-                "Confidence": false
+                "Percentage": 48.199999999999996
             },
             {
                 "Option": "As expected",
-                "Percentage": 27.2,
-                "Confidence": false
+                "Percentage": 27.200000000000003
             },
             {
                 "Option": "Better than expected",
-                "Percentage": 24.5,
-                "Confidence": false
+                "Percentage": 24.5
             }
         ]
     },
@@ -1175,18 +999,15 @@
         "Responses": [
             {
                 "Option": "Yes, will invest more",
-                "Percentage": 76.5,
-                "Confidence": true
+                "Percentage": 76.5
             },
             {
                 "Option": "No, will keep the same",
-                "Percentage": 15.8,
-                "Confidence": false
+                "Percentage": 15.8
             },
             {
                 "Option": "No, will invest less",
-                "Percentage": 7.7,
-                "Confidence": false
+                "Percentage": 7.7
             }
         ]
     },
@@ -1198,13 +1019,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 77.6,
-                "Confidence": false
+                "Percentage": 77.60000000000001
             },
             {
                 "Option": "No",
-                "Percentage": 22.4,
-                "Confidence": false
+                "Percentage": 22.400000000000002
             }
         ]
     },
@@ -1216,13 +1035,11 @@
         "Responses": [
             {
                 "Option": "Stocks",
-                "Percentage": 74.9,
-                "Confidence": false
+                "Percentage": 74.9
             },
             {
                 "Option": "Real estate",
-                "Percentage": 25.1,
-                "Confidence": false
+                "Percentage": 25.1
             }
         ]
     },
@@ -1234,28 +1051,23 @@
         "Responses": [
             {
                 "Option": "1 to 3",
-                "Percentage": 67.2,
-                "Confidence": false
+                "Percentage": 67.2
             },
             {
                 "Option": "4 to 6",
-                "Percentage": 15.1,
-                "Confidence": false
+                "Percentage": 15.1
             },
             {
                 "Option": "0",
-                "Percentage": 9.2,
-                "Confidence": false
+                "Percentage": 9.2
             },
             {
                 "Option": "More than 10",
-                "Percentage": 4.4,
-                "Confidence": false
+                "Percentage": 4.3999999999999995
             },
             {
                 "Option": "7 to 10",
-                "Percentage": 4.0,
-                "Confidence": false
+                "Percentage": 4.0
             }
         ]
     },
@@ -1267,13 +1079,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 69.4,
-                "Confidence": false
+                "Percentage": 69.39999999999999
             },
             {
                 "Option": "No",
-                "Percentage": 30.6,
-                "Confidence": false
+                "Percentage": 30.599999999999998
             }
         ]
     },
@@ -1285,23 +1095,27 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 73.9,
-                "Confidence": false
+                "Percentage": 73.9
             },
             {
                 "Option": "No",
-                "Percentage": 26.1,
-                "Confidence": false
-            },
+                "Percentage": 26.1
+            }
+        ]
+    },
+    "Have you used NEFT/IMPS/RTGS in the past 30 days? ": {
+        "Topic": "Digital Payments Usage",
+        "Survey Name": "Newsletter Poll - Feb 5, 2023",
+        "Sample Size": 1796,
+        "Question Text": "Have you used NEFT/IMPS/RTGS in the past 30 days?",
+        "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 74.1,
-                "Confidence": false
+                "Percentage": 74.1
             },
             {
                 "Option": "No",
-                "Percentage": 25.9,
-                "Confidence": false
+                "Percentage": 25.900000000000002
             }
         ]
     },
@@ -1313,13 +1127,11 @@
         "Responses": [
             {
                 "Option": "Paying using UPI (PhonePe, G-Pay, etc.)",
-                "Percentage": 68.4,
-                "Confidence": false
+                "Percentage": 68.4
             },
             {
                 "Option": "Paying using cash",
-                "Percentage": 31.6,
-                "Confidence": false
+                "Percentage": 31.6
             }
         ]
     },
@@ -1331,13 +1143,11 @@
         "Responses": [
             {
                 "Option": "Yes, I have to travel often",
-                "Percentage": 57.2,
-                "Confidence": false
+                "Percentage": 57.199999999999996
             },
             {
                 "Option": "No, one location only",
-                "Percentage": 42.8,
-                "Confidence": false
+                "Percentage": 42.8
             }
         ]
     },
@@ -1349,18 +1159,15 @@
         "Responses": [
             {
                 "Option": "Yes, I have a CA",
-                "Percentage": 47.6,
-                "Confidence": false
+                "Percentage": 47.599999999999994
             },
             {
                 "Option": "No, I do it myself",
-                "Percentage": 34.5,
-                "Confidence": false
+                "Percentage": 34.5
             },
             {
                 "Option": "No, I don’t pay tax yet",
-                "Percentage": 17.9,
-                "Confidence": false
+                "Percentage": 17.9
             }
         ]
     },
@@ -1372,13 +1179,11 @@
         "Responses": [
             {
                 "Option": "No, my smartphone is enough",
-                "Percentage": 53.3,
-                "Confidence": false
+                "Percentage": 53.300000000000004
             },
             {
                 "Option": "Yes",
-                "Percentage": 46.7,
-                "Confidence": false
+                "Percentage": 46.7
             }
         ]
     },
@@ -1390,23 +1195,19 @@
         "Responses": [
             {
                 "Option": "Jio",
-                "Percentage": 46.3,
-                "Confidence": false
+                "Percentage": 46.300000000000004
             },
             {
                 "Option": "Airtel",
-                "Percentage": 35.6,
-                "Confidence": false
+                "Percentage": 35.6
             },
             {
                 "Option": "Vodafone-Idea (Vi)",
-                "Percentage": 14.6,
-                "Confidence": false
+                "Percentage": 14.6
             },
             {
                 "Option": "BSNL/MTNL",
-                "Percentage": 3.5,
-                "Confidence": false
+                "Percentage": 3.5000000000000004
             }
         ]
     },
@@ -1418,23 +1219,19 @@
         "Responses": [
             {
                 "Option": "Govt bank",
-                "Percentage": 58.4,
-                "Confidence": false
+                "Percentage": 58.4
             },
             {
                 "Option": "Private Indian bank",
-                "Percentage": 25.5,
-                "Confidence": false
+                "Percentage": 25.5
             },
             {
                 "Option": "Doesn’t matter",
-                "Percentage": 12.6,
-                "Confidence": false
+                "Percentage": 12.6
             },
             {
                 "Option": "Private international bank",
-                "Percentage": 3.5,
-                "Confidence": false
+                "Percentage": 3.5000000000000004
             }
         ]
     },
@@ -1446,28 +1243,23 @@
         "Responses": [
             {
                 "Option": "Tier 1 city",
-                "Percentage": 41.1,
-                "Confidence": false
+                "Percentage": 41.099999999999994
             },
             {
                 "Option": "Rural area",
-                "Percentage": 20.7,
-                "Confidence": false
+                "Percentage": 20.7
             },
             {
                 "Option": "Small town",
-                "Percentage": 16.0,
-                "Confidence": false
+                "Percentage": 16.0
             },
             {
                 "Option": "Tier 2 city",
-                "Percentage": 13.5,
-                "Confidence": false
+                "Percentage": 13.5
             },
             {
                 "Option": "Tier 3/4 city",
-                "Percentage": 8.7,
-                "Confidence": false
+                "Percentage": 8.7
             }
         ]
     },
@@ -1479,43 +1271,19 @@
         "Responses": [
             {
                 "Option": "G-Pay",
-                "Percentage": 40.2,
-                "Confidence": false
+                "Percentage": 40.2
             },
             {
                 "Option": "PhonePe",
-                "Percentage": 29.6,
-                "Confidence": false
+                "Percentage": 29.599999999999998
             },
             {
                 "Option": "PayTM",
-                "Percentage": 22.3,
-                "Confidence": false
+                "Percentage": 22.3
             },
             {
                 "Option": "Others",
-                "Percentage": 7.8,
-                "Confidence": false
-            },
-            {
-                "Option": "Google Pay",
-                "Percentage": 38.5,
-                "Confidence": false
-            },
-            {
-                "Option": "PhonePe",
-                "Percentage": 31.9,
-                "Confidence": false
-            },
-            {
-                "Option": "Paytm",
-                "Percentage": 20.7,
-                "Confidence": false
-            },
-            {
-                "Option": "Others",
-                "Percentage": 8.8,
-                "Confidence": false
+                "Percentage": 7.8
             }
         ]
     },
@@ -1527,13 +1295,11 @@
         "Responses": [
             {
                 "Option": "Android (Samsung, Xiaomi, Vivo)",
-                "Percentage": 86.7,
-                "Confidence": false
+                "Percentage": 86.7
             },
             {
                 "Option": "iOS (iPhone)",
-                "Percentage": 13.3,
-                "Confidence": false
+                "Percentage": 13.3
             }
         ]
     },
@@ -1545,13 +1311,11 @@
         "Responses": [
             {
                 "Option": "No",
-                "Percentage": 50.7,
-                "Confidence": false
+                "Percentage": 50.7
             },
             {
                 "Option": "Yes",
-                "Percentage": 49.3,
-                "Confidence": false
+                "Percentage": 49.3
             }
         ]
     },
@@ -1563,13 +1327,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 67.5,
-                "Confidence": false
+                "Percentage": 67.5
             },
             {
                 "Option": "No",
-                "Percentage": 32.5,
-                "Confidence": false
+                "Percentage": 32.5
             }
         ]
     },
@@ -1581,23 +1343,19 @@
         "Responses": [
             {
                 "Option": "Less than 1 month’s income",
-                "Percentage": 67.2,
-                "Confidence": false
+                "Percentage": 67.2
             },
             {
                 "Option": "1 month’s income",
-                "Percentage": 19.6,
-                "Confidence": false
+                "Percentage": 19.6
             },
             {
                 "Option": "2-4 months’ income",
-                "Percentage": 7.2,
-                "Confidence": false
+                "Percentage": 7.199999999999999
             },
             {
                 "Option": "5 or more than 5 months’ income",
-                "Percentage": 6.0,
-                "Confidence": false
+                "Percentage": 6.0
             }
         ]
     },
@@ -1609,13 +1367,11 @@
         "Responses": [
             {
                 "Option": "Equity (direct stocks or mutual funds)",
-                "Percentage": 53.4,
-                "Confidence": false
+                "Percentage": 53.400000000000006
             },
             {
                 "Option": "Real estate",
-                "Percentage": 46.6,
-                "Confidence": false
+                "Percentage": 46.6
             }
         ]
     },
@@ -1627,28 +1383,31 @@
         "Responses": [
             {
                 "Option": "Debit card",
-                "Percentage": 50.6,
-                "Confidence": false
+                "Percentage": 50.6
             },
             {
                 "Option": "Credit card",
-                "Percentage": 49.4,
-                "Confidence": false
-            },
+                "Percentage": 49.4
+            }
+        ]
+    },
+    "Which do you prefer more? ": {
+        "Topic": "Banking Preference",
+        "Survey Name": "Newsletter Poll - June 4, 2023",
+        "Sample Size": 1020,
+        "Question Text": "Which do you prefer more?",
+        "Responses": [
             {
                 "Option": "Private bank",
-                "Percentage": 45.4,
-                "Confidence": false
+                "Percentage": 45.4
             },
             {
                 "Option": "Government bank",
-                "Percentage": 39.7,
-                "Confidence": false
+                "Percentage": 39.7
             },
             {
                 "Option": "Doesn't matter",
-                "Percentage": 14.9,
-                "Confidence": false
+                "Percentage": 14.899999999999999
             }
         ]
     },
@@ -1660,23 +1419,19 @@
         "Responses": [
             {
                 "Option": "Tier 2/3 city",
-                "Percentage": 29.3,
-                "Confidence": false
+                "Percentage": 29.299999999999997
             },
             {
                 "Option": "Small town",
-                "Percentage": 28.4,
-                "Confidence": false
+                "Percentage": 28.4
             },
             {
                 "Option": "Tier 1 city",
-                "Percentage": 23.4,
-                "Confidence": false
+                "Percentage": 23.400000000000002
             },
             {
                 "Option": "Rural area",
-                "Percentage": 18.9,
-                "Confidence": false
+                "Percentage": 18.9
             }
         ]
     },
@@ -1688,23 +1443,19 @@
         "Responses": [
             {
                 "Option": "Tier 1 city",
-                "Percentage": 43.9,
-                "Confidence": false
+                "Percentage": 43.9
             },
             {
                 "Option": "Tier 2/3 city",
-                "Percentage": 27.3,
-                "Confidence": false
+                "Percentage": 27.3
             },
             {
                 "Option": "Small town",
-                "Percentage": 14.5,
-                "Confidence": false
+                "Percentage": 14.499999999999998
             },
             {
                 "Option": "Rural area",
-                "Percentage": 14.3,
-                "Confidence": false
+                "Percentage": 14.299999999999999
             }
         ]
     },
@@ -1716,13 +1467,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 84.4,
-                "Confidence": false
+                "Percentage": 84.39999999999999
             },
             {
                 "Option": "No",
-                "Percentage": 15.6,
-                "Confidence": false
+                "Percentage": 15.6
             }
         ]
     },
@@ -1734,13 +1483,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 88.9,
-                "Confidence": false
+                "Percentage": 88.9
             },
             {
                 "Option": "No",
-                "Percentage": 11.1,
-                "Confidence": false
+                "Percentage": 11.1
             }
         ]
     },
@@ -1752,23 +1499,19 @@
         "Responses": [
             {
                 "Option": "2020 and after",
-                "Percentage": 28.9,
-                "Confidence": false
+                "Percentage": 28.9
             },
             {
                 "Option": "2015 to 2019",
-                "Percentage": 28.2,
-                "Confidence": false
+                "Percentage": 28.199999999999996
             },
             {
                 "Option": "2010 to 2014",
-                "Percentage": 27.7,
-                "Confidence": false
+                "Percentage": 27.700000000000003
             },
             {
                 "Option": "In or before 2009",
-                "Percentage": 15.2,
-                "Confidence": false
+                "Percentage": 15.2
             }
         ]
     },
@@ -1780,23 +1523,19 @@
         "Responses": [
             {
                 "Option": "Already done",
-                "Percentage": 56.4,
-                "Confidence": false
+                "Percentage": 56.39999999999999
             },
             {
                 "Option": "Going to do it",
-                "Percentage": 28.8,
-                "Confidence": false
+                "Percentage": 28.799999999999997
             },
             {
                 "Option": "Others",
-                "Percentage": 8.4,
-                "Confidence": false
+                "Percentage": 8.4
             },
             {
                 "Option": "Won't be filing taxes",
-                "Percentage": 6.4,
-                "Confidence": false
+                "Percentage": 6.4
             }
         ]
     },
@@ -1808,13 +1547,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 71.2,
-                "Confidence": false
+                "Percentage": 71.2
             },
             {
                 "Option": "No",
-                "Percentage": 28.8,
-                "Confidence": false
+                "Percentage": 28.799999999999997
             }
         ]
     },
@@ -1826,18 +1563,15 @@
         "Responses": [
             {
                 "Option": "They are too high",
-                "Percentage": 66.0,
-                "Confidence": false
+                "Percentage": 66.0
             },
             {
                 "Option": "They are fair",
-                "Percentage": 24.3,
-                "Confidence": false
+                "Percentage": 24.3
             },
             {
                 "Option": "They are too low",
-                "Percentage": 9.7,
-                "Confidence": false
+                "Percentage": 9.700000000000001
             }
         ]
     },
@@ -1849,18 +1583,15 @@
         "Responses": [
             {
                 "Option": "No",
-                "Percentage": 44.0,
-                "Confidence": false
+                "Percentage": 44.0
             },
             {
                 "Option": "Yes",
-                "Percentage": 35.2,
-                "Confidence": false
+                "Percentage": 35.199999999999996
             },
             {
                 "Option": "Didn't know houses could be insured",
-                "Percentage": 20.8,
-                "Confidence": false
+                "Percentage": 20.8
             }
         ]
     },
@@ -1872,18 +1603,15 @@
         "Responses": [
             {
                 "Option": "India",
-                "Percentage": 76.9,
-                "Confidence": false
+                "Percentage": 76.9
             },
             {
                 "Option": "Abroad",
-                "Percentage": 17.5,
-                "Confidence": false
+                "Percentage": 17.5
             },
             {
                 "Option": "Not sure",
-                "Percentage": 5.7,
-                "Confidence": false
+                "Percentage": 5.7
             }
         ]
     },
@@ -1895,23 +1623,43 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 57.5,
-                "Confidence": false
+                "Percentage": 57.49999999999999
             },
             {
                 "Option": "No",
-                "Percentage": 19.6,
-                "Confidence": false
+                "Percentage": 19.6
             },
             {
                 "Option": "Not sure",
-                "Percentage": 17.5,
-                "Confidence": false
+                "Percentage": 17.5
             },
             {
                 "Option": "Already own EV",
-                "Percentage": 5.4,
-                "Confidence": false
+                "Percentage": 5.4
+            }
+        ]
+    },
+    "Which UPI app do you use the most? ": {
+        "Topic": "UPI Payment Preference",
+        "Survey Name": "Newsletter Poll - Sept 3, 2023",
+        "Sample Size": 1809,
+        "Question Text": "Which UPI app do you use the most?",
+        "Responses": [
+            {
+                "Option": "Google Pay",
+                "Percentage": 38.5
+            },
+            {
+                "Option": "PhonePe",
+                "Percentage": 31.900000000000002
+            },
+            {
+                "Option": "Paytm",
+                "Percentage": 20.7
+            },
+            {
+                "Option": "Others",
+                "Percentage": 8.799999999999999
             }
         ]
     },
@@ -1923,13 +1671,11 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 74.1,
-                "Confidence": false
+                "Percentage": 74.1
             },
             {
                 "Option": "No",
-                "Percentage": 25.9,
-                "Confidence": false
+                "Percentage": 25.900000000000002
             }
         ]
     },
@@ -1941,23 +1687,19 @@
         "Responses": [
             {
                 "Option": "I didn't decide based on the markets' level",
-                "Percentage": 40.0,
-                "Confidence": false
+                "Percentage": 40.0
             },
             {
                 "Option": "When markets were falling",
-                "Percentage": 29.4,
-                "Confidence": false
+                "Percentage": 29.4
             },
             {
                 "Option": "When markets were climbing",
-                "Percentage": 20.6,
-                "Confidence": false
+                "Percentage": 20.599999999999998
             },
             {
                 "Option": "When markets were neutral",
-                "Percentage": 10.0,
-                "Confidence": false
+                "Percentage": 10.0
             }
         ]
     },
@@ -1969,23 +1711,19 @@
         "Responses": [
             {
                 "Option": "Less than Rs 20,000",
-                "Percentage": 70.7,
-                "Confidence": false
+                "Percentage": 70.7
             },
             {
                 "Option": "Rs 20,000 to Rs 40,000",
-                "Percentage": 16.7,
-                "Confidence": false
+                "Percentage": 16.7
             },
             {
                 "Option": "More than Rs 60,000",
-                "Percentage": 6.7,
-                "Confidence": false
+                "Percentage": 6.7
             },
             {
                 "Option": "Rs 40,001 to Rs 60,000",
-                "Percentage": 5.9,
-                "Confidence": false
+                "Percentage": 5.8999999999999995
             }
         ]
     },
@@ -1997,28 +1735,23 @@
         "Responses": [
             {
                 "Option": "Less than Rs 1 lakh",
-                "Percentage": 28.7,
-                "Confidence": false
+                "Percentage": 28.7
             },
             {
                 "Option": "Don't own vehicle/Rs 0",
-                "Percentage": 24.6,
-                "Confidence": false
+                "Percentage": 24.6
             },
             {
                 "Option": "More than Rs 8 lakh",
-                "Percentage": 18.2,
-                "Confidence": false
+                "Percentage": 18.2
             },
             {
                 "Option": "Rs 4 lakh to Rs 8 lakh",
-                "Percentage": 14.5,
-                "Confidence": false
+                "Percentage": 14.499999999999998
             },
             {
                 "Option": "Rs 2 lakh to Rs 4 lakh",
-                "Percentage": 14.0,
-                "Confidence": false
+                "Percentage": 14.000000000000002
             }
         ]
     },
@@ -2030,18 +1763,15 @@
         "Responses": [
             {
                 "Option": "Me",
-                "Percentage": 47.8,
-                "Confidence": false
+                "Percentage": 47.8
             },
             {
                 "Option": "My neighbour",
-                "Percentage": 26.5,
-                "Confidence": false
+                "Percentage": 26.5
             },
             {
                 "Option": "We're more or less the same",
-                "Percentage": 25.7,
-                "Confidence": false
+                "Percentage": 25.7
             }
         ]
     },
@@ -2053,18 +1783,15 @@
         "Responses": [
             {
                 "Option": "Petrol",
-                "Percentage": 66.2,
-                "Confidence": false
+                "Percentage": 66.2
             },
             {
                 "Option": "LPG",
-                "Percentage": 17.8,
-                "Confidence": false
+                "Percentage": 17.8
             },
             {
                 "Option": "Diesel",
-                "Percentage": 16.0,
-                "Confidence": false
+                "Percentage": 16.0
             }
         ]
     },
@@ -2076,18 +1803,15 @@
         "Responses": [
             {
                 "Option": "EMI + investing - at the same time",
-                "Percentage": 62.1,
-                "Confidence": false
+                "Percentage": 62.1
             },
             {
                 "Option": "No EMI. Investing till you have enough money",
-                "Percentage": 28.5,
-                "Confidence": false
+                "Percentage": 28.499999999999996
             },
             {
                 "Option": "Full focus on paying EMI",
-                "Percentage": 9.4,
-                "Confidence": false
+                "Percentage": 9.4
             }
         ]
     },
@@ -2099,23 +1823,19 @@
         "Responses": [
             {
                 "Option": "Personal car/bike",
-                "Percentage": 47.0,
-                "Confidence": false
+                "Percentage": 47.0
             },
             {
                 "Option": "Train",
-                "Percentage": 26.2,
-                "Confidence": false
+                "Percentage": 26.200000000000003
             },
             {
                 "Option": "Bus",
-                "Percentage": 21.2,
-                "Confidence": false
+                "Percentage": 21.2
             },
             {
                 "Option": "Plane",
-                "Percentage": 5.6,
-                "Confidence": false
+                "Percentage": 5.6000000000000005
             }
         ]
     },
@@ -2127,13 +1847,55 @@
         "Responses": [
             {
                 "Option": "Private sector (ICICI Lombard, Tata AIG, etc)",
-                "Percentage": 53.6,
-                "Confidence": false
+                "Percentage": 53.6
             },
             {
                 "Option": "Public sector (LIC, Oriental, etc)",
-                "Percentage": 46.4,
-                "Confidence": false
+                "Percentage": 46.400000000000006
+            }
+        ]
+    },
+    "Which is better?  ": {
+        "Topic": "Payment Preference",
+        "Survey Name": "Newsletter Poll - Nov 12, 2023",
+        "Sample Size": 1449,
+        "Question Text": "Which is better?",
+        "Responses": [
+            {
+                "Option": "Debit card",
+                "Percentage": 54.400000000000006
+            },
+            {
+                "Option": "Credit card",
+                "Percentage": 45.6
+            }
+        ]
+    },
+    "When was the last time you visited a bank branch? ": {
+        "Topic": "Bank Visits",
+        "Survey Name": "Newsletter Poll - Nov 19, 2023",
+        "Sample Size": 831,
+        "Question Text": "When was the last time you visited a bank branch?",
+        "Responses": [
+            {
+                "Option": "In the last 10 days",
+                "Percentage": 31.2
+            },
+            {
+                "Option": "More than 1 year",
+                "Percentage": 23.200000000000003
+            },
+            {
+                "Option": "31 days to 90 days",
+                "Percentage": 15.4
+            },
+            {
+                "Option": "91 days to 1 year",
+                "Percentage": 15.2
+            },
+            {
+                "Option": "11 days to 30 days",
+                "Percentage": 15.0
             }
         ]
     },
@@ -2145,13 +1907,27 @@
         "Responses": [
             {
                 "Option": "Large house in rural area",
-                "Percentage": 64.1,
-                "Confidence": false
+                "Percentage": 64.1
             },
             {
                 "Option": "Small house in urban area",
-                "Percentage": 35.9,
-                "Confidence": false
+                "Percentage": 35.9
+            }
+        ]
+    },
+    "Which do you prefer?  ": {
+        "Topic": "Banking Preference",
+        "Survey Name": "Newsletter Poll - Dec 3, 2023",
+        "Sample Size": 1325,
+        "Question Text": "Which do you prefer?",
+        "Responses": [
+            {
+                "Option": "Banking online (using app or website)",
+                "Percentage": 89.5
+            },
+            {
+                "Option": "Banking at the branch location",
+                "Percentage": 10.5
             }
         ]
     },
@@ -2163,18 +1939,15 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 59.6,
-                "Confidence": false
+                "Percentage": 59.599999999999994
             },
             {
                 "Option": "No",
-                "Percentage": 28.0,
-                "Confidence": false
+                "Percentage": 28.000000000000004
             },
             {
                 "Option": "Only sometimes",
-                "Percentage": 12.4,
-                "Confidence": false
+                "Percentage": 12.4
             }
         ]
     },
@@ -2186,13 +1959,27 @@
         "Responses": [
             {
                 "Option": "Yes",
-                "Percentage": 64.1,
-                "Confidence": false
+                "Percentage": 64.1
             },
             {
                 "Option": "No",
-                "Percentage": 35.9,
-                "Confidence": false
+                "Percentage": 35.9
+            }
+        ]
+    },
+    "Which is better?   ": {
+        "Topic": "Home Ownership vs Renting",
+        "Survey Name": "Newsletter Poll - Dec 25, 2023",
+        "Sample Size": 1610,
+        "Question Text": "Which is better?",
+        "Responses": [
+            {
+                "Option": "Living in own home paying EMI",
+                "Percentage": 65.2
+            },
+            {
+                "Option": "Living in rented house",
+                "Percentage": 34.8
             }
         ]
     },
@@ -2204,13 +1991,1035 @@
         "Responses": [
             {
                 "Option": "No",
-                "Percentage": 62.0,
-                "Confidence": false
+                "Percentage": 62.0
             },
             {
                 "Option": "Yes",
-                "Percentage": 38.0,
-                "Confidence": false
+                "Percentage": 38.0
+            }
+        ]
+    },
+    "Which do you use more often?": {
+        "Topic": "Payment Methods",
+        "Survey Name": "Newsletter Poll - Jan 2, 2022",
+        "Sample Size": 1198,
+        "Question Text": "Which do you use more often?",
+        "Responses": [
+            {
+                "Option": "UPI apps",
+                "Percentage": 76.2
+            },
+            {
+                "Option": "Credit/debit cards",
+                "Percentage": 23.799999999999997
+            }
+        ]
+    },
+    "Which do you use more often? ": {
+        "Topic": "Payment Methods",
+        "Survey Name": "Newsletter Poll - Jan 2, 2022",
+        "Sample Size": 1198,
+        "Question Text": "Which do you use more often?",
+        "Responses": [
+            {
+                "Option": "UPI apps",
+                "Percentage": 76.2
+            },
+            {
+                "Option": "Credit/debit cards",
+                "Percentage": 23.799999999999997
+            }
+        ]
+    },
+    "How much of your annual income do you spend on vacations?": {
+        "Topic": "Vacation Spending",
+        "Survey Name": "Newsletter Poll - Jan 9, 2022",
+        "Sample Size": 1495,
+        "Question Text": "How much of your annual income do you spend on vacations?",
+        "Responses": [
+            {
+                "Option": "Less than 5%",
+                "Percentage": 50.0
+            },
+            {
+                "Option": "6-10%",
+                "Percentage": 30.599999999999998
+            },
+            {
+                "Option": "11-20%",
+                "Percentage": 9.700000000000001
+            },
+            {
+                "Option": "More than 31%",
+                "Percentage": 5.1
+            },
+            {
+                "Option": "21-30%",
+                "Percentage": 4.7
+            }
+        ]
+    },
+    "Do you pay attention to what is presented in the Union Budget every year?": {
+        "Topic": "Budget Awareness",
+        "Survey Name": "Newsletter Poll - Jan 16, 2022",
+        "Sample Size": 1528,
+        "Question Text": "Do you pay attention to what is presented in the Union Budget every year?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 79.60000000000001
+            },
+            {
+                "Option": "No",
+                "Percentage": 20.4
+            }
+        ]
+    },
+    "Which of these deserves the greatest amount of investment?": {
+        "Topic": "Investment Preferences",
+        "Survey Name": "Newsletter Poll - Jan 23, 2022",
+        "Sample Size": 1741,
+        "Question Text": "Which of these deserves the greatest amount of investment?",
+        "Responses": [
+            {
+                "Option": "Equity (share markets)",
+                "Percentage": 58.699999999999996
+            },
+            {
+                "Option": "Real estate",
+                "Percentage": 26.0
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 11.600000000000001
+            },
+            {
+                "Option": "FD",
+                "Percentage": 3.6999999999999997
+            }
+        ]
+    },
+    "Have you subscribed to a health insurance policy?": {
+        "Topic": "Health Insurance",
+        "Survey Name": "Newsletter Poll - Jan 30, 2022",
+        "Sample Size": 1028,
+        "Question Text": "Have you subscribed to a health insurance policy?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 56.599999999999994
+            },
+            {
+                "Option": "No",
+                "Percentage": 43.4
+            }
+        ]
+    },
+    "What is more important?": {
+        "Topic": "Wealth Building",
+        "Survey Name": "Newsletter Poll - Feb 6, 2022",
+        "Sample Size": 440,
+        "Question Text": "What is more important?",
+        "Responses": [
+            {
+                "Option": "Getting rich slower but more guarantee of future wealth",
+                "Percentage": 89.3
+            },
+            {
+                "Option": "Getting rich faster but low guarantee of future wealth",
+                "Percentage": 10.7
+            }
+        ]
+    },
+    "Which one of these is your most preferred way of spending?": {
+        "Topic": "Spending Preferences",
+        "Survey Name": "Newsletter Poll - Feb 13, 2022",
+        "Sample Size": 1005,
+        "Question Text": "Which one of these is your most preferred way of spending?",
+        "Responses": [
+            {
+                "Option": "Debit card",
+                "Percentage": 57.599999999999994
+            },
+            {
+                "Option": "Credit card",
+                "Percentage": 42.4
+            }
+        ]
+    },
+    "Do you expect more economic disturbance in this pandemic?": {
+        "Topic": "Economic Outlook",
+        "Survey Name": "Newsletter Poll - Feb 20, 2022",
+        "Sample Size": 996,
+        "Question Text": "Do you expect more economic disturbance in this pandemic?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 53.1
+            },
+            {
+                "Option": "No",
+                "Percentage": 36.9
+            },
+            {
+                "Option": "Can't say",
+                "Percentage": 9.9
+            }
+        ]
+    },
+    "How long have you been investing in mutual funds or stocks?": {
+        "Topic": "Investment Experience",
+        "Survey Name": "Newsletter Poll - Feb 27, 2022",
+        "Sample Size": 1143,
+        "Question Text": "How long have you been investing in mutual funds or stocks?",
+        "Responses": [
+            {
+                "Option": "2 years to 5 years",
+                "Percentage": 17.7
+            },
+            {
+                "Option": "1 year to 2 years",
+                "Percentage": 15.5
+            },
+            {
+                "Option": "Less than 3 months",
+                "Percentage": 15.0
+            },
+            {
+                "Option": "More than 10 years",
+                "Percentage": 14.299999999999999
+            },
+            {
+                "Option": "6 months to 1 year",
+                "Percentage": 13.8
+            },
+            {
+                "Option": "3 to 6 months",
+                "Percentage": 11.899999999999999
+            },
+            {
+                "Option": "5 years to 10 years",
+                "Percentage": 11.799999999999999
+            }
+        ]
+    },
+    "The price of which affects your daily life more?": {
+        "Topic": "Impact of Price Changes",
+        "Survey Name": "Newsletter Poll - Mar 6, 2022",
+        "Sample Size": 1067,
+        "Question Text": "The price of which affects your daily life more?",
+        "Responses": [
+            {
+                "Option": "Crude oil",
+                "Percentage": 82.0
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 18.0
+            }
+        ]
+    },
+    "Do you think trading should continue on weekends as well?": {
+        "Topic": "Stock Market Operations",
+        "Survey Name": "Newsletter Poll - Mar 13, 2022",
+        "Sample Size": 577,
+        "Question Text": "Do you think trading should continue on weekends as well?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 61.9
+            },
+            {
+                "Option": "No",
+                "Percentage": 38.1
+            }
+        ]
+    },
+    "Which affects your daily life more?": {
+        "Topic": "Cost of Living",
+        "Survey Name": "Newsletter Poll - Mar 20, 2022",
+        "Sample Size": 1567,
+        "Question Text": "Which affects your daily life more?",
+        "Responses": [
+            {
+                "Option": "Petrol price",
+                "Percentage": 45.300000000000004
+            },
+            {
+                "Option": "Diesel price",
+                "Percentage": 26.400000000000002
+            },
+            {
+                "Option": "Electricity price",
+                "Percentage": 17.2
+            },
+            {
+                "Option": "LPG price",
+                "Percentage": 11.0
+            }
+        ]
+    },
+    "Which country was India's biggest trading partner in 2021?": {
+        "Topic": "Trade Relations",
+        "Survey Name": "Newsletter Poll - Mar 27, 2022",
+        "Sample Size": 1006,
+        "Question Text": "Which country was India's biggest trading partner in 2021?",
+        "Responses": [
+            {
+                "Option": "USA",
+                "Percentage": 57.99999999999999
+            },
+            {
+                "Option": "China",
+                "Percentage": 42.0
+            }
+        ]
+    },
+    "How often do you buy goods from e-commerce websites?": {
+        "Topic": "Online Shopping Habits",
+        "Survey Name": "Newsletter Poll - Apr 3, 2022",
+        "Sample Size": 971,
+        "Question Text": "How often do you buy goods from e-commerce websites?",
+        "Responses": [
+            {
+                "Option": "Every month",
+                "Percentage": 31.7
+            },
+            {
+                "Option": "Every day",
+                "Percentage": 17.299999999999997
+            },
+            {
+                "Option": "Every quarter",
+                "Percentage": 17.299999999999997
+            },
+            {
+                "Option": "Every week",
+                "Percentage": 16.3
+            },
+            {
+                "Option": "Every year",
+                "Percentage": 8.799999999999999
+            },
+            {
+                "Option": "Never",
+                "Percentage": 8.7
+            }
+        ]
+    },
+    "I generally invest in mutual funds for": {
+        "Topic": "Mutual Fund Investments",
+        "Survey Name": "Newsletter Poll - Apr 10, 2022",
+        "Sample Size": 1209,
+        "Question Text": "I generally invest in mutual funds for",
+        "Responses": [
+            {
+                "Option": "More than 5 years",
+                "Percentage": 46.7
+            },
+            {
+                "Option": "1 to 3 years",
+                "Percentage": 20.3
+            },
+            {
+                "Option": "3 to 5 years",
+                "Percentage": 18.9
+            },
+            {
+                "Option": "1 year or less",
+                "Percentage": 14.099999999999998
+            }
+        ]
+    },
+    "How much money do you have saved as your emergency fund?": {
+        "Topic": "Emergency Fund Savings",
+        "Survey Name": "Newsletter Poll - Apr 17, 2022",
+        "Sample Size": 692,
+        "Question Text": "How much money do you have saved as your emergency fund?",
+        "Responses": [
+            {
+                "Option": "6 months' expenses worth",
+                "Percentage": 37.0
+            },
+            {
+                "Option": "3 months' expenses worth",
+                "Percentage": 33.800000000000004
+            },
+            {
+                "Option": "12 months' expenses worth",
+                "Percentage": 14.7
+            },
+            {
+                "Option": "More than above",
+                "Percentage": 14.499999999999998
+            }
+        ]
+    },
+    "I am a:": {
+        "Topic": "Investor Profile",
+        "Survey Name": "Newsletter Poll - Apr 24, 2022",
+        "Sample Size": 566,
+        "Question Text": "I am a:",
+        "Responses": [
+            {
+                "Option": "Full-time employee – I invest whenever I am able to manage time",
+                "Percentage": 53.400000000000006
+            },
+            {
+                "Option": "Part-time employee, a part-time investor",
+                "Percentage": 16.3
+            },
+            {
+                "Option": "Full-time investor",
+                "Percentage": 12.4
+            },
+            {
+                "Option": "I haven’t invested yet",
+                "Percentage": 10.100000000000001
+            },
+            {
+                "Option": "Business owner and investor",
+                "Percentage": 8.0
+            }
+        ]
+    },
+    "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?": {
+        "Topic": "Tax-Saving Investments",
+        "Survey Name": "Newsletter Poll - May 1, 2022",
+        "Sample Size": 927,
+        "Question Text": "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 73.0
+            },
+            {
+                "Option": "No",
+                "Percentage": 27.0
+            }
+        ]
+    },
+    "Did the elders in your own family invest in shares or mutual funds?": {
+        "Topic": "Family Investment Habits",
+        "Survey Name": "Newsletter Poll - May 8, 2022",
+        "Sample Size": 1073,
+        "Question Text": "Did the elders in your own family invest in shares or mutual funds?",
+        "Responses": [
+            {
+                "Option": "No",
+                "Percentage": 55.50000000000001
+            },
+            {
+                "Option": "Yes",
+                "Percentage": 44.5
+            }
+        ]
+    },
+    "Have you ever applied for any IPO?": {
+        "Topic": "IPO Participation",
+        "Survey Name": "Newsletter Poll - May 15, 2022",
+        "Sample Size": 1373,
+        "Question Text": "Have you ever applied for any IPO?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 65.3
+            },
+            {
+                "Option": "No",
+                "Percentage": 34.699999999999996
+            }
+        ]
+    },
+    "Do you check your bank balance every month?": {
+        "Topic": "Banking Habits",
+        "Survey Name": "Newsletter Poll - May 22, 2022",
+        "Sample Size": 1354,
+        "Question Text": "Do you check your bank balance every month?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 87.2
+            },
+            {
+                "Option": "No",
+                "Percentage": 12.8
+            }
+        ]
+    },
+    "Do you have a credit card?": {
+        "Topic": "Credit Card Ownership",
+        "Survey Name": "Newsletter Poll - May 29, 2022",
+        "Sample Size": 1363,
+        "Question Text": "Do you have a credit card?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 50.8
+            },
+            {
+                "Option": "No, I use only debit card",
+                "Percentage": 40.6
+            },
+            {
+                "Option": "No, I don't use any card",
+                "Percentage": 8.5
+            }
+        ]
+    },
+    "Using which do you find most convenient?": {
+        "Topic": "Payment Preferences",
+        "Survey Name": "Newsletter Poll - June 5, 2022",
+        "Sample Size": 1228,
+        "Question Text": "Using which do you find most convenient?",
+        "Responses": [
+            {
+                "Option": "Online money (UPI, net banking, NEFT, etc.)",
+                "Percentage": 66.0
+            },
+            {
+                "Option": "Cash",
+                "Percentage": 17.299999999999997
+            },
+            {
+                "Option": "Card (credit card, debit card)",
+                "Percentage": 16.6
+            }
+        ]
+    },
+    "When in a month do you invest?": {
+        "Topic": "Investment Timing",
+        "Survey Name": "Newsletter Poll - June 12, 2022",
+        "Sample Size": 984,
+        "Question Text": "When in a month do you invest?",
+        "Responses": [
+            {
+                "Option": "No fixed time",
+                "Percentage": 45.6
+            },
+            {
+                "Option": "Towards the start of the month",
+                "Percentage": 33.2
+            },
+            {
+                "Option": "Towards the middle of the month",
+                "Percentage": 11.799999999999999
+            },
+            {
+                "Option": "Towards the end of the month",
+                "Percentage": 9.3
+            }
+        ]
+    },
+    "Do you have medical insurance? ": {
+        "Topic": "Medical Insurance",
+        "Survey Name": "Newsletter Poll - June 19, 2022",
+        "Sample Size": 1081,
+        "Question Text": "Do you have medical insurance?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 56.39999999999999
+            },
+            {
+                "Option": "No",
+                "Percentage": 43.6
+            }
+        ]
+    },
+    "Which is your primary source of financial knowledge?": {
+        "Topic": "Financial Knowledge Sources",
+        "Survey Name": "Newsletter Poll - June 26, 2022",
+        "Sample Size": 1315,
+        "Question Text": "Which is your primary source of financial knowledge?",
+        "Responses": [
+            {
+                "Option": "Social Media",
+                "Percentage": 36.199999999999996
+            },
+            {
+                "Option": "News",
+                "Percentage": 31.900000000000002
+            },
+            {
+                "Option": "Books",
+                "Percentage": 17.0
+            },
+            {
+                "Option": "Emails",
+                "Percentage": 14.799999999999999
+            }
+        ]
+    },
+    "Have you ever invested in an international mutual fund?": {
+        "Topic": "International Investments",
+        "Survey Name": "Newsletter Poll - July 3, 2022",
+        "Sample Size": 1025,
+        "Question Text": "Have you ever invested in an international mutual fund?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 51.5
+            },
+            {
+                "Option": "No",
+                "Percentage": 48.5
+            }
+        ]
+    },
+    "Has inflation affected your daily life?": {
+        "Topic": "Inflation Impact",
+        "Survey Name": "Newsletter Poll - July 10, 2022",
+        "Sample Size": 613,
+        "Question Text": "Has inflation affected your daily life?",
+        "Responses": [
+            {
+                "Option": "A lot",
+                "Percentage": 51.9
+            },
+            {
+                "Option": "A little bit",
+                "Percentage": 32.5
+            },
+            {
+                "Option": "Can't feel it",
+                "Percentage": 15.7
+            }
+        ]
+    },
+    "Have you made any major changes to your investment plans in 2022?": {
+        "Topic": "Investment Plan Changes",
+        "Survey Name": "Newsletter Poll - July 17, 2022",
+        "Sample Size": 898,
+        "Question Text": "Have you made any major changes to your investment plans in 2022?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 70.39999999999999
+            },
+            {
+                "Option": "No",
+                "Percentage": 29.599999999999998
+            }
+        ]
+    },
+    "Are you currently paying any EMIs?": {
+        "Topic": "EMI Payments",
+        "Survey Name": "Newsletter Poll - July 24, 2022",
+        "Sample Size": 2093,
+        "Question Text": "Are you currently paying any EMIs?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 55.50000000000001
+            },
+            {
+                "Option": "No",
+                "Percentage": 44.5
+            }
+        ]
+    },
+    "Have you ever calculated your net worth?": {
+        "Topic": "Net Worth Calculation",
+        "Survey Name": "Newsletter Poll - July 31, 2022",
+        "Sample Size": 1506,
+        "Question Text": "Have you ever calculated your net worth?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 52.0
+            },
+            {
+                "Option": "No",
+                "Percentage": 48.0
+            }
+        ]
+    },
+    "Rising interest rates (loans and FD) is good for you?": {
+        "Topic": "Interest Rate Impact",
+        "Survey Name": "Newsletter Poll - Aug 7, 2022",
+        "Sample Size": 1051,
+        "Question Text": "Rising interest rates (loans and FD) is good for you?",
+        "Responses": [
+            {
+                "Option": "Good for me (I have only FDs)",
+                "Percentage": 45.2
+            },
+            {
+                "Option": "Bad for me (I have loans)",
+                "Percentage": 30.7
+            },
+            {
+                "Option": "Doesn't matter",
+                "Percentage": 24.099999999999998
+            }
+        ]
+    },
+    "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?": {
+        "Topic": "Stock vs. Mutual Fund Returns",
+        "Survey Name": "Newsletter Poll - Aug 14, 2022",
+        "Sample Size": 2195,
+        "Question Text": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 76.7
+            },
+            {
+                "Option": "No",
+                "Percentage": 23.3
+            }
+        ]
+    },
+    "How many smartphones do you personally use?": {
+        "Topic": "Smartphone Usage",
+        "Survey Name": "Newsletter Poll - Aug 21, 2022",
+        "Sample Size": 2863,
+        "Question Text": "How many smartphones do you personally use?",
+        "Responses": [
+            {
+                "Option": "1",
+                "Percentage": 76.7
+            },
+            {
+                "Option": "2",
+                "Percentage": 17.2
+            },
+            {
+                "Option": "3 or more",
+                "Percentage": 6.1
+            }
+        ]
+    },
+    "Where do you keep most of your money?": {
+        "Topic": "Banking Preferences",
+        "Survey Name": "Newsletter Poll - Aug 28, 2022",
+        "Sample Size": 1897,
+        "Question Text": "Where do you keep most of your money?",
+        "Responses": [
+            {
+                "Option": "Public Bank/Govt Bank (SBI, Bank of Baroda, etc.)",
+                "Percentage": 57.8
+            },
+            {
+                "Option": "Private Bank (ICICI Bank, HDFC Bank, etc.)",
+                "Percentage": 42.199999999999996
+            }
+        ]
+    },
+    "Which device do you use for investing?": {
+        "Topic": "Investing Device Usage",
+        "Survey Name": "Newsletter Poll - Sept 4, 2022",
+        "Sample Size": 3277,
+        "Question Text": "Which device do you use for investing?",
+        "Responses": [
+            {
+                "Option": "Smartphone",
+                "Percentage": 86.1
+            },
+            {
+                "Option": "Computer",
+                "Percentage": 10.299999999999999
+            },
+            {
+                "Option": "Others",
+                "Percentage": 3.5999999999999996
+            }
+        ]
+    },
+    "When did you last withdraw cash from an ATM?": {
+        "Topic": "ATM Withdrawals",
+        "Survey Name": "Newsletter Poll - Sept 11, 2022",
+        "Sample Size": 1705,
+        "Question Text": "When did you last withdraw cash from an ATM?",
+        "Responses": [
+            {
+                "Option": "Within the last 7 days",
+                "Percentage": 34.699999999999996
+            },
+            {
+                "Option": "Within the last 30 days",
+                "Percentage": 28.1
+            },
+            {
+                "Option": "Within the last 6 months",
+                "Percentage": 21.2
+            },
+            {
+                "Option": "More than a year ago",
+                "Percentage": 16.0
+            }
+        ]
+    },
+    "When did you last visit your bank branch?": {
+        "Topic": "Bank Branch Visits",
+        "Survey Name": "Newsletter Poll - Sept 18, 2022",
+        "Sample Size": 1489,
+        "Question Text": "When did you last visit your bank branch?",
+        "Responses": [
+            {
+                "Option": "Within the last 7 days",
+                "Percentage": 29.799999999999997
+            },
+            {
+                "Option": "More than a year ago",
+                "Percentage": 29.599999999999998
+            },
+            {
+                "Option": "Within the last 6 months",
+                "Percentage": 22.8
+            },
+            {
+                "Option": "Within the last 30 days",
+                "Percentage": 17.8
+            }
+        ]
+    },
+    "Are you presently paying EMIs?": {
+        "Topic": "EMI Payments",
+        "Survey Name": "Newsletter Poll - Sept 25, 2022",
+        "Sample Size": 1877,
+        "Question Text": "Are you presently paying EMIs?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 62.3
+            },
+            {
+                "Option": "No",
+                "Percentage": 37.7
+            }
+        ]
+    },
+    "Would you take a loan to buy a vehicle?": {
+        "Topic": "Vehicle Loan Preferences",
+        "Survey Name": "Newsletter Poll - Oct 2, 2022",
+        "Sample Size": 1246,
+        "Question Text": "Would you take a loan to buy a vehicle?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 60.4
+            },
+            {
+                "Option": "No",
+                "Percentage": 39.6
+            }
+        ]
+    },
+    "Which of the following do you mainly use for commuting?": {
+        "Topic": "Commuting Preferences",
+        "Survey Name": "Newsletter Poll - Oct 9, 2022",
+        "Sample Size": 2150,
+        "Question Text": "Which of the following do you mainly use for commuting?",
+        "Responses": [
+            {
+                "Option": "Bike/Scooter",
+                "Percentage": 44.0
+            },
+            {
+                "Option": "Public Transport",
+                "Percentage": 30.8
+            },
+            {
+                "Option": "Car",
+                "Percentage": 25.2
+            }
+        ]
+    },
+    "How many active SIPs do you have?": {
+        "Topic": "Active SIPs",
+        "Survey Name": "Newsletter Poll - Oct 30, 2022",
+        "Sample Size": 1603,
+        "Question Text": "How many active SIPs do you have?",
+        "Responses": [
+            {
+                "Option": "3+",
+                "Percentage": 42.199999999999996
+            },
+            {
+                "Option": "0",
+                "Percentage": 22.5
+            },
+            {
+                "Option": "1",
+                "Percentage": 21.4
+            },
+            {
+                "Option": "2",
+                "Percentage": 13.900000000000002
+            }
+        ]
+    },
+    "Which do you invest the most in?": {
+        "Topic": "Investment Preferences",
+        "Survey Name": "Newsletter Poll - Nov 6, 2022",
+        "Sample Size": 2354,
+        "Question Text": "Which do you invest the most in?",
+        "Responses": [
+            {
+                "Option": "Stocks",
+                "Percentage": 40.1
+            },
+            {
+                "Option": "Mutual funds",
+                "Percentage": 38.4
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 7.9
+            },
+            {
+                "Option": "Others",
+                "Percentage": 6.9
+            },
+            {
+                "Option": "FD",
+                "Percentage": 6.6000000000000005
+            }
+        ]
+    },
+    "How do you feel when you see your investments in the red?": {
+        "Topic": "Investment Reactions",
+        "Survey Name": "Newsletter Poll - Nov 13, 2022",
+        "Sample Size": 2079,
+        "Question Text": "How do you feel when you see your investments in the red?",
+        "Responses": [
+            {
+                "Option": "Doesn't affect me",
+                "Percentage": 53.0
+            },
+            {
+                "Option": "Happy",
+                "Percentage": 23.799999999999997
+            },
+            {
+                "Option": "Worried",
+                "Percentage": 23.200000000000003
+            }
+        ]
+    },
+    "Which makes you happier?": {
+        "Topic": "Financial Happiness",
+        "Survey Name": "Newsletter Poll - Nov 20, 2022",
+        "Sample Size": 1603,
+        "Question Text": "Which makes you happier?",
+        "Responses": [
+            {
+                "Option": "Investments up 15% in one year",
+                "Percentage": 55.1
+            },
+            {
+                "Option": "Monthly income credited to bank",
+                "Percentage": 44.9
+            }
+        ]
+    },
+    "Do you invest in gold (SGB, gold biscuit, etc.)?": {
+        "Topic": "Gold Investment",
+        "Survey Name": "Newsletter Poll - Nov 27, 2022",
+        "Sample Size": 1889,
+        "Question Text": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 63.800000000000004
+            },
+            {
+                "Option": "No",
+                "Percentage": 36.199999999999996
+            }
+        ]
+    },
+    "Who files your taxes?": {
+        "Topic": "Tax Filing Preferences",
+        "Survey Name": "Newsletter Poll - Dec 4, 2022",
+        "Sample Size": 2111,
+        "Question Text": "Who files your taxes?",
+        "Responses": [
+            {
+                "Option": "Self",
+                "Percentage": 61.199999999999996
+            },
+            {
+                "Option": "Hired a CA",
+                "Percentage": 25.8
+            },
+            {
+                "Option": "Others",
+                "Percentage": 13.0
+            }
+        ]
+    },
+    "By when do you think India will become a developed country?": {
+        "Topic": "India’s Development Timeline",
+        "Survey Name": "Newsletter Poll - Dec 11, 2022",
+        "Sample Size": 2189,
+        "Question Text": "By when do you think India will become a developed country?",
+        "Responses": [
+            {
+                "Option": "2030",
+                "Percentage": 37.7
+            },
+            {
+                "Option": "2050",
+                "Percentage": 36.6
+            },
+            {
+                "Option": "Can't say",
+                "Percentage": 13.4
+            },
+            {
+                "Option": "2100",
+                "Percentage": 12.3
+            }
+        ]
+    },
+    "When is the ideal age to retire?": {
+        "Topic": "Ideal Retirement Age",
+        "Survey Name": "Newsletter Poll - Dec 18, 2022",
+        "Sample Size": 2263,
+        "Question Text": "When is the ideal age to retire?",
+        "Responses": [
+            {
+                "Option": "46-55 years",
+                "Percentage": 24.099999999999998
+            },
+            {
+                "Option": "56-65 years",
+                "Percentage": 22.0
+            },
+            {
+                "Option": "As early as possible",
+                "Percentage": 16.2
+            },
+            {
+                "Option": "As late as possible",
+                "Percentage": 14.399999999999999
+            },
+            {
+                "Option": "36-45 years",
+                "Percentage": 13.700000000000001
+            },
+            {
+                "Option": "Under 35 years",
+                "Percentage": 9.6
+            }
+        ]
+    },
+    "Do you use UPI apps (PhonePe, GPay, Paytm, etc.)?": {
+        "Topic": "UPI Payment Usage",
+        "Survey Name": "Newsletter Poll - Dec 25, 2022",
+        "Sample Size": 2339,
+        "Question Text": "Do you use UPI apps (PhonePe, GPay, Paytm, etc.)?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 92.4
+            },
+            {
+                "Option": "No",
+                "Percentage": 7.6
             }
         ]
     }
