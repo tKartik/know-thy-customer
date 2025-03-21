@@ -511,10 +511,14 @@ Promise.all([
                .scale(scale));
     }
 
+    // Filter links by strength threshold
+    const strengthThreshold = 0.2; // Adjust this value
+    const filteredLinks = graphData.links.filter(link => link.strength >= strengthThreshold);
+    
     // Create the links
     const links = g.append("g")
         .selectAll("line")
-        .data(graphData.links)
+        .data(filteredLinks)
         .join("line")
         .attr("class", "link")
         .style("stroke-width", d => Math.sqrt(d.strength) * 2);
@@ -617,15 +621,11 @@ Promise.all([
         const node = d3.select(this).select("circle");
         if (!node.classed("selected") && !node.classed("highlighted")) {
             node.style("filter", null); // Fully remove filter attribute
-        } else if (node.classed("selected")) {
-            // Keep the white stroke and add a glow
-            node.style("filter", "drop-shadow(0 0 12px rgba(255,255,255,0.8))");
-            // Ensure stroke stays visible
-            node.style("stroke", "#FFFFFF");
-            node.style("stroke-width", "4px");
         } else if (node.classed("highlighted")) {
             node.style("filter", "drop-shadow(0 0 8px rgba(255,255,255,0.6))");
         }
+        
+        // Don't re-apply stroke here, let click handler manage that
     })
     .on("click", function(event, d) {
         event.stopPropagation();
@@ -641,10 +641,12 @@ Promise.all([
         document.getElementById('search-input').value = '';
         }
         
-        // Reset any previous node styles
+        // Reset any previous node styles - including selected state and strokes
         nodes.classed('highlighted', false)
              .classed('dimmed', false)
              .classed("selected", false)
+             .style("stroke", "none")
+             .style("stroke-width", null)
              .style("fill", node => {
                 // Restore original gradient fill for all nodes
                 const gradientUrl = createNodeGradient(node.id);
@@ -658,7 +660,7 @@ Promise.all([
         d3.select(this).select("circle")
             .classed("selected", true)
             .style("stroke", "#FFFFFF")  // Add white stroke
-            .style("stroke-width", "4px"); // With 2px width
+            .style("stroke-width", "4px"); // With 4px width
         
         // Find and highlight connected nodes
         const connectedNodeIds = new Set();
@@ -1147,18 +1149,16 @@ Promise.all([
             }
             
             // Check for match in question text (id)
-            let isMatch = containsExactWord(d.id, searchTerm);
+            let isMatch = d.id.toLowerCase().includes(searchTerm);
             
             // Check for match in topic
-            if (!isMatch) {
-                isMatch = containsExactWord(d.topic, searchTerm);
+            if (!isMatch && d.topic) {
+                isMatch = d.topic.toLowerCase().includes(searchTerm);
             }
             
             // Check for match in options
-                if (!isMatch) {
-                isMatch = d.options.split(" | ").some(opt => 
-                    containsExactWord(opt, searchTerm)
-                );
+            if (!isMatch && d.options) {
+                isMatch = d.options.toLowerCase().includes(searchTerm);
             }
             
             // Apply classes based on match
