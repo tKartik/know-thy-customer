@@ -4,13 +4,18 @@ import json
 import os
 
 try:
+    # Get the current script's directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
     # Load pre-trained BERT model for embeddings
     print("Loading BERT model...")
     model = SentenceTransformer("all-MiniLM-L6-v2")
 
     # Load JSON file
     print("Loading JSON data...")
-    with open("clean_survey_data.json", "r") as f:
+    json_path = os.path.join(script_dir, "clean_survey_data.json")
+    print(f"Looking for JSON file at: {json_path}")
+    with open(json_path, "r") as f:
         data = json.load(f)
 
     # Create a list of question-options pairs with their metadata
@@ -71,11 +76,13 @@ try:
     # Create the final graph structure for D3.js
     graph_data = {"nodes": nodes, "links": links}
 
-    # Save the JSON graph file
-    with open("semantic_graph_final.json", "w") as json_file:
+    # Save the JSON graph file to the current directory
+    output_path = os.path.join(script_dir, "semantic_graph_final.json")
+    print(f"Saving output to: {output_path}")
+    with open(output_path, "w") as json_file:
         json.dump(graph_data, json_file, indent=4)
 
-    print("Graph JSON saved as semantic_graph.json")
+    print("Graph JSON saved as semantic_graph_final.json")
     print(f"Created {len(nodes)} nodes and {len(links)} connections")
 
 except FileNotFoundError as e:

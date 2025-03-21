@@ -3,6 +3,7 @@
         "Topic": "CIBIL Score Awareness",
         "Survey Name": "Newsletter Poll - Jan 7, 2024",
         "Sample Size": 3240,
+        "Question Text": "Do you know your CIBIL score?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -20,6 +21,7 @@
         "Topic": "Stressful investment",
         "Survey Name": "Newsletter Poll - Jan 14, 2024",
         "Sample Size": 1259,
+        "Question Text": "Which is more stressful to you?",
         "Responses": [
             {
                 "Option": "Investing in real estate",
@@ -37,6 +39,7 @@
         "Topic": "Real Estate Investment in metro tier-2/3",
         "Survey Name": "Newsletter Poll - Jan 21, 2024",
         "Sample Size": 1059,
+        "Question Text": "If buying a flat for investment, which would you prefer?",
         "Responses": [
             {
                 "Option": "Flat in metro city, tier 1 city",
@@ -54,6 +57,7 @@
         "Topic": "SIP/Mutual Fund Returns",
         "Survey Name": "Newsletter Poll - Jan 28, 2024",
         "Sample Size": 1622,
+        "Question Text": "How much return per annum do you expect from your SIP/mutual fund investment?",
         "Responses": [
             {
                 "Option": "11 to 15%",
@@ -81,6 +85,7 @@
         "Topic": "Private vs Govt Bank",
         "Survey Name": "Newsletter Poll - Feb 4, 2024",
         "Sample Size": 1326,
+        "Question Text": "Which bank do you mainly use?",
         "Responses": [
             {
                 "Option": "Private bank",
@@ -98,6 +103,7 @@
         "Topic": "Home loan/rent",
         "Survey Name": "Newsletter Poll - Feb 11, 2024",
         "Sample Size": 1346,
+        "Question Text": "Are you paying any of the following right now?",
         "Responses": [
             {
                 "Option": "Home loan EMI",
@@ -120,6 +126,7 @@
         "Topic": "Loan Application Status",
         "Survey Name": "Newsletter Poll - Feb 18, 2024",
         "Sample Size": 648,
+        "Question Text": "Has your loan application (home, car, education, etc) ever been denied?",
         "Responses": [
             {
                 "Option": "No",
@@ -134,9 +141,10 @@
         ]
     },
     "Which is better?": {
-        "Topic": "Home Ownership vs Renting",
-        "Survey Name": "Newsletter Poll - Dec 25, 2023",
-        "Sample Size": 1610,
+        "Topic": "Bank Preference for FD",
+        "Survey Name": "Newsletter Poll - Feb 25, 2024",
+        "Sample Size": 1191,
+        "Question Text": "Which is better?",
         "Responses": [
             {
                 "Option": "FD from big bank",
@@ -189,6 +197,7 @@
         "Topic": "Investment Stress",
         "Survey Name": "Newsletter Poll - Mar 3, 2024",
         "Sample Size": 1331,
+        "Question Text": "Let's say your overall investment is earning 12% per annum. Which of the two options will you choose?",
         "Responses": [
             {
                 "Option": "2% lower return but you are never stressed",
@@ -206,6 +215,7 @@
         "Topic": "Safe Investment Gold vs Real estate",
         "Survey Name": "Newsletter Poll - Mar 10, 2024",
         "Sample Size": 1040,
+        "Question Text": "Which investment do you consider to be safer?",
         "Responses": [
             {
                 "Option": "Gold",
@@ -223,6 +233,7 @@
         "Topic": "Diff between Sensex & Nifty",
         "Survey Name": "Newsletter Poll - Mar 17, 2024",
         "Sample Size": 1203,
+        "Question Text": "Do you know the difference between Sensex and Nifty?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -240,6 +251,7 @@
         "Topic": "Investment Suggestions to friend",
         "Survey Name": "Newsletter Poll - Mar 24, 2024",
         "Sample Size": 1544,
+        "Question Text": "Where would you ask your friend (who is not interested in finance) to invest?",
         "Responses": [
             {
                 "Option": "Mutual funds",
@@ -277,6 +289,7 @@
         "Topic": "Expensive Purchases",
         "Survey Name": "Newsletter Poll - Mar 31, 2024",
         "Sample Size": 627,
+        "Question Text": "Which is the most expensive thing you have ever bought?",
         "Responses": [
             {
                 "Option": "House",
@@ -309,6 +322,7 @@
         "Topic": "Payment Preferences",
         "Survey Name": "Newsletter Poll - Apr 7, 2024",
         "Sample Size": 996,
+        "Question Text": "Which way do you prefer to pay?",
         "Responses": [
             {
                 "Option": "UPI",
@@ -331,6 +345,7 @@
         "Topic": "Subscription Payments",
         "Survey Name": "Newsletter Poll - Apr 14, 2024",
         "Sample Size": 669,
+        "Question Text": "Do you pay for a 'premium plan' for any app (like YouTube, Spotify, etc)?",
         "Responses": [
             {
                 "Option": "No",
@@ -348,6 +363,7 @@
         "Topic": "Appliance Purchases",
         "Survey Name": "Newsletter Poll - Apr 21, 2024",
         "Sample Size": 815,
+        "Question Text": "You buy large appliances using",
         "Responses": [
             {
                 "Option": "100% down payment",
@@ -362,9 +378,10 @@
         ]
     },
     "Which do you prefer?": {
-        "Topic": "Banking Preference",
-        "Survey Name": "Newsletter Poll - Dec 3, 2023",
-        "Sample Size": 1325,
+        "Topic": "Investment Preferences",
+        "Survey Name": "Newsletter Poll - Apr 28, 2024",
+        "Sample Size": 962,
+        "Question Text": "Which do you prefer?",
         "Responses": [
             {
                 "Option": "Invest more in equity (shares, MF) and less in safer investments (FD, bonds, etc)",
@@ -407,6 +424,7 @@
         "Topic": "Portfolio Returns",
         "Survey Name": "Newsletter Poll - May 5, 2024",
         "Sample Size": 2028,
+        "Question Text": "What is your current portfolio return?",
         "Responses": [
             {
                 "Option": "More than 15%",
@@ -429,6 +447,7 @@
         "Topic": "Mutual Fund Investments",
         "Survey Name": "Newsletter Poll - May 12, 2024",
         "Sample Size": 1821,
+        "Question Text": "Which kind of mutual fund do you have most money invested in?",
         "Responses": [
             {
                 "Option": "Mid-cap + small cap",
@@ -456,6 +475,7 @@
         "Topic": "Investment Portfolio",
         "Survey Name": "Newsletter Poll - May 19, 2024",
         "Sample Size": 1034,
+        "Question Text": "From the option below, which investment portfolio is better?",
         "Responses": [
             {
                 "Option": "Equity (shares or MF) + Gold",
@@ -478,6 +498,7 @@
         "Topic": "Stock Market Returns",
         "Survey Name": "Newsletter Poll - May 26, 2024",
         "Sample Size": 2891,
+        "Question Text": "Which country's stock markets do you think give higher returns?",
         "Responses": [
             {
                 "Option": "India",
@@ -505,6 +526,7 @@
         "Topic": "Most disliked nvestments",
         "Survey Name": "Newsletter Poll - June 2, 2024",
         "Sample Size": 1485,
+        "Question Text": "Which investment asset do you dislike the most?",
         "Responses": [
             {
                 "Option": "FD",
@@ -537,6 +559,7 @@
         "Topic": "Loan by private vs Govt bank",
         "Survey Name": "Newsletter Poll - June 16, 2024",
         "Sample Size": 1516,
+        "Question Text": "Which is better for loans?",
         "Responses": [
             {
                 "Option": "Govt bank",
@@ -559,6 +582,7 @@
         "Topic": "Investment Decision Making",
         "Survey Name": "Newsletter Poll - June 30, 2024",
         "Sample Size": 1142,
+        "Question Text": "Who makes investment decisions?",
         "Responses": [
             {
                 "Option": "I make my investment decisions",
@@ -581,6 +605,7 @@
         "Topic": "FD Investment Choice",
         "Survey Name": "Newsletter Poll - July 7, 2024",
         "Sample Size": 1359,
+        "Question Text": "Which would you prefer to invest in?",
         "Responses": [
             {
                 "Option": "FD in a big bank (lower FD interest rates)",
@@ -595,9 +620,10 @@
         ]
     },
     "Have you travelled outside India?": {
-        "Topic": "Travel abroad?",
-        "Survey Name": "Newsletter Poll - Aug 11, 2024",
-        "Sample Size": 1687,
+        "Topic": "travel aborad?",
+        "Survey Name": "Newsletter Poll - July 14, 2024",
+        "Sample Size": 1494,
+        "Question Text": "Have you travelled outside India?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -630,6 +656,7 @@
         "Topic": "Transport",
         "Survey Name": "Newsletter Poll - July 28, 2024",
         "Sample Size": 1252,
+        "Question Text": "Which transport option have you used most to travel outside your home location in 2024?",
         "Responses": [
             {
                 "Option": "Train",
@@ -662,6 +689,7 @@
         "Topic": "Debit/Credit Card Details",
         "Survey Name": "Newsletter Poll - Aug 4, 2024",
         "Sample Size": 1248,
+        "Question Text": "Which of these is written on your debit/credit card?",
         "Responses": [
             {
                 "Option": "2 or more of the above",
@@ -691,9 +719,10 @@
         ]
     },
     "When was the last time you visited a bank branch?": {
-        "Topic": "Bank Visits",
-        "Survey Name": "Newsletter Poll - Nov 19, 2023",
-        "Sample Size": 831,
+        "Topic": "Last bank visit?",
+        "Survey Name": "Newsletter Poll - Aug 18, 2024",
+        "Sample Size": 1666,
+        "Question Text": "When was the last time you visited a bank branch?",
         "Responses": [
             {
                 "Option": "More than 6 months ago",
@@ -746,6 +775,7 @@
         "Topic": "Who files income tax?",
         "Survey Name": "Newsletter Poll - Aug 25, 2024",
         "Sample Size": 1295,
+        "Question Text": "Who files your income tax?",
         "Responses": [
             {
                 "Option": "I do it myself",
@@ -768,6 +798,7 @@
         "Topic": "Want to get rich fast? Job vs Business",
         "Survey Name": "Newsletter Poll - Sep 1, 2024",
         "Sample Size": 1947,
+        "Question Text": "Which will make you rich faster?",
         "Responses": [
             {
                 "Option": "Your business",
@@ -795,6 +826,7 @@
         "Topic": "Pre-paid vs Post-paid",
         "Survey Name": "Newsletter Poll - Sep 8, 2024",
         "Sample Size": 1414,
+        "Question Text": "According to you, which is better value?",
         "Responses": [
             {
                 "Option": "Prepaid SIM connection",
@@ -812,6 +844,7 @@
         "Topic": "Laptop for work?",
         "Survey Name": "Newsletter Poll - Sep 15, 2024",
         "Sample Size": 2720,
+        "Question Text": "Do you use a laptop for your everyday work?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -829,6 +862,7 @@
         "Topic": "SIM card",
         "Survey Name": "Newsletter Poll - Sep 22, 2024",
         "Sample Size": 2450,
+        "Question Text": "Which SIM service do you like?",
         "Responses": [
             {
                 "Option": "Airtel",
@@ -856,6 +890,7 @@
         "Topic": "Nifty vs Sensex",
         "Survey Name": "Newsletter Poll - Sep 22, 2024 (copy)",
         "Sample Size": 1369,
+        "Question Text": "Which is more important to you?",
         "Responses": [
             {
                 "Option": "Both are important",
@@ -883,6 +918,7 @@
         "Topic": "How many phone do you have?",
         "Survey Name": "Newsletter Poll - Oct 6, 2024",
         "Sample Size": 1673,
+        "Question Text": "How many smartphones do you have?",
         "Responses": [
             {
                 "Option": "One",
@@ -910,6 +946,7 @@
         "Topic": "Happy with your return?",
         "Survey Name": "Newsletter Poll - Oct 13, 2024",
         "Sample Size": 1325,
+        "Question Text": "Are you happy with your investments’ returns?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -937,6 +974,7 @@
         "Topic": "SIP Participation",
         "Survey Name": "Newsletter Poll - Oct 20, 2024",
         "Sample Size": 1358,
+        "Question Text": "Do you have an active SIP right now?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -954,6 +992,7 @@
         "Topic": "Home Loan EMIs & Investing",
         "Survey Name": "Newsletter Poll - Oct 27, 2024",
         "Sample Size": 1807,
+        "Question Text": "If you had home loan EMIs to pay, what would you do?",
         "Responses": [
             {
                 "Option": "Continue both EMIs and investing at the same time",
@@ -971,6 +1010,7 @@
         "Topic": "Credit card vs Debit card/UPI",
         "Survey Name": "Newsletter Poll - Nov 3, 2024",
         "Sample Size": 1369,
+        "Question Text": "Is using a credit card better (instead of debit card and UPI)?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -988,6 +1028,7 @@
         "Topic": "Transportation Preference",
         "Survey Name": "Newsletter Poll - Nov 10, 2024",
         "Sample Size": 1142,
+        "Question Text": "Which do you prefer to use?",
         "Responses": [
             {
                 "Option": "Personal vehicle",
@@ -1010,6 +1051,7 @@
         "Topic": "Banking Preferences",
         "Survey Name": "Newsletter Poll - Nov 17, 2024",
         "Sample Size": 1588,
+        "Question Text": "Which bank do you use as your primary bank?",
         "Responses": [
             {
                 "Option": "Govt bank",
@@ -1032,6 +1074,7 @@
         "Topic": "Trust in Banks",
         "Survey Name": "Newsletter Poll - Nov 24, 2024",
         "Sample Size": 601,
+        "Question Text": "Which would you trust more? Assume all other things are equal.",
         "Responses": [
             {
                 "Option": "100-year-old bank",
@@ -1054,6 +1097,7 @@
         "Topic": "Train/plane booking on laptop or mobile",
         "Survey Name": "Newsletter Poll - Dec 1, 2024",
         "Sample Size": 1454,
+        "Question Text": "How do you book train/plane tickets?",
         "Responses": [
             {
                 "Option": "Smartphone",
@@ -1081,6 +1125,7 @@
         "Topic": "Nifty or Senses",
         "Survey Name": "Newsletter Poll - Dec 15, 2024",
         "Sample Size": 1049,
+        "Question Text": "Which is more important according to you?",
         "Responses": [
             {
                 "Option": "Nifty 50",
@@ -1103,6 +1148,7 @@
         "Topic": "Investment performance in 2024",
         "Survey Name": "Newsletter Poll - Dec 22, 2024",
         "Sample Size": 551,
+        "Question Text": "How have your investments performed in 2024?",
         "Responses": [
             {
                 "Option": "Worse than expected",
@@ -1125,6 +1171,7 @@
         "Topic": "Invest more or less in 2025",
         "Survey Name": "Newsletter Poll - Dec 29, 2024",
         "Sample Size": 1850,
+        "Question Text": "Will you increase your investment amount in 2025?",
         "Responses": [
             {
                 "Option": "Yes, will invest more",
@@ -1147,6 +1194,7 @@
         "Topic": "SIP Investment Increase",
         "Survey Name": "Newsletter Poll - Jan 1, 2023",
         "Sample Size": 2303,
+        "Question Text": "Are you increasing your monthly investment/SIP in the new year?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -1164,6 +1212,7 @@
         "Topic": "Investment Risk",
         "Survey Name": "Newsletter Poll - Jan 8, 2023",
         "Sample Size": 2766,
+        "Question Text": "According to you, which has more risk?",
         "Responses": [
             {
                 "Option": "Stocks",
@@ -1181,6 +1230,7 @@
         "Topic": "Bank Accounts Ownership",
         "Survey Name": "Newsletter Poll - Jan 15, 2023",
         "Sample Size": 2283,
+        "Question Text": "How many bank accounts do you have?",
         "Responses": [
             {
                 "Option": "1 to 3",
@@ -1213,6 +1263,7 @@
         "Topic": "IPO Investment",
         "Survey Name": "Newsletter Poll - Jan 22, 2023",
         "Sample Size": 2315,
+        "Question Text": "Have you ever invested in an IPO?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -1228,8 +1279,9 @@
     },
     "Have you used NEFT/IMPS/RTGS in the past 30 days?": {
         "Topic": "Digital Payments Usage",
-        "Survey Name": "Newsletter Poll - Feb 5, 2023",
-        "Sample Size": 1796,
+        "Survey Name": "Newsletter Poll - Jan 29, 2023",
+        "Sample Size": 2209,
+        "Question Text": "Have you used NEFT/IMPS/RTGS in the past 30 days?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -1257,6 +1309,7 @@
         "Topic": "Payment Methods",
         "Survey Name": "Newsletter Poll - Feb 12, 2023",
         "Sample Size": 2127,
+        "Question Text": "Which do you think takes less time?",
         "Responses": [
             {
                 "Option": "Paying using UPI (PhonePe, G-Pay, etc.)",
@@ -1274,6 +1327,7 @@
         "Topic": "Work Travel Frequency",
         "Survey Name": "Newsletter Poll - Feb 19, 2023",
         "Sample Size": 2073,
+        "Question Text": "Do you have to travel to different locations for work?",
         "Responses": [
             {
                 "Option": "Yes, I have to travel often",
@@ -1291,6 +1345,7 @@
         "Topic": "Tax Filing Assistance",
         "Survey Name": "Newsletter Poll - Feb 26, 2023",
         "Sample Size": 2190,
+        "Question Text": "Do you take the help of a CA for filing tax?",
         "Responses": [
             {
                 "Option": "Yes, I have a CA",
@@ -1313,6 +1368,7 @@
         "Topic": "Computer/Laptop Usage",
         "Survey Name": "Newsletter Poll - Mar 5, 2023",
         "Sample Size": 2902,
+        "Question Text": "Do you use a computer/laptop?",
         "Responses": [
             {
                 "Option": "No, my smartphone is enough",
@@ -1330,6 +1386,7 @@
         "Topic": "SIM Card Usage",
         "Survey Name": "Newsletter Poll - Mar 12, 2023",
         "Sample Size": 3993,
+        "Question Text": "Which SIM card do you use?",
         "Responses": [
             {
                 "Option": "Jio",
@@ -1357,6 +1414,7 @@
         "Topic": "Loan Preferences",
         "Survey Name": "Newsletter Poll - Mar 19, 2023",
         "Sample Size": 1724,
+        "Question Text": "When taking a loan, which bank would you opt for?",
         "Responses": [
             {
                 "Option": "Govt bank",
@@ -1384,6 +1442,7 @@
         "Topic": "Living Location",
         "Survey Name": "Newsletter Poll - Apr 2, 2023",
         "Sample Size": 1385,
+        "Question Text": "Where do you live?",
         "Responses": [
             {
                 "Option": "Tier 1 city",
@@ -1413,9 +1472,10 @@
         ]
     },
     "Which UPI app do you use the most?": {
-        "Topic": "UPI Payment Preference",
-        "Survey Name": "Newsletter Poll - Sept 3, 2023",
-        "Sample Size": 1809,
+        "Topic": "UPI App Usage",
+        "Survey Name": "Newsletter Poll - Apr 9, 2023",
+        "Sample Size": 2431,
+        "Question Text": "Which UPI app do you use the most?",
         "Responses": [
             {
                 "Option": "G-Pay",
@@ -1463,6 +1523,7 @@
         "Topic": "Smartphone Type",
         "Survey Name": "Newsletter Poll - Apr 16, 2023",
         "Sample Size": 2514,
+        "Question Text": "Which kind of smartphone do you use?",
         "Responses": [
             {
                 "Option": "Android (Samsung, Xiaomi, Vivo)",
@@ -1480,6 +1541,7 @@
         "Topic": "Buying Electronics on EMI",
         "Survey Name": "Newsletter Poll - Apr 23, 2023",
         "Sample Size": 1226,
+        "Question Text": "Have you ever bought electronics (AC, mobiles, TV, etc) on EMI?",
         "Responses": [
             {
                 "Option": "No",
@@ -1497,6 +1559,7 @@
         "Topic": "Life Insurance Ownership",
         "Survey Name": "Newsletter Poll - May 7, 2023",
         "Sample Size": 1857,
+        "Question Text": "Have you bought life insurance in your name?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -1514,6 +1577,7 @@
         "Topic": "Smartphone Spending",
         "Survey Name": "Newsletter Poll - May 14, 2023",
         "Sample Size": 1978,
+        "Question Text": "How much should people spend on smartphones?",
         "Responses": [
             {
                 "Option": "Less than 1 month’s income",
@@ -1541,6 +1605,7 @@
         "Topic": "Investment Safety",
         "Survey Name": "Newsletter Poll - May 21, 2023",
         "Sample Size": 965,
+        "Question Text": "Which investment option is safer according to you?",
         "Responses": [
             {
                 "Option": "Equity (direct stocks or mutual funds)",
@@ -1555,9 +1620,10 @@
         ]
     },
     "Which do you prefer more?": {
-        "Topic": "Banking Preference",
-        "Survey Name": "Newsletter Poll - June 4, 2023",
-        "Sample Size": 1020,
+        "Topic": "Payment Preference",
+        "Survey Name": "Newsletter Poll - May 28, 2023",
+        "Sample Size": 2166,
+        "Question Text": "Which do you prefer more?",
         "Responses": [
             {
                 "Option": "Debit card",
@@ -1590,6 +1656,7 @@
         "Topic": "Retirement Preference",
         "Survey Name": "Newsletter Poll - June 11, 2023",
         "Sample Size": 1620,
+        "Question Text": "Where do you want to retire?",
         "Responses": [
             {
                 "Option": "Tier 2/3 city",
@@ -1617,6 +1684,7 @@
         "Topic": "Current Living Location",
         "Survey Name": "Newsletter Poll - June 18, 2023",
         "Sample Size": 805,
+        "Question Text": "Where do you currently live?",
         "Responses": [
             {
                 "Option": "Tier 1 city",
@@ -1644,6 +1712,7 @@
         "Topic": "Market Tracking",
         "Survey Name": "Newsletter Poll - June 25, 2023",
         "Sample Size": 1882,
+        "Question Text": "Do you check the markets (Sensex, Nifty, etc) every day?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -1661,6 +1730,7 @@
         "Topic": "Online Shopping",
         "Survey Name": "Newsletter Poll - July 2, 2023",
         "Sample Size": 2351,
+        "Question Text": "Do you shop online for anything (Amazon, Flipkart, etc)?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -1678,6 +1748,7 @@
         "Topic": "First Online Purchase",
         "Survey Name": "Newsletter Poll - July 9, 2023",
         "Sample Size": 1225,
+        "Question Text": "When did you make your first online purchase?",
         "Responses": [
             {
                 "Option": "2020 and after",
@@ -1705,6 +1776,7 @@
         "Topic": "Tax Filing",
         "Survey Name": "Newsletter Poll - July 16, 2023",
         "Sample Size": 1213,
+        "Question Text": "Are you filing your taxes by 31st July?",
         "Responses": [
             {
                 "Option": "Already done",
@@ -1732,6 +1804,7 @@
         "Topic": "Stock Market Investments",
         "Survey Name": "Newsletter Poll - July 23, 2023",
         "Sample Size": 1663,
+        "Question Text": "Have you bought any stocks in the last 1 month?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -1749,6 +1822,7 @@
         "Topic": "Opinion on Taxes",
         "Survey Name": "Newsletter Poll - July 30, 2023",
         "Sample Size": 1586,
+        "Question Text": "What do you think about taxes in India?",
         "Responses": [
             {
                 "Option": "They are too high",
@@ -1771,6 +1845,7 @@
         "Topic": "Home Insurance",
         "Survey Name": "Newsletter Poll - Aug 6, 2023",
         "Sample Size": 900,
+        "Question Text": "Is your house insured?",
         "Responses": [
             {
                 "Option": "No",
@@ -1793,6 +1868,7 @@
         "Topic": "Future Living Plans",
         "Survey Name": "Newsletter Poll - Aug 13, 2023",
         "Sample Size": 1451,
+        "Question Text": "10 years from today, where do you want to live?",
         "Responses": [
             {
                 "Option": "India",
@@ -1815,6 +1891,7 @@
         "Topic": "EV Purchase Intent",
         "Survey Name": "Newsletter Poll - Aug 27, 2023",
         "Sample Size": 1309,
+        "Question Text": "Will you buy an electric vehicle (2 or 4-wheeler) in the next 5 years?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -1842,6 +1919,7 @@
         "Topic": "Real Estate Plans",
         "Survey Name": "Newsletter Poll - Sept 10, 2023",
         "Sample Size": 1219,
+        "Question Text": "Do you plan on buying real estate in the next 5 years?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -1859,6 +1937,7 @@
         "Topic": "Investing Behavior",
         "Survey Name": "Newsletter Poll - Sept 17, 2023",
         "Sample Size": 1183,
+        "Question Text": "When did you start your investing journey?",
         "Responses": [
             {
                 "Option": "I didn't decide based on the markets' level",
@@ -1886,6 +1965,7 @@
         "Topic": "First Salary Range",
         "Survey Name": "Newsletter Poll - Sept 24, 2023",
         "Sample Size": 1622,
+        "Question Text": "What was your monthly income when you first started earning?",
         "Responses": [
             {
                 "Option": "Less than Rs 20,000",
@@ -1913,6 +1993,7 @@
         "Topic": "Vehicle Cost",
         "Survey Name": "Newsletter Poll - Oct 1, 2023",
         "Sample Size": 912,
+        "Question Text": "How much does your car or bike cost?",
         "Responses": [
             {
                 "Option": "Less than Rs 1 lakh",
@@ -1945,6 +2026,7 @@
         "Topic": "Perceived Wealth",
         "Survey Name": "Newsletter Poll - Oct 8, 2023",
         "Sample Size": 675,
+        "Question Text": "Who do you think is richer?",
         "Responses": [
             {
                 "Option": "Me",
@@ -1967,6 +2049,7 @@
         "Topic": "Expense Impact",
         "Survey Name": "Newsletter Poll - Oct 15, 2023",
         "Sample Size": 1460,
+        "Question Text": "Which affects your expenses more?",
         "Responses": [
             {
                 "Option": "Petrol",
@@ -1989,6 +2072,7 @@
         "Topic": "Home Buying Approach",
         "Survey Name": "Newsletter Poll - Oct 22, 2023",
         "Sample Size": 1261,
+        "Question Text": "Which is better if buying a house?",
         "Responses": [
             {
                 "Option": "EMI + investing - at the same time",
@@ -2011,6 +2095,7 @@
         "Topic": "Travel Preference",
         "Survey Name": "Newsletter Poll - Oct 29, 2023",
         "Sample Size": 1467,
+        "Question Text": "Which do you use the most to travel?",
         "Responses": [
             {
                 "Option": "Personal car/bike",
@@ -2038,6 +2123,7 @@
         "Topic": "Health Insurance Preference",
         "Survey Name": "Newsletter Poll - Nov 5, 2023",
         "Sample Size": 1109,
+        "Question Text": "Which kind of health insurance company do you prefer?",
         "Responses": [
             {
                 "Option": "Private sector (ICICI Lombard, Tata AIG, etc)",
@@ -2055,6 +2141,7 @@
         "Topic": "Housing Preference",
         "Survey Name": "Newsletter Poll - Nov 26, 2023",
         "Sample Size": 1875,
+        "Question Text": "Which would you prefer?",
         "Responses": [
             {
                 "Option": "Large house in rural area",
@@ -2072,6 +2159,7 @@
         "Topic": "Laptop/Computer Usage",
         "Survey Name": "Newsletter Poll - Dec 10, 2023",
         "Sample Size": 2605,
+        "Question Text": "Do you use a laptop/computer every day?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -2094,6 +2182,7 @@
         "Topic": "Medical Insurance",
         "Survey Name": "Newsletter Poll - Dec 17, 2023",
         "Sample Size": 1034,
+        "Question Text": "Do you have medical insurance?",
         "Responses": [
             {
                 "Option": "Yes",
@@ -2111,6 +2200,7 @@
         "Topic": "Loan for Electronics",
         "Survey Name": "Newsletter Poll - Dec 31, 2023",
         "Sample Size": 1511,
+        "Question Text": "Have you ever taken a loan to buy an electronic device?",
         "Responses": [
             {
                 "Option": "No",

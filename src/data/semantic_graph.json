@@ -52,9 +52,9 @@
         {
             "id": "Which is better?",
             "options": "FD from big bank | FD from small bank/cooperative bank | Market falls 1% on Mon; climbs 1% on Tue | It's the same | Market falls 10% on Mon; climbs 10% on Tue | Debit card | Credit card | Living in own home paying EMI | Living in rented house",
-            "topic": "Home Ownership vs Renting",
-            "size": 1610,
-            "survey_name": "Newsletter Poll - Dec 25, 2023"
+            "topic": "Bank Preference for FD",
+            "size": 1191,
+            "survey_name": "Newsletter Poll - Feb 25, 2024"
         },
         {
             "id": "Let's say your overall investment is earning 12% per annum. Which of the two options will you choose?",
@@ -115,9 +115,9 @@
         {
             "id": "Which do you prefer?",
             "options": "Invest more in equity (shares, MF) and less in safer investments (FD, bonds, etc) | Invest more in safer investments (FD, bonds, etc) and less in equity (shares, MF) | All investment decisions made by you | Mix of both | All investment decisions made by someone else (family, advisor, etc) | Banking online (using app or website) | Banking at the branch location",
-            "topic": "Banking Preference",
-            "size": 1325,
-            "survey_name": "Newsletter Poll - Dec 3, 2023"
+            "topic": "Investment Preferences",
+            "size": 962,
+            "survey_name": "Newsletter Poll - Apr 28, 2024"
         },
         {
             "id": "What is your current portfolio return?",
@@ -178,9 +178,9 @@
         {
             "id": "Have you travelled outside India?",
             "options": "Yes | No | Never | More than 2 times | Less than 2 times",
-            "topic": "Travel abroad?",
-            "size": 1687,
-            "survey_name": "Newsletter Poll - Aug 11, 2024"
+            "topic": "travel aborad?",
+            "size": 1494,
+            "survey_name": "Newsletter Poll - July 14, 2024"
         },
         {
             "id": "Which transport option have you used most to travel outside your home location in 2024?",
@@ -199,9 +199,9 @@
         {
             "id": "When was the last time you visited a bank branch?",
             "options": "More than 6 months ago | In last 7 days | In last 1 month | In last 6 months | In the last 10 days | More than 1 year | 31 days to 90 days | 91 days to 1 year | 11 days to 30 days",
-            "topic": "Bank Visits",
-            "size": 831,
-            "survey_name": "Newsletter Poll - Nov 19, 2023"
+            "topic": "Last bank visit?",
+            "size": 1666,
+            "survey_name": "Newsletter Poll - Aug 18, 2024"
         },
         {
             "id": "Who files your income tax?",
@@ -361,8 +361,8 @@
             "id": "Have you used NEFT/IMPS/RTGS in the past 30 days?",
             "options": "Yes | No | Yes | No",
             "topic": "Digital Payments Usage",
-            "size": 1796,
-            "survey_name": "Newsletter Poll - Feb 5, 2023"
+            "size": 2209,
+            "survey_name": "Newsletter Poll - Jan 29, 2023"
         },
         {
             "id": "Which do you think takes less time?",
@@ -416,9 +416,9 @@
         {
             "id": "Which UPI app do you use the most?",
             "options": "G-Pay | PhonePe | PayTM | Others | Google Pay | PhonePe | Paytm | Others",
-            "topic": "UPI Payment Preference",
-            "size": 1809,
-            "survey_name": "Newsletter Poll - Sept 3, 2023"
+            "topic": "UPI App Usage",
+            "size": 2431,
+            "survey_name": "Newsletter Poll - Apr 9, 2023"
         },
         {
             "id": "Which kind of smartphone do you use?",
@@ -458,9 +458,9 @@
         {
             "id": "Which do you prefer more?",
             "options": "Debit card | Credit card | Private bank | Government bank | Doesn't matter",
-            "topic": "Banking Preference",
-            "size": 1020,
-            "survey_name": "Newsletter Poll - June 4, 2023"
+            "topic": "Payment Preference",
+            "size": 2166,
+            "survey_name": "Newsletter Poll - May 28, 2023"
         },
         {
             "id": "Where do you want to retire?",

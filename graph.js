@@ -11,7 +11,7 @@ Promise.all([
         .append("svg")
         .attr("width", width)
         .attr("height", height);
-    
+
     // Add zoom behavior
     const g = svg.append("g");
     
@@ -164,7 +164,7 @@ Promise.all([
             .id(d => d.id)
             .strength(d => d.strength * 0.1)) // Reduced link strength to allow better expansion
         .force("charge", d3.forceManyBody()
-            .strength(-400)) // Reduced repulsive force to keep nodes closer together
+            .strength(-500)) // Reduced repulsive force to keep nodes closer together
         .force("center", d3.forceCenter(width / 2, height / 2)
             .strength(0.12)) // Increased center attraction to keep nodes within viewport
         .force("collision", d3.forceCollide()
@@ -518,7 +518,7 @@ Promise.all([
         .join("line")
         .attr("class", "link")
         .style("stroke-width", d => Math.sqrt(d.strength) * 2);
-    
+
     // Create node groups
     const nodeGroups = g.append("g")
         .selectAll("g")
@@ -526,7 +526,7 @@ Promise.all([
         .join("g")
         .attr("class", "node-group")
         .call(drag(simulation));
-        
+
     // Add circles to node groups with SIMPLIFIED event handlers
     const nodes = nodeGroups
         .append("circle")
@@ -638,7 +638,7 @@ Promise.all([
         
         // Reset states
         if (document.getElementById('search-input')) {
-            document.getElementById('search-input').value = '';
+        document.getElementById('search-input').value = '';
         }
         
         // Reset any previous node styles
@@ -1087,18 +1087,18 @@ Promise.all([
             event.subject.fx = event.subject.x;
             event.subject.fy = event.subject.y;
         }
-        
+
         function dragged(event) {
             event.subject.fx = event.x;
             event.subject.fy = event.y;
         }
-        
+
         function dragended(event) {
             if (!event.active) simulation.alphaTarget(0);
             event.subject.fx = null;
             event.subject.fy = null;
         }
-        
+
         return d3.drag()
             .on("start", dragstarted)
             .on("drag", dragged)
@@ -1155,7 +1155,7 @@ Promise.all([
             }
             
             // Check for match in options
-            if (!isMatch) {
+                if (!isMatch) {
                 isMatch = d.options.split(" | ").some(opt => 
                     containsExactWord(opt, searchTerm)
                 );
@@ -1164,7 +1164,7 @@ Promise.all([
             // Apply classes based on match
             node.classed('highlighted', isMatch)
                 .classed('dimmed', !isMatch);
-                
+            
             // Apply appropriate filter
             if (isMatch) {
                 node.style("filter", "drop-shadow(0 0 8px rgba(255,255,255,0.6))");
