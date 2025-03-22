@@ -159,7 +159,7 @@ Promise.all([
             .id(d => d.id)
             .strength(d => d.strength * 0.1)) // Reduced link strength to allow better expansion
         .force("charge", d3.forceManyBody()
-            .strength(-500)) // Reduced repulsive force to keep nodes closer together
+            .strength(-250)) // Reduced repulsive force to keep nodes closer together
         .force("center", d3.forceCenter(width / 2, height / 2)
             .strength(0.12)) // Increased center attraction to keep nodes within viewport
         .force("collision", d3.forceCollide()
@@ -384,7 +384,7 @@ Promise.all([
                 .duration(100)
                 .style("opacity", 1);
                 
-            // Add hover effect regardless of selection state
+            // Add hover effect to any node being hovered over
             node.style("filter", "drop-shadow(0 0 10px rgba(255,255,255,0.7))");
         }
     })
@@ -394,15 +394,9 @@ Promise.all([
             .duration(150)
             .style("opacity", 0);
             
-        // Reset filter for non-selected nodes
+        // Reset filter for the hovered node
         const node = d3.select(this).select("circle");
-        if (!node.classed("selected") && !node.classed("highlighted")) {
-            node.style("filter", null); // Fully remove filter attribute
-        } else if (node.classed("highlighted")) {
-            node.style("filter", "drop-shadow(0 0 8px rgba(255,255,255,0.6))");
-        }
-        
-        // Don't re-apply stroke here, let click handler manage that
+        node.style("filter", null);
     })
     .on("click", function(event, d) {
         event.stopPropagation();
