@@ -171,64 +171,6 @@ Promise.all([
         .alphaDecay(0.01) // Slower decay for smoother expansion
         .stop(); // Initially stop the simulation
     
-    // Simple community detection using link strengths
-    // Create an adjacency map
-    const adjacencyMap = {};
-    graphData.nodes.forEach(node => {
-        adjacencyMap[node.id] = [];
-    });
-    
-    graphData.links.forEach(link => {
-        const sourceId = typeof link.source === 'object' ? link.source.id : link.source;
-        const targetId = typeof link.target === 'object' ? link.target.id : link.target;
-        
-        adjacencyMap[sourceId].push({id: targetId, strength: link.strength});
-        adjacencyMap[targetId].push({id: sourceId, strength: link.strength});
-    });
-    
-    // Simple greedy community detection
-    // Start with high threshold, then reduce
-    const communities = [];
-    const assignedNodes = new Set();
-    const thresholds = [0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2];
-    
-    thresholds.forEach(threshold => {
-        graphData.nodes.forEach(node => {
-            if (assignedNodes.has(node.id)) return;
-            
-            // Find strongly connected neighbors
-            const community = [node.id];
-            assignedNodes.add(node.id);
-            
-            const connections = adjacencyMap[node.id] || [];
-            connections.forEach(conn => {
-                if (conn.strength >= threshold && !assignedNodes.has(conn.id)) {
-                    community.push(conn.id);
-                    assignedNodes.add(conn.id);
-                }
-            });
-            
-            if (community.length > 1) {
-                communities.push(community);
-            }
-        });
-    });
-    
-    // Assign remaining nodes to their own community
-    graphData.nodes.forEach(node => {
-        if (!assignedNodes.has(node.id)) {
-            communities.push([node.id]);
-            assignedNodes.add(node.id);
-        }
-    });
-    
-    // IMPROVED: Assign cluster names based on common themes 
-    // with better filtering to exclude common question words
-    communities.forEach((community, index) => {
-        // The community detection algorithm still runs to organize the graph visually
-        // But we no longer need to create or store cluster labels
-    });
-    
     // Let the DOM render the initial centered nodes first
     setTimeout(() => {
         // Release the fixed positions after a short delay
@@ -357,17 +299,16 @@ Promise.all([
     
     // COMBINED EVENT HANDLERS - Clean implementation for all node interactions
     nodeGroups.on("mouseenter", function(event, d) {
-        // Only prevent tooltips for non-highlighted nodes when popup is visible
-        // Allow tooltips for connected (highlighted) nodes even when popup is visible
-        const isPopupVisible = document.body.classList.contains("popup-visible");
         const node = d3.select(this).select("circle");
-        const isHighlighted = node.classed("highlighted");
+        const isSelected = node.classed("selected");
         
-        // Show tooltips for nodes that are either: 
-        // 1. When no popup is visible, OR
-        // 2. When popup is visible but this is a highlighted (connected) node
-        if (isPopupVisible && !isHighlighted) return;
+        // Don't apply hover effect to the selected node (it already has styling)
+        if (isSelected) return;
         
+        // Always show hover effect regardless of selection state
+        node.style("filter", "drop-shadow(0 0 10px rgba(255,255,255,0.7))");
+        
+        // Show tooltip for this node
         const nodeIndex = graphData.nodes.findIndex(n => n.id === d.id);
         if (nodeIndex > -1) {
             const tooltipGroup = nodeTooltipGroups.filter((td, i) => i === nodeIndex);
@@ -383,20 +324,20 @@ Promise.all([
                 .transition()
                 .duration(100)
                 .style("opacity", 1);
-                
-            // Add hover effect to any node being hovered over
-            node.style("filter", "drop-shadow(0 0 10px rgba(255,255,255,0.7))");
         }
     })
     .on("mouseleave", function() {
+        // Reset hover effect for all non-selected nodes
+        const node = d3.select(this).select("circle");
+        if (!node.classed("selected")) {
+            node.style("filter", null);
+        }
+        
+        // Hide all tooltips
         nodeTooltipGroups
             .transition()
             .duration(150)
             .style("opacity", 0);
-            
-        // Reset filter for the hovered node
-        const node = d3.select(this).select("circle");
-        node.style("filter", null);
     })
     .on("click", function(event, d) {
         event.stopPropagation();
@@ -459,6 +400,9 @@ Promise.all([
         }).classed('dimmed', function(link) {
             return link.source.id !== d.id && link.target.id !== d.id;
         });
+        
+        // Add class to body to dim cluster labels
+        document.body.classList.add('node-selected');
         
         // Get response data
         const responsesData = questionData.Responses;
@@ -560,6 +504,9 @@ Promise.all([
                  .classed("selected", false)
                  .style("stroke", "none")
                  .style("stroke-width", null);
+                 
+            // Remove class from body
+            document.body.classList.remove('node-selected');
         });
         
         popupElement.appendChild(closeBtn);
@@ -696,6 +643,9 @@ Promise.all([
         links.classed('highlighted', false)
              .classed('dimmed', false);
         
+        // Remove class from body
+        document.body.classList.remove('node-selected');
+        
         // Clear search
         const searchInput = document.getElementById('search-input');
         if (searchInput) {
@@ -723,6 +673,10 @@ Promise.all([
                 }
                 return "translate(0,0)";
             });
+            
+        // Update cluster labels
+        const clusters = detectClusters();
+        createClusterLabels(clusters);
             
         // Ensure tooltips stay visible for highlighted nodes if popup is visible
         if (document.body.classList.contains("popup-visible")) {
@@ -892,6 +846,16 @@ Promise.all([
         z-index: 10001 !important;
         display: block !important;
       }
+      
+      /* Style for cluster labels */
+      .cluster-label text {
+        transition: opacity 0.3s ease;
+      }
+      
+      /* When a node is selected, dim all cluster labels */
+      body.node-selected .cluster-label text {
+        opacity: 0.2 !important;
+      }
     `;
     document.head.appendChild(style);
 
@@ -1048,4 +1012,252 @@ Promise.all([
     });
     
     document.body.appendChild(legendContainer);
+
+    // Add cluster detection and labeling
+    function detectClusters() {
+        // Create a map to store node communities
+        const communities = new Map();
+        
+        // Initialize each node in its own community
+        graphData.nodes.forEach(node => {
+            communities.set(node.id, node.id);
+        });
+        
+        // Simple community detection based on link strength
+        let changed = true;
+        while (changed) {
+            changed = false;
+            graphData.links.forEach(link => {
+                if (link.strength > 0.4) { // Increased threshold for stronger connections
+                    const sourceCommunity = communities.get(link.source.id);
+                    const targetCommunity = communities.get(link.target.id);
+                    
+                    if (sourceCommunity !== targetCommunity) {
+                        // Check if merging would create too large a cluster
+                        const sourceSize = Array.from(communities.values()).filter(v => v === sourceCommunity).length;
+                        const targetSize = Array.from(communities.values()).filter(v => v === targetCommunity).length;
+                        
+                        // Only merge if the resulting cluster won't be too large
+                        if (sourceSize + targetSize <= 8) { // Limit cluster size to 8 nodes
+                            // Merge communities
+                            graphData.nodes.forEach(node => {
+                                if (communities.get(node.id) === targetCommunity) {
+                                    communities.set(node.id, sourceCommunity);
+                                }
+                            });
+                            changed = true;
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Group nodes by community
+        const clusters = new Map();
+        communities.forEach((communityId, nodeId) => {
+            if (!clusters.has(communityId)) {
+                clusters.set(communityId, []);
+            }
+            clusters.get(communityId).push(nodeId);
+        });
+        
+        return clusters;
+    }
+
+    // Function to get dominant topic for a cluster
+    function getClusterTopic(nodeIds) {
+        // Get all topics from nodes in the cluster
+        const topics = nodeIds.map(nodeId => {
+            const node = graphData.nodes.find(n => n.id === nodeId);
+            return node ? node.topic : null;
+        }).filter(topic => topic); // Remove null/undefined values
+
+        // Count frequency of each topic
+        const topicCounts = new Map();
+        topics.forEach(topic => {
+            topicCounts.set(topic, (topicCounts.get(topic) || 0) + 1);
+        });
+
+        // Find the most common topic
+        let dominantTopic = null;
+        let maxCount = 0;
+        topicCounts.forEach((count, topic) => {
+            if (count > maxCount) {
+                maxCount = count;
+                dominantTopic = topic;
+            }
+        });
+
+        // Look at the actual questions to determine theme
+        const questions = nodeIds.map(nodeId => {
+            const node = graphData.nodes.find(n => n.id === nodeId);
+            return node ? node.id.toLowerCase() : "";
+        });
+
+        // Define major themes with their keywords
+        const majorThemes = {
+            "Investment & Planning": [
+                "investment", "stock", "market", "mutual fund", "sip", "portfolio", 
+                "trading", "crypto", "bitcoin", "gold", "real estate", "property", 
+                "international", "risk", "return", "planning", "strategy", "goal", 
+                "horizon", "asset", "wealth", "financial", "plan", "future", "growth"
+            ],
+            "Banking & Payments": [
+                "bank", "account", "upi", "payment", "transaction", "transfer", 
+                "remittance", "credit", "debit", "card", "digital", "online", 
+                "branch", "service", "trust", "preference", "method", "app", 
+                "google pay", "phonepe", "paytm", "cash", "mobile", "digital"
+            ],
+            "Loans & EMIs": [
+                "loan", "emi", "home loan", "car loan", "vehicle", "education", 
+                "repayment", "interest", "rate", "borrow", "debt", "mortgage", 
+                "prepayment", "application", "reject", "approve", "credit", 
+                "lending", "borrowing", "finance", "payment", "installment"
+            ],
+            "Insurance & Risk": [
+                "insurance", "life insurance", "medical", "health", "risk", 
+                "protection", "coverage", "policy", "premium", "claim", "emergency", 
+                "fund", "savings", "safety", "security", "prevention", "care", 
+                "wellness", "healthcare", "medical", "hospital", "clinic"
+            ],
+            "Digital & Tech": [
+                "digital", "online", "mobile", "app", "smartphone", "technology", 
+                "internet", "web", "e-commerce", "shopping", "amazon", "flipkart", 
+                "device", "platform", "software", "system", "network", "data", 
+                "cloud", "automation", "ai", "artificial intelligence", "blockchain"
+            ],
+            "Tax & Literacy": [
+                "tax", "filing", "income", "saving", "deduction", "exemption", 
+                "knowledge", "education", "learning", "literacy", "awareness", 
+                "understanding", "skill", "expertise", "source", "information", 
+                "guidance", "advice", "consulting", "professional", "expert"
+            ],
+            "Lifestyle & Consumer": [
+                "lifestyle", "life", "living", "daily", "routine", "habit", 
+                "preference", "choice", "leisure", "entertainment", "recreation", 
+                "hobby", "sport", "travel", "food", "diet", "fashion", "shopping", 
+                "retail", "consumer", "spending", "expense", "cost", "price"
+            ],
+            "Economic Impact": [
+                "inflation", "interest", "rate", "economic", "economy", "growth", 
+                "development", "price", "cost", "expense", "impact", "effect", 
+                "change", "trend", "market", "financial", "monetary", "fiscal", 
+                "policy", "regulation", "government", "country", "development"
+            ]
+        };
+
+        // Check which theme has the most matches
+        let bestTheme = null;
+        let maxMatches = 0;
+
+        for (const [theme, keywords] of Object.entries(majorThemes)) {
+            const matches = questions.filter(q => 
+                keywords.some(keyword => q.includes(keyword))
+            ).length;
+            
+            if (matches > maxMatches) {
+                maxMatches = matches;
+                bestTheme = theme;
+            }
+        }
+
+        // If we found a good theme match, use it
+        if (maxMatches > 0) {
+            return bestTheme;
+        }
+
+        // Fallback to the dominant topic if no theme matches
+        return dominantTopic ? dominantTopic.charAt(0).toUpperCase() + dominantTopic.slice(1) : null;
+    }
+
+    // Create cluster labels
+    function createClusterLabels(clusters) {
+        // Remove existing cluster labels if any
+        g.selectAll(".cluster-label").remove();
+        
+        // First, group clusters by their theme
+        const themeGroups = new Map();
+        
+        // Calculate centers and themes for all clusters
+        clusters.forEach((nodeIds, clusterId) => {
+            if (nodeIds.length > 2) { // Only consider clusters with more than 2 nodes
+                const center = { x: 0, y: 0 };
+                nodeIds.forEach(nodeId => {
+                    const node = graphData.nodes.find(n => n.id === nodeId);
+                    if (node) {
+                        center.x += node.x;
+                        center.y += node.y;
+                    }
+                });
+                center.x /= nodeIds.length;
+                center.y /= nodeIds.length;
+                
+                const theme = getClusterTopic(nodeIds);
+                if (!theme) return; // Skip if no theme found
+                
+                if (!themeGroups.has(theme)) {
+                    themeGroups.set(theme, []);
+                }
+                themeGroups.get(theme).push({
+                    nodeIds,
+                    center,
+                    size: nodeIds.length
+                });
+            }
+        });
+        
+        // For each theme group, check distances between clusters
+        themeGroups.forEach((clusters, theme) => {
+            // Sort clusters by size (largest first)
+            clusters.sort((a, b) => b.size - a.size);
+            
+            // Keep track of which clusters to show
+            const clustersToShow = new Set();
+            
+            // Check distances between clusters
+            for (let i = 0; i < clusters.length; i++) {
+                let shouldShow = true;
+                
+                // Check distance to already selected clusters
+                for (let j = 0; j < i; j++) {
+                    if (clustersToShow.has(j)) {
+                        const dx = clusters[i].center.x - clusters[j].center.x;
+                        const dy = clusters[i].center.y - clusters[j].center.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        // If clusters are too close (less than 200 pixels), don't show this one
+                        if (distance < 200) {
+                            shouldShow = false;
+                            break;
+                        }
+                    }
+                }
+                
+                if (shouldShow) {
+                    clustersToShow.add(i);
+                }
+            }
+            
+            // Create labels for selected clusters
+            clusters.forEach((cluster, index) => {
+                if (clustersToShow.has(index)) {
+                    // Create label group
+                    const labelGroup = g.append("g")
+                        .attr("class", "cluster-label")
+                        .attr("transform", `translate(${cluster.center.x},${cluster.center.y})`);
+                    
+                    // Add text label with improved visibility
+                    labelGroup.append("text")
+                        .attr("text-anchor", "middle")
+                        .attr("dominant-baseline", "middle")
+                        .attr("fill", "white")
+                        .attr("font-size", "16px")
+                        .attr("font-weight", "700")
+                        .style("letter-spacing", "0.5px")
+                        .style("text-shadow", "0 1px 3px rgba(0,0,0,0.9), 0 1px 10px rgba(0,0,0,1)")
+                        .text(theme);
+                }
+            });
+        });
+    }
 }); 
