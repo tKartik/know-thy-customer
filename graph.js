@@ -53,8 +53,8 @@ Promise.all([
         // Sort options by percentage in descending order
         const sortedOptions = [...options].sort((a, b) => b.Percentage - a.Percentage);
         
-        // Define the option colors
-        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75"];
+        // Define the option colors - ADDED COLORS FOR F AND G
+        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75", "#8A2BE2", "#00CED1"];
         
         // Create the gradient
         const gradientId = `gradient-${nodeId.replace(/[^a-zA-Z0-9]/g, '_')}`;
@@ -124,20 +124,28 @@ Promise.all([
             .attr("stop-color", "#5669FF");
             
         defaultGradient.append("stop")
-            .attr("offset", "25%")
+            .attr("offset", "17%")
             .attr("stop-color", "#04B488");
             
         defaultGradient.append("stop")
-            .attr("offset", "50%")
+            .attr("offset", "34%")
             .attr("stop-color", "#FCCE00");
             
         defaultGradient.append("stop")
-            .attr("offset", "75%")
+            .attr("offset", "51%")
             .attr("stop-color", "#FF5E3B");
             
         defaultGradient.append("stop")
-            .attr("offset", "100%")
+            .attr("offset", "68%")
             .attr("stop-color", "#C73A75");
+            
+        defaultGradient.append("stop")
+            .attr("offset", "84%")
+            .attr("stop-color", "#8A2BE2");
+            
+        defaultGradient.append("stop")
+            .attr("offset", "100%")
+            .attr("stop-color", "#00CED1");
     }
     
     // Call this function to create the default gradient
@@ -443,7 +451,7 @@ Promise.all([
         optionsContainer.className = "options-container";
         
         // Add options
-        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75"];
+        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75", "#8A2BE2", "#00CED1"];
         responsesData.forEach((option, index) => {
             const letter = String.fromCharCode(97 + index);
             
@@ -770,19 +778,15 @@ Promise.all([
             node.classed('highlighted', isMatch)
                 .classed('dimmed', !isMatch);
             
-            // Apply appropriate filter
+            // REMOVED: No glow effect for search matches
             if (isMatch) {
-                node.style("filter", "drop-shadow(0 0 8px rgba(255,255,255,0.6))");
                 matchingNodes.push(d.id);
-            } else {
-                node.style("filter", null);
             }
         });
         
-        // Dim links that don't connect to matching nodes
-        links.classed('dimmed', function(d) {
-            return !matchingNodes.includes(d.source.id) && !matchingNodes.includes(d.target.id);
-        });
+        // Dim all links equally - don't highlight connections between matching nodes
+        links.classed('dimmed', true)
+             .classed('highlighted', false);
     });
 
     // Update the CSS for dimmed nodes and links and ensure proper stacking order
@@ -991,7 +995,9 @@ Promise.all([
         { color: "#04B488", label: "Option B" },
         { color: "#FCCE00", label: "Option C" },
         { color: "#FF5E3B", label: "Option D" },
-        { color: "#C73A75", label: "Option E" }
+        { color: "#C73A75", label: "Option E" },
+        { color: "#8A2BE2", label: "Option F" },
+        { color: "#00CED1", label: "Option G" }
     ];
     
     // Add color samples to the flex container
