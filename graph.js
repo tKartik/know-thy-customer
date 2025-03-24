@@ -310,10 +310,40 @@ Promise.all([
         const node = d3.select(this).select("circle");
         const isSelected = node.classed("selected");
         
-        // Don't apply hover effect to the selected node (it already has styling)
+        // If popup is visible (any node selected), only show tooltip for connected nodes
+        const popupVisible = document.body.classList.contains("popup-visible");
+        if (popupVisible) {
+            // Only highlight connected nodes when popup is visible
+            const isHighlighted = node.classed("highlighted");
+            // Skip visual effects for non-highlighted nodes when in selected mode
+            if (!isHighlighted && !isSelected) return;
+            
+            // For highlighted/connected nodes, only apply subtle hover effect
+            if (!isSelected) {
+                node.style("filter", "drop-shadow(0 0 5px rgba(255,255,255,0.5))");
+            }
+            
+            // Only show tooltips for highlighted/connected nodes
+            const nodeIndex = graphData.nodes.findIndex(n => n.id === d.id);
+            if (nodeIndex > -1 && (isHighlighted || isSelected)) {
+                const tooltipGroup = nodeTooltipGroups.filter((td, i) => i === nodeIndex);
+                const nodeSize = sizeScale(d.size);
+                const offset = nodeSize + 10;
+                
+                tooltipGroup.select(".tooltip-text").attr("y", -offset);
+                
+                // Don't raise/reposition - avoid DOM thrashing
+                tooltipGroup
+                    .style("opacity", 1)
+                    .style("pointer-events", "none");
+            }
+            return;
+        }
+        
+        // Regular hover behavior for when no node is selected
         if (isSelected) return;
         
-        // Always show hover effect regardless of selection state
+        // Standard hover effect 
         node.style("filter", "drop-shadow(0 0 10px rgba(255,255,255,0.7))");
         
         // Show tooltip for this node
@@ -341,7 +371,20 @@ Promise.all([
             node.style("filter", null);
         }
         
-        // Hide all tooltips
+        // In selected mode, do more efficient tooltip hiding
+        if (document.body.classList.contains("popup-visible")) {
+            // Don't use transitions in selected mode - immediate hide
+            const nodeId = d3.select(this).datum().id;
+            const nodeIndex = graphData.nodes.findIndex(n => n.id === nodeId);
+            if (nodeIndex > -1) {
+                nodeTooltipGroups
+                    .filter((td, i) => i === nodeIndex)
+                    .style("opacity", 0);
+            }
+            return;
+        }
+        
+        // Regular transition for normal mode
         nodeTooltipGroups
             .transition()
             .duration(150)
@@ -356,11 +399,124 @@ Promise.all([
             return;
         }
         
-        // Reset states
-        if (document.getElementById('search-input')) {
-        document.getElementById('search-input').value = '';
+        // Get response data early to avoid unnecessary work if not available
+        const responsesData = questionData.Responses;
+        if (!responsesData || !responsesData.length) {
+            return;
         }
         
+        // Reset states
+        if (document.getElementById('search-input')) {
+            document.getElementById('search-input').value = '';
+        }
+        
+        // Create all DOM elements and build content BEFORE any visual changes
+        // This avoids multiple reflows/repaints
+        
+        // Clear existing content
+        popupElement.innerHTML = "";
+        
+        // Create popup structure first - build everything before adding to DOM
+        const popupContent = document.createElement("div");
+        popupContent.className = "popup-content";
+        
+        // Add question
+        const question = document.createElement("div");
+        question.className = "question";
+        question.textContent = d.id;
+        popupContent.appendChild(question);
+        
+        // Create visualization container
+        const vizContainer = document.createElement("div");
+        vizContainer.className = "visualization-container";
+        vizContainer.style.cssText = "width:100%;height:150px;margin-bottom:20px;position:relative;";
+        
+        // Create SVG element
+        const svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svgElem.setAttribute("width", "100%");
+        svgElem.setAttribute("height", "100%");
+        svgElem.style.minHeight = "150px";
+        vizContainer.appendChild(svgElem);
+        popupContent.appendChild(vizContainer);
+        
+        // Create options container
+        const optionsContainer = document.createElement("div");
+        optionsContainer.className = "options-container";
+        
+        // Add options
+        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75", "#8A2BE2", "#00CED1"];
+        const optionsFragment = document.createDocumentFragment(); // Use fragment for better performance
+        
+        responsesData.forEach((option, index) => {
+            const letter = String.fromCharCode(97 + index);
+            
+            const optionDiv = document.createElement("div");
+            optionDiv.className = "option";
+            
+            const colorIndex = index % optionColors.length;
+            optionDiv.style.borderLeftColor = optionColors[colorIndex];
+            
+            const optionText = document.createElement("div");
+            optionText.className = "option-text";
+            
+            const letterSpan = document.createElement("span");
+            letterSpan.className = "option-letter";
+            letterSpan.textContent = letter + ".";
+            optionText.appendChild(letterSpan);
+            
+            optionText.appendChild(document.createTextNode(" " + option.Option));
+            
+            const optionPercent = document.createElement("div");
+            optionPercent.className = "option-percent";
+            optionPercent.textContent = (option.Percentage).toFixed(1) + "%";
+            
+            optionDiv.appendChild(optionText);
+            optionDiv.appendChild(optionPercent);
+            optionsFragment.appendChild(optionDiv);
+        });
+        
+        optionsContainer.appendChild(optionsFragment);
+        popupContent.appendChild(optionsContainer);
+        
+        // Add footer with info
+        const footer = document.createElement("div");
+        footer.className = "popup-footer";
+        
+        const surveyName = document.createElement("p");
+        surveyName.textContent = questionData["Survey Name"] || d.survey_name;
+        
+        const sampleSize = document.createElement("p");
+        sampleSize.textContent = questionData["Sample Size"] + " responses";
+        
+        footer.appendChild(surveyName);
+        footer.appendChild(sampleSize);
+        
+        // Add close button
+        const closeBtn = document.createElement("div");
+        closeBtn.className = "close-btn";
+        closeBtn.textContent = "×";
+        closeBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            popupElement.style.display = "none";
+            popupElement.classList.remove("visible");
+            document.body.classList.remove("popup-visible");
+            
+            // Reset selected node styles
+            nodes.filter(".selected")
+                 .classed("selected", false)
+                 .style("stroke", "none")
+                 .style("stroke-width", null);
+                 
+            // Remove class from body
+            document.body.classList.remove('node-selected');
+        });
+        
+        // Add all elements to popup at once to minimize DOM operations
+        popupElement.appendChild(popupContent);
+        popupElement.appendChild(footer);
+        popupElement.appendChild(closeBtn);
+        
+        // Now that all DOM elements are constructed, apply node highlighting
         // Reset any previous node styles - including selected state and strokes
         nodes.classed('highlighted', false)
              .classed('dimmed', false)
@@ -412,143 +568,23 @@ Promise.all([
         // Add class to body to dim cluster labels
         document.body.classList.add('node-selected');
         
-        // Get response data
-        const responsesData = questionData.Responses;
-        if (!responsesData) {
-            return;
-        }
-        
-        // Create popup content
-        popupElement.innerHTML = ""; // Clear existing content
-        
-        // Create the base structure
-        const popupContent = document.createElement("div");
-        popupContent.className = "popup-content";
-        
-        // Add question
-        const question = document.createElement("div");
-        question.className = "question";
-        question.textContent = d.id;
-        popupContent.appendChild(question);
-        
-        // Create visualization container
-        const vizContainer = document.createElement("div");
-        vizContainer.className = "visualization-container";
-        vizContainer.style.width = "100%";
-        vizContainer.style.height = "150px";
-        vizContainer.style.marginBottom = "20px";
-        vizContainer.style.position = "relative";
-        
-        // Create SVG element
-        const svgElem = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-        svgElem.setAttribute("width", "100%");
-        svgElem.setAttribute("height", "100%");
-        vizContainer.appendChild(svgElem);
-        popupContent.appendChild(vizContainer);
-        
-        // Create options container
-        const optionsContainer = document.createElement("div");
-        optionsContainer.className = "options-container";
-        
-        // Add options
-        const optionColors = ["#5669FF", "#04B488", "#FCCE00", "#FF5E3B", "#C73A75", "#8A2BE2", "#00CED1"];
-        responsesData.forEach((option, index) => {
-            const letter = String.fromCharCode(97 + index);
-            
-            const optionDiv = document.createElement("div");
-            optionDiv.className = "option";
-            
-            const colorIndex = index % optionColors.length;
-            optionDiv.style.borderLeftColor = optionColors[colorIndex];
-            
-            const optionText = document.createElement("div");
-            optionText.className = "option-text";
-            
-            const letterSpan = document.createElement("span");
-            letterSpan.className = "option-letter";
-            letterSpan.textContent = letter + ".";
-            optionText.appendChild(letterSpan);
-            
-            optionText.appendChild(document.createTextNode(" " + option.Option));
-            
-            const optionPercent = document.createElement("div");
-            optionPercent.className = "option-percent";
-            optionPercent.textContent = (option.Percentage).toFixed(1) + "%";
-            
-            optionDiv.appendChild(optionText);
-            optionDiv.appendChild(optionPercent);
-            optionsContainer.appendChild(optionDiv);
-        });
-        
-        popupContent.appendChild(optionsContainer);
-        popupElement.appendChild(popupContent);
-        
-        // Add footer with info
-        const footer = document.createElement("div");
-        footer.className = "popup-footer";
-        
-        const surveyName = document.createElement("p");
-        surveyName.textContent = questionData["Survey Name"] || d.survey_name;
-        
-        const sampleSize = document.createElement("p");
-        sampleSize.textContent = questionData["Sample Size"] + " responses";
-        
-        footer.appendChild(surveyName);
-        footer.appendChild(sampleSize);
-        popupElement.appendChild(footer);
-        
-        // Add close button
-        const closeBtn = document.createElement("div");
-        closeBtn.className = "close-btn";
-        closeBtn.textContent = "×";
-        closeBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            popupElement.style.display = "none";
-            popupElement.classList.remove("visible");
-            document.body.classList.remove("popup-visible");
-            
-            // Reset selected node styles
-            nodes.filter(".selected")
-                 .classed("selected", false)
-                 .style("stroke", "none")
-                 .style("stroke-width", null);
-                 
-            // Remove class from body
-            document.body.classList.remove('node-selected');
-        });
-        
-        popupElement.appendChild(closeBtn);
-        
-        // Now create the bar chart visualization
+        // Now create the bar chart visualization - reference D3 selection
         const barChartSvg = d3.select(svgElem);
         
-        // Make SVG dimensions explicit
-        svgElem.setAttribute("width", "100%");
-        svgElem.setAttribute("height", "100%");
-        svgElem.style.minHeight = "150px";
-        
-        // IMPORTANT: Show the popup FIRST before creating the visualization
-        // UPDATED: Set display style explicitly with !important
+        // Show the popup all at once
         popupElement.style.cssText = "display: block !important;";
         popupElement.classList.add("visible");
         document.body.classList.add("popup-visible");
         
-        // Create the chart after popup is visible
-        setTimeout(() => {
+        // Create the chart with requestAnimationFrame for better performance
+        requestAnimationFrame(() => {
             try {
                 const svgRect = svgElem.getBoundingClientRect();
                 const margin = { top: 20, right: 20, bottom: 30, left: 40 };
                 const width = Math.max(svgRect.width - margin.left - margin.right, 100);
                 const height = Math.max(svgRect.height - margin.top - margin.bottom, 80);
                 
-                const g = barChartSvg.append("g")
-                    .attr("transform", `translate(${margin.left},${margin.top})`);
-                
-                if (!responsesData || !responsesData.length) {
-                    return;
-                }
-                
-                // Set up scales
+                // Create scales outside of DOM manipulation
                 const x = d3.scaleBand()
                     .domain(responsesData.map((d, i) => String.fromCharCode(97 + i)))
                     .range([0, width])
@@ -558,36 +594,48 @@ Promise.all([
                     .domain([0, d3.max(responsesData, d => d.Percentage) * 1.1])
                     .range([height, 0]);
                 
-                // Add bars with colors
+                // Prepare all data at once
+                const barData = responsesData.map((d, i) => ({
+                    option: d,
+                    letter: String.fromCharCode(97 + i),
+                    color: optionColors[i % optionColors.length],
+                    x: x(String.fromCharCode(97 + i)),
+                    y: y(d.Percentage),
+                    width: x.bandwidth(),
+                    height: height - y(d.Percentage)
+                }));
+                
+                // Create group for chart elements
+                const g = barChartSvg.append("g")
+                    .attr("transform", `translate(${margin.left},${margin.top})`);
+                
+                // Add all bars at once
                 g.selectAll(".bar")
-                    .data(responsesData)
+                    .data(barData)
                     .enter().append("rect")
                     .attr("class", "bar")
-                    .attr("x", (d, i) => x(String.fromCharCode(97 + i)))
-                    .attr("y", d => y(d.Percentage))
-                    .attr("width", x.bandwidth())
-                    .attr("height", d => height - y(d.Percentage))
-                    .attr("fill", (d, i) => {
-                        const colorIndex = i % optionColors.length;
-                        return optionColors[colorIndex];
-                    })
+                    .attr("x", d => d.x)
+                    .attr("y", d => d.y)
+                    .attr("width", d => d.width)
+                    .attr("height", d => d.height)
+                    .attr("fill", d => d.color)
                     .attr("rx", 4)
                     .attr("ry", 4);
                 
-                // Add labels at top of bars
+                // Add all labels at once
                 g.selectAll(".label")
-                    .data(responsesData)
+                    .data(barData)
                     .enter().append("text")
                     .attr("class", "label")
-                    .attr("x", (d, i) => x(String.fromCharCode(97 + i)) + x.bandwidth() / 2)
-                    .attr("y", d => y(d.Percentage) - 5)
+                    .attr("x", d => d.x + d.width / 2)
+                    .attr("y", d => d.y - 5)
                     .attr("text-anchor", "middle")
                     .attr("dominant-baseline", "central")
                     .attr("fill", "#FFFFFF")
                     .style("font-size", "12px")
                     .style("font-weight", "600")
                     .style("text-shadow", "0 1px 2px rgba(0,0,0,0.8)")
-                    .text(d => (d.Percentage).toFixed(0) + "%");
+                    .text(d => Math.round(d.option.Percentage) + "%");
                 
                 // Add x axis (option letters)
                 g.append("g")
@@ -601,6 +649,7 @@ Promise.all([
                 g.select(".domain").remove();
                 g.selectAll(".tick line").remove();
             } catch (error) {
+                console.error("Error creating chart:", error);
                 barChartSvg.append("text")
                     .attr("x", "50%")
                     .attr("y", "50%")
@@ -608,7 +657,7 @@ Promise.all([
                     .attr("fill", "#999")
                     .text("Visualization could not be loaded");
             }
-        }, 50); // Longer delay to ensure DOM is ready
+        });
     });
 
     // Now let's update the SVG click handler to properly close the popup
@@ -682,24 +731,14 @@ Promise.all([
                 return "translate(0,0)";
             });
             
-        // Update cluster labels
-        const clusters = detectClusters();
-        createClusterLabels(clusters);
-            
-        // Ensure tooltips stay visible for highlighted nodes if popup is visible
-        if (document.body.classList.contains("popup-visible")) {
-            nodes.each(function(d) {
-                const node = d3.select(this);
-                if (node.classed("highlighted")) {
-                    const nodeIndex = graphData.nodes.findIndex(n => n.id === d.id);
-                    if (nodeIndex > -1) {
-                        nodeTooltipGroups
-                            .filter((td, i) => i === nodeIndex)
-                            .raise();
-                    }
-                }
-            });
+        // Only update cluster labels if popup isn't visible
+        if (!document.body.classList.contains("popup-visible")) {
+            const clusters = detectClusters();
+            createClusterLabels(clusters);
         }
+            
+        // DO NOT reposition tooltips on every tick when popup is visible
+        // This was causing continuous reflows and glitching
     });
 
     // Define the drag behavior
@@ -896,21 +935,36 @@ Promise.all([
     tooltipLayer.remove();
     svg.node().appendChild(tooltipLayer.node());
 
-    // Add better styling for tooltips
+    // Add improved tooltip CSS to reduce glitching
     const tooltipStyle = document.createElement('style');
     tooltipStyle.textContent = `
         .tooltip-layer {
             pointer-events: none !important;
+            will-change: transform; /* Optimize for animation */
         }
         
         .node-tooltip-group {
             pointer-events: none !important;
+            will-change: transform, opacity; /* Optimize for animation */
+            transition: opacity 0.15s ease-out; /* Smooth opacity transition */
         }
         
         .tooltip-text {
             fill: white;
             font-weight: 600;
             text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+            paint-order: stroke; /* Improves text rendering */
+        }
+        
+        /* Performance optimization for selected state */
+        body.popup-visible .node {
+            will-change: transform; /* Optimize transform operations */
+            transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+        }
+        
+        /* Reduce animation complexity when popup is visible */
+        body.popup-visible .node-tooltip-group {
+            transition: none; /* Disable transitions for better performance */
         }
         
         /* Legend styles */

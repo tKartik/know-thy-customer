@@ -9,7 +9,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Look for the Excel file in multiple possible locations
 possible_excel_paths = [
-    os.path.join(script_dir, 'Digest Survey (1).xlsx'),
+    os.path.join(script_dir, 'Digest Survey.xlsx'),
     os.path.join(os.path.dirname(script_dir), 'cleaning', 'Digest Survey (1).xlsx'),
     os.path.join(os.path.dirname(script_dir), 'python cleaning', 'Digest Survey (1).xlsx')
 ]

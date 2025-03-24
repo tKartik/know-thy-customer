@@ -77,7 +77,7 @@ try:
     graph_data = {"nodes": nodes, "links": links}
 
     # Save the JSON graph file to the current directory
-    output_path = os.path.join(script_dir, "semantic_graph_final.json")
+    output_path = os.path.join(script_dir, "semantic_graph.json")
     print(f"Saving output to: {output_path}")
     with open(output_path, "w") as json_file:
         json.dump(graph_data, json_file, indent=4)
