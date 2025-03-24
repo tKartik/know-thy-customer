@@ -967,7 +967,7 @@ Promise.all([
             transition: none; /* Disable transitions for better performance */
         }
         
-        /* Legend styles */
+        /* Legend styles - COMMENTED OUT
         .color-legend {
             position: fixed;
             bottom: 20px;
@@ -1021,6 +1021,7 @@ Promise.all([
             border-radius: 4px;
             background: linear-gradient(to bottom right, #5669FF, #04B488, #FCCE00, #FF5E3B, #C73A75);
         }
+        */
         
         .node.selected {
             stroke: #FFFFFF;
@@ -1030,6 +1031,7 @@ Promise.all([
     document.head.appendChild(tooltipStyle);
     
     // Create and add the color legend
+    /*
     const legendContainer = document.createElement('div');
     legendContainer.className = 'color-legend';
     
@@ -1072,6 +1074,7 @@ Promise.all([
     });
     
     document.body.appendChild(legendContainer);
+    */
 
     // Add cluster detection and labeling
     function detectClusters() {

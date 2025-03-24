@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Survey Topics Force Graph</title>
+    <title>Know your customer - Groww</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet">
     <style>
@@ -49,7 +49,7 @@
             font-size: 60px;
             line-height: 1;
             color: #fff;
-            margin-top: 0;
+            margin-top: 12px;
         }
 
         .logo {
@@ -371,17 +371,145 @@
         .popup .option:nth-child(5) {
             border-left-color: #8067DC;
         }
+        
+        /* Expandable Introduction Styles */
+        .intro-container {
+            margin-top: 20px;
+            width: fit-content;
+         
+            background: rgba(31, 31, 31, 0.85);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            border: 1px solid #4A4A4A;
+            z-index: 20;
+            transition: all 0.3s ease-out;
+            display: inline-block;
+        }
+        
+        .intro-container.expanded {
+            width: 400px;
+            display: block;
+        }
+        
+        .intro-toggle {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 12px 12px 16px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(20, 20, 20, 0.5);
+            transition: background-color 0.2s, width 0.3s ease-out;
+            white-space: nowrap;
+            width: auto;
+        }
+        
+        .intro-toggle.expanded {
+            display: flex;
+
+            justify-content: space-between;
+        }
+        
+        .intro-toggle:hover {
+            background: rgba(50, 50, 50, 0.5);
+        }
+        
+        .toggle-icon {
+            font-size: 18px;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(100, 100, 100, 0.3);
+            transition: transform 0.3s, background-color 0.2s;
+            margin-left: 15px;
+        }
+        
+        .intro-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            padding: 0;
+            width: 0;
+        }
+        
+        .intro-content.expanded {
+            max-height: 50vh;
+            padding: 10px 20px 20px;
+            overflow-y: auto;
+            width: auto;
+        }
+        
+        .intro-toggle.expanded .toggle-icon {
+            transform: rotate(45deg);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .intro-content p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+            font-size: 15px;
+        }
+        
+        .intro-content h3 {
+            margin: 20px 0 10px;
+            font-size: 16px;
+            color: #fff;
+        }
+        
+        .intro-content ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        .intro-content li {
+            margin-bottom: 8px;
+            line-height: 1.4;
+            font-size: 14px;
+        }
+        
+        .intro-content strong {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="title-container">
         <img src="src/img/hand.png" alt="Hand" class="hand-image">
         <div class="title">Know Thy<br>Customer</div>
+        <div class="intro-container">
+            <div class="intro-toggle" id="intro-toggle">
+                <span>About This Visualization</span>
+                <div class="toggle-icon">+</div>
+            </div>
+            <div class="intro-content" id="intro-content">
+                <p>This visualization brings to life the rich survey data collected through our weekly digest emails over the past three years. Each node represents a distinct survey question, with connections and clusters revealing the semantic relationships between questions.</p>
+                
+                <h3>What You're Seeing</h3>
+                <ul>
+                    <li><strong>Nodes</strong>: Individual survey questions, sized by response volume</li>
+                    <li><strong>Colors</strong>: The gradient colors represent answer distributions (A-G options)</li>
+                    <li><strong>Clusters</strong>: Questions grouped by topic similarity (Investment, Banking, Insurance, etc.)</li>
+                    <li><strong>Connections</strong>: Lines between questions indicate semantic relationship strength</li>
+                </ul>
+                
+                <h3>How to Use</h3>
+                <ul>
+                    <li><strong>Click</strong> on any node to see detailed response data</li>
+                    <li><strong>Hover</strong> over nodes to view their topic</li>
+                    <li><strong>Search</strong> to find specific questions or topics</li>
+                    <li><strong>Zoom/Pan</strong> to explore different regions of the knowledge graph</li>
+                </ul>
+            </div>
+        </div>
     </div>
     <img src="src/img/logo.png" alt="Logo" class="logo">
     <div id="graph"></div>
     <div class="search-container">
-        <input type="text" class="search-input" id="search-input" placeholder="Search questions..." />
+        <input type="text" class="search-input" id="search-input" placeholder="🔎 Search for keywords" />
     </div>
     
     <!-- Add popup container -->
@@ -420,6 +548,19 @@
                 
                 // Apply rotation
                 handImage.style.transform = `rotate(${rotation}deg)`;
+            });
+        });
+        
+        // Expandable introduction toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const introToggle = document.getElementById('intro-toggle');
+            const introContent = document.getElementById('intro-content');
+            const introContainer = document.querySelector('.intro-container');
+            
+            introToggle.addEventListener('click', function() {
+                introContent.classList.toggle('expanded');
+                introToggle.classList.toggle('expanded');
+                introContainer.classList.toggle('expanded');
             });
         });
     </script>
