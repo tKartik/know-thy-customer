@@ -1,0 +1,4054 @@
+{
+    "Do you know your CIBIL score?": {
+        "Topic": "CIBIL Score Awareness",
+        "Survey Name": "Newsletter Poll - Jan 7, 2024",
+        "Sample Size": 3240,
+        "Question Text": "Do you know your CIBIL score?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 70.3
+            },
+            {
+                "Option": "No",
+                "Percentage": 29.7
+            }
+        ]
+    },
+    "Which is more stressful to you?": {
+        "Topic": "Stressful investment",
+        "Survey Name": "Newsletter Poll - Jan 14, 2024",
+        "Sample Size": 1259,
+        "Question Text": "Which is more stressful to you?",
+        "Responses": [
+            {
+                "Option": "Investing in real estate",
+                "Percentage": 72.3
+            },
+            {
+                "Option": "Investing in stocks, mutual funds, SIP, etc",
+                "Percentage": 27.700000000000003
+            }
+        ]
+    },
+    "If buying a flat for investment, which would you prefer?": {
+        "Topic": "Real Estate Investment in metro tier-2/3",
+        "Survey Name": "Newsletter Poll - Jan 21, 2024",
+        "Sample Size": 1059,
+        "Question Text": "If buying a flat for investment, which would you prefer?",
+        "Responses": [
+            {
+                "Option": "Flat in metro city, tier 1 city",
+                "Percentage": 52.1
+            },
+            {
+                "Option": "Flat in tier 2, 3 city",
+                "Percentage": 47.9
+            }
+        ]
+    },
+    "How much return per annum do you expect from your SIP/mutual fund investment?": {
+        "Topic": "SIP/Mutual Fund Returns",
+        "Survey Name": "Newsletter Poll - Jan 28, 2024",
+        "Sample Size": 1622,
+        "Question Text": "How much return per annum do you expect from your SIP/mutual fund investment?",
+        "Responses": [
+            {
+                "Option": "11 to 15%",
+                "Percentage": 39.7
+            },
+            {
+                "Option": "16 to 20%",
+                "Percentage": 35.8
+            },
+            {
+                "Option": "More than 21%",
+                "Percentage": 18.3
+            },
+            {
+                "Option": "Less than 10%",
+                "Percentage": 6.2
+            }
+        ]
+    },
+    "Which bank do you mainly use?": {
+        "Topic": "Private vs Govt Bank",
+        "Survey Name": "Newsletter Poll - Feb 4, 2024",
+        "Sample Size": 1326,
+        "Question Text": "Which bank do you mainly use?",
+        "Responses": [
+            {
+                "Option": "Private bank",
+                "Percentage": 52.2
+            },
+            {
+                "Option": "Govt bank",
+                "Percentage": 47.8
+            }
+        ]
+    },
+    "Are you paying any of the following right now?": {
+        "Topic": "Home loan/rent",
+        "Survey Name": "Newsletter Poll - Feb 11, 2024",
+        "Sample Size": 1346,
+        "Question Text": "Are you paying any of the following right now?",
+        "Responses": [
+            {
+                "Option": "Unlabeled Response",
+                "Percentage": 36.3
+            },
+            {
+                "Option": "Home loan EMI",
+                "Percentage": 25.4
+            },
+            {
+                "Option": "Rent",
+                "Percentage": 24.0
+            },
+            {
+                "Option": "Home loan EMI + rent",
+                "Percentage": 14.299999999999999
+            }
+        ]
+    },
+    "Has your loan application (home, car, education, etc) ever been denied?": {
+        "Topic": "Loan Application Status",
+        "Survey Name": "Newsletter Poll - Feb 18, 2024",
+        "Sample Size": 648,
+        "Question Text": "Has your loan application (home, car, education, etc) ever been denied?",
+        "Responses": [
+            {
+                "Option": "No",
+                "Percentage": 60.5
+            },
+            {
+                "Option": "Yes",
+                "Percentage": 39.5
+            }
+        ]
+    },
+    "Which is better?": {
+        "Topic": "Bank Preference for FD",
+        "Survey Name": "Newsletter Poll - Feb 25, 2024",
+        "Sample Size": 1191,
+        "Question Text": "Which is better?",
+        "Responses": [
+            {
+                "Option": "FD from big bank",
+                "Percentage": 50.1
+            },
+            {
+                "Option": "FD from small bank/cooperative bank",
+                "Percentage": 49.9
+            }
+        ]
+    },
+    "Let's say your overall investment is earning 12% per annum. Which of the two options will you choose?": {
+        "Topic": "Investment Stress",
+        "Survey Name": "Newsletter Poll - Mar 3, 2024",
+        "Sample Size": 1331,
+        "Question Text": "Let's say your overall investment is earning 12% per annum. Which of the two options will you choose?",
+        "Responses": [
+            {
+                "Option": "2% lower return but you are never stressed",
+                "Percentage": 77.4
+            },
+            {
+                "Option": "2% higher return but you are very stressed",
+                "Percentage": 22.6
+            }
+        ]
+    },
+    "Which investment do you consider to be safer?": {
+        "Topic": "Safe Investment Gold vs Real estate",
+        "Survey Name": "Newsletter Poll - Mar 10, 2024",
+        "Sample Size": 1040,
+        "Question Text": "Which investment do you consider to be safer?",
+        "Responses": [
+            {
+                "Option": "Gold",
+                "Percentage": 64.4
+            },
+            {
+                "Option": "Real estate",
+                "Percentage": 35.6
+            }
+        ]
+    },
+    "Do you know the difference between Sensex and Nifty?": {
+        "Topic": "Diff between Sensex & Nifty",
+        "Survey Name": "Newsletter Poll - Mar 17, 2024",
+        "Sample Size": 1203,
+        "Question Text": "Do you know the difference between Sensex and Nifty?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 77.5
+            },
+            {
+                "Option": "No",
+                "Percentage": 22.5
+            }
+        ]
+    },
+    "Where would you ask your friend (who is not interested in finance) to invest?": {
+        "Topic": "Investment Suggestions to friend",
+        "Survey Name": "Newsletter Poll - Mar 24, 2024",
+        "Sample Size": 1544,
+        "Question Text": "Where would you ask your friend (who is not interested in finance) to invest?",
+        "Responses": [
+            {
+                "Option": "Mutual funds",
+                "Percentage": 52.2
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 13.700000000000001
+            },
+            {
+                "Option": "FD",
+                "Percentage": 11.700000000000001
+            },
+            {
+                "Option": "Shares",
+                "Percentage": 10.6
+            },
+            {
+                "Option": "Real estate",
+                "Percentage": 9.6
+            },
+            {
+                "Option": "F&O",
+                "Percentage": 2.0
+            }
+        ]
+    },
+    "Which is the most expensive thing you have ever bought?": {
+        "Topic": "Expensive Purchases",
+        "Survey Name": "Newsletter Poll - Mar 31, 2024",
+        "Sample Size": 627,
+        "Question Text": "Which is the most expensive thing you have ever bought?",
+        "Responses": [
+            {
+                "Option": "House",
+                "Percentage": 50.2
+            },
+            {
+                "Option": "Education",
+                "Percentage": 21.6
+            },
+            {
+                "Option": "Car/Bike",
+                "Percentage": 13.5
+            },
+            {
+                "Option": "Electronic Devices",
+                "Percentage": 8.0
+            },
+            {
+                "Option": "Others",
+                "Percentage": 6.800000000000001
+            }
+        ]
+    },
+    "Which way do you prefer to pay?": {
+        "Topic": "Payment Preferences",
+        "Survey Name": "Newsletter Poll - Apr 7, 2024",
+        "Sample Size": 996,
+        "Question Text": "Which way do you prefer to pay?",
+        "Responses": [
+            {
+                "Option": "UPI",
+                "Percentage": 68.10000000000001
+            },
+            {
+                "Option": "Card",
+                "Percentage": 16.400000000000002
+            },
+            {
+                "Option": "Cash",
+                "Percentage": 15.5
+            }
+        ]
+    },
+    "Do you pay for a 'premium plan' for any app (like YouTube, Spotify, etc)?": {
+        "Topic": "Subscription Payments",
+        "Survey Name": "Newsletter Poll - Apr 14, 2024",
+        "Sample Size": 669,
+        "Question Text": "Do you pay for a 'premium plan' for any app (like YouTube, Spotify, etc)?",
+        "Responses": [
+            {
+                "Option": "No",
+                "Percentage": 52.6
+            },
+            {
+                "Option": "Yes",
+                "Percentage": 47.4
+            }
+        ]
+    },
+    "You buy large appliances using": {
+        "Topic": "Appliance Purchases",
+        "Survey Name": "Newsletter Poll - Apr 21, 2024",
+        "Sample Size": 815,
+        "Question Text": "You buy large appliances using",
+        "Responses": [
+            {
+                "Option": "100% down payment",
+                "Percentage": 57.49999999999999
+            },
+            {
+                "Option": "EMI",
+                "Percentage": 42.5
+            }
+        ]
+    },
+    "Which do you prefer?": {
+        "Topic": "Investment Preferences",
+        "Survey Name": "Newsletter Poll - Apr 28, 2024",
+        "Sample Size": 962,
+        "Question Text": "Which do you prefer?",
+        "Responses": [
+            {
+                "Option": "Invest more in equity (shares, MF) and less in safer investments (FD, bonds, etc)",
+                "Percentage": 84.3
+            },
+            {
+                "Option": "Invest more in safer investments (FD, bonds, etc) and less in equity (shares, MF)",
+                "Percentage": 15.7
+            }
+        ]
+    },
+    "What is your current portfolio return?": {
+        "Topic": "Portfolio Returns",
+        "Survey Name": "Newsletter Poll - May 5, 2024",
+        "Sample Size": 2028,
+        "Question Text": "What is your current portfolio return?",
+        "Responses": [
+            {
+                "Option": "More than 15%",
+                "Percentage": 46.5
+            },
+            {
+                "Option": "Less than 10%",
+                "Percentage": 29.7
+            },
+            {
+                "Option": "10 to 15%",
+                "Percentage": 23.7
+            }
+        ]
+    },
+    "Which kind of mutual fund do you have most money invested in?": {
+        "Topic": "Mutual Fund Investments",
+        "Survey Name": "Newsletter Poll - May 12, 2024",
+        "Sample Size": 1821,
+        "Question Text": "Which kind of mutual fund do you have most money invested in?",
+        "Responses": [
+            {
+                "Option": "Mid-cap + small cap",
+                "Percentage": 41.6
+            },
+            {
+                "Option": "Large-cap / index funds",
+                "Percentage": 40.5
+            },
+            {
+                "Option": "Others",
+                "Percentage": 9.6
+            },
+            {
+                "Option": "ELSS",
+                "Percentage": 8.3
+            }
+        ]
+    },
+    "From the option below, which investment portfolio is better?": {
+        "Topic": "Investment Portfolio",
+        "Survey Name": "Newsletter Poll - May 19, 2024",
+        "Sample Size": 1034,
+        "Question Text": "From the option below, which investment portfolio is better?",
+        "Responses": [
+            {
+                "Option": "Equity (shares or MF) + Gold",
+                "Percentage": 62.3
+            },
+            {
+                "Option": "Equity (shares or MF) + FD",
+                "Percentage": 31.6
+            },
+            {
+                "Option": "FD + Gold",
+                "Percentage": 6.1
+            }
+        ]
+    },
+    "Which country's stock markets do you think give higher returns?": {
+        "Topic": "Stock Market Returns",
+        "Survey Name": "Newsletter Poll - May 26, 2024",
+        "Sample Size": 2891,
+        "Question Text": "Which country's stock markets do you think give higher returns?",
+        "Responses": [
+            {
+                "Option": "India",
+                "Percentage": 73.4
+            },
+            {
+                "Option": "USA",
+                "Percentage": 20.9
+            },
+            {
+                "Option": "China",
+                "Percentage": 4.6
+            },
+            {
+                "Option": "UK",
+                "Percentage": 1.2
+            }
+        ]
+    },
+    "Which investment asset do you dislike the most?": {
+        "Topic": "Most disliked nvestments",
+        "Survey Name": "Newsletter Poll - June 2, 2024",
+        "Sample Size": 1485,
+        "Question Text": "Which investment asset do you dislike the most?",
+        "Responses": [
+            {
+                "Option": "FD",
+                "Percentage": 37.0
+            },
+            {
+                "Option": "Real estate",
+                "Percentage": 23.5
+            },
+            {
+                "Option": "Stocks (including mutual funds)",
+                "Percentage": 15.2
+            },
+            {
+                "Option": "Others",
+                "Percentage": 12.3
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 11.899999999999999
+            }
+        ]
+    },
+    "Which is better? ": {
+        "Topic": "Market Volatility",
+        "Survey Name": "Newsletter Poll - June 9, 2024",
+        "Sample Size": 2272,
+        "Question Text": "Which is better?",
+        "Responses": [
+            {
+                "Option": "Market falls 1% on Mon; climbs 1% on Tue",
+                "Percentage": 51.7
+            },
+            {
+                "Option": "It's the same",
+                "Percentage": 25.5
+            },
+            {
+                "Option": "Market falls 10% on Mon; climbs 10% on Tue",
+                "Percentage": 22.8
+            }
+        ]
+    },
+    "Which is better for loans?": {
+        "Topic": "Loan by private vs Govt bank",
+        "Survey Name": "Newsletter Poll - June 16, 2024",
+        "Sample Size": 1516,
+        "Question Text": "Which is better for loans?",
+        "Responses": [
+            {
+                "Option": "Govt bank",
+                "Percentage": 66.2
+            },
+            {
+                "Option": "Private bank",
+                "Percentage": 20.4
+            },
+            {
+                "Option": "It's the same",
+                "Percentage": 13.4
+            }
+        ]
+    },
+    "Who makes investment decisions?": {
+        "Topic": "Investment Decision Making",
+        "Survey Name": "Newsletter Poll - June 30, 2024",
+        "Sample Size": 1142,
+        "Question Text": "Who makes investment decisions?",
+        "Responses": [
+            {
+                "Option": "I make my investment decisions",
+                "Percentage": 82.5
+            },
+            {
+                "Option": "I make my investment decisions with help from others (family, friends)",
+                "Percentage": 15.2
+            },
+            {
+                "Option": "A family/friend decides for me",
+                "Percentage": 2.3
+            }
+        ]
+    },
+    "Which would you prefer to invest in?": {
+        "Topic": "FD Investment Choice",
+        "Survey Name": "Newsletter Poll - July 7, 2024",
+        "Sample Size": 1359,
+        "Question Text": "Which would you prefer to invest in?",
+        "Responses": [
+            {
+                "Option": "FD in a big bank (lower FD interest rates)",
+                "Percentage": 57.4
+            },
+            {
+                "Option": "FD in a small bank (higher FD interest rates)",
+                "Percentage": 42.6
+            }
+        ]
+    },
+    "Have you travelled outside India?": {
+        "Topic": "travel aborad?",
+        "Survey Name": "Newsletter Poll - July 14, 2024",
+        "Sample Size": 1494,
+        "Question Text": "Have you travelled outside India?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 52.5
+            },
+            {
+                "Option": "No",
+                "Percentage": 47.5
+            }
+        ]
+    },
+    "Which transport option have you used most to travel outside your home location in 2024?": {
+        "Topic": "Transport",
+        "Survey Name": "Newsletter Poll - July 28, 2024",
+        "Sample Size": 1252,
+        "Question Text": "Which transport option have you used most to travel outside your home location in 2024?",
+        "Responses": [
+            {
+                "Option": "Train",
+                "Percentage": 33.7
+            },
+            {
+                "Option": "Personal vehicle",
+                "Percentage": 31.8
+            },
+            {
+                "Option": "Bus",
+                "Percentage": 19.6
+            },
+            {
+                "Option": "Plane",
+                "Percentage": 9.0
+            },
+            {
+                "Option": "Others",
+                "Percentage": 5.8999999999999995
+            }
+        ]
+    },
+    "Which of these is written on your debit/credit card?": {
+        "Topic": "Debit/Credit Card Details",
+        "Survey Name": "Newsletter Poll - Aug 4, 2024",
+        "Sample Size": 1248,
+        "Question Text": "Which of these is written on your debit/credit card?",
+        "Responses": [
+            {
+                "Option": "2 or more of the above",
+                "Percentage": 41.8
+            },
+            {
+                "Option": "Visa",
+                "Percentage": 30.099999999999998
+            },
+            {
+                "Option": "Rupay",
+                "Percentage": 17.0
+            },
+            {
+                "Option": "Mastercard",
+                "Percentage": 8.9
+            },
+            {
+                "Option": "Amex",
+                "Percentage": 2.1
+            }
+        ]
+    },
+    "Have you travelled outside India? ": {
+        "Topic": "Travel abroad?",
+        "Survey Name": "Newsletter Poll - Aug 11, 2024",
+        "Sample Size": 1687,
+        "Question Text": "Have you travelled outside India?",
+        "Responses": [
+            {
+                "Option": "Never",
+                "Percentage": 52.6
+            },
+            {
+                "Option": "More than 2 times",
+                "Percentage": 32.0
+            },
+            {
+                "Option": "Less than 2 times",
+                "Percentage": 15.4
+            }
+        ]
+    },
+    "When was the last time you visited a bank branch?": {
+        "Topic": "Last bank visit?",
+        "Survey Name": "Newsletter Poll - Aug 18, 2024",
+        "Sample Size": 1666,
+        "Question Text": "When was the last time you visited a bank branch?",
+        "Responses": [
+            {
+                "Option": "More than 6 months ago",
+                "Percentage": 32.800000000000004
+            },
+            {
+                "Option": "In last 7 days",
+                "Percentage": 25.4
+            },
+            {
+                "Option": "In last 1 month",
+                "Percentage": 21.3
+            },
+            {
+                "Option": "In last 6 months",
+                "Percentage": 20.599999999999998
+            }
+        ]
+    },
+    "Who files your income tax?": {
+        "Topic": "Who files income tax?",
+        "Survey Name": "Newsletter Poll - Aug 25, 2024",
+        "Sample Size": 1295,
+        "Question Text": "Who files your income tax?",
+        "Responses": [
+            {
+                "Option": "I do it myself",
+                "Percentage": 44.3
+            },
+            {
+                "Option": "My CA does it for me",
+                "Percentage": 42.8
+            },
+            {
+                "Option": "I don’t file taxes/not eligible",
+                "Percentage": 12.9
+            }
+        ]
+    },
+    "Which will make you rich faster?": {
+        "Topic": "Want to get rich fast? Job vs Business",
+        "Survey Name": "Newsletter Poll - Sep 1, 2024",
+        "Sample Size": 1947,
+        "Question Text": "Which will make you rich faster?",
+        "Responses": [
+            {
+                "Option": "Your business",
+                "Percentage": 44.4
+            },
+            {
+                "Option": "Investing in stocks/mutual funds",
+                "Percentage": 44.4
+            },
+            {
+                "Option": "Your job",
+                "Percentage": 7.199999999999999
+            },
+            {
+                "Option": "Others",
+                "Percentage": 4.0
+            }
+        ]
+    },
+    "According to you, which is better value?": {
+        "Topic": "Pre-paid vs Post-paid",
+        "Survey Name": "Newsletter Poll - Sep 8, 2024",
+        "Sample Size": 1414,
+        "Question Text": "According to you, which is better value?",
+        "Responses": [
+            {
+                "Option": "Prepaid SIM connection",
+                "Percentage": 79.4
+            },
+            {
+                "Option": "Postpaid SIM connection",
+                "Percentage": 20.599999999999998
+            }
+        ]
+    },
+    "Do you use a laptop for your everyday work?": {
+        "Topic": "Laptop for work?",
+        "Survey Name": "Newsletter Poll - Sep 15, 2024",
+        "Sample Size": 2720,
+        "Question Text": "Do you use a laptop for your everyday work?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 58.099999999999994
+            },
+            {
+                "Option": "No",
+                "Percentage": 41.9
+            }
+        ]
+    },
+    "Which SIM service do you like?": {
+        "Topic": "SIM card",
+        "Survey Name": "Newsletter Poll - Sep 22, 2024",
+        "Sample Size": 2450,
+        "Question Text": "Which SIM service do you like?",
+        "Responses": [
+            {
+                "Option": "Airtel",
+                "Percentage": 39.5
+            },
+            {
+                "Option": "Jio",
+                "Percentage": 28.7
+            },
+            {
+                "Option": "BSNL",
+                "Percentage": 21.6
+            },
+            {
+                "Option": "Vodafone-Idea (Vi)",
+                "Percentage": 10.2
+            }
+        ]
+    },
+    "Which is more important to you?": {
+        "Topic": "Nifty vs Sensex",
+        "Survey Name": "Newsletter Poll - Sep 22, 2024 (copy)",
+        "Sample Size": 1369,
+        "Question Text": "Which is more important to you?",
+        "Responses": [
+            {
+                "Option": "Both are important",
+                "Percentage": 55.7
+            },
+            {
+                "Option": "Nifty",
+                "Percentage": 27.700000000000003
+            },
+            {
+                "Option": "Sensex",
+                "Percentage": 13.200000000000001
+            },
+            {
+                "Option": "Both are not important",
+                "Percentage": 3.5000000000000004
+            }
+        ]
+    },
+    "How many smartphones do you have?": {
+        "Topic": "How many phone do you have?",
+        "Survey Name": "Newsletter Poll - Oct 6, 2024",
+        "Sample Size": 1673,
+        "Question Text": "How many smartphones do you have?",
+        "Responses": [
+            {
+                "Option": "One",
+                "Percentage": 67.4
+            },
+            {
+                "Option": "Two",
+                "Percentage": 21.5
+            },
+            {
+                "Option": "Zero",
+                "Percentage": 5.8999999999999995
+            },
+            {
+                "Option": "Three or more",
+                "Percentage": 5.3
+            }
+        ]
+    },
+    "Are you happy with your investments’ returns?": {
+        "Topic": "Happy with your return?",
+        "Survey Name": "Newsletter Poll - Oct 13, 2024",
+        "Sample Size": 1325,
+        "Question Text": "Are you happy with your investments’ returns?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 56.99999999999999
+            },
+            {
+                "Option": "No",
+                "Percentage": 19.7
+            },
+            {
+                "Option": "Neutral",
+                "Percentage": 19.0
+            },
+            {
+                "Option": "Not investing yet",
+                "Percentage": 4.3
+            }
+        ]
+    },
+    "Do you have an active SIP right now?": {
+        "Topic": "SIP Participation",
+        "Survey Name": "Newsletter Poll - Oct 20, 2024",
+        "Sample Size": 1358,
+        "Question Text": "Do you have an active SIP right now?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 79.5
+            },
+            {
+                "Option": "No",
+                "Percentage": 20.5
+            }
+        ]
+    },
+    "If you had home loan EMIs to pay, what would you do?": {
+        "Topic": "Home Loan EMIs & Investing",
+        "Survey Name": "Newsletter Poll - Oct 27, 2024",
+        "Sample Size": 1807,
+        "Question Text": "If you had home loan EMIs to pay, what would you do?",
+        "Responses": [
+            {
+                "Option": "Continue both EMIs and investing at the same time",
+                "Percentage": 82.1
+            },
+            {
+                "Option": "Stop investing; put all extra money in pre-paying loans",
+                "Percentage": 17.9
+            }
+        ]
+    },
+    "Is using a credit card better (instead of debit card and UPI)?": {
+        "Topic": "Credit card vs Debit card/UPI",
+        "Survey Name": "Newsletter Poll - Nov 3, 2024",
+        "Sample Size": 1369,
+        "Question Text": "Is using a credit card better (instead of debit card and UPI)?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 59.599999999999994
+            },
+            {
+                "Option": "No",
+                "Percentage": 40.400000000000006
+            }
+        ]
+    },
+    "Which do you prefer to use?": {
+        "Topic": "Transportation Preference",
+        "Survey Name": "Newsletter Poll - Nov 10, 2024",
+        "Sample Size": 1142,
+        "Question Text": "Which do you prefer to use?",
+        "Responses": [
+            {
+                "Option": "Personal vehicle",
+                "Percentage": 51.7
+            },
+            {
+                "Option": "Public transport",
+                "Percentage": 37.0
+            },
+            {
+                "Option": "Cab/taxi",
+                "Percentage": 11.4
+            }
+        ]
+    },
+    "Which bank do you use as your primary bank?": {
+        "Topic": "Banking Preferences",
+        "Survey Name": "Newsletter Poll - Nov 17, 2024",
+        "Sample Size": 1588,
+        "Question Text": "Which bank do you use as your primary bank?",
+        "Responses": [
+            {
+                "Option": "Govt bank",
+                "Percentage": 53.6
+            },
+            {
+                "Option": "Private bank",
+                "Percentage": 44.2
+            },
+            {
+                "Option": "Co-op bank",
+                "Percentage": 2.1999999999999997
+            }
+        ]
+    },
+    "Which would you trust more? Assume all other things are equal.": {
+        "Topic": "Trust in Banks",
+        "Survey Name": "Newsletter Poll - Nov 24, 2024",
+        "Sample Size": 601,
+        "Question Text": "Which would you trust more? Assume all other things are equal.",
+        "Responses": [
+            {
+                "Option": "100-year-old bank",
+                "Percentage": 43.2
+            },
+            {
+                "Option": "Both are the same",
+                "Percentage": 40.6
+            },
+            {
+                "Option": "20-year-old bank",
+                "Percentage": 16.2
+            }
+        ]
+    },
+    "How do you book train/plane tickets?": {
+        "Topic": "Train/plane booking on laptop or mobile",
+        "Survey Name": "Newsletter Poll - Dec 1, 2024",
+        "Sample Size": 1454,
+        "Question Text": "How do you book train/plane tickets?",
+        "Responses": [
+            {
+                "Option": "Smartphone",
+                "Percentage": 67.9
+            },
+            {
+                "Option": "Laptop",
+                "Percentage": 22.5
+            },
+            {
+                "Option": "Offline ticket counter",
+                "Percentage": 5.1
+            },
+            {
+                "Option": "Travel agent",
+                "Percentage": 4.5
+            }
+        ]
+    },
+    "Which do you prefer? ": {
+        "Topic": "Invest on your own or with advice?",
+        "Survey Name": "Newsletter Poll - Dec 8, 2024",
+        "Sample Size": 855,
+        "Question Text": "Which do you prefer?",
+        "Responses": [
+            {
+                "Option": "All investment decisions made by you",
+                "Percentage": 49.8
+            },
+            {
+                "Option": "Mix of both",
+                "Percentage": 45.2
+            },
+            {
+                "Option": "All investment decisions made by someone else (family, advisor, etc)",
+                "Percentage": 5.0
+            }
+        ]
+    },
+    "Which is more important according to you?": {
+        "Topic": "Nifty or Senses",
+        "Survey Name": "Newsletter Poll - Dec 15, 2024",
+        "Sample Size": 1049,
+        "Question Text": "Which is more important according to you?",
+        "Responses": [
+            {
+                "Option": "Nifty 50",
+                "Percentage": 50.4
+            },
+            {
+                "Option": "Both are the same",
+                "Percentage": 34.9
+            },
+            {
+                "Option": "Sensex 30",
+                "Percentage": 14.7
+            }
+        ]
+    },
+    "How have your investments performed in 2024?": {
+        "Topic": "Investment performance in 2024",
+        "Survey Name": "Newsletter Poll - Dec 22, 2024",
+        "Sample Size": 551,
+        "Question Text": "How have your investments performed in 2024?",
+        "Responses": [
+            {
+                "Option": "Worse than expected",
+                "Percentage": 48.199999999999996
+            },
+            {
+                "Option": "As expected",
+                "Percentage": 27.200000000000003
+            },
+            {
+                "Option": "Better than expected",
+                "Percentage": 24.5
+            }
+        ]
+    },
+    "Will you increase your investment amount in 2025?": {
+        "Topic": "Invest more or less in 2025",
+        "Survey Name": "Newsletter Poll - Dec 29, 2024",
+        "Sample Size": 1850,
+        "Question Text": "Will you increase your investment amount in 2025?",
+        "Responses": [
+            {
+                "Option": "Yes, will invest more",
+                "Percentage": 76.5
+            },
+            {
+                "Option": "No, will keep the same",
+                "Percentage": 15.8
+            },
+            {
+                "Option": "No, will invest less",
+                "Percentage": 7.7
+            }
+        ]
+    },
+    "Are you increasing your monthly investment/SIP in the new year?": {
+        "Topic": "SIP Investment Increase",
+        "Survey Name": "Newsletter Poll - Jan 1, 2023",
+        "Sample Size": 2303,
+        "Question Text": "Are you increasing your monthly investment/SIP in the new year?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 77.60000000000001
+            },
+            {
+                "Option": "No",
+                "Percentage": 22.400000000000002
+            }
+        ]
+    },
+    "According to you, which has more risk?": {
+        "Topic": "Investment Risk",
+        "Survey Name": "Newsletter Poll - Jan 8, 2023",
+        "Sample Size": 2766,
+        "Question Text": "According to you, which has more risk?",
+        "Responses": [
+            {
+                "Option": "Stocks",
+                "Percentage": 74.9
+            },
+            {
+                "Option": "Real estate",
+                "Percentage": 25.1
+            }
+        ]
+    },
+    "How many bank accounts do you have?": {
+        "Topic": "Bank Accounts Ownership",
+        "Survey Name": "Newsletter Poll - Jan 15, 2023",
+        "Sample Size": 2283,
+        "Question Text": "How many bank accounts do you have?",
+        "Responses": [
+            {
+                "Option": "1 to 3",
+                "Percentage": 67.2
+            },
+            {
+                "Option": "4 to 6",
+                "Percentage": 15.1
+            },
+            {
+                "Option": "0",
+                "Percentage": 9.2
+            },
+            {
+                "Option": "More than 10",
+                "Percentage": 4.3999999999999995
+            },
+            {
+                "Option": "7 to 10",
+                "Percentage": 4.0
+            }
+        ]
+    },
+    "Have you ever invested in an IPO?": {
+        "Topic": "IPO Investment",
+        "Survey Name": "Newsletter Poll - Jan 22, 2023",
+        "Sample Size": 2315,
+        "Question Text": "Have you ever invested in an IPO?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 69.39999999999999
+            },
+            {
+                "Option": "No",
+                "Percentage": 30.599999999999998
+            }
+        ]
+    },
+    "Have you used NEFT/IMPS/RTGS in the past 30 days?": {
+        "Topic": "Digital Payments Usage",
+        "Survey Name": "Newsletter Poll - Jan 29, 2023",
+        "Sample Size": 2209,
+        "Question Text": "Have you used NEFT/IMPS/RTGS in the past 30 days?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 73.9
+            },
+            {
+                "Option": "No",
+                "Percentage": 26.1
+            }
+        ]
+    },
+    "Have you used NEFT/IMPS/RTGS in the past 30 days? ": {
+        "Topic": "Digital Payments Usage",
+        "Survey Name": "Newsletter Poll - Feb 5, 2023",
+        "Sample Size": 1796,
+        "Question Text": "Have you used NEFT/IMPS/RTGS in the past 30 days?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 74.1
+            },
+            {
+                "Option": "No",
+                "Percentage": 25.900000000000002
+            }
+        ]
+    },
+    "Which do you think takes less time?": {
+        "Topic": "Payment Methods",
+        "Survey Name": "Newsletter Poll - Feb 12, 2023",
+        "Sample Size": 2127,
+        "Question Text": "Which do you think takes less time?",
+        "Responses": [
+            {
+                "Option": "Paying using UPI (PhonePe, G-Pay, etc.)",
+                "Percentage": 68.4
+            },
+            {
+                "Option": "Paying using cash",
+                "Percentage": 31.6
+            }
+        ]
+    },
+    "Do you have to travel to different locations for work?": {
+        "Topic": "Work Travel Frequency",
+        "Survey Name": "Newsletter Poll - Feb 19, 2023",
+        "Sample Size": 2073,
+        "Question Text": "Do you have to travel to different locations for work?",
+        "Responses": [
+            {
+                "Option": "Yes, I have to travel often",
+                "Percentage": 57.199999999999996
+            },
+            {
+                "Option": "No, one location only",
+                "Percentage": 42.8
+            }
+        ]
+    },
+    "Do you take the help of a CA for filing tax?": {
+        "Topic": "Tax Filing Assistance",
+        "Survey Name": "Newsletter Poll - Feb 26, 2023",
+        "Sample Size": 2190,
+        "Question Text": "Do you take the help of a CA for filing tax?",
+        "Responses": [
+            {
+                "Option": "Yes, I have a CA",
+                "Percentage": 47.599999999999994
+            },
+            {
+                "Option": "No, I do it myself",
+                "Percentage": 34.5
+            },
+            {
+                "Option": "No, I don’t pay tax yet",
+                "Percentage": 17.9
+            }
+        ]
+    },
+    "Do you use a computer/laptop?": {
+        "Topic": "Computer/Laptop Usage",
+        "Survey Name": "Newsletter Poll - Mar 5, 2023",
+        "Sample Size": 2902,
+        "Question Text": "Do you use a computer/laptop?",
+        "Responses": [
+            {
+                "Option": "No, my smartphone is enough",
+                "Percentage": 53.300000000000004
+            },
+            {
+                "Option": "Yes",
+                "Percentage": 46.7
+            }
+        ]
+    },
+    "Which SIM card do you use?": {
+        "Topic": "SIM Card Usage",
+        "Survey Name": "Newsletter Poll - Mar 12, 2023",
+        "Sample Size": 3993,
+        "Question Text": "Which SIM card do you use?",
+        "Responses": [
+            {
+                "Option": "Jio",
+                "Percentage": 46.300000000000004
+            },
+            {
+                "Option": "Airtel",
+                "Percentage": 35.6
+            },
+            {
+                "Option": "Vodafone-Idea (Vi)",
+                "Percentage": 14.6
+            },
+            {
+                "Option": "BSNL/MTNL",
+                "Percentage": 3.5000000000000004
+            }
+        ]
+    },
+    "When taking a loan, which bank would you opt for?": {
+        "Topic": "Loan Preferences",
+        "Survey Name": "Newsletter Poll - Mar 19, 2023",
+        "Sample Size": 1724,
+        "Question Text": "When taking a loan, which bank would you opt for?",
+        "Responses": [
+            {
+                "Option": "Govt bank",
+                "Percentage": 58.4
+            },
+            {
+                "Option": "Private Indian bank",
+                "Percentage": 25.5
+            },
+            {
+                "Option": "Doesn’t matter",
+                "Percentage": 12.6
+            },
+            {
+                "Option": "Private international bank",
+                "Percentage": 3.5000000000000004
+            }
+        ]
+    },
+    "Where do you live?": {
+        "Topic": "Living Location",
+        "Survey Name": "Newsletter Poll - Apr 2, 2023",
+        "Sample Size": 1385,
+        "Question Text": "Where do you live?",
+        "Responses": [
+            {
+                "Option": "Tier 1 city",
+                "Percentage": 41.099999999999994
+            },
+            {
+                "Option": "Rural area",
+                "Percentage": 20.7
+            },
+            {
+                "Option": "Small town",
+                "Percentage": 16.0
+            },
+            {
+                "Option": "Tier 2 city",
+                "Percentage": 13.5
+            },
+            {
+                "Option": "Tier 3/4 city",
+                "Percentage": 8.7
+            }
+        ]
+    },
+    "Which UPI app do you use the most?": {
+        "Topic": "UPI App Usage",
+        "Survey Name": "Newsletter Poll - Apr 9, 2023",
+        "Sample Size": 2431,
+        "Question Text": "Which UPI app do you use the most?",
+        "Responses": [
+            {
+                "Option": "G-Pay",
+                "Percentage": 40.2
+            },
+            {
+                "Option": "PhonePe",
+                "Percentage": 29.599999999999998
+            },
+            {
+                "Option": "PayTM",
+                "Percentage": 22.3
+            },
+            {
+                "Option": "Others",
+                "Percentage": 7.8
+            }
+        ]
+    },
+    "Which kind of smartphone do you use?": {
+        "Topic": "Smartphone Type",
+        "Survey Name": "Newsletter Poll - Apr 16, 2023",
+        "Sample Size": 2514,
+        "Question Text": "Which kind of smartphone do you use?",
+        "Responses": [
+            {
+                "Option": "Android (Samsung, Xiaomi, Vivo)",
+                "Percentage": 86.7
+            },
+            {
+                "Option": "iOS (iPhone)",
+                "Percentage": 13.3
+            }
+        ]
+    },
+    "Have you ever bought electronics (AC, mobiles, TV, etc) on EMI?": {
+        "Topic": "Buying Electronics on EMI",
+        "Survey Name": "Newsletter Poll - Apr 23, 2023",
+        "Sample Size": 1226,
+        "Question Text": "Have you ever bought electronics (AC, mobiles, TV, etc) on EMI?",
+        "Responses": [
+            {
+                "Option": "No",
+                "Percentage": 50.7
+            },
+            {
+                "Option": "Yes",
+                "Percentage": 49.3
+            }
+        ]
+    },
+    "Have you bought life insurance in your name?": {
+        "Topic": "Life Insurance Ownership",
+        "Survey Name": "Newsletter Poll - May 7, 2023",
+        "Sample Size": 1857,
+        "Question Text": "Have you bought life insurance in your name?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 67.5
+            },
+            {
+                "Option": "No",
+                "Percentage": 32.5
+            }
+        ]
+    },
+    "How much should people spend on smartphones?": {
+        "Topic": "Smartphone Spending",
+        "Survey Name": "Newsletter Poll - May 14, 2023",
+        "Sample Size": 1978,
+        "Question Text": "How much should people spend on smartphones?",
+        "Responses": [
+            {
+                "Option": "Less than 1 month’s income",
+                "Percentage": 67.2
+            },
+            {
+                "Option": "1 month’s income",
+                "Percentage": 19.6
+            },
+            {
+                "Option": "2-4 months’ income",
+                "Percentage": 7.199999999999999
+            },
+            {
+                "Option": "5 or more than 5 months’ income",
+                "Percentage": 6.0
+            }
+        ]
+    },
+    "Which investment option is safer according to you?": {
+        "Topic": "Investment Safety",
+        "Survey Name": "Newsletter Poll - May 21, 2023",
+        "Sample Size": 965,
+        "Question Text": "Which investment option is safer according to you?",
+        "Responses": [
+            {
+                "Option": "Equity (direct stocks or mutual funds)",
+                "Percentage": 53.400000000000006
+            },
+            {
+                "Option": "Real estate",
+                "Percentage": 46.6
+            }
+        ]
+    },
+    "Which do you prefer more?": {
+        "Topic": "Payment Preference",
+        "Survey Name": "Newsletter Poll - May 28, 2023",
+        "Sample Size": 2166,
+        "Question Text": "Which do you prefer more?",
+        "Responses": [
+            {
+                "Option": "Debit card",
+                "Percentage": 50.6
+            },
+            {
+                "Option": "Credit card",
+                "Percentage": 49.4
+            }
+        ]
+    },
+    "Which do you prefer more? ": {
+        "Topic": "Banking Preference",
+        "Survey Name": "Newsletter Poll - June 4, 2023",
+        "Sample Size": 1020,
+        "Question Text": "Which do you prefer more?",
+        "Responses": [
+            {
+                "Option": "Private bank",
+                "Percentage": 45.4
+            },
+            {
+                "Option": "Government bank",
+                "Percentage": 39.7
+            },
+            {
+                "Option": "Doesn't matter",
+                "Percentage": 14.899999999999999
+            }
+        ]
+    },
+    "Where do you want to retire?": {
+        "Topic": "Retirement Preference",
+        "Survey Name": "Newsletter Poll - June 11, 2023",
+        "Sample Size": 1620,
+        "Question Text": "Where do you want to retire?",
+        "Responses": [
+            {
+                "Option": "Tier 2/3 city",
+                "Percentage": 29.299999999999997
+            },
+            {
+                "Option": "Small town",
+                "Percentage": 28.4
+            },
+            {
+                "Option": "Tier 1 city",
+                "Percentage": 23.400000000000002
+            },
+            {
+                "Option": "Rural area",
+                "Percentage": 18.9
+            }
+        ]
+    },
+    "Where do you currently live?": {
+        "Topic": "Current Living Location",
+        "Survey Name": "Newsletter Poll - June 18, 2023",
+        "Sample Size": 805,
+        "Question Text": "Where do you currently live?",
+        "Responses": [
+            {
+                "Option": "Tier 1 city",
+                "Percentage": 43.9
+            },
+            {
+                "Option": "Tier 2/3 city",
+                "Percentage": 27.3
+            },
+            {
+                "Option": "Small town",
+                "Percentage": 14.499999999999998
+            },
+            {
+                "Option": "Rural area",
+                "Percentage": 14.299999999999999
+            }
+        ]
+    },
+    "Do you check the markets (Sensex, Nifty, etc) every day?": {
+        "Topic": "Market Tracking",
+        "Survey Name": "Newsletter Poll - June 25, 2023",
+        "Sample Size": 1882,
+        "Question Text": "Do you check the markets (Sensex, Nifty, etc) every day?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 84.39999999999999
+            },
+            {
+                "Option": "No",
+                "Percentage": 15.6
+            }
+        ]
+    },
+    "Do you shop online for anything (Amazon, Flipkart, etc)?": {
+        "Topic": "Online Shopping",
+        "Survey Name": "Newsletter Poll - July 2, 2023",
+        "Sample Size": 2351,
+        "Question Text": "Do you shop online for anything (Amazon, Flipkart, etc)?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 88.9
+            },
+            {
+                "Option": "No",
+                "Percentage": 11.1
+            }
+        ]
+    },
+    "When did you make your first online purchase?": {
+        "Topic": "First Online Purchase",
+        "Survey Name": "Newsletter Poll - July 9, 2023",
+        "Sample Size": 1225,
+        "Question Text": "When did you make your first online purchase?",
+        "Responses": [
+            {
+                "Option": "2020 and after",
+                "Percentage": 28.9
+            },
+            {
+                "Option": "2015 to 2019",
+                "Percentage": 28.199999999999996
+            },
+            {
+                "Option": "2010 to 2014",
+                "Percentage": 27.700000000000003
+            },
+            {
+                "Option": "In or before 2009",
+                "Percentage": 15.2
+            }
+        ]
+    },
+    "Are you filing your taxes by 31st July?": {
+        "Topic": "Tax Filing",
+        "Survey Name": "Newsletter Poll - July 16, 2023",
+        "Sample Size": 1213,
+        "Question Text": "Are you filing your taxes by 31st July?",
+        "Responses": [
+            {
+                "Option": "Already done",
+                "Percentage": 56.39999999999999
+            },
+            {
+                "Option": "Going to do it",
+                "Percentage": 28.799999999999997
+            },
+            {
+                "Option": "Others",
+                "Percentage": 8.4
+            },
+            {
+                "Option": "Won't be filing taxes",
+                "Percentage": 6.4
+            }
+        ]
+    },
+    "Have you bought any stocks in the last 1 month?": {
+        "Topic": "Stock Market Investments",
+        "Survey Name": "Newsletter Poll - July 23, 2023",
+        "Sample Size": 1663,
+        "Question Text": "Have you bought any stocks in the last 1 month?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 71.2
+            },
+            {
+                "Option": "No",
+                "Percentage": 28.799999999999997
+            }
+        ]
+    },
+    "What do you think about taxes in India?": {
+        "Topic": "Opinion on Taxes",
+        "Survey Name": "Newsletter Poll - July 30, 2023",
+        "Sample Size": 1586,
+        "Question Text": "What do you think about taxes in India?",
+        "Responses": [
+            {
+                "Option": "They are too high",
+                "Percentage": 66.0
+            },
+            {
+                "Option": "They are fair",
+                "Percentage": 24.3
+            },
+            {
+                "Option": "They are too low",
+                "Percentage": 9.700000000000001
+            }
+        ]
+    },
+    "Is your house insured?": {
+        "Topic": "Home Insurance",
+        "Survey Name": "Newsletter Poll - Aug 6, 2023",
+        "Sample Size": 900,
+        "Question Text": "Is your house insured?",
+        "Responses": [
+            {
+                "Option": "No",
+                "Percentage": 44.0
+            },
+            {
+                "Option": "Yes",
+                "Percentage": 35.199999999999996
+            },
+            {
+                "Option": "Didn't know houses could be insured",
+                "Percentage": 20.8
+            }
+        ]
+    },
+    "10 years from today, where do you want to live?": {
+        "Topic": "Future Living Plans",
+        "Survey Name": "Newsletter Poll - Aug 13, 2023",
+        "Sample Size": 1451,
+        "Question Text": "10 years from today, where do you want to live?",
+        "Responses": [
+            {
+                "Option": "India",
+                "Percentage": 76.9
+            },
+            {
+                "Option": "Abroad",
+                "Percentage": 17.5
+            },
+            {
+                "Option": "Not sure",
+                "Percentage": 5.7
+            }
+        ]
+    },
+    "Will you buy an electric vehicle (2 or 4-wheeler) in the next 5 years?": {
+        "Topic": "EV Purchase Intent",
+        "Survey Name": "Newsletter Poll - Aug 27, 2023",
+        "Sample Size": 1309,
+        "Question Text": "Will you buy an electric vehicle (2 or 4-wheeler) in the next 5 years?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 57.49999999999999
+            },
+            {
+                "Option": "No",
+                "Percentage": 19.6
+            },
+            {
+                "Option": "Not sure",
+                "Percentage": 17.5
+            },
+            {
+                "Option": "Already own EV",
+                "Percentage": 5.4
+            }
+        ]
+    },
+    "Which UPI app do you use the most? ": {
+        "Topic": "UPI Payment Preference",
+        "Survey Name": "Newsletter Poll - Sept 3, 2023",
+        "Sample Size": 1809,
+        "Question Text": "Which UPI app do you use the most?",
+        "Responses": [
+            {
+                "Option": "Google Pay",
+                "Percentage": 38.5
+            },
+            {
+                "Option": "PhonePe",
+                "Percentage": 31.900000000000002
+            },
+            {
+                "Option": "Paytm",
+                "Percentage": 20.7
+            },
+            {
+                "Option": "Others",
+                "Percentage": 8.799999999999999
+            }
+        ]
+    },
+    "Do you plan on buying real estate in the next 5 years?": {
+        "Topic": "Real Estate Plans",
+        "Survey Name": "Newsletter Poll - Sept 10, 2023",
+        "Sample Size": 1219,
+        "Question Text": "Do you plan on buying real estate in the next 5 years?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 74.1
+            },
+            {
+                "Option": "No",
+                "Percentage": 25.900000000000002
+            }
+        ]
+    },
+    "When did you start your investing journey?": {
+        "Topic": "Investing Behavior",
+        "Survey Name": "Newsletter Poll - Sept 17, 2023",
+        "Sample Size": 1183,
+        "Question Text": "When did you start your investing journey?",
+        "Responses": [
+            {
+                "Option": "I didn't decide based on the markets' level",
+                "Percentage": 40.0
+            },
+            {
+                "Option": "When markets were falling",
+                "Percentage": 29.4
+            },
+            {
+                "Option": "When markets were climbing",
+                "Percentage": 20.599999999999998
+            },
+            {
+                "Option": "When markets were neutral",
+                "Percentage": 10.0
+            }
+        ]
+    },
+    "What was your monthly income when you first started earning?": {
+        "Topic": "First Salary Range",
+        "Survey Name": "Newsletter Poll - Sept 24, 2023",
+        "Sample Size": 1622,
+        "Question Text": "What was your monthly income when you first started earning?",
+        "Responses": [
+            {
+                "Option": "Less than Rs 20,000",
+                "Percentage": 70.7
+            },
+            {
+                "Option": "Rs 20,000 to Rs 40,000",
+                "Percentage": 16.7
+            },
+            {
+                "Option": "More than Rs 60,000",
+                "Percentage": 6.7
+            },
+            {
+                "Option": "Rs 40,001 to Rs 60,000",
+                "Percentage": 5.8999999999999995
+            }
+        ]
+    },
+    "How much does your car or bike cost?": {
+        "Topic": "Vehicle Cost",
+        "Survey Name": "Newsletter Poll - Oct 1, 2023",
+        "Sample Size": 912,
+        "Question Text": "How much does your car or bike cost?",
+        "Responses": [
+            {
+                "Option": "Less than Rs 1 lakh",
+                "Percentage": 28.7
+            },
+            {
+                "Option": "Don't own vehicle/Rs 0",
+                "Percentage": 24.6
+            },
+            {
+                "Option": "More than Rs 8 lakh",
+                "Percentage": 18.2
+            },
+            {
+                "Option": "Rs 4 lakh to Rs 8 lakh",
+                "Percentage": 14.499999999999998
+            },
+            {
+                "Option": "Rs 2 lakh to Rs 4 lakh",
+                "Percentage": 14.000000000000002
+            }
+        ]
+    },
+    "Who do you think is richer?": {
+        "Topic": "Perceived Wealth",
+        "Survey Name": "Newsletter Poll - Oct 8, 2023",
+        "Sample Size": 675,
+        "Question Text": "Who do you think is richer?",
+        "Responses": [
+            {
+                "Option": "Me",
+                "Percentage": 47.8
+            },
+            {
+                "Option": "My neighbour",
+                "Percentage": 26.5
+            },
+            {
+                "Option": "We're more or less the same",
+                "Percentage": 25.7
+            }
+        ]
+    },
+    "Which affects your expenses more?": {
+        "Topic": "Expense Impact",
+        "Survey Name": "Newsletter Poll - Oct 15, 2023",
+        "Sample Size": 1460,
+        "Question Text": "Which affects your expenses more?",
+        "Responses": [
+            {
+                "Option": "Petrol",
+                "Percentage": 66.2
+            },
+            {
+                "Option": "LPG",
+                "Percentage": 17.8
+            },
+            {
+                "Option": "Diesel",
+                "Percentage": 16.0
+            }
+        ]
+    },
+    "Which is better if buying a house?": {
+        "Topic": "Home Buying Approach",
+        "Survey Name": "Newsletter Poll - Oct 22, 2023",
+        "Sample Size": 1261,
+        "Question Text": "Which is better if buying a house?",
+        "Responses": [
+            {
+                "Option": "EMI + investing - at the same time",
+                "Percentage": 62.1
+            },
+            {
+                "Option": "No EMI. Investing till you have enough money",
+                "Percentage": 28.499999999999996
+            },
+            {
+                "Option": "Full focus on paying EMI",
+                "Percentage": 9.4
+            }
+        ]
+    },
+    "Which do you use the most to travel?": {
+        "Topic": "Travel Preference",
+        "Survey Name": "Newsletter Poll - Oct 29, 2023",
+        "Sample Size": 1467,
+        "Question Text": "Which do you use the most to travel?",
+        "Responses": [
+            {
+                "Option": "Personal car/bike",
+                "Percentage": 47.0
+            },
+            {
+                "Option": "Train",
+                "Percentage": 26.200000000000003
+            },
+            {
+                "Option": "Bus",
+                "Percentage": 21.2
+            },
+            {
+                "Option": "Plane",
+                "Percentage": 5.6000000000000005
+            }
+        ]
+    },
+    "Which kind of health insurance company do you prefer?": {
+        "Topic": "Health Insurance Preference",
+        "Survey Name": "Newsletter Poll - Nov 5, 2023",
+        "Sample Size": 1109,
+        "Question Text": "Which kind of health insurance company do you prefer?",
+        "Responses": [
+            {
+                "Option": "Private sector (ICICI Lombard, Tata AIG, etc)",
+                "Percentage": 53.6
+            },
+            {
+                "Option": "Public sector (LIC, Oriental, etc)",
+                "Percentage": 46.400000000000006
+            }
+        ]
+    },
+    "Which is better?  ": {
+        "Topic": "Payment Preference",
+        "Survey Name": "Newsletter Poll - Nov 12, 2023",
+        "Sample Size": 1449,
+        "Question Text": "Which is better?",
+        "Responses": [
+            {
+                "Option": "Debit card",
+                "Percentage": 54.400000000000006
+            },
+            {
+                "Option": "Credit card",
+                "Percentage": 45.6
+            }
+        ]
+    },
+    "When was the last time you visited a bank branch? ": {
+        "Topic": "Bank Visits",
+        "Survey Name": "Newsletter Poll - Nov 19, 2023",
+        "Sample Size": 831,
+        "Question Text": "When was the last time you visited a bank branch?",
+        "Responses": [
+            {
+                "Option": "In the last 10 days",
+                "Percentage": 31.2
+            },
+            {
+                "Option": "More than 1 year",
+                "Percentage": 23.200000000000003
+            },
+            {
+                "Option": "31 days to 90 days",
+                "Percentage": 15.4
+            },
+            {
+                "Option": "91 days to 1 year",
+                "Percentage": 15.2
+            },
+            {
+                "Option": "11 days to 30 days",
+                "Percentage": 15.0
+            }
+        ]
+    },
+    "Which would you prefer?": {
+        "Topic": "Housing Preference",
+        "Survey Name": "Newsletter Poll - Nov 26, 2023",
+        "Sample Size": 1875,
+        "Question Text": "Which would you prefer?",
+        "Responses": [
+            {
+                "Option": "Large house in rural area",
+                "Percentage": 64.1
+            },
+            {
+                "Option": "Small house in urban area",
+                "Percentage": 35.9
+            }
+        ]
+    },
+    "Which do you prefer?  ": {
+        "Topic": "Banking Preference",
+        "Survey Name": "Newsletter Poll - Dec 3, 2023",
+        "Sample Size": 1325,
+        "Question Text": "Which do you prefer?",
+        "Responses": [
+            {
+                "Option": "Banking online (using app or website)",
+                "Percentage": 89.5
+            },
+            {
+                "Option": "Banking at the branch location",
+                "Percentage": 10.5
+            }
+        ]
+    },
+    "Do you use a laptop/computer every day?": {
+        "Topic": "Laptop/Computer Usage",
+        "Survey Name": "Newsletter Poll - Dec 10, 2023",
+        "Sample Size": 2605,
+        "Question Text": "Do you use a laptop/computer every day?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 59.599999999999994
+            },
+            {
+                "Option": "No",
+                "Percentage": 28.000000000000004
+            },
+            {
+                "Option": "Only sometimes",
+                "Percentage": 12.4
+            }
+        ]
+    },
+    "Do you have medical insurance?": {
+        "Topic": "Medical Insurance",
+        "Survey Name": "Newsletter Poll - Dec 17, 2023",
+        "Sample Size": 1034,
+        "Question Text": "Do you have medical insurance?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 64.1
+            },
+            {
+                "Option": "No",
+                "Percentage": 35.9
+            }
+        ]
+    },
+    "Which is better?   ": {
+        "Topic": "Home Ownership vs Renting",
+        "Survey Name": "Newsletter Poll - Dec 25, 2023",
+        "Sample Size": 1610,
+        "Question Text": "Which is better?",
+        "Responses": [
+            {
+                "Option": "Living in own home paying EMI",
+                "Percentage": 65.2
+            },
+            {
+                "Option": "Living in rented house",
+                "Percentage": 34.8
+            }
+        ]
+    },
+    "Have you ever taken a loan to buy an electronic device?": {
+        "Topic": "Loan for Electronics",
+        "Survey Name": "Newsletter Poll - Dec 31, 2023",
+        "Sample Size": 1511,
+        "Question Text": "Have you ever taken a loan to buy an electronic device?",
+        "Responses": [
+            {
+                "Option": "No",
+                "Percentage": 62.0
+            },
+            {
+                "Option": "Yes",
+                "Percentage": 38.0
+            }
+        ]
+    },
+    "Which do you use more often?": {
+        "Topic": "Payment Methods",
+        "Survey Name": "Newsletter Poll - Jan 2, 2022",
+        "Sample Size": 1198,
+        "Question Text": "Which do you use more often?",
+        "Responses": [
+            {
+                "Option": "UPI apps",
+                "Percentage": 76.2
+            },
+            {
+                "Option": "Credit/debit cards",
+                "Percentage": 23.799999999999997
+            }
+        ]
+    },
+    "Which do you use more often? ": {
+        "Topic": "Payment Methods",
+        "Survey Name": "Newsletter Poll - Jan 2, 2022",
+        "Sample Size": 1198,
+        "Question Text": "Which do you use more often?",
+        "Responses": [
+            {
+                "Option": "UPI apps",
+                "Percentage": 76.2
+            },
+            {
+                "Option": "Credit/debit cards",
+                "Percentage": 23.799999999999997
+            }
+        ]
+    },
+    "How much of your annual income do you spend on vacations?": {
+        "Topic": "Vacation Spending",
+        "Survey Name": "Newsletter Poll - Jan 9, 2022",
+        "Sample Size": 1495,
+        "Question Text": "How much of your annual income do you spend on vacations?",
+        "Responses": [
+            {
+                "Option": "Less than 5%",
+                "Percentage": 50.0
+            },
+            {
+                "Option": "6-10%",
+                "Percentage": 30.599999999999998
+            },
+            {
+                "Option": "11-20%",
+                "Percentage": 9.700000000000001
+            },
+            {
+                "Option": "More than 31%",
+                "Percentage": 5.1
+            },
+            {
+                "Option": "21-30%",
+                "Percentage": 4.7
+            }
+        ]
+    },
+    "Do you pay attention to what is presented in the Union Budget every year?": {
+        "Topic": "Budget Awareness",
+        "Survey Name": "Newsletter Poll - Jan 16, 2022",
+        "Sample Size": 1528,
+        "Question Text": "Do you pay attention to what is presented in the Union Budget every year?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 79.60000000000001
+            },
+            {
+                "Option": "No",
+                "Percentage": 20.4
+            }
+        ]
+    },
+    "Which of these deserves the greatest amount of investment?": {
+        "Topic": "Investment Preferences",
+        "Survey Name": "Newsletter Poll - Jan 23, 2022",
+        "Sample Size": 1741,
+        "Question Text": "Which of these deserves the greatest amount of investment?",
+        "Responses": [
+            {
+                "Option": "Equity (share markets)",
+                "Percentage": 58.699999999999996
+            },
+            {
+                "Option": "Real estate",
+                "Percentage": 26.0
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 11.600000000000001
+            },
+            {
+                "Option": "FD",
+                "Percentage": 3.6999999999999997
+            }
+        ]
+    },
+    "Have you subscribed to a health insurance policy?": {
+        "Topic": "Health Insurance",
+        "Survey Name": "Newsletter Poll - Jan 30, 2022",
+        "Sample Size": 1028,
+        "Question Text": "Have you subscribed to a health insurance policy?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 56.599999999999994
+            },
+            {
+                "Option": "No",
+                "Percentage": 43.4
+            }
+        ]
+    },
+    "What is more important?": {
+        "Topic": "Wealth Building",
+        "Survey Name": "Newsletter Poll - Feb 6, 2022",
+        "Sample Size": 440,
+        "Question Text": "What is more important?",
+        "Responses": [
+            {
+                "Option": "Getting rich slower but more guarantee of future wealth",
+                "Percentage": 89.3
+            },
+            {
+                "Option": "Getting rich faster but low guarantee of future wealth",
+                "Percentage": 10.7
+            }
+        ]
+    },
+    "Which one of these is your most preferred way of spending?": {
+        "Topic": "Spending Preferences",
+        "Survey Name": "Newsletter Poll - Feb 13, 2022",
+        "Sample Size": 1005,
+        "Question Text": "Which one of these is your most preferred way of spending?",
+        "Responses": [
+            {
+                "Option": "Debit card",
+                "Percentage": 57.599999999999994
+            },
+            {
+                "Option": "Credit card",
+                "Percentage": 42.4
+            }
+        ]
+    },
+    "Do you expect more economic disturbance in this pandemic?": {
+        "Topic": "Economic Outlook",
+        "Survey Name": "Newsletter Poll - Feb 20, 2022",
+        "Sample Size": 996,
+        "Question Text": "Do you expect more economic disturbance in this pandemic?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 53.1
+            },
+            {
+                "Option": "No",
+                "Percentage": 36.9
+            },
+            {
+                "Option": "Can't say",
+                "Percentage": 9.9
+            }
+        ]
+    },
+    "How long have you been investing in mutual funds or stocks?": {
+        "Topic": "Investment Experience",
+        "Survey Name": "Newsletter Poll - Feb 27, 2022",
+        "Sample Size": 1143,
+        "Question Text": "How long have you been investing in mutual funds or stocks?",
+        "Responses": [
+            {
+                "Option": "2 years to 5 years",
+                "Percentage": 17.7
+            },
+            {
+                "Option": "1 year to 2 years",
+                "Percentage": 15.5
+            },
+            {
+                "Option": "Less than 3 months",
+                "Percentage": 15.0
+            },
+            {
+                "Option": "More than 10 years",
+                "Percentage": 14.299999999999999
+            },
+            {
+                "Option": "6 months to 1 year",
+                "Percentage": 13.8
+            },
+            {
+                "Option": "3 to 6 months",
+                "Percentage": 11.899999999999999
+            },
+            {
+                "Option": "5 years to 10 years",
+                "Percentage": 11.799999999999999
+            }
+        ]
+    },
+    "The price of which affects your daily life more?": {
+        "Topic": "Impact of Price Changes",
+        "Survey Name": "Newsletter Poll - Mar 6, 2022",
+        "Sample Size": 1067,
+        "Question Text": "The price of which affects your daily life more?",
+        "Responses": [
+            {
+                "Option": "Crude oil",
+                "Percentage": 82.0
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 18.0
+            }
+        ]
+    },
+    "Do you think trading should continue on weekends as well?": {
+        "Topic": "Stock Market Operations",
+        "Survey Name": "Newsletter Poll - Mar 13, 2022",
+        "Sample Size": 577,
+        "Question Text": "Do you think trading should continue on weekends as well?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 61.9
+            },
+            {
+                "Option": "No",
+                "Percentage": 38.1
+            }
+        ]
+    },
+    "Which affects your daily life more?": {
+        "Topic": "Cost of Living",
+        "Survey Name": "Newsletter Poll - Mar 20, 2022",
+        "Sample Size": 1567,
+        "Question Text": "Which affects your daily life more?",
+        "Responses": [
+            {
+                "Option": "Petrol price",
+                "Percentage": 45.300000000000004
+            },
+            {
+                "Option": "Diesel price",
+                "Percentage": 26.400000000000002
+            },
+            {
+                "Option": "Electricity price",
+                "Percentage": 17.2
+            },
+            {
+                "Option": "LPG price",
+                "Percentage": 11.0
+            }
+        ]
+    },
+    "Which country was India's biggest trading partner in 2021?": {
+        "Topic": "Trade Relations",
+        "Survey Name": "Newsletter Poll - Mar 27, 2022",
+        "Sample Size": 1006,
+        "Question Text": "Which country was India's biggest trading partner in 2021?",
+        "Responses": [
+            {
+                "Option": "USA",
+                "Percentage": 57.99999999999999
+            },
+            {
+                "Option": "China",
+                "Percentage": 42.0
+            }
+        ]
+    },
+    "How often do you buy goods from e-commerce websites?": {
+        "Topic": "Online Shopping Habits",
+        "Survey Name": "Newsletter Poll - Apr 3, 2022",
+        "Sample Size": 971,
+        "Question Text": "How often do you buy goods from e-commerce websites?",
+        "Responses": [
+            {
+                "Option": "Every month",
+                "Percentage": 31.7
+            },
+            {
+                "Option": "Every day",
+                "Percentage": 17.299999999999997
+            },
+            {
+                "Option": "Every quarter",
+                "Percentage": 17.299999999999997
+            },
+            {
+                "Option": "Every week",
+                "Percentage": 16.3
+            },
+            {
+                "Option": "Every year",
+                "Percentage": 8.799999999999999
+            },
+            {
+                "Option": "Never",
+                "Percentage": 8.7
+            }
+        ]
+    },
+    "I generally invest in mutual funds for": {
+        "Topic": "Mutual Fund Investments",
+        "Survey Name": "Newsletter Poll - Apr 10, 2022",
+        "Sample Size": 1209,
+        "Question Text": "I generally invest in mutual funds for",
+        "Responses": [
+            {
+                "Option": "More than 5 years",
+                "Percentage": 46.7
+            },
+            {
+                "Option": "1 to 3 years",
+                "Percentage": 20.3
+            },
+            {
+                "Option": "3 to 5 years",
+                "Percentage": 18.9
+            },
+            {
+                "Option": "1 year or less",
+                "Percentage": 14.099999999999998
+            }
+        ]
+    },
+    "How much money do you have saved as your emergency fund?": {
+        "Topic": "Emergency Fund Savings",
+        "Survey Name": "Newsletter Poll - Apr 17, 2022",
+        "Sample Size": 692,
+        "Question Text": "How much money do you have saved as your emergency fund?",
+        "Responses": [
+            {
+                "Option": "6 months' expenses worth",
+                "Percentage": 37.0
+            },
+            {
+                "Option": "3 months' expenses worth",
+                "Percentage": 33.800000000000004
+            },
+            {
+                "Option": "12 months' expenses worth",
+                "Percentage": 14.7
+            },
+            {
+                "Option": "More than above",
+                "Percentage": 14.499999999999998
+            }
+        ]
+    },
+    "I am a:": {
+        "Topic": "Investor Profile",
+        "Survey Name": "Newsletter Poll - Apr 24, 2022",
+        "Sample Size": 566,
+        "Question Text": "I am a:",
+        "Responses": [
+            {
+                "Option": "Full-time employee – I invest whenever I am able to manage time",
+                "Percentage": 53.400000000000006
+            },
+            {
+                "Option": "Part-time employee, a part-time investor",
+                "Percentage": 16.3
+            },
+            {
+                "Option": "Full-time investor",
+                "Percentage": 12.4
+            },
+            {
+                "Option": "I haven’t invested yet",
+                "Percentage": 10.100000000000001
+            },
+            {
+                "Option": "Business owner and investor",
+                "Percentage": 8.0
+            }
+        ]
+    },
+    "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?": {
+        "Topic": "Tax-Saving Investments",
+        "Survey Name": "Newsletter Poll - May 1, 2022",
+        "Sample Size": 927,
+        "Question Text": "Do you invest in tax-saving schemes like tax saver mutual funds, NPS, etc.?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 73.0
+            },
+            {
+                "Option": "No",
+                "Percentage": 27.0
+            }
+        ]
+    },
+    "Did the elders in your own family invest in shares or mutual funds?": {
+        "Topic": "Family Investment Habits",
+        "Survey Name": "Newsletter Poll - May 8, 2022",
+        "Sample Size": 1073,
+        "Question Text": "Did the elders in your own family invest in shares or mutual funds?",
+        "Responses": [
+            {
+                "Option": "No",
+                "Percentage": 55.50000000000001
+            },
+            {
+                "Option": "Yes",
+                "Percentage": 44.5
+            }
+        ]
+    },
+    "Have you ever applied for any IPO?": {
+        "Topic": "IPO Participation",
+        "Survey Name": "Newsletter Poll - May 15, 2022",
+        "Sample Size": 1373,
+        "Question Text": "Have you ever applied for any IPO?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 65.3
+            },
+            {
+                "Option": "No",
+                "Percentage": 34.699999999999996
+            }
+        ]
+    },
+    "Do you check your bank balance every month?": {
+        "Topic": "Banking Habits",
+        "Survey Name": "Newsletter Poll - May 22, 2022",
+        "Sample Size": 1354,
+        "Question Text": "Do you check your bank balance every month?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 87.2
+            },
+            {
+                "Option": "No",
+                "Percentage": 12.8
+            }
+        ]
+    },
+    "Do you have a credit card?": {
+        "Topic": "Credit Card Ownership",
+        "Survey Name": "Newsletter Poll - May 29, 2022",
+        "Sample Size": 1363,
+        "Question Text": "Do you have a credit card?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 50.8
+            },
+            {
+                "Option": "No, I use only debit card",
+                "Percentage": 40.6
+            },
+            {
+                "Option": "No, I don't use any card",
+                "Percentage": 8.5
+            }
+        ]
+    },
+    "Using which do you find most convenient?": {
+        "Topic": "Payment Preferences",
+        "Survey Name": "Newsletter Poll - June 5, 2022",
+        "Sample Size": 1228,
+        "Question Text": "Using which do you find most convenient?",
+        "Responses": [
+            {
+                "Option": "Online money (UPI, net banking, NEFT, etc.)",
+                "Percentage": 66.0
+            },
+            {
+                "Option": "Cash",
+                "Percentage": 17.299999999999997
+            },
+            {
+                "Option": "Card (credit card, debit card)",
+                "Percentage": 16.6
+            }
+        ]
+    },
+    "When in a month do you invest?": {
+        "Topic": "Investment Timing",
+        "Survey Name": "Newsletter Poll - June 12, 2022",
+        "Sample Size": 984,
+        "Question Text": "When in a month do you invest?",
+        "Responses": [
+            {
+                "Option": "No fixed time",
+                "Percentage": 45.6
+            },
+            {
+                "Option": "Towards the start of the month",
+                "Percentage": 33.2
+            },
+            {
+                "Option": "Towards the middle of the month",
+                "Percentage": 11.799999999999999
+            },
+            {
+                "Option": "Towards the end of the month",
+                "Percentage": 9.3
+            }
+        ]
+    },
+    "Do you have medical insurance? ": {
+        "Topic": "Medical Insurance",
+        "Survey Name": "Newsletter Poll - June 19, 2022",
+        "Sample Size": 1081,
+        "Question Text": "Do you have medical insurance?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 56.39999999999999
+            },
+            {
+                "Option": "No",
+                "Percentage": 43.6
+            }
+        ]
+    },
+    "Which is your primary source of financial knowledge?": {
+        "Topic": "Financial Knowledge Sources",
+        "Survey Name": "Newsletter Poll - June 26, 2022",
+        "Sample Size": 1315,
+        "Question Text": "Which is your primary source of financial knowledge?",
+        "Responses": [
+            {
+                "Option": "Social Media",
+                "Percentage": 36.199999999999996
+            },
+            {
+                "Option": "News",
+                "Percentage": 31.900000000000002
+            },
+            {
+                "Option": "Books",
+                "Percentage": 17.0
+            },
+            {
+                "Option": "Emails",
+                "Percentage": 14.799999999999999
+            }
+        ]
+    },
+    "Have you ever invested in an international mutual fund?": {
+        "Topic": "International Investments",
+        "Survey Name": "Newsletter Poll - July 3, 2022",
+        "Sample Size": 1025,
+        "Question Text": "Have you ever invested in an international mutual fund?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 51.5
+            },
+            {
+                "Option": "No",
+                "Percentage": 48.5
+            }
+        ]
+    },
+    "Has inflation affected your daily life?": {
+        "Topic": "Inflation Impact",
+        "Survey Name": "Newsletter Poll - July 10, 2022",
+        "Sample Size": 613,
+        "Question Text": "Has inflation affected your daily life?",
+        "Responses": [
+            {
+                "Option": "A lot",
+                "Percentage": 51.9
+            },
+            {
+                "Option": "A little bit",
+                "Percentage": 32.5
+            },
+            {
+                "Option": "Can't feel it",
+                "Percentage": 15.7
+            }
+        ]
+    },
+    "Have you made any major changes to your investment plans in 2022?": {
+        "Topic": "Investment Plan Changes",
+        "Survey Name": "Newsletter Poll - July 17, 2022",
+        "Sample Size": 898,
+        "Question Text": "Have you made any major changes to your investment plans in 2022?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 70.39999999999999
+            },
+            {
+                "Option": "No",
+                "Percentage": 29.599999999999998
+            }
+        ]
+    },
+    "Are you currently paying any EMIs?": {
+        "Topic": "EMI Payments",
+        "Survey Name": "Newsletter Poll - July 24, 2022",
+        "Sample Size": 2093,
+        "Question Text": "Are you currently paying any EMIs?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 55.50000000000001
+            },
+            {
+                "Option": "No",
+                "Percentage": 44.5
+            }
+        ]
+    },
+    "Have you ever calculated your net worth?": {
+        "Topic": "Net Worth Calculation",
+        "Survey Name": "Newsletter Poll - July 31, 2022",
+        "Sample Size": 1506,
+        "Question Text": "Have you ever calculated your net worth?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 52.0
+            },
+            {
+                "Option": "No",
+                "Percentage": 48.0
+            }
+        ]
+    },
+    "Rising interest rates (loans and FD) is good for you?": {
+        "Topic": "Interest Rate Impact",
+        "Survey Name": "Newsletter Poll - Aug 7, 2022",
+        "Sample Size": 1051,
+        "Question Text": "Rising interest rates (loans and FD) is good for you?",
+        "Responses": [
+            {
+                "Option": "Good for me (I have only FDs)",
+                "Percentage": 45.2
+            },
+            {
+                "Option": "Bad for me (I have loans)",
+                "Percentage": 30.7
+            },
+            {
+                "Option": "Doesn't matter",
+                "Percentage": 24.099999999999998
+            }
+        ]
+    },
+    "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?": {
+        "Topic": "Stock vs. Mutual Fund Returns",
+        "Survey Name": "Newsletter Poll - Aug 14, 2022",
+        "Sample Size": 2195,
+        "Question Text": "If you had to invest only in stocks, do you think you would be able to get higher returns than mutual funds?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 76.7
+            },
+            {
+                "Option": "No",
+                "Percentage": 23.3
+            }
+        ]
+    },
+    "How many smartphones do you personally use?": {
+        "Topic": "Smartphone Usage",
+        "Survey Name": "Newsletter Poll - Aug 21, 2022",
+        "Sample Size": 2863,
+        "Question Text": "How many smartphones do you personally use?",
+        "Responses": [
+            {
+                "Option": "1",
+                "Percentage": 76.7
+            },
+            {
+                "Option": "2",
+                "Percentage": 17.2
+            },
+            {
+                "Option": "3 or more",
+                "Percentage": 6.1
+            }
+        ]
+    },
+    "Where do you keep most of your money?": {
+        "Topic": "Banking Preferences",
+        "Survey Name": "Newsletter Poll - Aug 28, 2022",
+        "Sample Size": 1897,
+        "Question Text": "Where do you keep most of your money?",
+        "Responses": [
+            {
+                "Option": "Public Bank/Govt Bank (SBI, Bank of Baroda, etc.)",
+                "Percentage": 57.8
+            },
+            {
+                "Option": "Private Bank (ICICI Bank, HDFC Bank, etc.)",
+                "Percentage": 42.199999999999996
+            }
+        ]
+    },
+    "Which device do you use for investing?": {
+        "Topic": "Investing Device Usage",
+        "Survey Name": "Newsletter Poll - Sept 4, 2022",
+        "Sample Size": 3277,
+        "Question Text": "Which device do you use for investing?",
+        "Responses": [
+            {
+                "Option": "Smartphone",
+                "Percentage": 86.1
+            },
+            {
+                "Option": "Computer",
+                "Percentage": 10.299999999999999
+            },
+            {
+                "Option": "Others",
+                "Percentage": 3.5999999999999996
+            }
+        ]
+    },
+    "When did you last withdraw cash from an ATM?": {
+        "Topic": "ATM Withdrawals",
+        "Survey Name": "Newsletter Poll - Sept 11, 2022",
+        "Sample Size": 1705,
+        "Question Text": "When did you last withdraw cash from an ATM?",
+        "Responses": [
+            {
+                "Option": "Within the last 7 days",
+                "Percentage": 34.699999999999996
+            },
+            {
+                "Option": "Within the last 30 days",
+                "Percentage": 28.1
+            },
+            {
+                "Option": "Within the last 6 months",
+                "Percentage": 21.2
+            },
+            {
+                "Option": "More than a year ago",
+                "Percentage": 16.0
+            }
+        ]
+    },
+    "When did you last visit your bank branch?": {
+        "Topic": "Bank Branch Visits",
+        "Survey Name": "Newsletter Poll - Sept 18, 2022",
+        "Sample Size": 1489,
+        "Question Text": "When did you last visit your bank branch?",
+        "Responses": [
+            {
+                "Option": "Within the last 7 days",
+                "Percentage": 29.799999999999997
+            },
+            {
+                "Option": "More than a year ago",
+                "Percentage": 29.599999999999998
+            },
+            {
+                "Option": "Within the last 6 months",
+                "Percentage": 22.8
+            },
+            {
+                "Option": "Within the last 30 days",
+                "Percentage": 17.8
+            }
+        ]
+    },
+    "Are you presently paying EMIs?": {
+        "Topic": "EMI Payments",
+        "Survey Name": "Newsletter Poll - Sept 25, 2022",
+        "Sample Size": 1877,
+        "Question Text": "Are you presently paying EMIs?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 62.3
+            },
+            {
+                "Option": "No",
+                "Percentage": 37.7
+            }
+        ]
+    },
+    "Would you take a loan to buy a vehicle?": {
+        "Topic": "Vehicle Loan Preferences",
+        "Survey Name": "Newsletter Poll - Oct 2, 2022",
+        "Sample Size": 1246,
+        "Question Text": "Would you take a loan to buy a vehicle?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 60.4
+            },
+            {
+                "Option": "No",
+                "Percentage": 39.6
+            }
+        ]
+    },
+    "Which of the following do you mainly use for commuting?": {
+        "Topic": "Commuting Preferences",
+        "Survey Name": "Newsletter Poll - Oct 9, 2022",
+        "Sample Size": 2150,
+        "Question Text": "Which of the following do you mainly use for commuting?",
+        "Responses": [
+            {
+                "Option": "Bike/Scooter",
+                "Percentage": 44.0
+            },
+            {
+                "Option": "Public Transport",
+                "Percentage": 30.8
+            },
+            {
+                "Option": "Car",
+                "Percentage": 25.2
+            }
+        ]
+    },
+    "How many active SIPs do you have?": {
+        "Topic": "Active SIPs",
+        "Survey Name": "Newsletter Poll - Oct 30, 2022",
+        "Sample Size": 1603,
+        "Question Text": "How many active SIPs do you have?",
+        "Responses": [
+            {
+                "Option": "3+",
+                "Percentage": 42.199999999999996
+            },
+            {
+                "Option": "0",
+                "Percentage": 22.5
+            },
+            {
+                "Option": "1",
+                "Percentage": 21.4
+            },
+            {
+                "Option": "2",
+                "Percentage": 13.900000000000002
+            }
+        ]
+    },
+    "Which do you invest the most in?": {
+        "Topic": "Investment Preferences",
+        "Survey Name": "Newsletter Poll - Nov 6, 2022",
+        "Sample Size": 2354,
+        "Question Text": "Which do you invest the most in?",
+        "Responses": [
+            {
+                "Option": "Stocks",
+                "Percentage": 40.1
+            },
+            {
+                "Option": "Mutual funds",
+                "Percentage": 38.4
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 7.9
+            },
+            {
+                "Option": "Others",
+                "Percentage": 6.9
+            },
+            {
+                "Option": "FD",
+                "Percentage": 6.6000000000000005
+            }
+        ]
+    },
+    "How do you feel when you see your investments in the red?": {
+        "Topic": "Investment Reactions",
+        "Survey Name": "Newsletter Poll - Nov 13, 2022",
+        "Sample Size": 2079,
+        "Question Text": "How do you feel when you see your investments in the red?",
+        "Responses": [
+            {
+                "Option": "Doesn't affect me",
+                "Percentage": 53.0
+            },
+            {
+                "Option": "Happy",
+                "Percentage": 23.799999999999997
+            },
+            {
+                "Option": "Worried",
+                "Percentage": 23.200000000000003
+            }
+        ]
+    },
+    "Which makes you happier?": {
+        "Topic": "Financial Happiness",
+        "Survey Name": "Newsletter Poll - Nov 20, 2022",
+        "Sample Size": 1603,
+        "Question Text": "Which makes you happier?",
+        "Responses": [
+            {
+                "Option": "Investments up 15% in one year",
+                "Percentage": 55.1
+            },
+            {
+                "Option": "Monthly income credited to bank",
+                "Percentage": 44.9
+            }
+        ]
+    },
+    "Do you invest in gold (SGB, gold biscuit, etc.)?": {
+        "Topic": "Gold Investment",
+        "Survey Name": "Newsletter Poll - Nov 27, 2022",
+        "Sample Size": 1889,
+        "Question Text": "Do you invest in gold (SGB, gold biscuit, etc.)?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 63.800000000000004
+            },
+            {
+                "Option": "No",
+                "Percentage": 36.199999999999996
+            }
+        ]
+    },
+    "Who files your taxes?": {
+        "Topic": "Tax Filing Preferences",
+        "Survey Name": "Newsletter Poll - Dec 4, 2022",
+        "Sample Size": 2111,
+        "Question Text": "Who files your taxes?",
+        "Responses": [
+            {
+                "Option": "Self",
+                "Percentage": 61.199999999999996
+            },
+            {
+                "Option": "Hired a CA",
+                "Percentage": 25.8
+            },
+            {
+                "Option": "Others",
+                "Percentage": 13.0
+            }
+        ]
+    },
+    "By when do you think India will become a developed country?": {
+        "Topic": "India’s Development Timeline",
+        "Survey Name": "Newsletter Poll - Dec 11, 2022",
+        "Sample Size": 2189,
+        "Question Text": "By when do you think India will become a developed country?",
+        "Responses": [
+            {
+                "Option": "2030",
+                "Percentage": 37.7
+            },
+            {
+                "Option": "2050",
+                "Percentage": 36.6
+            },
+            {
+                "Option": "Can't say",
+                "Percentage": 13.4
+            },
+            {
+                "Option": "2100",
+                "Percentage": 12.3
+            }
+        ]
+    },
+    "When is the ideal age to retire?": {
+        "Topic": "Ideal Retirement Age",
+        "Survey Name": "Newsletter Poll - Dec 18, 2022",
+        "Sample Size": 2263,
+        "Question Text": "When is the ideal age to retire?",
+        "Responses": [
+            {
+                "Option": "46-55 years",
+                "Percentage": 24.099999999999998
+            },
+            {
+                "Option": "56-65 years",
+                "Percentage": 22.0
+            },
+            {
+                "Option": "As early as possible",
+                "Percentage": 16.2
+            },
+            {
+                "Option": "As late as possible",
+                "Percentage": 14.399999999999999
+            },
+            {
+                "Option": "36-45 years",
+                "Percentage": 13.700000000000001
+            },
+            {
+                "Option": "Under 35 years",
+                "Percentage": 9.6
+            }
+        ]
+    },
+    "Do you use UPI apps (PhonePe, GPay, Paytm, etc.)?": {
+        "Topic": "UPI Payment Usage",
+        "Survey Name": "Newsletter Poll - Dec 25, 2022",
+        "Sample Size": 2339,
+        "Question Text": "Do you use UPI apps (PhonePe, GPay, Paytm, etc.)?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 92.4
+            },
+            {
+                "Option": "No",
+                "Percentage": 7.6
+            }
+        ]
+    },
+    "What’s better?": {
+        "Topic": "Home Ownership Preference",
+        "Survey Name": "Newsletter Poll - Jan 02, 2021",
+        "Sample Size": 2553,
+        "Question Text": "What’s better?",
+        "Responses": [
+            {
+                "Option": "Buy house on EMI",
+                "Percentage": 61.3
+            },
+            {
+                "Option": "Live on rent",
+                "Percentage": 38.7
+            }
+        ]
+    },
+    "Which car would you prefer to own/drive?": {
+        "Topic": "Car Preference",
+        "Survey Name": "Newsletter Poll - Jan 09, 2021",
+        "Sample Size": 3729,
+        "Question Text": "Which car would you prefer to own/drive?",
+        "Responses": [
+            {
+                "Option": "Electric car",
+                "Percentage": 63.4
+            },
+            {
+                "Option": "Petrol car",
+                "Percentage": 27.0
+            },
+            {
+                "Option": "Diesel car",
+                "Percentage": 9.6
+            }
+        ]
+    },
+    "When do you expect the vaccine to be available?": {
+        "Topic": "Vaccine Availability Expectation",
+        "Survey Name": "Newsletter Poll - Jan 16, 2021",
+        "Sample Size": 1980,
+        "Question Text": "When do you expect the vaccine to be available?",
+        "Responses": [
+            {
+                "Option": "Around 1 year from now",
+                "Percentage": 36.8
+            },
+            {
+                "Option": "Around 6 months from now",
+                "Percentage": 33.1
+            },
+            {
+                "Option": "Around 3 months from now",
+                "Percentage": 17.299999999999997
+            },
+            {
+                "Option": "Around 1 month from now",
+                "Percentage": 12.9
+            }
+        ]
+    },
+    "At what age did most of your friends start investing?": {
+        "Topic": "Investment Start Age",
+        "Survey Name": "Newsletter Poll - Jan 23, 2021",
+        "Sample Size": 2509,
+        "Question Text": "At what age did most of your friends start investing?",
+        "Responses": [
+            {
+                "Option": "Around 25",
+                "Percentage": 29.5
+            },
+            {
+                "Option": "Around 30",
+                "Percentage": 25.2
+            },
+            {
+                "Option": "Around 20 years of age",
+                "Percentage": 21.0
+            },
+            {
+                "Option": "Around 35",
+                "Percentage": 12.5
+            },
+            {
+                "Option": "Around 40",
+                "Percentage": 6.4
+            },
+            {
+                "Option": "More than that",
+                "Percentage": 5.4
+            }
+        ]
+    },
+    "Which country’s money transfer system is the fastest?": {
+        "Topic": "Fastest Money Transfer System",
+        "Survey Name": "Newsletter Poll - Jan 31, 2021",
+        "Sample Size": 797,
+        "Question Text": "Which country’s money transfer system is the fastest?",
+        "Responses": [
+            {
+                "Option": "India",
+                "Percentage": 58.8
+            },
+            {
+                "Option": "USA",
+                "Percentage": 15.9
+            },
+            {
+                "Option": "Singapore",
+                "Percentage": 12.8
+            },
+            {
+                "Option": "Japan",
+                "Percentage": 8.9
+            },
+            {
+                "Option": "China",
+                "Percentage": 3.5000000000000004
+            }
+        ]
+    },
+    "How much does the Union Budget impact investments?": {
+        "Topic": "Union Budget Impact",
+        "Survey Name": "Newsletter Poll - Feb 07, 2021",
+        "Sample Size": 911,
+        "Question Text": "How much does the Union Budget impact investments?",
+        "Responses": [
+            {
+                "Option": "Somewhat",
+                "Percentage": 42.9
+            },
+            {
+                "Option": "A lot",
+                "Percentage": 32.4
+            },
+            {
+                "Option": "Not at all",
+                "Percentage": 24.7
+            }
+        ]
+    },
+    "Which did you research the most before investing?": {
+        "Topic": "Investment Research",
+        "Survey Name": "Newsletter Poll - Feb 14, 2021",
+        "Sample Size": 2000,
+        "Question Text": "Which did you research the most before investing?",
+        "Responses": [
+            {
+                "Option": "Stocks",
+                "Percentage": 45.6
+            },
+            {
+                "Option": "Mutual Funds",
+                "Percentage": 34.1
+            },
+            {
+                "Option": "Real Estate",
+                "Percentage": 8.4
+            },
+            {
+                "Option": "FD",
+                "Percentage": 5.6000000000000005
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 4.3
+            },
+            {
+                "Option": "Others",
+                "Percentage": 1.9
+            }
+        ]
+    },
+    "In which did you invest first?": {
+        "Topic": "First Investment Choice",
+        "Survey Name": "Newsletter Poll - Feb 21, 2021",
+        "Sample Size": 2285,
+        "Question Text": "In which did you invest first?",
+        "Responses": [
+            {
+                "Option": "Mutual Funds",
+                "Percentage": 33.300000000000004
+            },
+            {
+                "Option": "Stocks",
+                "Percentage": 27.0
+            },
+            {
+                "Option": "FD",
+                "Percentage": 24.2
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 7.5
+            },
+            {
+                "Option": "Real Estate",
+                "Percentage": 4.5
+            },
+            {
+                "Option": "Others",
+                "Percentage": 3.5999999999999996
+            }
+        ]
+    },
+    "Your best investment decision so far?": {
+        "Topic": "Best Investment Decision",
+        "Survey Name": "Newsletter Poll - Mar 07, 2021",
+        "Sample Size": 2356,
+        "Question Text": "Your best investment decision so far?",
+        "Responses": [
+            {
+                "Option": "Mutual Funds",
+                "Percentage": 41.9
+            },
+            {
+                "Option": "Stocks",
+                "Percentage": 39.300000000000004
+            },
+            {
+                "Option": "Real Estate",
+                "Percentage": 6.800000000000001
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 5.5
+            },
+            {
+                "Option": "FD",
+                "Percentage": 3.9
+            },
+            {
+                "Option": "Others",
+                "Percentage": 2.5
+            }
+        ]
+    },
+    "IPO investment is for:": {
+        "Topic": "IPO Investment Approach",
+        "Survey Name": "Newsletter Poll - Mar 14, 2021",
+        "Sample Size": 1493,
+        "Question Text": "IPO investment is for:",
+        "Responses": [
+            {
+                "Option": "Depends from stock to stock",
+                "Percentage": 60.199999999999996
+            },
+            {
+                "Option": "Long-term investment",
+                "Percentage": 22.1
+            },
+            {
+                "Option": "Very short-term investment",
+                "Percentage": 17.7
+            }
+        ]
+    },
+    "Why is IPO investment so popular these days?": {
+        "Topic": "IPO Investment Popularity",
+        "Survey Name": "Newsletter Poll - Mar 21, 2021",
+        "Sample Size": 1532,
+        "Question Text": "Why is IPO investment so popular these days?",
+        "Responses": [
+            {
+                "Option": "Good returns",
+                "Percentage": 49.7
+            },
+            {
+                "Option": "It is trendy",
+                "Percentage": 18.6
+            },
+            {
+                "Option": "Good companies are going in for IPO",
+                "Percentage": 17.4
+            },
+            {
+                "Option": "High number of new IPOs",
+                "Percentage": 8.9
+            },
+            {
+                "Option": "Others",
+                "Percentage": 5.3
+            }
+        ]
+    },
+    "Have the eligible people in your family taken the vaccine yet?": {
+        "Topic": "COVID-19 Vaccine Status",
+        "Survey Name": "Newsletter Poll - Mar 28, 2021",
+        "Sample Size": 959,
+        "Question Text": "Have the eligible people in your family taken the vaccine yet?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 51.5
+            },
+            {
+                "Option": "No, but going soon",
+                "Percentage": 25.4
+            },
+            {
+                "Option": "No",
+                "Percentage": 23.0
+            }
+        ]
+    },
+    "Why are we less stressed during the 2nd wave of the pandemic in India?": {
+        "Topic": "Pandemic Stress Levels",
+        "Survey Name": "Newsletter Poll - Apr 04, 2021",
+        "Sample Size": 1725,
+        "Question Text": "Why are we less stressed during the 2nd wave of the pandemic in India?",
+        "Responses": [
+            {
+                "Option": "All of the above",
+                "Percentage": 46.400000000000006
+            },
+            {
+                "Option": "We've gotten used to it",
+                "Percentage": 26.400000000000002
+            },
+            {
+                "Option": "Cannot stop the economy again",
+                "Percentage": 14.299999999999999
+            },
+            {
+                "Option": "Not as deadly as we thought",
+                "Percentage": 8.1
+            },
+            {
+                "Option": "Something else",
+                "Percentage": 4.8
+            }
+        ]
+    },
+    "Do you know what NFTs are?": {
+        "Topic": "NFT Awareness",
+        "Survey Name": "Newsletter Poll - Apr 11, 2021",
+        "Sample Size": 1331,
+        "Question Text": "Do you know what NFTs are?",
+        "Responses": [
+            {
+                "Option": "No clue",
+                "Percentage": 49.0
+            },
+            {
+                "Option": "Yes",
+                "Percentage": 31.6
+            },
+            {
+                "Option": "Not really, but I know it's related to crypto",
+                "Percentage": 19.400000000000002
+            }
+        ]
+    },
+    "Do you know what Dogecoin is?": {
+        "Topic": "Dogecoin Awareness",
+        "Survey Name": "Newsletter Poll - Apr 18, 2021",
+        "Sample Size": 1578,
+        "Question Text": "Do you know what Dogecoin is?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 45.5
+            },
+            {
+                "Option": "Not really, something to do with crypto",
+                "Percentage": 31.4
+            },
+            {
+                "Option": "No clue",
+                "Percentage": 23.1
+            }
+        ]
+    },
+    "With vaccines open for all adults, by when will India be free from lockdowns?": {
+        "Topic": "Lockdown Expectations",
+        "Survey Name": "Newsletter Poll - Apr 25, 2021",
+        "Sample Size": 1682,
+        "Question Text": "With vaccines open for all adults, by when will India be free from lockdowns?",
+        "Responses": [
+            {
+                "Option": "Within a few months",
+                "Percentage": 35.0
+            },
+            {
+                "Option": "Around a year",
+                "Percentage": 26.200000000000003
+            },
+            {
+                "Option": "Within a few weeks",
+                "Percentage": 17.5
+            },
+            {
+                "Option": "Will take longer",
+                "Percentage": 12.2
+            },
+            {
+                "Option": "Can't say",
+                "Percentage": 9.2
+            }
+        ]
+    },
+    "Are you able to follow social distancing in your everyday life?": {
+        "Topic": "Social Distancing Compliance",
+        "Survey Name": "Newsletter Poll - May 02, 2021",
+        "Sample Size": 722,
+        "Question Text": "Are you able to follow social distancing in your everyday life?",
+        "Responses": [
+            {
+                "Option": "Around a year or more",
+                "Percentage": 40.400000000000006
+            },
+            {
+                "Option": "Within a few weeks",
+                "Percentage": 27.800000000000004
+            },
+            {
+                "Option": "Within a few months",
+                "Percentage": 16.1
+            },
+            {
+                "Option": "Can't say",
+                "Percentage": 15.7
+            }
+        ]
+    },
+    "Have you been able to get vaccination slots?": {
+        "Topic": "Vaccine Slot Availability",
+        "Survey Name": "Newsletter Poll - May 09, 2021",
+        "Sample Size": 2663,
+        "Question Text": "Have you been able to get vaccination slots?",
+        "Responses": [
+            {
+                "Option": "No",
+                "Percentage": 48.3
+            },
+            {
+                "Option": "Yes",
+                "Percentage": 25.3
+            },
+            {
+                "Option": "Already vaccinated",
+                "Percentage": 17.299999999999997
+            },
+            {
+                "Option": "Didn't try",
+                "Percentage": 9.0
+            }
+        ]
+    },
+    "Do you have any vaccine preferences?": {
+        "Topic": "Vaccine Preferences",
+        "Survey Name": "Newsletter Poll - May 16, 2021",
+        "Sample Size": 2104,
+        "Question Text": "Do you have any vaccine preferences?",
+        "Responses": [
+            {
+                "Option": "Covaxin",
+                "Percentage": 35.199999999999996
+            },
+            {
+                "Option": "Whichever is available",
+                "Percentage": 27.0
+            },
+            {
+                "Option": "Covishield",
+                "Percentage": 26.900000000000002
+            },
+            {
+                "Option": "Others",
+                "Percentage": 11.0
+            }
+        ]
+    },
+    "Which investment of these two are Indian investors more excited about?": {
+        "Topic": "Investment Excitement",
+        "Survey Name": "Newsletter Poll - May 23, 2021",
+        "Sample Size": 2269,
+        "Question Text": "Which investment of these two are Indian investors more excited about?",
+        "Responses": [
+            {
+                "Option": "IPO",
+                "Percentage": 65.4
+            },
+            {
+                "Option": "Crypto",
+                "Percentage": 34.599999999999994
+            }
+        ]
+    },
+    "If a crash like March 2020 happened again, would you be able to calmly remain invested?": {
+        "Topic": "Market Crash Resilience",
+        "Survey Name": "Newsletter Poll - May 30, 2021",
+        "Sample Size": 2614,
+        "Question Text": "If a crash like March 2020 happened again, would you be able to calmly remain invested?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 79.4
+            },
+            {
+                "Option": "Can't say. Depends.",
+                "Percentage": 11.600000000000001
+            },
+            {
+                "Option": "No",
+                "Percentage": 9.0
+            }
+        ]
+    },
+    "Which sounds cooler to you?": {
+        "Topic": "Investing Style Preference",
+        "Survey Name": "Newsletter Poll - June 06, 2021",
+        "Sample Size": 2448,
+        "Question Text": "Which sounds cooler to you?",
+        "Responses": [
+            {
+                "Option": "Long term investing",
+                "Percentage": 78.2
+            },
+            {
+                "Option": "Day trading",
+                "Percentage": 21.8
+            }
+        ]
+    },
+    "Which bank has most of your money?": {
+        "Topic": "Banking Preference",
+        "Survey Name": "Newsletter Poll - June 13, 2021",
+        "Sample Size": 1311,
+        "Question Text": "Which bank has most of your money?",
+        "Responses": [
+            {
+                "Option": "Govt Bank",
+                "Percentage": 53.400000000000006
+            },
+            {
+                "Option": "Private Bank",
+                "Percentage": 46.6
+            }
+        ]
+    },
+    "How do you pay for everyday groceries?": {
+        "Topic": "Grocery Payment Preference",
+        "Survey Name": "Newsletter Poll - June 20, 2021",
+        "Sample Size": 1788,
+        "Question Text": "How do you pay for everyday groceries?",
+        "Responses": [
+            {
+                "Option": "Online (card, wallet, UPI, etc.)",
+                "Percentage": 58.199999999999996
+            },
+            {
+                "Option": "Cash",
+                "Percentage": 41.8
+            }
+        ]
+    },
+    "Which do you prefer more?  ": {
+        "Topic": "Payment Method Preference",
+        "Survey Name": "Newsletter Poll - June 27, 2021",
+        "Sample Size": 1597,
+        "Question Text": "Which do you prefer more?",
+        "Responses": [
+            {
+                "Option": "UPI apps",
+                "Percentage": 61.4
+            },
+            {
+                "Option": "Credit card",
+                "Percentage": 24.7
+            },
+            {
+                "Option": "Debit card",
+                "Percentage": 13.900000000000002
+            }
+        ]
+    },
+    "What’s the preferred way to give or take money from family/friends?": {
+        "Topic": "Money Transfer Preference",
+        "Survey Name": "Newsletter Poll - July 04, 2021",
+        "Sample Size": 1815,
+        "Question Text": "What’s the preferred way to give or take money from family/friends?",
+        "Responses": [
+            {
+                "Option": "UPI apps",
+                "Percentage": 66.7
+            },
+            {
+                "Option": "Cash",
+                "Percentage": 15.5
+            },
+            {
+                "Option": "NEFT/RTGS",
+                "Percentage": 15.299999999999999
+            },
+            {
+                "Option": "Others",
+                "Percentage": 2.5
+            }
+        ]
+    },
+    "Do you think Indian tech start-ups will start IPOing in India now or is the Zomato IPO a rare occurrence?": {
+        "Topic": "Tech IPOs in India",
+        "Survey Name": "Newsletter Poll - July 11, 2021",
+        "Sample Size": 1027,
+        "Question Text": "Do you think Indian tech start-ups will start IPOing in India now or is the Zomato IPO a rare occurrence?",
+        "Responses": [
+            {
+                "Option": "Will start IPOing",
+                "Percentage": 63.4
+            },
+            {
+                "Option": "Zomato IPO is rare",
+                "Percentage": 24.0
+            },
+            {
+                "Option": "Can't say",
+                "Percentage": 12.7
+            }
+        ]
+    },
+    "If you could invest in stocks in only one country, where would you invest?": {
+        "Topic": "Stock Market Investment",
+        "Survey Name": "Newsletter Poll - July 18, 2021",
+        "Sample Size": 2481,
+        "Question Text": "If you could invest in stocks in only one country, where would you invest?",
+        "Responses": [
+            {
+                "Option": "India",
+                "Percentage": 77.5
+            },
+            {
+                "Option": "USA",
+                "Percentage": 18.9
+            },
+            {
+                "Option": "China",
+                "Percentage": 3.5999999999999996
+            }
+        ]
+    },
+    "Is India in the middle of a tech revolution?": {
+        "Topic": "Tech Revolution in India",
+        "Survey Name": "Newsletter Poll - July 25, 2021",
+        "Sample Size": 1846,
+        "Question Text": "Is India in the middle of a tech revolution?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 91.10000000000001
+            },
+            {
+                "Option": "No",
+                "Percentage": 8.9
+            }
+        ]
+    },
+    "What percent of India's population invests in the stock markets directly or indirectly?": {
+        "Topic": "Stock Market Participation",
+        "Survey Name": "Newsletter Poll - Aug 01, 2021",
+        "Sample Size": 2522,
+        "Question Text": "What percent of India's population invests in the stock markets directly or indirectly?",
+        "Responses": [
+            {
+                "Option": "Between 1 and 5%",
+                "Percentage": 54.400000000000006
+            },
+            {
+                "Option": "Between 6 and 15%",
+                "Percentage": 35.099999999999994
+            },
+            {
+                "Option": "Above 16%",
+                "Percentage": 10.5
+            }
+        ]
+    },
+    "If you could invest in stocks of all these countries, which would you invest most of your money in?": {
+        "Topic": "International Stock Investment",
+        "Survey Name": "Newsletter Poll - Aug 15, 2021",
+        "Sample Size": 1913,
+        "Question Text": "If you could invest in stocks of all these countries, which would you invest most of your money in?",
+        "Responses": [
+            {
+                "Option": "USA",
+                "Percentage": 86.6
+            },
+            {
+                "Option": "China",
+                "Percentage": 13.4
+            }
+        ]
+    },
+    "Which of the following do you consider a better use of your money?": {
+        "Topic": "Best Use of Money",
+        "Survey Name": "Newsletter Poll - Aug 08, 2021",
+        "Sample Size": 977,
+        "Question Text": "Which of the following do you consider a better use of your money?",
+        "Responses": [
+            {
+                "Option": "Phone",
+                "Percentage": 55.60000000000001
+            },
+            {
+                "Option": "Laptop",
+                "Percentage": 29.599999999999998
+            },
+            {
+                "Option": "Car/bike",
+                "Percentage": 14.799999999999999
+            }
+        ]
+    },
+    "Which investment is safer?": {
+        "Topic": "Safe Investment Choice",
+        "Survey Name": "Newsletter Poll - Aug 22, 2021",
+        "Sample Size": 1779,
+        "Question Text": "Which investment is safer?",
+        "Responses": [
+            {
+                "Option": "Gold",
+                "Percentage": 52.6
+            },
+            {
+                "Option": "Real estate (land)",
+                "Percentage": 47.4
+            }
+        ]
+    },
+    "Which asset would you like to invest more in but don’t?": {
+        "Topic": "Preferred Investment Asset",
+        "Survey Name": "Newsletter Poll - Aug 29, 2021",
+        "Sample Size": 1098,
+        "Question Text": "Which asset would you like to invest more in but don’t?",
+        "Responses": [
+            {
+                "Option": "Stocks",
+                "Percentage": 43.9
+            },
+            {
+                "Option": "Mutual funds",
+                "Percentage": 22.6
+            },
+            {
+                "Option": "Real estate",
+                "Percentage": 20.0
+            },
+            {
+                "Option": "Gold/silver",
+                "Percentage": 13.5
+            }
+        ]
+    },
+    "The Sensex is ~58,000. It was ~40,000 before the pandemic hit. Did you expect the markets to rise so fast?": {
+        "Topic": "Market Recovery Expectation",
+        "Survey Name": "Newsletter Poll - Sept 05, 2021",
+        "Sample Size": 1866,
+        "Question Text": "The Sensex is ~58,000. It was ~40,000 before the pandemic hit. Did you expect the markets to rise so fast?",
+        "Responses": [
+            {
+                "Option": "No",
+                "Percentage": 59.699999999999996
+            },
+            {
+                "Option": "Yes",
+                "Percentage": 40.300000000000004
+            }
+        ]
+    },
+    "If the risk level was similar, which would you prefer to invest in?": {
+        "Topic": "Risk-Adjusted Investment",
+        "Survey Name": "Newsletter Poll - Sept 12, 2021",
+        "Sample Size": 1342,
+        "Question Text": "If the risk level was similar, which would you prefer to invest in?",
+        "Responses": [
+            {
+                "Option": "Gold",
+                "Percentage": 63.9
+            },
+            {
+                "Option": "FD",
+                "Percentage": 36.1
+            }
+        ]
+    },
+    "If you had to retire and not worry about your money at all, where would you store your life savings?": {
+        "Topic": "Retirement Savings Preference",
+        "Survey Name": "Newsletter Poll - Sept 19, 2021",
+        "Sample Size": 2157,
+        "Question Text": "If you had to retire and not worry about your money at all, where would you store your life savings?",
+        "Responses": [
+            {
+                "Option": "Equity (shares, mutual funds)",
+                "Percentage": 50.7
+            },
+            {
+                "Option": "FD",
+                "Percentage": 26.1
+            },
+            {
+                "Option": "Real estate",
+                "Percentage": 14.099999999999998
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 9.1
+            }
+        ]
+    },
+    "Among your larger family, which group is higher in number?": {
+        "Topic": "Family Demographics",
+        "Survey Name": "Newsletter Poll - Sept 26, 2021",
+        "Sample Size": 1047,
+        "Question Text": "Among your larger family, which group is higher in number?",
+        "Responses": [
+            {
+                "Option": "People above 25 years",
+                "Percentage": 76.9
+            },
+            {
+                "Option": "People equal to or under 25 years",
+                "Percentage": 23.1
+            }
+        ]
+    },
+    "Based on your investments, at what age will you not need to work to earn money?": {
+        "Topic": "Financial Independence Age",
+        "Survey Name": "Newsletter Poll - Oct 03, 2021",
+        "Sample Size": 1682,
+        "Question Text": "Based on your investments, at what age will you not need to work to earn money?",
+        "Responses": [
+            {
+                "Option": "Under 40 years",
+                "Percentage": 31.6
+            },
+            {
+                "Option": "56-65 years",
+                "Percentage": 26.400000000000002
+            },
+            {
+                "Option": "40-55 years",
+                "Percentage": 25.4
+            },
+            {
+                "Option": "Above 65 years",
+                "Percentage": 16.5
+            }
+        ]
+    },
+    "Which low-risk investment do you avoid investing in?": {
+        "Topic": "Low-Risk Investment Avoidance",
+        "Survey Name": "Newsletter Poll - Oct 10, 2021",
+        "Sample Size": 1930,
+        "Question Text": "Which low-risk investment do you avoid investing in?",
+        "Responses": [
+            {
+                "Option": "FD",
+                "Percentage": 45.1
+            },
+            {
+                "Option": "Gold",
+                "Percentage": 25.900000000000002
+            },
+            {
+                "Option": "Debt funds",
+                "Percentage": 19.8
+            },
+            {
+                "Option": "Others",
+                "Percentage": 9.2
+            }
+        ]
+    },
+    "Are you paying EMIs for any loan right now?": {
+        "Topic": "Loan EMI Payments",
+        "Survey Name": "Newsletter Poll - Oct 17, 2021",
+        "Sample Size": 1926,
+        "Question Text": "Are you paying EMIs for any loan right now?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 54.50000000000001
+            },
+            {
+                "Option": "No",
+                "Percentage": 45.5
+            }
+        ]
+    },
+    "Knowing what the markets have experienced in the last year, which would you prefer?": {
+        "Topic": "Market Investment Preference",
+        "Survey Name": "Newsletter Poll - Oct 24, 2021",
+        "Sample Size": 1152,
+        "Question Text": "Knowing what the markets have experienced in the last year, which would you prefer?",
+        "Responses": [
+            {
+                "Option": "Stocks",
+                "Percentage": 55.60000000000001
+            },
+            {
+                "Option": "Equity mutual funds",
+                "Percentage": 44.4
+            }
+        ]
+    },
+    "Which investor do you identify as?": {
+        "Topic": "Investor Type Identification",
+        "Survey Name": "Newsletter Poll - Oct 31, 2021",
+        "Sample Size": 185,
+        "Question Text": "Which investor do you identify as?",
+        "Responses": [
+            {
+                "Option": "Long term investor",
+                "Percentage": 80.5
+            },
+            {
+                "Option": "Short term trader",
+                "Percentage": 19.5
+            }
+        ]
+    },
+    "Do you know what 'commodities market' means?": {
+        "Topic": "Commodities Market Awareness",
+        "Survey Name": "Newsletter Poll - Nov 07, 2021",
+        "Sample Size": 1362,
+        "Question Text": "Do you know what 'commodities market' means?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 62.1
+            },
+            {
+                "Option": "No",
+                "Percentage": 37.9
+            }
+        ]
+    },
+    "Should new investors invest in IPOs?": {
+        "Topic": "IPO Investment Decision",
+        "Survey Name": "Newsletter Poll - Nov 21, 2021",
+        "Sample Size": 1912,
+        "Question Text": "Should new investors invest in IPOs?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 60.699999999999996
+            },
+            {
+                "Option": "No",
+                "Percentage": 39.300000000000004
+            }
+        ]
+    },
+    "Which mode of payment do you prefer?": {
+        "Topic": "Preferred Payment Mode",
+        "Survey Name": "Newsletter Poll - Dec 05, 2021",
+        "Sample Size": 2582,
+        "Question Text": "Which mode of payment do you prefer?",
+        "Responses": [
+            {
+                "Option": "UPI",
+                "Percentage": 68.60000000000001
+            },
+            {
+                "Option": "Card",
+                "Percentage": 18.5
+            },
+            {
+                "Option": "Cash",
+                "Percentage": 12.9
+            }
+        ]
+    },
+    "Do you tip waiters, guards, etc.?": {
+        "Topic": "Tipping Culture",
+        "Survey Name": "Newsletter Poll - Dec 12, 2021",
+        "Sample Size": 1426,
+        "Question Text": "Do you tip waiters, guards, etc.?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 70.8
+            },
+            {
+                "Option": "No",
+                "Percentage": 29.2
+            }
+        ]
+    },
+    "Which do you prefer?   ": {
+        "Topic": "IPO Preference",
+        "Survey Name": "Newsletter Poll - Dec 19, 2021",
+        "Sample Size": 815,
+        "Question Text": "Which do you prefer?",
+        "Responses": [
+            {
+                "Option": "Tech IPO",
+                "Percentage": 53.7
+            },
+            {
+                "Option": "No IPO",
+                "Percentage": 31.0
+            },
+            {
+                "Option": "Non-tech IPO",
+                "Percentage": 15.2
+            }
+        ]
+    },
+    "Do you have an emergency fund?": {
+        "Topic": "Emergency Fund",
+        "Survey Name": "Newsletter Poll - Dec 26, 2021",
+        "Sample Size": 1771,
+        "Question Text": "Do you have an emergency fund?",
+        "Responses": [
+            {
+                "Option": "Yes",
+                "Percentage": 42.8
+            },
+            {
+                "Option": "Planning to start soon",
+                "Percentage": 28.9
+            },
+            {
+                "Option": "No",
+                "Percentage": 28.299999999999997
+            }
+        ]
+    }
+}

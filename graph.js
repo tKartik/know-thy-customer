@@ -733,8 +733,14 @@ Promise.all([
             
         // Only update cluster labels if popup isn't visible
         if (!document.body.classList.contains("popup-visible")) {
-            const clusters = detectClusters();
-            createClusterLabels(clusters);
+            // Check if we have pre-computed clusters in the data first
+            if (graphData.clusters && graphData.clusters.length > 0) {
+                createClusterLabels(null); // Pass null to signal using pre-computed clusters
+            } else {
+                // Fall back to detecting clusters on the fly
+                const clusters = detectClusters();
+                createClusterLabels(clusters);
+            }
         }
             
         // DO NOT reposition tooltips on every tick when popup is visible
@@ -1088,10 +1094,15 @@ Promise.all([
         
         // Simple community detection based on link strength
         let changed = true;
+        const linkStrengthThreshold = 0.4; // Increased from 0.4 for tighter, more coherent clusters
+        
         while (changed) {
             changed = false;
-            graphData.links.forEach(link => {
-                if (link.strength > 0.4) { // Increased threshold for stronger connections
+            // Sort links by strength to prioritize stronger connections first
+            const sortedLinks = [...graphData.links].sort((a, b) => b.strength - a.strength);
+            
+            for (const link of sortedLinks) {
+                if (link.strength >= linkStrengthThreshold) {
                     const sourceCommunity = communities.get(link.source.id);
                     const targetCommunity = communities.get(link.target.id);
                     
@@ -1101,18 +1112,39 @@ Promise.all([
                         const targetSize = Array.from(communities.values()).filter(v => v === targetCommunity).length;
                         
                         // Only merge if the resulting cluster won't be too large
-                        if (sourceSize + targetSize <= 8) { // Limit cluster size to 8 nodes
-                            // Merge communities
-                            graphData.nodes.forEach(node => {
-                                if (communities.get(node.id) === targetCommunity) {
-                                    communities.set(node.id, sourceCommunity);
-                                }
-                            });
-                            changed = true;
+                        if (sourceSize + targetSize <= 20) { // Reduced from 8 to create smaller, more focused clusters
+                            // Check semantic coherence before merging
+                            const sourceNodes = graphData.nodes.filter(n => communities.get(n.id) === sourceCommunity);
+                            const targetNodes = graphData.nodes.filter(n => communities.get(n.id) === targetCommunity);
+                            
+                            // Only merge if enough strong connections exist between communities
+                            const interCommunityLinks = graphData.links.filter(l => 
+                                (communities.get(l.source.id) === sourceCommunity && communities.get(l.target.id) === targetCommunity) ||
+                                (communities.get(l.source.id) === targetCommunity && communities.get(l.target.id) === sourceCommunity)
+                            );
+                            
+                            // Require multiple strong connections for larger clusters
+                            const requiredLinks = Math.max(1, Math.min(sourceSize, targetSize) / 3);
+                            const strongEnoughLinks = interCommunityLinks.filter(l => l.strength >= linkStrengthThreshold).length >= requiredLinks;
+                            
+                            if (strongEnoughLinks) {
+                                // Merge communities (smaller into larger for stability)
+                                const [fromCommunity, toCommunity] = 
+                                    sourceSize < targetSize 
+                                        ? [sourceCommunity, targetCommunity] 
+                                        : [targetCommunity, sourceCommunity];
+                                
+                                graphData.nodes.forEach(node => {
+                                    if (communities.get(node.id) === fromCommunity) {
+                                        communities.set(node.id, toCommunity);
+                                    }
+                                });
+                                changed = true;
+                            }
                         }
                     }
                 }
-            });
+            }
         }
         
         // Group nodes by community
@@ -1127,110 +1159,153 @@ Promise.all([
         return clusters;
     }
 
-    // Function to get dominant topic for a cluster
-    function getClusterTopic(nodeIds) {
-        // Get all topics from nodes in the cluster
-        const topics = nodeIds.map(nodeId => {
-            const node = graphData.nodes.find(n => n.id === nodeId);
-            return node ? node.topic : null;
-        }).filter(topic => topic); // Remove null/undefined values
-
-        // Count frequency of each topic
-        const topicCounts = new Map();
-        topics.forEach(topic => {
-            topicCounts.set(topic, (topicCounts.get(topic) || 0) + 1);
-        });
-
-        // Find the most common topic
-        let dominantTopic = null;
-        let maxCount = 0;
-        topicCounts.forEach((count, topic) => {
-            if (count > maxCount) {
-                maxCount = count;
-                dominantTopic = topic;
-            }
-        });
-
-        // Look at the actual questions to determine theme
-        const questions = nodeIds.map(nodeId => {
-            const node = graphData.nodes.find(n => n.id === nodeId);
-            return node ? node.id.toLowerCase() : "";
-        });
-
-        // Define major themes with their keywords
-        const majorThemes = {
-            "Investment & Planning": [
-                "investment", "stock", "market", "mutual fund", "sip", "portfolio", 
-                "trading", "crypto", "bitcoin", "gold", "real estate", "property", 
-                "international", "risk", "return", "planning", "strategy", "goal", 
-                "horizon", "asset", "wealth", "financial", "plan", "future", "growth"
+    // Function to get cluster label from pre-computed topics in the cluster
+    function getClusterKeywords(nodeIds) {
+        if (nodeIds.length < 3) return null;
+        
+        // Get all nodes in the cluster
+        const nodes = nodeIds.map(nodeId => 
+            graphData.nodes.find(n => n.id === nodeId)
+        ).filter(node => node); // Remove null/undefined values
+        
+        // Extract all question texts to detect domain-specific terms
+        const questionTexts = nodes.map(node => node.id || '').filter(text => text);
+        
+        // Domain-specific keyword dictionaries to improve labeling accuracy
+        const domainDictionaries = {
+            'Banking & Payments': [
+                'bank', 'account', 'payment', 'upi', 'transaction', 'transfer', 'credit', 
+                'debit', 'card', 'loan', 'deposit', 'withdraw', 'balance', 'interest', 
+                'savings', 'checking', 'mortgage', 'atm', 'branch', 'digital', 'online', 
+                'mobile', 'banking', 'fintech', 'pay', 'wallet'
             ],
-            "Banking & Payments": [
-                "bank", "account", "upi", "payment", "transaction", "transfer", 
-                "remittance", "credit", "debit", "card", "digital", "online", 
-                "branch", "service", "trust", "preference", "method", "app", 
-                "google pay", "phonepe", "paytm", "cash", "mobile", "digital"
+            'Health & Vaccine': [
+                'vaccine', 'vaccination', 'health', 'covid', 'pandemic', 'dose', 'booster',
+                'medical', 'hospital', 'doctor', 'clinic', 'medicine', 'treatment',
+                'disease', 'illness', 'symptom', 'healthcare', 'immunization'
             ],
-            "Loans & EMIs": [
-                "loan", "emi", "home loan", "car loan", "vehicle", "education", 
-                "repayment", "interest", "rate", "borrow", "debt", "mortgage", 
-                "prepayment", "application", "reject", "approve", "credit", 
-                "lending", "borrowing", "finance", "payment", "installment"
+            'Investment & Finance': [
+                'invest', 'stock', 'market', 'mutual', 'fund', 'portfolio', 'asset',
+                'equity', 'trading', 'trader', 'return', 'risk', 'financial', 'wealth',
+                'planning', 'retirement', 'capital', 'dividend', 'bond', 'security'
             ],
-            "Insurance & Risk": [
-                "insurance", "life insurance", "medical", "health", "risk", 
-                "protection", "coverage", "policy", "premium", "claim", "emergency", 
-                "fund", "savings", "safety", "security", "prevention", "care", 
-                "wellness", "healthcare", "medical", "hospital", "clinic"
-            ],
-            "Digital & Tech": [
-                "digital", "online", "mobile", "app", "smartphone", "technology", 
-                "internet", "web", "e-commerce", "shopping", "amazon", "flipkart", 
-                "device", "platform", "software", "system", "network", "data", 
-                "cloud", "automation", "ai", "artificial intelligence", "blockchain"
-            ],
-            "Tax & Literacy": [
-                "tax", "filing", "income", "saving", "deduction", "exemption", 
-                "knowledge", "education", "learning", "literacy", "awareness", 
-                "understanding", "skill", "expertise", "source", "information", 
-                "guidance", "advice", "consulting", "professional", "expert"
-            ],
-            "Lifestyle & Consumer": [
-                "lifestyle", "life", "living", "daily", "routine", "habit", 
-                "preference", "choice", "leisure", "entertainment", "recreation", 
-                "hobby", "sport", "travel", "food", "diet", "fashion", "shopping", 
-                "retail", "consumer", "spending", "expense", "cost", "price"
-            ],
-            "Economic Impact": [
-                "inflation", "interest", "rate", "economic", "economy", "growth", 
-                "development", "price", "cost", "expense", "impact", "effect", 
-                "change", "trend", "market", "financial", "monetary", "fiscal", 
-                "policy", "regulation", "government", "country", "development"
+            'Technology & Digital': [
+                'tech', 'digital', 'online', 'internet', 'mobile', 'smartphone', 'app',
+                'website', 'software', 'hardware', 'device', 'gadget', 'computer', 
+                'laptop', 'tablet', 'smart', 'electronic', 'platform'
             ]
         };
-
-        // Check which theme has the most matches
-        let bestTheme = null;
-        let maxMatches = 0;
-
-        for (const [theme, keywords] of Object.entries(majorThemes)) {
-            const matches = questions.filter(q => 
-                keywords.some(keyword => q.includes(keyword))
+        
+        // Count matches for each domain
+        const domainScores = {};
+        Object.keys(domainDictionaries).forEach(domain => {
+            const keywords = domainDictionaries[domain];
+            const matches = questionTexts.filter(text => 
+                keywords.some(keyword => 
+                    text.toLowerCase().includes(keyword)
+                )
             ).length;
-            
-            if (matches > maxMatches) {
-                maxMatches = matches;
-                bestTheme = theme;
+            domainScores[domain] = matches;
+        });
+        
+        // Check if we have a clear domain match
+        const maxScore = Math.max(...Object.values(domainScores));
+        const dominantDomains = Object.entries(domainScores)
+            .filter(([_, score]) => score === maxScore && score > 0)
+            .map(([domain]) => domain);
+        
+        // If we detected a clear domain, focus on those keywords
+        let domainSpecificWords = [];
+        if (dominantDomains.length > 0) {
+            // Get keywords from the dominant domain(s)
+            dominantDomains.forEach(domain => {
+                domainSpecificWords.push(...domainDictionaries[domain]);
+            });
+        }
+        
+        // Extract pre-computed topics/keywords where available
+        // If no pre-computed topics, fall back to word extraction
+        const allTopics = [];
+        const allWords = [];
+        
+        nodes.forEach(node => {
+            // If node has pre-computed topics, use them
+            if (node.topics && Array.isArray(node.topics) && node.topics.length > 0) {
+                allTopics.push(...node.topics);
+            } else if (node.keywords && Array.isArray(node.keywords) && node.keywords.length > 0) {
+                allTopics.push(...node.keywords);
+            } else {
+                // Fall back to extracting from the question text
+                if (node.id) {
+                    // Split the text into words and filter stop words
+                    const words = node.id.toLowerCase()
+                        .split(/\s+/)
+                        .filter(word => 
+                            word.length > 3 && 
+                            !['what', 'which', 'when', 'where', 'who', 'whom', 'whose', 'why', 'how',
+                             'do', 'does', 'did', 'can', 'could', 'would', 'should', 'will', 'shall',
+                             'may', 'might', 'must', 'have', 'has', 'had', 'been', 'being', 'are', 'is',
+                             'was', 'were', 'am', 'the', 'and', 'but', 'for', 'nor', 'or', 'so', 'yet',
+                             'a', 'an', 'in', 'on', 'at', 'by', 'to', 'from', 'with', 'about', 'against',
+                             'between', 'into', 'through', 'during', 'before', 'after', 'above', 'below',
+                             'that', 'this', 'these', 'those', 'your', 'you', 'use', 'used', 'using',
+                             'more', 'most', 'other', 'some', 'such', 'than', 'then', 'ever', 'look',
+                             'take', 'want'].includes(word));
+                    allWords.push(...words);
+                }
             }
+        });
+        
+        // Process topics and words
+        let topicCounts = {};
+        let wordCounts = {};
+        
+        // Count topics
+        allTopics.forEach(topic => {
+            topicCounts[topic] = (topicCounts[topic] || 0) + 1;
+        });
+        
+        // Count words from text extraction with domain-specific boosting
+        allWords.forEach(word => {
+            let weight = 1;
+            // Boost domain-specific words
+            if (domainSpecificWords.includes(word)) {
+                weight = 3; // Triple the weight for domain-specific terms
+            }
+            wordCounts[word] = (wordCounts[word] || 0) + weight;
+        });
+        
+        // Prioritize pre-computed topics if available
+        let topKeywords;
+        if (Object.keys(topicCounts).length > 0) {
+            // Use pre-computed topics
+            topKeywords = Object.entries(topicCounts)
+                .sort((a, b) => b[1] - a[1])
+                .map(entry => entry[0])
+                .slice(0, 3);
+        } else {
+            // Fall back to word extraction
+            topKeywords = Object.entries(wordCounts)
+                .sort((a, b) => b[1] - a[1])
+                .filter(entry => entry[1] >= 2) // Word must appear at least twice
+                .map(entry => entry[0])
+                .slice(0, 3);
         }
-
-        // If we found a good theme match, use it
-        if (maxMatches > 0) {
-            return bestTheme;
+        
+        // If we have dominant domains but no clear keywords, use the domain name
+        if (topKeywords.length === 0 && dominantDomains.length > 0) {
+            return dominantDomains[0]; // Use the first dominant domain as label
         }
-
-        // Fallback to the dominant topic if no theme matches
-        return dominantTopic ? dominantTopic.charAt(0).toUpperCase() + dominantTopic.slice(1) : null;
+        
+        if (topKeywords.length === 0) {
+            // If no good keywords found, use a default label
+            return `Cluster ${nodeIds.length}`;
+        }
+        
+        // Generate label with capitalized keywords
+        return topKeywords.map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
     }
 
     // Create cluster labels
@@ -1238,89 +1313,215 @@ Promise.all([
         // Remove existing cluster labels if any
         g.selectAll(".cluster-label").remove();
         
-        // First, group clusters by their theme
-        const themeGroups = new Map();
-        
-        // Calculate centers and themes for all clusters
-        clusters.forEach((nodeIds, clusterId) => {
-            if (nodeIds.length > 2) { // Only consider clusters with more than 2 nodes
-                const center = { x: 0, y: 0 };
-                nodeIds.forEach(nodeId => {
-                    const node = graphData.nodes.find(n => n.id === nodeId);
-                    if (node) {
-                        center.x += node.x;
-                        center.y += node.y;
-                    }
-                });
-                center.x /= nodeIds.length;
-                center.y /= nodeIds.length;
-                
-                const theme = getClusterTopic(nodeIds);
-                if (!theme) return; // Skip if no theme found
-                
-                if (!themeGroups.has(theme)) {
-                    themeGroups.set(theme, []);
+        // If we have pre-computed clusters in the data, use those
+        if (graphData.clusters && graphData.clusters.length > 0) {
+            // Create a map of nodes to their positions
+            const nodePositions = new Map();
+            graphData.nodes.forEach(node => {
+                if (node.x && node.y) {
+                    nodePositions.set(node.id, {x: node.x, y: node.y});
                 }
-                themeGroups.get(theme).push({
-                    nodeIds,
-                    center,
-                    size: nodeIds.length
-                });
-            }
-        });
-        
-        // For each theme group, check distances between clusters
-        themeGroups.forEach((clusters, theme) => {
-            // Sort clusters by size (largest first)
-            clusters.sort((a, b) => b.size - a.size);
+            });
             
-            // Keep track of which clusters to show
-            const clustersToShow = new Set();
+            // Calculate all cluster centers based on node positions
+            const clusterData = [];
             
-            // Check distances between clusters
-            for (let i = 0; i < clusters.length; i++) {
-                let shouldShow = true;
+            graphData.clusters.forEach(cluster => {
+                // Find all nodes in this cluster
+                const clusterNodes = graphData.nodes.filter(node => 
+                    node.cluster_id === cluster.id
+                );
                 
-                // Check distance to already selected clusters
-                for (let j = 0; j < i; j++) {
-                    if (clustersToShow.has(j)) {
-                        const dx = clusters[i].center.x - clusters[j].center.x;
-                        const dy = clusters[i].center.y - clusters[j].center.y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        // If clusters are too close (less than 200 pixels), don't show this one
-                        if (distance < 200) {
-                            shouldShow = false;
-                            break;
+                if (clusterNodes.length >= 3) { // Only consider clusters with 3 or more nodes
+                    // Calculate cluster center
+                    const center = { x: 0, y: 0 };
+                    let validNodes = 0;
+                    
+                    clusterNodes.forEach(node => {
+                        if (node && typeof node.x === 'number' && typeof node.y === 'number') {
+                            center.x += node.x;
+                            center.y += node.y;
+                            validNodes++;
                         }
+                    });
+                    
+                    if (validNodes > 0) {
+                        center.x /= validNodes;
+                        center.y /= validNodes;
+                        
+                        // Store cluster data for processing
+                        clusterData.push({
+                            id: cluster.id,
+                            center: center,
+                            label: cluster.label,
+                            size: cluster.size,
+                            nodes: clusterNodes.map(n => n.id)
+                        });
+                    }
+                }
+            });
+            
+            // Continue with the existing label rendering code
+            // Sort clusters by size (largest first) so larger clusters get label priority
+            clusterData.sort((a, b) => b.size - a.size);
+            
+            // Track which clusters get labels
+            const labeledClusters = new Set();
+            
+            // Keep track of label bounding regions to prevent overlap
+            const labelRegions = [];
+            
+            // Process clusters for labels
+            clusterData.forEach(cluster => {
+                // Check if this label would overlap with existing labels
+                let canLabel = true;
+                const estimatedLabelWidth = cluster.label.length * 10; // Rough estimate
+                const estimatedLabelHeight = 20;
+                
+                // Define the bounding rectangle for this potential label
+                const labelRect = {
+                    left: cluster.center.x - estimatedLabelWidth / 2,
+                    right: cluster.center.x + estimatedLabelWidth / 2,
+                    top: cluster.center.y - estimatedLabelHeight / 2,
+                    bottom: cluster.center.y + estimatedLabelHeight / 2
+                };
+                
+                // Check against existing label regions
+                for (const region of labelRegions) {
+                    if (!(labelRect.right < region.left || 
+                        labelRect.left > region.right || 
+                        labelRect.bottom < region.top || 
+                        labelRect.top > region.bottom)) {
+                        // Overlap detected
+                        canLabel = false;
+                        break;
                     }
                 }
                 
-                if (shouldShow) {
-                    clustersToShow.add(i);
-                }
-            }
-            
-            // Create labels for selected clusters
-            clusters.forEach((cluster, index) => {
-                if (clustersToShow.has(index)) {
+                if (canLabel) {
+                    // Add this label region to our tracking
+                    labelRegions.push(labelRect);
+                    labeledClusters.add(cluster.id);
+                    
                     // Create label group
                     const labelGroup = g.append("g")
                         .attr("class", "cluster-label")
                         .attr("transform", `translate(${cluster.center.x},${cluster.center.y})`);
                     
-                    // Add text label with improved visibility
-                    labelGroup.append("text")
+                    // Add text with shadow for better visibility
+                    const textNode = labelGroup.append("text")
                         .attr("text-anchor", "middle")
                         .attr("dominant-baseline", "middle")
                         .attr("fill", "white")
-                        .attr("font-size", "16px")
+                        .attr("opacity", 0.9)
+                        .attr("font-size", Math.min(18, Math.max(12, 8 + cluster.size / 2)) + "px")
                         .attr("font-weight", "700")
                         .style("letter-spacing", "0.5px")
+                        .style("text-transform", "uppercase")
                         .style("text-shadow", "0 1px 3px rgba(0,0,0,0.9), 0 1px 10px rgba(0,0,0,1)")
-                        .text(theme);
+                        .text(cluster.label);
                 }
             });
-        });
+        } else {
+            // Fallback to the existing cluster detection and labeling if no pre-computed clusters
+            // Calculate all cluster centers first
+            const clusterData = [];
+            
+            clusters.forEach((nodeIds, clusterId) => {
+                if (nodeIds.length >= 3) { // Only consider clusters with 3 or more nodes
+                    // Calculate cluster center
+                    const center = { x: 0, y: 0 };
+                    let validNodes = 0;
+                    
+                    nodeIds.forEach(nodeId => {
+                        const node = graphData.nodes.find(n => n.id === nodeId);
+                        if (node && typeof node.x === 'number' && typeof node.y === 'number') {
+                            center.x += node.x;
+                            center.y += node.y;
+                            validNodes++;
+                        }
+                    });
+                    
+                    if (validNodes > 0) {
+                        center.x /= validNodes;
+                        center.y /= validNodes;
+                        
+                        // Generate label from keywords
+                        const label = getClusterKeywords(nodeIds);
+                        if (!label) return; // Skip if no label generated
+                        
+                        // Store cluster data for processing
+                        clusterData.push({
+                            id: clusterId,
+                            center: center,
+                            label: label,
+                            size: nodeIds.length,
+                            nodes: nodeIds
+                        });
+                    }
+                }
+            });
+            
+            // Sort clusters by size (largest first) so larger clusters get label priority
+            clusterData.sort((a, b) => b.size - a.size);
+            
+            // Track which clusters get labels
+            const labeledClusters = new Set();
+            
+            // Keep track of label bounding regions to prevent overlap
+            const labelRegions = [];
+            
+            // Process clusters for labels
+            clusterData.forEach(cluster => {
+                // Check if this label would overlap with existing labels
+                let canLabel = true;
+                const estimatedLabelWidth = cluster.label.length * 10; // Rough estimate
+                const estimatedLabelHeight = 20;
+                
+                // Define the bounding rectangle for this potential label
+                const labelRect = {
+                    left: cluster.center.x - estimatedLabelWidth / 2,
+                    right: cluster.center.x + estimatedLabelWidth / 2,
+                    top: cluster.center.y - estimatedLabelHeight / 2,
+                    bottom: cluster.center.y + estimatedLabelHeight / 2
+                };
+                
+                // Check against existing label regions
+                for (const region of labelRegions) {
+                    if (!(labelRect.right < region.left || 
+                          labelRect.left > region.right || 
+                          labelRect.bottom < region.top || 
+                          labelRect.top > region.bottom)) {
+                        // Overlap detected
+                        canLabel = false;
+                        break;
+                    }
+                }
+                
+                if (canLabel) {
+                    // Add this label region to our tracking
+                    labelRegions.push(labelRect);
+                    labeledClusters.add(cluster.id);
+                    
+                    // Create label group
+                    const labelGroup = g.append("g")
+                        .attr("class", "cluster-label")
+                        .attr("transform", `translate(${cluster.center.x},${cluster.center.y})`);
+                    
+                    // Add text with shadow for better visibility
+                    const textNode = labelGroup.append("text")
+                        .attr("text-anchor", "middle")
+                        .attr("dominant-baseline", "middle")
+                        .attr("fill", "white")
+                        .attr("opacity", 0.9)
+                        .attr("font-size", Math.min(18, Math.max(12, 8 + cluster.size / 2)) + "px")
+                        .attr("font-weight", "700")
+                        .style("letter-spacing", "0.5px")
+                        .style("text-transform", "uppercase")
+                        .style("text-shadow", "0 1px 3px rgba(0,0,0,0.9), 0 1px 10px rgba(0,0,0,1)")
+                        .text(cluster.label);
+                }
+            });
+        }
     }
 }); 
